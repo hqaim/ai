@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — The AI Artisan</title>
+  <meta name="description" content="Contact Abdullah Khan or HQAIM Studios regarding The AI Artisan Playbook — collaborations, media, or inquiries." />
+  <link rel="canonical" href="https://aiartisan.hqaim.com/contact.html" />
+  <link rel="icon" href="/assets/images/favicon.ico" />
+  <meta name="theme-color" content="#0f172a" />
+
+  <!-- OpenGraph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Contact — The AI Artisan" />
+  <meta property="og:description" content="Reach out to Abdullah Khan and HQAIM Studios for inquiries about The AI Artisan." />
+  <meta property="og:url" content="https://aiartisan.hqaim.com/contact.html" />
+  <meta property="og:image" content="https://aiartisan.hqaim.com/assets/images/cover-hero.jpg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Source+Serif+Pro:wght@600&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/style.css" />
+  <style>
+    main {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.5vw, 2.7rem);
+      font-weight: 600;
+      background: linear-gradient(90deg, var(--violet), var(--blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    p.lead {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 70ch;
+      margin: 1rem auto 2rem;
+      line-height: 1.6;
+    }
+    form {
+      display: grid;
+      gap: 1rem;
+      text-align: left;
+    }
+    label {
+      display: block;
+      color: var(--text);
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font: inherit;
+      resize: vertical;
+    }
+    input:focus, textarea:focus {
+      outline: 2px solid var(--blue);
+      outline-offset: 2px;
+    }
+    button {
+      margin-top: 1rem;
+      background: var(--violet);
+      color: #fff;
+      border: none;
+      border-radius: 0.5rem;
+      padding: 0.7rem 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    button:hover {
+      background: var(--blue);
+    }
+    .contact-info {
+      margin-top: 2.5rem;
+      color: var(--text-muted-2);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+    .contact-info a {
+      color: var(--brand);
+      font-weight: 500;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+      font-size: 0.9rem;
+      color: var(--text-muted-2);
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand-wrap" href="/index.html" aria-label="The AI Artisan home">
+        <img src="/assets/images/HQAIM-ICON-AI.svg" alt="HQAIM Studios Logo" width="140" height="28" />
+        <span class="brand-text">The AI Artisan</span>
+      </a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="/toc.html">Index</a></li>
+          <li><a href="/toolkit.html">Toolkit</a></li>
+          <li><a href="/premium.html">Premium</a></li>
+          <li><a href="/contact.html" aria-current="page">Contact</a></li>
+          <li>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+              <svg class="icon" data-icon="moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 1021 12.79z"/></svg>
+              <svg class="icon" data-icon="sun" viewBox="0 0 24 24"><path d="M12 6a6 6 0 100 12 6 6 0 000-12z"/></svg>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <h1>Contact</h1>
+    <p class="lead">
+      Have a question, collaboration idea, or media request?  
+      We’d love to hear from you. Please use the form below or reach out directly via email.
+    </p>
+
+    <form id="contact-form" action="mailto:contact@hqaim.com" method="post" enctype="text/plain">
+      <div>
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" required placeholder="Your name" />
+      </div>
+
+      <div>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required placeholder="you@example.com" />
+      </div>
+
+      <div>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" required placeholder="Your message..."></textarea>
+      </div>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="contact-info">
+      <p>📧 <strong>Email:</strong> <a href="mailto:contact@hqaim.com">contact@hqaim.com</a></p>
+      <p>🌐 <strong>Website:</strong> <a href="https://hqaim.com" target="_blank">https://hqaim.com</a></p>
+      <p>💼 <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/abdullahkhan-ai" target="_blank">Abdullah Khan</a></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Abdullah Khan · <a href="https://hqaim.com" target="_blank" rel="noopener noreferrer">HQAIM Studios</a></p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/assets/js/theme.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "url": "https://aiartisan.hqaim.com/contact.html",
+    "name": "Contact — The AI Artisan",
+    "description": "Contact page for The AI Artisan Playbook by Abdullah Khan and HQAIM Studios.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "HQAIM Studios",
+      "url": "https://hqaim.com"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Abdullah Khan"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "General Inquiries",
+      "email": "contact@hqaim.com"
+    }
+  }
+  </script>
+</body>
+</html>
