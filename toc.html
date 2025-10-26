@@ -1,232 +1,473 @@
-<!doctype html> <html lang="en" data-theme="dark"> <head> <meta charset="utf-8" /> <meta name="viewport" content="width=device-width, initial-scale=1" /> <title>Table of Contents — The AI Artisan</title> <meta name="description" content="Browse the complete playbook: five parts from mindset to mastery. Search Modules 01–15, Interlude, Appendix, and the Toolkit. Print-friendly in light theme." /> <link rel="canonical" href="https://aiartisan.hqaim.com/toc.html" /> <meta name="theme-color" content="#0f172a" /> <link rel="icon" href="/assets/images/favicon.ico" /> <!-- Open Graph / Twitter --> <meta property="og:type" content="website" /> <meta property="og:title" content="Table of Contents — The AI Artisan" /> <meta property="og:description" content="Browse the complete playbook: five parts from mindset to mastery. Search Modules 01–15, Interlude, Appendix, and the Toolkit." /> <meta property="og:url" content="https://aiartisan.hqaim.com/toc.html" /> <meta property="og:image" content="https://aiartisan.hqaim.com/assets/images/cover-hero.jpg" /> <meta name="twitter:card" content="summary_large_image" /> <meta name="twitter:title" content="Table of Contents — The AI Artisan" /> <meta name="twitter:description" content="Browse the complete playbook: five parts from mindset to mastery." /> <meta name="twitter:image" content="https://aiartisan.hqaim.com/assets/images/cover-hero.jpg" /> <!-- Fonts --> <link rel="preconnect" href="https://fonts.googleapis.com" /> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Source+Serif+Pro:wght@600&display=swap" rel="stylesheet" /> <!-- Global stylesheet --> <link rel="stylesheet" href="/assets/style.css" /> <!-- Page-specific polish (tiny, minimal transitions kept) --> <style> .brand-wrap { display:flex; align-items:center; gap:.6rem; text-decoration:none; } .brand-text { font-weight:600; letter-spacing:.2px; color:var(--text); } .brand-text:hover { color: var(--brand); } /* Circular macOS-style theme toggle */ .theme-toggle { width:36px; height:36px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; background: radial-gradient(120% 120% at 30% 20%, color-mix(in oklab, var(--brand) 18%, transparent), transparent 70%); border:1px solid var(--border); box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--brand) 10%, transparent); transition: background .2s ease, transform .12s ease, box-shadow .2s ease; } .theme-toggle:hover { transform: translateY(-1px); } .theme-toggle svg { width:18px; height:18px; } .theme-toggle [data-icon="sun"] { display:none; } html[data-theme="light"] .theme-toggle [data-icon="sun"] { display:inline; } html[data-theme="light"] .theme-toggle [data-icon="moon"] { display:none; } /* Ensure icons are visible on both themes */ .theme-toggle [data-icon="moon"] path { fill:#e5e7eb; } html[data-theme="light"] .theme-toggle [data-icon="sun"] path { fill:#1e293b; } /* Hero */ .hero { padding: clamp(2.2rem, 6vw, 4rem) 1rem 1.2rem; text-align:center; max-width: 1100px; margin: 0 auto; background: radial-gradient(1000px 400px at 50% -8%, color-mix(in oklab, var(--brand) 12%, transparent), transparent 60%); } .hero h1 { font-size: clamp(1.9rem, 3.4vw, 2.6rem); margin: 0 0 .5rem 0; background: linear-gradient(90deg, var(--brand), var(--blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; } .hero p { margin:.2rem auto; color:var(--text-muted); max-width:74ch; } .hero .tagline { color:var(--text-muted-2); } /* Search */ .toolbar { display:flex; justify-content:center; padding:.9rem 1rem 0; } .search { display:inline-flex; align-items:center; gap:.55rem; width:min(860px,92vw); background: var(--surface); border:1px solid var(--border); border-radius: 1rem; padding:.78rem .95rem; box-shadow: 0 4px 16px rgba(0,0,0,.08); } .search input { border:0; outline:0; background:transparent; color:var(--text); width:100%; font:inherit; } .search-hint { text-align:center; font-size:.9rem; color:var(--text-muted-2); margin-top:.35rem; } /* Parts + cards */ .toc-part { max-width:1180px; margin:0 auto; } .toc-part-title { margin:2rem auto .25rem; padding:0 1rem; color:var(--text); font-size:1.05rem; display:flex; align-items:baseline; gap:.5rem; } .toc-part-blurb { margin:0 auto .7rem; padding:0 1rem; color:var(--text-muted); font-size:.98rem; } .toc-rule { height:1px; margin:.6rem 1rem 1rem; border:0; background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--brand) 24%, transparent), transparent); } .toc-grid { --min:300px; display:grid; grid-template-columns: repeat(auto-fill, minmax(var(--min),1fr)); gap:1rem; padding:0 1rem 1.2rem; max-width:1180px; margin:0 auto 1.5rem; } .toc-card { display:grid; grid-template-rows:auto 1fr auto; gap:.5rem; border:1px solid var(--border); border-radius:1rem; background: color-mix(in oklab, var(--surface) 82%, transparent); padding:1rem; backdrop-filter: blur(6px); transition: transform .12s ease, border-color .12s ease, background .12s ease; } .toc-card:hover { transform: translateY(-2px); border-color:var(--brand); } .toc-card h3 { margin:0; font-size:1.06rem; } .toc-card h3 a { color:var(--text); } .toc-card p { margin:0 .1rem .25rem 0; color:var(--text-muted); line-height:1.55; } .toc-meta { display:flex; gap:.5rem .75rem; flex-wrap:wrap; color:var(--text-muted-2); font-size:.9rem; } .badge { padding:.18rem .5rem; border-radius:.5rem; background: color-mix(in oklab, var(--brand) 14%, transparent); border:1px solid color-mix(in oklab, var(--brand) 24%, transparent); color:var(--brand-contrast); font-size:.78rem; } .badge.blue { background:color-mix(in oklab, var(--blue) 14%, transparent); border-color:color-mix(in oklab, var(--blue) 24%, transparent);} .badge.gold { background:color-mix(in oklab, var(--gold) 26%, transparent); border-color:color-mix(in oklab, var(--gold) 36%, transparent); color:#1f2937;} /* Footer enhancements */ .site-footer { padding-top:1.2rem; } .footer-inner { gap:.75rem; } .footer-nav { display:flex; gap:1rem; flex-wrap:wrap; } .footer-nav a { color: var(--text-muted-2); } .footer-divider { height:1px; margin:.4rem 0 1rem; border:0; background: linear-gradient(90deg, var(--brand), var(--blue), var(--gold)); opacity:.3; } /* Print (force light) */ @media print { html { color-scheme: light; } :root { --text:#111827; --text-muted:#374151; --text-muted-2:#4b5563; --bg:#ffffff; --surface:#ffffff; --border:#e5e7eb; } .site-header, .theme-toggle, .nav-toggle { display:none !important; } .toc-card { background:#fff !important; border-color:#e5e7eb; box-shadow:none; page-break-inside:avoid; } .toc-part-title, h1, h2, h3 { page-break-inside:avoid; } a[href]::after { content:" (" attr(href) ")"; font-size:.9em; } } .visually-hidden { position:absolute !important; clip:rect(1px,1px,1px,1px); clip-path:inset(50%); width:1px; height:1px; overflow:hidden; white-space:nowrap; } </style> </head> <body> <a class="skip-link" href="#main">Skip to content</a> <!-- Header --> <header class="site-header" role="banner"> <div class="header-inner"> <a class="brand-wrap" href="/index.html" aria-label="The AI Artisan home"> <img src="/assets/images/HQAIM-ICON-AI.svg" alt="The AI Artisan" width="140" height="28" /> <span class="brand-text">The AI Artisan</span> </a>
-  <button class="nav-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
-    <span class="nav-toggle-bar" aria-hidden="true"></span>
-    <span class="nav-toggle-bar" aria-hidden="true"></span>
-    <span class="nav-toggle-bar" aria-hidden="true"></span>
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <!-- =========================================================
+       The AI Artisan — Complete Table of Contents (toc.html)
+       Author: Abdullah Khan · HQAIM Studios
+       Publication Build — 2025-TOC-v1.1
+       ========================================================= -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>The AI Artisan — Complete Index & Prompt Engineering Frameworks</title>
+  <meta id="themeColor" name="theme-color" content="#0f172a" />
+  <link rel="canonical" href="https://aiartisan.hqaim.com/toc.html" />
+
+  <!-- SEO -->
+  <meta name="description" content="Explore The AI Artisan’s index of Prompt Engineering frameworks and modules. Learn clear steps, build simple systems, and show proof of results." />
+  <meta name="keywords" content="Prompt Engineering, AI prompts, frameworks, CLARITY-7, SPARK-5, MIRROR-6, VALOR-Δ, TESSERA, Proof Artifacts, Toolkit, Buildsheets, systems" />
+  <meta name="author" content="Abdullah Khan · HQAIM Studios" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="The AI Artisan — Complete Index & Prompt Engineering Frameworks" />
+  <meta property="og:description" content="Browse the full index. Start with mindset, learn the steps, build simple systems, and show proof." />
+  <meta property="og:url" content="https://aiartisan.hqaim.com/toc.html" />
+  <meta property="og:image" content="https://aiartisan.hqaim.com/assets/images/cover-hero.jpg" />
+  <meta property="og:site_name" content="The AI Artisan" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The AI Artisan — Complete Index & Prompt Engineering Frameworks" />
+  <meta name="twitter:description" content="Explore the complete index of modules and frameworks for practical, proof-backed results." />
+  <meta name="twitter:image" content="https://aiartisan.hqaim.com/assets/images/cover-hero.jpg" />
+
+  <!-- JSON-LD (WebPage) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "The AI Artisan — Table of Contents",
+    "url": "https://aiartisan.hqaim.com/toc.html",
+    "inLanguage": "en",
+    "author": {"@type":"Person","name":"Abdullah Khan"},
+    "publisher": {"@type":"Organization","name":"HQAIM Studios"},
+    "description": "A clear, practical index of modules and frameworks for Prompt Engineering with measurable results.",
+    "about": "Prompt Engineering frameworks and systems: CLARITY-7, SPARK-5, MIRROR-6, VALOR-Δ, TESSERA, Proof Artifacts, Toolkit, Buildsheets",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://aiartisan.hqaim.com/"},
+        {"@type":"ListItem","position":2,"name":"Index","item":"https://aiartisan.hqaim.com/toc.html"}
+      ]
+    }
+  }
+  </script>
+
+  <meta name="color-scheme" content="light dark" />
+
+  <!-- Modular assets -->
+  <link rel="stylesheet" href="/assets/css/style.css" />
+
+  <!-- Fonts (kept minimal) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- =========================================================
+       HEADER (sticky, enhanced)
+       ========================================================= -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand-wrap" href="/index.html" aria-label="The AI Artisan home">
+        <!-- Header logo via provided path -->
+        <img
+          src="/images/HQAIM_ICON.svg"
+          class="brand-logo"
+          alt="The AI Artisan — HQAIM Studios logo"
+          width="32" height="32"
+          loading="eager" decoding="async"
+        />
+        <span class="brand-text">The AI Artisan</span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
+
+      <nav id="site-menu" class="main-nav" aria-label="Primary">
+        <ul>
+          <li><a href="/toc.html" aria-current="page">Index</a></li>
+          <li><a href="/modules.html">Modules</a></li>
+          <li><a href="/fieldkit.html">Toolkit</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li>
+            <!-- THEME TOGGLE — icons only, no visible text -->
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle color theme" aria-pressed="false" title="Toggle theme" role="switch">
+              <!-- Sun -->
+              <svg class="icon icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+              </svg>
+              <!-- Moon -->
+              <svg class="icon icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       HERO
+       ========================================================= -->
+  <section class="hero" aria-labelledby="page-title">
+    <h1 id="page-title">Table of Contents</h1>
+    <p>Explore the full guide. Start with mindset, learn the steps, build simple systems, and show proof of results.</p>
+  </section>
+
+  <!-- =========================================================
+       SEARCH
+       ========================================================= -->
+  <div class="toolbar" role="search">
+    <div class="search">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+        <path fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 10-1.48 1.48l.27.28v.79l4.25 4.25a1 1 0 001.5-1.5L15.5 14zM9.5 12.5a4 4 0 110-8 4 4 0 010 8z"></path>
+      </svg>
+      <input id="tocFilter" type="search" placeholder="Search modules, sections, or tags (Press / to focus, Esc to clear)" aria-label="Filter table of contents" />
+    </div>
+  </div>
+  <p id="resultCount" class="search-meta" aria-live="polite">Showing all results</p>
+
+  <!-- =========================================================
+       MAIN CONTENT
+       ========================================================= -->
+  <main id="main" tabindex="-1">
+
+    <!-- ===================== Part I ======================= -->
+    <section class="toc-part" aria-labelledby="p1-title">
+      <h2 id="p1-title" class="toc-part-title">🧭 Part I — Mindset & Foundations</h2>
+      <p class="toc-part-blurb">See the promise and the pitfalls. Move from quick guesses to steady, well-designed work.</p>
+      <hr class="toc-rule" />
+      <div class="toc-grid">
+        <article class="toc-card" data-tags="mindset foundation hype focus steady honest">
+          <h3><a href="/modules/module-01.html">Module 01 — The Promise and the Trap</a></h3>
+          <p>See how hype can waste time and focus. Learn a steady way to think so your work stays useful and honest.</p>
+          <div class="toc-meta"><span class="badge">Mindset</span><span class="badge blue">Foundations</span></div>
+        </article>
+
+        <article class="toc-card" data-tags="value gap clarity outcomes plan">
+          <h3><a href="/modules/module-02.html">Module 02 — Defining the AI Value Gap</a></h3>
+          <p>Find the gap between busy work and real results. Make a short plan to close it on your next task.</p>
+          <div class="toc-meta"><span class="badge">Value</span><span class="badge blue">Outcomes</span></div>
+        </article>
+
+        <article class="toc-card" data-tags="habits systems practice design repeatable flow">
+          <h3><a href="/modules/module-03.html">Module 03 — From Operator to Artisan</a></h3>
+          <p>Stop reacting, start designing. Build simple habits that turn scattered tasks into a calm, repeatable flow.</p>
+          <div class="toc-meta"><span class="badge">Practice</span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== Part II ======================= -->
+    <section class="toc-part" aria-labelledby="p2-title">
+      <h2 id="p2-title" class="toc-part-title">⚙️ Part II — Frameworks & Methods</h2>
+      <p class="toc-part-blurb">Use five clear methods to plan your request, work in steps, check quality, show value, and improve.</p>
+      <hr class="toc-rule" />
+      <div class="toc-grid">
+        <article class="toc-card" data-tags="clarity-7 schema context rules tone yield contract">
+          <h3><a href="/modules/module-04.html">Module 04 — CLARITY-7™</a></h3>
+          <p>Write requests that are clear and complete: what you want, why it matters, rules to follow, and what to return.</p>
+          <div class="toc-meta"><span class="badge">Framework</span><span class="badge blue">Schema</span></div>
+        </article>
+
+        <article class="toc-card" data-tags="spark-5 steps scaffold assess refine knit">
+          <h3><a href="/modules/module-05.html">Module 05 — SPARK-5™</a></h3>
+          <p>Work in small steps. Make, check, fix, then join the parts so everything fits.</p>
+          <div class="toc-meta"><span class="badge">Framework</span><span class="badge blue">Sequencing</span></div>
+        </article>
+
+        <article class="toc-card" data-tags="mirror-6 quality meaning integrity relevance reliability repeatability">
+          <h3><a href="/modules/module-06.html">Module 06 — MIRROR-6™</a></h3>
+          <p>Check your output for meaning, truth, and repeatability. Fix weak spots before you ship.</p>
+          <div class="toc-meta"><span class="badge">Framework</span><span class="badge blue">Quality</span></div>
+        </article>
+
+        <article class="toc-card" data-tags="valor-delta value risk decisions ship improve archive">
+          <h3><a href="/modules/module-07.html">Module 07 — VALOR-Δ</a></h3>
+          <p>Weigh value and risk in simple terms. Decide what to launch, improve, or archive.</p>
+          <div class="toc-meta"><span class="badge">Framework</span><span class="badge blue">Value</span></div>
+        </article>
+
+        <article class="toc-card" data-tags="tessera loop plan do prove refine scale reuse">
+          <h3><a href="/modules/module-08.html">Module 08 — TESSERA™</a></h3>
+          <p>Run the loop: plan → do → prove → refine → scale. Save good versions so they’re easy to reuse.</p>
+          <div class="toc-meta"><span class="badge">Framework</span><span class="badge blue">Improvement</span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== Part III ======================= -->
+    <section class="toc-part" aria-labelledby="p3-title">
+      <h2 id="p3-title" class="toc-part-title">🧩 Part III — Systems & Proof</h2>
+      <p class="toc-part-blurb">Turn good work into simple tools and records people can trust.</p>
+      <hr class="toc-rule" />
+      <div class="toc-grid">
+        <article class="toc-card" data-tags="pattern forge prompt vault library reuse">
+          <h3><a href="/modules/module-09.html">Module 09 — Pattern Forge™ & Prompt Vault™</a></h3>
+          <p>Save your best prompts as reusable patterns. Keep them in one place so quality stays high and work speeds up.</p>
+          <div class="toc-meta"><span class="badge">Systems</span><span class="badge blue">Library</span></div>
+        </article>
+
+        <article class="toc-card" data-tags="buildsheets workflows checklist process handoffs">
+          <h3><a href="/modules/module-10.html">Module 10 — Buildsheets™ & Workflows</a></h3>
+          <p>Map each job as a simple checklist. Cut confusion and make hand-offs smooth.</p>
+          <div class="toc-meta"><span class="badge">Systems</span><span class="badge blue">Workflow</span></div>
+        </article>
+
+        <article class="toc-card" data-tags="proof artifacts logs scorecards dashboards evidence">
+          <h3><a href="/modules/module-11.html">Module 11 — Proof Artifacts™</a></h3>
+          <p>Keep short logs, scorecards, and snapshots that show what changed and why it matters.</p>
+          <div class="toc-meta"><span class="badge gold">Proof</span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== Part IV ======================= -->
+    <section class="toc-part" aria-labelledby="p4-title">
+      <h2 id="p4-title" class="toc-part-title">📈 Part IV — Value & Growth</h2>
+      <p class="toc-part-blurb">Grow with proof. Keep what works, drop what doesn’t, and price with confidence.</p>
+      <hr class="toc-rule" />
+      <div class="toc-grid">
+        <article class="toc-card" data-tags="pricing value proof clients trust">
+          <h3><a href="/modules/module-12.html">Module 12 — Proof-Based Pricing</a></h3>
+          <p>Use evidence to set price and explain value in plain language clients trust.</p>
+          <div class="toc-meta"><span class="badge">Value</span></div>
+        </article>
+
+        <article class="toc-card" data-tags="assets scale leverage systems repeatable">
+          <h3><a href="/modules/module-13.html">Module 13 — Systems that Scale</a></h3>
+          <p>Turn your best work into small, reliable systems. Grow with less effort and more consistency.</p>
+          <div class="toc-meta"><span class="badge">Scale</span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== Part V ======================= -->
+    <section class="toc-part" aria-labelledby="p5-title">
+      <h2 id="p5-title" class="toc-part-title">🔑 Part V — Advanced Practice</h2>
+      <p class="toc-part-blurb">Advanced moves for serious builders. Optional premium lessons included.</p>
+      <hr class="toc-rule" />
+      <div class="toc-grid">
+        <article class="toc-card" data-tags="advanced collaborative prompts premium compare choose decide team">
+          <h3><a href="/modules/module-14.html">Module 14 — Collaborative Prompts</a></h3>
+          <p>Ask stronger questions, compare options, and converge on clear choices with simple team-style patterns.</p>
+          <div class="toc-meta">
+            <span class="badge gold">Premium</span>
+            <span class="card-actions"><a href="/premium-access.html">Request Access →</a></span>
+          </div>
+        </article>
+
+        <article class="toc-card" data-tags="advanced automation systems link steps guardrails safety premium flow">
+          <h3><a href="/modules/module-15.html">Module 15 — Automation Systems</a></h3>
+          <p>Link steps into a stable flow with safeguards. Keep control as you automate the routine work.</p>
+          <div class="toc-meta">
+            <span class="badge gold">Premium</span>
+            <span class="card-actions"><a href="/premium-access.html">Request Access →</a></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== Toolkit ======================= -->
+    <section class="toc-part" aria-labelledby="pA-title">
+      <h2 id="pA-title" class="toc-part-title">🧰 Toolkit — Resources & Templates</h2>
+      <p class="toc-part-blurb">Ready-to-use pages, checklists, and simple diagrams to start fast.</p>
+      <hr class="toc-rule" />
+      <div class="toc-grid">
+        <article class="toc-card" data-tags="toolkit templates checklists">
+          <h3><a href="/fieldkit.html">Toolkit — Templates & Checklists</a></h3>
+          <p>Grab the pages you need and start. Edit as you go—no extra setup required.</p>
+          <div class="toc-meta"><span class="badge blue">Toolkit</span></div>
+        </article>
+
+        <article class="toc-card" data-tags="glossary index reference terminology">
+          <h3><a href="/appendix.html">Glossary & Index</a></h3>
+          <p>Short, clear definitions and fast look-ups for key terms.</p>
+          <div class="toc-meta"><span class="badge blue">Reference</span></div>
+        </article>
+
+        <article class="toc-card" data-tags="diagrams visuals framework svg print">
+          <h3><a href="/diagrams.html">Framework Diagrams</a></h3>
+          <p>Clean visuals for each method. Print-ready and easy to share.</p>
+          <div class="toc-meta"><span class="badge blue">Visuals</span></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================
+       BACK TO TOP (Lucide chevron-up)
+       ========================================================= -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" title="Back to top">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
   </button>
 
-  <nav id="site-menu" class="main-nav" aria-label="Primary">
-    <ul>
-      <li><a href="/toc.html" aria-current="page">Index</a></li>
-      <li><a href="/frameworks.html">Frameworks</a></li>
-      <li><a href="/toolkit.html">Toolkit</a></li>
-      <li><a href="/part-v-mastery.html">Mastery</a></li>
-      <li><a href="/contact.html">Contact</a></li>
-      <li>
-        <button id="themeToggle" class="theme-toggle" aria-label="Toggle color theme" title="Toggle theme">
-          <!-- Moon (dark) -->
-          <svg class="icon" data-icon="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 1021 12.79z"/></svg>
-          <!-- Sun (light) -->
-          <svg class="icon" data-icon="sun" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.8 1.42-1.42zM12 4V1h0v3zm0 19v-3h0v3zM4 12H1v0h3zm19 0h-3v0h3zM6.76 19.16l-1.42 1.42-1.79-1.8 1.41-1.41 1.8 1.79zM19.16 6.76l1.42-1.42 1.79 1.8-1.41 1.41-1.8-1.79zM12 6a6 6 0 100 12 6 6 0 000-12z"/></svg>
-        </button>
-      </li>
-    </ul>
-  </nav>
-</div>
+  <!-- =========================================================
+       FOOTER (enhanced, two-tier with sitemap)
+       ========================================================= -->
+  <footer class="site-footer" role="contentinfo">
+    <hr class="footer-divider" />
 
-</header> <!-- Main --> <main id="main" tabindex="-1"> <section class="hero"> <h1>The AI Artisan — Table of Contents</h1> <p class="subtitle">The Playbook for Prompt Engineering, Systems, and Proof.</p> <p class="tagline">Navigate five parts that evolve your craft from mindset to mastery.</p>
-  <div class="toolbar">
-    <form class="search" role="search" aria-label="Filter modules" onsubmit="return false;">
-      <svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-      <label for="tocFilter" class="visually-hidden">Search modules</label>
-      <input id="tocFilter" type="search" placeholder="Search modules, frameworks, or keywords…" aria-controls="results" />
-    </form>
-  </div>
-  <p id="resultCount" class="search-hint" aria-live="polite">Showing all results</p>
-</section>
+    <!-- Tier 1: brand + quick links -->
+    <div class="footer-inner">
+      <div class="footer-left">
+        <a class="footer-brand-text" href="https://www.hqaim.com" target="_blank" rel="noopener noreferrer" aria-label="HQAIM Studios">
+          <img
+            src="/assets/images/HQAIM_LOGO_Gradient_Minimal.svg"
+            class="footer-logo"
+            alt="HQAIM Studios Logo"
+            height="24"
+            loading="lazy" decoding="async"
+          />
+          <span class="footer-brand-textline">© <span id="year"></span> Abdullah Khan · HQAIM Studios</span>
+        </a>
+        <span class="footer-dot" aria-hidden="true">•</span>
+        <span class="footer-cred">Made with care. Built for results.</span>
+      </div>
 
-<!-- PART I -->
-<section class="toc-part" aria-labelledby="p1">
-  <h2 id="p1" class="toc-part-title">💭 Part I — From Illusion to Value (Mindset)</h2>
-  <p class="toc-part-blurb">Mindset shifts from outputs to outcomes. Bridge the AI value gap and build your first value chain.</p>
-  <hr class="toc-rule" />
-  <div class="toc-grid" id="results">
-    <article class="toc-card" data-tags="mindset value gap outcomes">
-      <h3><a href="/module-01.html">Module 01 · Foundations</a></h3>
-      <p>Ground the playbook: intent-first prompting, role–context alignment, and proof-driven iteration.</p>
-      <div class="toc-meta"><span class="badge">Mindset</span></div>
-    </article>
-    <article class="toc-card" data-tags="outcome based thinking proof">
-      <h3><a href="/module-02.html">Module 02 · Prompt Syntax</a></h3>
-      <p>Structure prompts with roles, constraints, and outputs for deterministic, high-signal responses.</p>
-      <div class="toc-meta"><span class="badge">Craft</span></div>
-    </article>
-    <article class="toc-card" data-tags="frameworks clarity spark mirror valor">
-      <h3><a href="/module-04.html">Module 04 · CLARITY-7™</a></h3>
-      <p>Use the seven-spoke lens to sharpen goals, signals, and evaluation before generation.</p>
-      <div class="toc-meta"><span class="badge blue">Framework</span></div>
-    </article>
-    <article class="toc-card" data-tags="bridge interlude reset clarity">
-      <h3><a href="/interlude.html">Interlude · Mindset Reset</a></h3>
-      <p>Reframe failure and reinforce clarity of value to prepare the next arc of the playbook.</p>
-      <div class="toc-meta"><span class="badge">Bridge</span></div>
-    </article>
-  </div>
-</section>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="/foreword.html">Foreword</a>
+        <a href="/modules.html">Modules</a>
+        <a href="/fieldkit.html">Toolkit</a>
+        <a href="/premium.html">Premium</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
 
-<!-- PART II -->
-<section class="toc-part" aria-labelledby="p2">
-  <h2 id="p2" class="toc-part-title">🧰 Part II — Toolkit of the AI Artisan</h2>
-  <p class="toc-part-blurb">From asking to architecting: syntax, contracts, and reusable patterns that compound value.</p>
-  <hr class="toc-rule" />
-  <div class="toc-grid">
-    <article class="toc-card" data-tags="contracts schema json xml">
-      <h3><a href="/module-11.html">Module 11 · Structured Outputs & Contracts</a></h3>
-      <p>Use JSON/XML contracts and schema-first prompts to produce reliable, machine-readable outputs.</p>
-      <div class="toc-meta"><span class="badge blue">Contracts</span></div>
-    </article>
-    <article class="toc-card" data-tags="pattern forge everyday mastery">
-      <h3><a href="/module-11.html#patterns">Pattern Forge™ I — Everyday Mastery</a></h3>
-      <p>Reusable prompt patterns for fast, repeatable wins across common tasks.</p>
-      <div class="toc-meta"><span class="badge">Patterns</span></div>
-    </article>
-    <article class="toc-card" data-tags="library reusable prompts">
-      <h3><a href="/module-11.html#library">Buildsheet™ II — Reusable Prompt Library</a></h3>
-      <p>Tag, reuse, and scale an internal prompt library for your team.</p>
-      <div class="toc-meta"><span class="badge gold">Buildsheet</span></div>
-    </article>
-    <article class="toc-card" data-tags="multimodal images audio data">
-      <h3><a href="/module-08.html">Module 08 · Multimodal Prompting Essentials</a></h3>
-      <p>Blend images, audio, and data sources to extend what your systems can perceive and produce.</p>
-      <div class="toc-meta"><span class="badge">Multimodal</span></div>
-    </article>
-  </div>
-</section>
+    <!-- Tier 2: sitemap + legal -->
+    <div class="footer-bottom">
+      <nav class="footer-sitemap" aria-label="Sitemap">
+        <a href="/sitemap.xml">Sitemap</a>
+      </nav>
+      <small class="build-meta">Build: AI-ARTISAN-TOC-v1.1</small>
+    </div>
+  </footer>
 
-<!-- PART III -->
-<section class="toc-part" aria-labelledby="p3">
-  <h2 id="p3" class="toc-part-title">⚙️ Part III — Practice & Systems</h2>
-  <p class="toc-part-blurb">Sequence the work, self-review effectively, learn from cases, and architect your workflow.</p>
-  <hr class="toc-rule" />
-  <div class="toc-grid">
-    <article class="toc-card" data-tags="spark-5 scaffold produce assess refine knit workflow">
-      <h3><a href="/module-05.html">Module 05 · SPARK-5™ — Sequence the Work</a></h3>
-      <p>Five stages: Scaffold → Produce → Assess → Refine → Knit for dependable production flows.</p>
-      <div class="toc-meta"><span class="badge blue">Workflow</span></div>
-    </article>
-    <article class="toc-card" data-tags="mirror-6 feedback acceptance quality">
-      <h3><a href="/module-06.html">Module 06 · MIRROR-6™ — Self-Review & Acceptance</a></h3>
-      <p>Reliability via feedback loops, acceptance rules, and error-catch prompts.</p>
-      <div class="toc-meta"><span class="badge">Quality</span></div>
-    </article>
-    <article class="toc-card" data-tags="buildsheet architect workflow handoffs">
-      <h3><a href="/module-10.html">Buildsheet™ III — Architect Your Workflow</a></h3>
-      <p>Design adaptive production systems with clear roles, signals, and handoffs.</p>
-      <div class="toc-meta"><span class="badge gold">Buildsheet</span></div>
-    </article>
-    <article class="toc-card" data-tags="cases practice to proof dashboards">
-      <h3><a href="/module-12.html#cases">Case Studies — Practice to Proof</a></h3>
-      <p>Applied examples across product, education, and marketing—measured by proof artifacts.</p>
-      <div class="toc-meta"><span class="badge">Cases</span></div>
-    </article>
-  </div>
-</section>
+  <!-- =========================================================
+       SCRIPTS (page logic; theme.js handles theme)
+       ========================================================= -->
+  <script src="/assets/js/theme.js" defer></script>
+  <script>
+  (function () {
+    'use strict';
 
-<!-- PART IV -->
-<section class="toc-part" aria-labelledby="p4">
-  <h2 id="p4" class="toc-part-title">📈 Part IV — Scale: Proof, Value, Growth</h2>
-  <p class="toc-part-blurb">Governance, proof, and performance for confident scaling.</p>
-  <hr class="toc-rule" />
-  <div class="toc-grid">
-    <article class="toc-card" data-tags="valor delta value ethics risk roi">
-      <h3><a href="/module-07.html">Module 07 · VALOR-Δ — Value, Risk, Ethics</a></h3>
-      <p>Align pricing, ROI, and ethics across your value layers and decision gates.</p>
-      <div class="toc-meta"><span class="badge blue">Value</span></div>
-    </article>
-    <article class="toc-card" data-tags="proof artifacts dashboards acceptance logs">
-      <h3><a href="/module-12.html">Proof Artifacts™ over Promises</a></h3>
-      <p>Dashboards and acceptance logs that turn claims into verifiable results.</p>
-      <div class="toc-meta"><span class="badge">Proof</span></div>
-    </article>
-    <article class="toc-card" data-tags="growth engine loops scale cases">
-      <h3><a href="/module-15.html">Buildsheet™ IV — The Growth Engine</a></h3>
-      <p>Value-iteration loops you can run repeatedly to scale with confidence.</p>
-      <div class="toc-meta"><span class="badge gold">Buildsheet</span></div>
-    </article>
-    <article class="toc-card" data-tags="pricing plays value not hours pro">
-      <h3><a href="/module-13.html#pricing">Pricing Plays — Value Not Hours★</a></h3>
-      <p>Elite pricing frameworks tied to outcomes rather than time spent.</p>
-      <div class="toc-meta"><span class="badge">Pro</span></div>
-    </article>
-  </div>
-</section>
+    // ---------- Mobile nav toggle ----------
+    const btn = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('site-menu');
+    if (btn && nav) {
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open', !expanded);
+        if (!expanded) nav.querySelector('a,button')?.focus();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && nav.classList.contains('open')) {
+          btn.setAttribute('aria-expanded','false');
+          nav.classList.remove('open');
+          btn.focus();
+        }
+      });
+    }
 
-<!-- PART V -->
-<section class="toc-part" aria-labelledby="p5">
-  <h2 id="p5" class="toc-part-title">💎 Part V — Mastery: The Advanced Playbook</h2>
-  <p class="toc-part-blurb">Meta-frameworks, advanced patterns, defensible moats, and the OS loop.</p>
-  <hr class="toc-rule" />
-  <div class="toc-grid">
-    <article class="toc-card" data-tags="tessera meta framework mosaic loop">
-      <h3><a href="/module-08.html">Module 08 · TESSERA™ — The Meta-Framework</a></h3>
-      <p>The mosaic loop: the system-of-systems for durable value creation.</p>
-      <div class="toc-meta"><span class="badge blue">Meta</span></div>
-    </article>
-    <article class="toc-card" data-tags="advanced pattern forge council orchestrator verifier pro">
-      <h3><a href="/module-10.html#advanced-patterns">Advanced Pattern Forge™ — Pro Prompts★</a></h3>
-      <p>Council, Verifier, and Orchestrator constructions for elite work.</p>
-      <div class="toc-meta"><span class="badge">Pro</span></div>
-    </article>
-    <article class="toc-card" data-tags="defensible moat advantage buildsheet">
-      <h3><a href="/module-15.html#moat">Buildsheet™ V — Defensible Advantage</a></h3>
-      <p>Architect moats via differentiation, proof, and scale.</p>
-      <div class="toc-meta"><span class="badge gold">Buildsheet</span></div>
-    </article>
-    <article class="toc-card" data-tags="os loop cadence plan prompt proof refine scale">
-      <h3><a href="/module-12.html#os-loop">OS Loop — Plan → Prompt → Proof → Refine → Scale</a></h3>
-      <p>The Artisan cadence for repeatable delivery and measured improvement.</p>
-      <div class="toc-meta"><span class="badge">Loop</span></div>
-    </article>
-  </div>
-</section>
+    // ---------- Search filter ----------
+    const input = document.getElementById('tocFilter');
+    const cards = Array.from(document.querySelectorAll('.toc-card'));
+    const parts = Array.from(document.querySelectorAll('.toc-part'));
+    const counter = document.getElementById('resultCount');
+    let debounceTimer;
 
-<!-- Appendices / Toolkit -->
-<section class="toc-part" aria-labelledby="apps">
-  <h2 id="apps" class="toc-part-title">🧰 Appendices — Toolkit</h2>
-  <p class="toc-part-blurb">Framework index, pattern libraries, logs, checklists, diagrams, careers map, glossary, and references.</p>
-  <hr class="toc-rule" />
-  <div class="toc-grid">
-    <article class="toc-card" data-tags="framework index schema map">
-      <h3><a href="/appendix.html#framework-index">A — Framework Index</a></h3>
-      <p>Schema map across CLARITY-7™, SPARK-5™, MIRROR-6™, VALOR-Δ, and TESSERA™.</p>
-      <div class="toc-meta"><span class="badge">Index</span></div>
-    </article>
-    <article class="toc-card" data-tags="pattern forges libraries">
-      <h3><a href="/appendix.html#pattern-forges">B — Pattern Forges™ — Full Libraries</a></h3>
-      <p>Reusable prompt libraries and components you can deploy immediately.</p>
-      <div class="toc-meta"><span class="badge">Library</span></div>
-    </article>
-    <article class="toc-card" data-tags="prompt logs templates">
-      <h3><a href="/appendix.html#prompt-logs">C — Prompt Logs & Templates</a></h3>
-      <p>Documented runs, acceptance notes, and templates for repeatability.</p>
-      <div class="toc-meta"><span class="badge">Logs</span></div>
-    </article>
-    <article class="toc-card" data-tags="checklists compendium">
-      <h3><a href="/appendix.html#checklists">D — Checklist Compendium</a></h3>
-      <p>Operational checklists that reduce risk and drift.</p>
-      <div class="toc-meta"><span class="badge">Checklists</span></div>
-    </article>
-    <article class="toc-card" data-tags="visual diagrams svg">
-      <h3><a href="/appendix.html#diagrams">E — Visual Diagrams (SVG)</a></h3>
-      <p>Inline, accessible diagrams for the five frameworks.</p>
-      <div class="toc-meta"><span class="badge">Diagrams</span></div>
-    </article>
-    <article class="toc-card" data-tags="career skills map jobs">
-      <h3><a href="/appendix.html#careers">F — Career & Skills Map</a></h3>
-      <p>Prompt engineering roles, skills, and learning paths.</p>
-      <div class="toc-meta"><span class="badge">Careers</span></div>
-    </article>
-    <article class="toc-card" data-tags="glossary terms">
-      <h3><a href="/appendix.html#glossary">G — Glossary</a></h3>
-      <p>Key terms and short definitions used throughout the playbook.</p>
-      <div class="toc-meta"><span class="badge">Glossary</span></div>
-    </article>
-    <article class="toc-card" data-tags="references further reading">
-      <h3><a href="/appendix.html#references">H — Further Reading & References</a></h3>
-      <p>Sources for deeper study and practical adoption.</p>
-      <div class="toc-meta"><span class="badge">References</span></div>
-    </article>
-  </div>
-</section>
+    function updateCount(visibleCount) {
+      const total = cards.length;
+      if (!counter) return;
+      if (!input.value.trim() || visibleCount === total) {
+        counter.textContent = 'Showing all ' + total + ' results';
+      } else {
+        counter.textContent = `Showing ${visibleCount} of ${total} results for "${input.value}"`;
+      }
+    }
 
-</main> <!-- Footer --> <footer class="site-footer" role="contentinfo"> <hr class="footer-divider" /> <div class="footer-inner"> <p class="footer-brand">© <span id="year"></span> Abdullah Khan · <a href="https://hqaim.com" target="_blank" rel="noopener noreferrer">HQAIM Studios</a></p> <nav class="footer-nav" aria-label="Footer navigation"> <a href="/toc.html" aria-current="page">Index</a> <a href="/toolkit.html">Toolkit</a> <a href="/credits.html">Credits</a> <a href="/premium.html">Premium</a> <a href="/contact.html">Contact</a> <a href="/sitemap.xml">Sitemap</a> </nav> </div> </footer> <!-- Behavior: mobile drawer, theme persistence, search filter, shortcuts, footer year --> <script> (function () { // Mobile drawer const btn = document.querySelector('.nav-toggle'); const nav = document.getElementById('site-menu'); if (btn && nav) { btn.addEventListener('click', () => { const expanded = btn.getAttribute('aria-expanded') === 'true'; btn.setAttribute('aria-expanded', String(!expanded)); nav.classList.toggle('open', !expanded); if (!expanded) nav.querySelector('a,button')?.focus(); }); document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { btn.setAttribute('aria-expanded','false'); nav.classList.remove('open'); btn.focus(); } }); } // Theme (persisted) const root = document.documentElement; const saved = localStorage.getItem('theme'); if (saved === 'light' || saved === 'dark') { root.setAttribute('data-theme', saved); } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) { root.setAttribute('data-theme', 'light'); } document.getElementById('themeToggle')?.addEventListener('click', () => { const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light'; root.setAttribute('data-theme', next); localStorage.setItem('theme', next); }); // Search filter + shortcuts + result count const input = document.getElementById('tocFilter'); const cards = Array.from(document.querySelectorAll('.toc-card')); const counter = document.getElementById('resultCount'); function updateCount() { const visible = cards.filter(c => c.style.display !== 'none').length; counter.textContent = visible === cards.length ? 'Showing all results' : `Showing ${visible} result${visible===1?'':'s'}`; } function applyFilter() { const q = (input?.value || '').trim().toLowerCase(); cards.forEach(card => { const text = card.innerText.toLowerCase(); const tags = (card.getAttribute('data-tags') || '').toLowerCase(); const show = !q || text.includes(q) || tags.includes(q); card.style.display = show ? '' : 'none'; }); updateCount(); } input?.addEventListener('input', applyFilter); document.addEventListener('keydown', (e) => { if (e.key === '/' && !e.metaKey && !e.ctrlKey && !e.altKey) { e.preventDefault(); input?.focus(); } if (e.key === 'Escape' && document.activeElement === input) { input.value = ''; applyFilter(); input.blur(); } }); updateCount(); // Footer year const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear(); })(); </script> <!-- JSON-LD --> <script type="application/ld+json"> { "@context":"https://schema.org", "@graph":[ { "@type":"WebSite", "name":"The AI Artisan", "url":"https://aiartisan.hqaim.com/", "inLanguage":"en", "publisher":{"@type":"Organization","name":"HQAIM Studios"} }, { "@type":"WebPage", "name":"Table of Contents — The AI Artisan", "url":"https://aiartisan.hqaim.com/toc.html", "description":"Browse the complete playbook: five parts from mindset to mastery. Search Modules 01–15, Interlude, Appendix, and the Toolkit.", "inLanguage":"en", "isPartOf":{"@id":"https://aiartisan.hqaim.com/"}, "breadcrumb":{ "@type":"BreadcrumbList", "itemListElement":[ {"@type":"ListItem","position":1,"name":"Index","item":"https://aiartisan.hqaim.com/toc.html"} ] } }, { "@type":"Book", "name":"The AI Artisan — From Prompt to Proof", "url":"https://aiartisan.hqaim.com/", "inLanguage":"en", "author":{"@type":"Person","name":"Abdullah Khan"}, "publisher":{"@type":"Organization","name":"HQAIM Studios"}, "description":"The Playbook for Prompt Engineering, Systems, and Proof.", "copyrightYear":"2025", "mainEntityOfPage":{"@type":"WebPage","@id":"https://aiartisan.hqaim.com/"} } ] } </script> </body> </html>
+    function applyFilter() {
+      const q = (input?.value || '').trim().toLowerCase();
+      let visible = 0;
+
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        const tags = (card.getAttribute('data-tags') || '').toLowerCase();
+        const show = !q || text.includes(q) || tags.includes(q);
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+
+      parts.forEach(part => {
+        const visibleCards = part.querySelectorAll('.toc-card:not([style*="display: none"])').length;
+        part.style.display = visibleCards > 0 ? '' : 'none';
+      });
+
+      updateCount(visible);
+    }
+
+    if (input) {
+      input.addEventListener('input', () => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(applyFilter, 150);
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      const active = document.activeElement;
+      if (e.key === '/' && active && active.tagName !== 'INPUT' && active.tagName !== 'TEXTAREA') {
+        e.preventDefault();
+        input?.focus();
+      }
+      if (e.key === 'Escape' && active === input) {
+        input.value = '';
+        applyFilter();
+        input.blur();
+      }
+    });
+
+    // ---------- Back to top ----------
+    const topBtn = document.getElementById('backToTop');
+    function onScroll() {
+      if (!topBtn) return;
+      const show = window.scrollY > 400;
+      topBtn.classList.toggle('visible', show);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    topBtn?.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    topBtn?.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        topBtn.click();
+      }
+    });
+
+    // ---------- Footer year ----------
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+
+    // Initial count
+    updateCount(cards.length);
+
+    // Build info
+    console.info("AI Artisan TOC Final Build v1.1 — HQAIM Studios");
+  })();
+  </script>
+</body>
+</html>
