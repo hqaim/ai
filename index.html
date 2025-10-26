@@ -1,196 +1,550 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>The AI Artisan — From Prompt to Proof</title>
-  <meta name="description" content="The AI Artisan — From Prompt to Proof. Structure your thinking. Prove your outcomes." />
-  <meta name="keywords" content="AI prompting, prompt engineering, CLARITY-7, SPARK-5, MIRROR-6, VALOR-Δ, TESSERA, HQAIM Studios" />
-  <link rel="canonical" href="https://aiartisan.hqaim.com/" />
-  <meta property="og:title" content="The AI Artisan — From Prompt to Proof" />
-  <meta property="og:description" content="Simple inputs. Powerful outputs. Five frameworks for clarity, iteration, and measurable value." />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1600&auto=format&fit=crop" />
-  <meta name="theme-color" content="#7C3AED" />
-  <script>
-    try {
-      document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
-    } catch(e){ document.documentElement.dataset.theme = "light"; }
-  </script>
-  <link rel="stylesheet" href="assets/styles.css" />
-  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The AI Artisan — Master Prompt Engineering</title>
+    <meta name="description" content="The AI Artisan — a clear guide to Prompt Engineering. Learn CLARITY-7, SPARK-5, MIRROR-6, VALOR-Δ, and TESSERA™ to design structured prompts and deliver measurable, proof-driven results.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&family=Orbitron:wght@900&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ==========================================================================
+        PROJECT ARTISAN v42 (Static Publisher Logo): THE FINAL SYNCHRONIZATION
+        Lead Architect: "The Alchemist"
+        Description: This version removes the glow animation from the publisher
+        logo, restoring it to a static state as requested.
+        ==========================================================================
+        */
+        :root {
+            /* == ARTISAN v42: The Aetherium Palette (Final) == */
+            --text-primary: #f0f4f8;
+            --text-secondary: #b0c4de;
+            --aetherium-blue: #22d3ee;
+            --aetherium-green: #39ff14;
+            --aetherium-gold: #FFD700;
+            --aetherium-silver: #C0C0C0;
+            --aetherium-violet: #8B5CF6;
+            --aetherium-turquoise: #40E0D0;
+            --aetherium-obsidian: #0A0A0A;
+
+            /* -- Glows for the Aetherium palette -- */
+            --glow-aetherium-blue: rgba(34, 211, 238, 0.5);
+            --glow-aetherium-green: rgba(57, 255, 20, 0.4);
+            --glow-aetherium-gold: rgba(255, 215, 0, 0.5);
+            --glow-aetherium-violet: rgba(139, 92, 246, 0.5);
+            --glow-white-light: rgba(255, 255, 255, 0.7);
+
+            --bg-deep-space: #010409;
+            --bg-nebula: #0c1425;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            background: var(--aetherium-obsidian);
+            overflow: hidden;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 3000px;
+        }
+
+        .cover-wrapper {
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            animation: aetherium-cursor-shift 12s infinite linear;
+        }
+
+        @keyframes aetherium-cursor-shift {
+            0%, 100% { cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" stroke="rgba(34, 211, 238,0.9)" stroke-width="2" fill="none"/><circle cx="16" cy="16" r="2" fill="rgba(255,255,255,0.9)"/></svg>') 16 16, auto; }
+            33% { cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" stroke="rgba(57, 255, 20,0.9)" stroke-width="2" fill="none" /><circle cx="16" cy="16" r="2" fill="rgba(255,255,255,0.9)"/></svg>') 16 16, auto; }
+            66% { cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" stroke="rgba(139, 92, 246,0.9)" stroke-width="2" fill="none" /><circle cx="16" cy="16" r="2" fill="rgba(255,255,255,0.9)"/></svg>') 16 16, auto; }
+        }
+
+        .cover-wrapper::-webkit-scrollbar {
+            width: 12px;
+        }
+        .cover-wrapper::-webkit-scrollbar-track {
+            background: var(--aetherium-obsidian);
+        }
+        .cover-wrapper::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, var(--aetherium-violet), var(--aetherium-blue), var(--aetherium-turquoise), var(--aetherium-green));
+            border-radius: 6px;
+            border: 2px solid var(--aetherium-obsidian);
+        }
+
+        .cover-container {
+            width: 8.5in;
+            max-width: 100%;
+            min-height: 11in;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background: radial-gradient(ellipse at 50% 0%, var(--bg-nebula) 0%, var(--bg-deep-space) 70%);
+            transform-style: preserve-3d;
+            transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+            margin: auto;
+            border: 1px solid rgba(57, 255, 20, 0.15);
+            border-radius: 16px;
+            animation: subtle-glow-pulse 12s infinite ease-in-out;
+            overflow: hidden;
+        }
+
+        .cover-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 3;
+            background: radial-gradient(ellipse at center, transparent 65%, var(--bg-deep-space) 95%);
+            pointer-events: none;
+            border-radius: inherit;
+        }
+
+        @keyframes subtle-glow-pulse {
+            0%, 100% { box-shadow: 0 0 60px rgba(0,0,0,0.7), 0 0 20px var(--glow-aetherium-blue); }
+            33% { box-shadow: 0 0 70px rgba(0,0,0,0.6), 0 0 25px var(--glow-aetherium-green); }
+            66% { box-shadow: 0 0 60px rgba(0,0,0,0.7), 0 0 20px var(--glow-aetherium-violet); }
+        }
+
+        .cover-container:hover {
+            transform: rotateX(8deg) rotateY(-8deg) scale(1.05);
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+            transform-style: preserve-3d;
+            background: transparent;
+            padding: 40px 50px;
+        }
+
+        .nebula-background {
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(ellipse at 70% 30%, rgba(34, 211, 238, 0.15), transparent 50%),
+                        radial-gradient(ellipse at 30% 80%, rgba(139, 92, 246, 0.15), transparent 50%);
+            z-index: 0;
+            animation: nebula-swirl 180s linear infinite;
+        }
+        @keyframes nebula-swirl {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .background-grid {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='69.28'%3E%3Cpath d='M30 0 L60 17.32 L60 51.96 L30 69.28 L0 51.96 L0 17.32 Z M30 34.64 L0 17.32 M30 34.64 L60 17.32 M30 34.64 L30 69.28' fill='none' stroke='rgba(57, 255, 20, 0.08)' stroke-width='1'/%3E%3C/svg%3E");
+            background-size: 100px 115.47px;
+            z-index: 2;
+            animation: background-pan 120s linear infinite, grid-blink 8s linear infinite;
+        }
+        @keyframes background-pan {
+            0% { background-position: 0 0; }
+            100% { background-position: 400px 461.88px; }
+        }
+        @keyframes grid-blink {
+            0%, 100% { opacity: 0.6; } 20% { opacity: 0.6; } 22% { opacity: 1; }
+            24% { opacity: 0.6; } 50% { opacity: 0.6; } 52% { opacity: 1; }
+            53% { opacity: 0.8; } 54% { opacity: 0.6; }
+        }
+
+        .particle-field {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%; z-index: 1;
+            transform: translateZ(-100px);
+        }
+        .particle {
+            position: absolute; background: var(--aetherium-silver); border-radius: 50%;
+            width: var(--size); height: var(--size); top: var(--top); left: var(--left);
+            animation: firefly-drift var(--duration) infinite ease-in-out;
+            animation-delay: var(--delay);
+        }
+        @keyframes firefly-drift {
+            0% { transform: translate(0, 0) scale(0.2); opacity: 0; }
+            20% { opacity: 1; box-shadow: 0 0 10px var(--glow-aetherium-green), 0 0 15px var(--glow-aetherium-blue); }
+            80% { opacity: 0.8; box-shadow: 0 0 10px var(--glow-aetherium-violet), 0 0 15px var(--glow-aetherium-gold); }
+            100% { transform: translate(var(--x-end), var(--y-end)) scale(0.5); opacity: 0; }
+        }
+
+        .publisher-top { text-align: center; flex-shrink: 0; transform: translateZ(40px); }
+        .publisher-logo { height: 25px; width: auto; }
+        .publisher-line-2 {
+            font-size: 16px; font-weight: 300; letter-spacing: 0.05em; text-transform: uppercase;
+            margin-top: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 0.5em;
+        }
+        .hq-text, .ai-text, .plus-symbol, .mastery-text { color: var(--text-secondary); opacity: 0.8; }
+        .hq-text { position: relative; overflow: hidden; }
+        .hq-text::after {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.3), transparent);
+            animation: scan-line 5s infinite linear; animation-delay: 1s;
+        }
+        @keyframes scan-line { 0% { left: -100%; } 100% { left: 100%; } }
+        .plus-symbol { color: var(--aetherium-gold); font-weight: 900; animation: plus-glow-pulse-v3 4s infinite ease-in-out; }
+        @keyframes plus-glow-pulse-v3 {
+            0%, 100% { transform: scale(1) rotate(0deg); text-shadow: 0 0 4px var(--glow-aetherium-gold); }
+            50% { transform: scale(1.2) rotate(180deg); text-shadow: 0 0 6px var(--glow-white-light), 0 0 12px var(--glow-aetherium-gold), 0 0 20px var(--glow-aetherium-gold); }
+        }
+        .ai-text { position: relative; }
+        .ai-text::before, .ai-text::after {
+            content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            overflow: hidden; color: var(--text-secondary);
+        }
+        .ai-text::before { left: 1px; text-shadow: -1px 0 var(--aetherium-green); animation: glitch-anim 3s infinite linear alternate-reverse; }
+        .ai-text::after { left: -1px; text-shadow: -1px 0 var(--aetherium-violet); animation: glitch-anim 2.5s infinite linear alternate-reverse; }
+        @keyframes glitch-anim {
+            0% { clip-path: inset(45% 0 50% 0); } 20% { clip-path: inset(55% 0 10% 0); }
+            40% { clip-path: inset(20% 0 65% 0); } 60% { clip-path: inset(70% 0 5% 0); }
+            80% { clip-path: inset(15% 0 75% 0); } 100% { clip-path: inset(50% 0 45% 0); }
+        }
+        .mastery-text { animation: mastery-charge-v3 6s infinite ease-in-out; }
+        @keyframes mastery-charge-v3 {
+            0%, 100% { color: var(--text-secondary); text-shadow: none; }
+            40% { color: var(--aetherium-silver); text-shadow: 0 0 8px var(--glow-aetherium-blue); }
+            60% { color: var(--aetherium-gold); text-shadow: 0 0 10px var(--glow-aetherium-gold), 0 0 18px var(--glow-aetherium-gold); }
+        }
+
+        .main-content {
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            gap: 1rem; transform-style: preserve-3d; text-align: center; flex-grow: 1;
+        }
+        .logo-container {
+            width: 130px; height: 130px; margin-bottom: 0; transform: translateZ(100px);
+            position: relative; transform-style: preserve-3d; display: flex; justify-content: center; align-items: center;
+        }
+        .animated-logo { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; z-index: 10; }
+        .logo-target, .logo-arrow {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            animation: sync-logo-glow 12s infinite ease-in-out;
+        }
+        @keyframes sync-logo-glow {
+            0%, 100% { filter: drop-shadow(0 0 15px var(--glow-aetherium-blue)); }
+            33% { filter: drop-shadow(0 0 20px var(--glow-aetherium-green)); }
+            66% { filter: drop-shadow(0 0 15px var(--glow-aetherium-violet)); }
+        }
+        /* SACRED CODE: DO NOT MODIFY */
+        .logo-target { z-index: 2; }
+        .logo-arrow {
+            z-index: 1; opacity: 1; transform: translateX(-2%) translateY(-2%) rotate(0deg) scale(0.8);
+            animation: arrow-strike-penetrate 3.5s cubic-bezier(0.25, 1, 0.5, 1) forwards, sync-logo-glow 12s infinite ease-in-out;
+        }
+        @keyframes arrow-strike-penetrate {
+            0% { transform: translateX(120%) translateY(120%) rotate(-45deg) scale(0.8); opacity: 0; z-index: 5; }
+            30% { opacity: 1; } 35% { z-index: 3; } 38% { z-index: 3; } 39% { z-index: 1; }
+            50% { transform: translateX(0) translateY(0) rotate(0deg) scale(0.8); }
+            100% { transform: translateX(-2%) translateY(-2%) rotate(0deg) scale(0.8); opacity: 1; z-index: 1; }
+        }
+        /* END SACRED CODE */
+        .holo-globe {
+            position: absolute; width: 180px; height: 180px; top: calc(50% - 90px); left: calc(50% - 90px);
+            transform-style: preserve-3d; animation: globe-rotate 20s infinite linear;
+        }
+        @keyframes globe-rotate { from { transform: rotateY(0deg) rotateX(10deg); } to { transform: rotateY(360deg) rotateX(10deg); } }
+        .globe-sphere {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%;
+            transform-style: preserve-3d; box-shadow: inset 0 0 20px rgba(34, 211, 238, 0.3), 0 0 15px rgba(34, 211, 238, 0.3);
+        }
+        .globe-ring {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 50%;
+        }
+        .globe-ring:nth-child(1) { transform: rotateY(0deg) rotateX(90deg); } .globe-ring:nth-child(2) { transform: rotateY(30deg); }
+        .globe-ring:nth-child(3) { transform: rotateY(60deg); } .globe-ring:nth-child(4) { transform: rotateY(90deg); }
+        .globe-ring:nth-child(5) { transform: rotateY(120deg); } .globe-ring:nth-child(6) { transform: rotateY(150deg); }
+        .holo-citadel-contained {
+            position: absolute; width: 100%; height: 100%; transform-style: preserve-3d; z-index: 5;
+            pointer-events: none; animation: citadel-inner-rotate 25s infinite linear reverse;
+        }
+        @keyframes citadel-inner-rotate { from { transform: rotateY(360deg); } to { transform: rotateY(0deg); } }
+        .citadel-hex {
+            position: absolute; width: 100%; height: 100%; border-width: 3px; border-style: solid;
+            border-image-slice: 1; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            animation: sync-hex-border 12s infinite ease-in-out, sync-hex-glow 12s infinite ease-in-out;
+        }
+        @keyframes sync-hex-border {
+            0%, 100% { border-image-source: linear-gradient(to right, var(--aetherium-blue), var(--aetherium-green)); }
+            33% { border-image-source: linear-gradient(to right, var(--aetherium-green), var(--aetherium-gold)); }
+            66% { border-image-source: linear-gradient(to right, var(--aetherium-gold), var(--aetherium-violet)); }
+        }
+        @keyframes sync-hex-glow {
+            0%, 100% { filter: drop-shadow(0 0 15px var(--glow-aetherium-blue)); }
+            33% { filter: drop-shadow(0 0 20px var(--glow-aetherium-green)); }
+            66% { filter: drop-shadow(0 0 15px var(--glow-aetherium-violet)); }
+        }
+        .cover-container:hover .holo-globe, .cover-container:hover .holo-citadel-contained { animation-play-state: paused; }
+
+        .text-content { display: flex; flex-direction: column; gap: 2rem; transform: translateZ(60px); }
+        .title {
+            font-family: 'Orbitron', sans-serif; font-size: clamp(3.2rem, 10vw, 6rem); font-weight: 900;
+            letter-spacing: 0.02em; color: var(--text-primary); animation: sync-title-shadow 12s infinite ease-in-out;
+        }
+        .title .ai-letters, .title .artisan-letters {
+            -webkit-text-fill-color: transparent; -webkit-background-clip: text; background-clip: text; background-size: 200% auto;
+        }
+        .title .ai-letters { animation: sync-ai-gradient 12s infinite ease-in-out; }
+        .title .artisan-letters { animation: sync-artisan-gradient 12s infinite ease-in-out; }
+        @keyframes sync-title-shadow {
+            0%, 100% { text-shadow: 0 0 10px var(--glow-aetherium-blue); }
+            33% { text-shadow: 0 0 15px var(--glow-aetherium-green); }
+            66% { text-shadow: 0 0 10px var(--glow-aetherium-violet); }
+        }
+        @keyframes sync-ai-gradient {
+            0%, 100% { background-image: linear-gradient(45deg, var(--aetherium-blue), var(--aetherium-silver)); }
+            33% { background-image: linear-gradient(45deg, var(--aetherium-green), var(--aetherium-blue)); }
+            66% { background-image: linear-gradient(45deg, var(--aetherium-violet), var(--aetherium-blue)); }
+        }
+        @keyframes sync-artisan-gradient {
+            0%, 100% { background-image: linear-gradient(90deg, var(--aetherium-blue), var(--aetherium-gold)); }
+            33% { background-image: linear-gradient(90deg, var(--aetherium-gold), var(--aetherium-green)); }
+            66% { background-image: linear-gradient(90deg, var(--aetherium-violet), var(--aetherium-gold)); }
+        }
+
+        .subtitle, .one-liner {
+            line-height: 1.6; color: var(--text-secondary); font-weight: 300; max-width: 80%; margin: 0 auto;
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), color 0.5s ease;
+        }
+        .cover-container:hover .subtitle, .cover-container:hover .one-liner { transform: translateZ(25px); color: var(--text-primary); }
+        .subtitle { font-size: clamp(1.2rem, 3vw, 1.6rem); font-weight: 400; min-height: 1.6em; /* Adjusted height */ }
+        .one-liner { font-size: clamp(1.1rem, 2.8vw, 1.4rem); min-height: 1.6em; /* Adjusted height */ }
+
+        /* Typing cursor animation */
+        .typing-target.typing::after {
+            content: '|';
+            color: var(--aetherium-blue);
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .one-liner {
+            border-top: 1px solid;
+            border-image: linear-gradient(to right, transparent, var(--aetherium-blue), var(--aetherium-green), var(--aetherium-violet), var(--aetherium-blue), transparent) 1;
+            padding-top: 2rem; margin-top: 0.5rem; position: relative;
+            /* Hide by default, show on scroll or after delay */
+            opacity: 0;
+            transition: opacity 0.5s 0.2s ease-out; /* Fade in after delay */
+        }
+        /* Class to be added by IntersectionObserver */
+        .one-liner.is-visible {
+            opacity: 1;
+        }
+
+        .one-liner::before {
+            content: ''; position: absolute; top: -2px; left: 50%; width: 0%; height: 3px;
+            background: var(--aetherium-silver);
+            box-shadow: 0 0 15px var(--aetherium-silver), 0 0 25px var(--glow-aetherium-green);
+            /* Updated animation to trigger when .is-visible */
+            animation: none;
+        }
+        .one-liner.is-visible::before {
+             animation: aetherium-energy-surge 2s cubic-bezier(0.23, 1, 0.32, 1) forwards; /* Start animation when visible */
+        }
+
+        @keyframes aetherium-energy-surge {
+            0% { width: 0; left: 50%; opacity: 1; }
+            49% { width: 100%; left: 0; }
+            50% { width: 100%; left: 0; opacity: 0; }
+            100% { width: 100%; left: 0; opacity: 0; }
+        }
+
+        .author {
+            font-size: 1.4rem; margin-top: 3rem; letter-spacing: 2px; transform: translateZ(50px);
+            text-transform: uppercase; -webkit-text-fill-color: transparent; background-clip: text; -webkit-background-clip: text;
+            background-image: linear-gradient(90deg, var(--aetherium-turquoise), var(--aetherium-green), var(--aetherium-turquoise));
+            background-size: 200% auto; animation: author-gradient-shift 8s infinite linear;
+        }
+        @keyframes author-gradient-shift { from { background-position: 200% center; } to { background-position: 0% center; } }
+
+        footer { text-align: center; transform: translateZ(20px); flex-shrink: 0; }
+        .cta-button {
+            display: inline-flex; align-items: center; justify-content: center; width: 60px; height: 60px;
+            background: rgba(12, 20, 37, 0.5); border-radius: 50%; transition: all 0.4s ease;
+            position: relative; overflow: hidden; border: none;
+        }
+        .cta-button::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: conic-gradient(transparent, transparent, var(--aetherium-blue));
+            animation: cta-scanner 4s linear infinite;
+        }
+        .cta-button::after {
+            content: ''; position: absolute; top: 2px; left: 2px; width: calc(100% - 4px); height: calc(100% - 4px);
+            background: var(--bg-deep-space); border-radius: 50%;
+        }
+        @keyframes cta-scanner { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .cta-button .cta-icon {
+            width: 28px; height: 28px; stroke: var(--aetherium-blue); transition: all 0.4s ease; z-index: 5;
+        }
+        .cta-button:hover {
+            transform: scale(1.1); box-shadow: 0 0 25px var(--glow-aetherium-blue), 0 0 40px var(--glow-aetherium-violet);
+        }
+        .cta-button:hover::before { animation-duration: 1.5s; }
+        .cta-button:hover .cta-icon {
+            stroke: var(--text-primary); transform: scale(1.1); filter: drop-shadow(0 0 10px var(--glow-white-light));
+        }
+    </style>
 </head>
-
 <body>
-  <a href="#main" class="skip-link">↓ Skip to content</a>
+    <div class="cover-wrapper">
+        <div class="cover-container">
+            <div class="nebula-background"></div>
+            <div class="background-grid"></div>
+            <div class="particle-field">
+                 <div class="particle" style="--size: 4px; --top: 15%; --left: 20%; --duration: 18s; --delay: -1s; --x-end: -80px; --y-end: 60px;"></div>
+                 <div class="particle" style="--size: 5px; --top: 80%; --left: 90%; --duration: 12s; --delay: -1.5s; --x-end: 50px; --y-end: -70px;"></div>
+                 <div class="particle" style="--size: 7px; --top: 50%; --left: 10%; --duration: 25s; --delay: -2s; --x-end: 100px; --y-end: 50px;"></div>
+                 <div class="particle" style="--size: 4px; --top: 10%; --left: 85%; --duration: 15s; --delay: -3s; --x-end: -50px; --y-end: 90px;"></div>
+                 <div class="particle" style="--size: 6px; --top: 95%; --left: 50%; --duration: 22s; --delay: -4s; --x-end: 80px; --y-end: -80px;"></div>
+                 <div class="particle" style="--size: 4px; --top: 30%; --left: 40%; --duration: 13s; --delay: -5s; --x-end: -60px; --y-end: -40px;"></div>
+                 <div class="particle" style="--size: 5px; --top: 65%; --left: 75%; --duration: 19s; --delay: -6s; --x-end: 70px; --y-end: 30px;"></div>
+                 <div class="particle" style="--size: 7px; --top: 5%; --left: 5%; --duration: 28s; --delay: -7s; --x-end: 120px; --y-end: 100px;"></div>
+                 <div class="particle" style="--size: 4px; --top: 90%; --left: 25%; --duration: 16s; --delay: -8s; --x-end: -90px; --y-end: -60px;"></div>
+                 <div class="particle" style="--size: 6px; --top: 45%; --left: 60%; --duration: 21s; --delay: -9s; --x-end: 40px; --y-end: 80px;"></div>
+                 <div class="particle" style="--size: 4px; --top: 25%; --left: 95%; --duration: 14s; --delay: -10s; --x-end: -100px; --y-end: -50px;"></div>
+                 <div class="particle" style="--size: 5px; --top: 70%; --left: 15%; --duration: 24s; --delay: -11s; --x-end: 60px; --y-end: -90px;"></div>
+                 <div class="particle" style="--size: 8px; --top: 55%; --left: 35%; --duration: 20s; --delay: -12s; --x-end: -70px; --y-end: 70px;"></div>
+                 <div class="particle" style="--size: 4px; --top: 85%; --left: 65%; --duration: 17s; --delay: -13s; --x-end: 90px; --y-end: -30px;"></div>
+                 <div class="particle" style="--size: 6px; --top: 20%; --left: 50%; --duration: 26s; --delay: -14s; --x-end: -40px; --y-end: 100px;"></div>
+                 <div class="particle" style="--size: 4px; --top: 35%; --left: 5%; --duration: 15s; --delay: -15s; --x-end: 50px; --y-end: -100px;"></div>
+                 <div class="particle" style="--size: 7px; --top: 75%; --left: 95%; --duration: 23s; --delay: -16s; --x-end: -110px; --y-end: 40px;"></div>
+                 <div class="particle" style="--size: 5px; --top: 5%; --left: 30%; --duration: 19s; --delay: -17s; --x-end: 60px; --y-end: 90px;"></div>
+                 <div class="particle" style="--size: 6px; --top: 95%; --left: 70%; --duration: 27s; --delay: -18s; --x-end: -80px; --y-end: -40px;"></div>
+                 <div class="particle" style="--size: 4px; --top: 50%; --left: 90%; --duration: 16s; --delay: -19s; --x-end: 40px; --y-end: 60px;"></div>
+            </div>
 
-  <!-- ===== HEADER ===== -->
-  <header class="site-header">
-    <div class="wrap bar">
-      <a class="brand" href="https://aiartisan.hqaim.com" aria-label="The AI Artisan home">
-        <img class="logo"
-          src="https://quotes-app.wordsofwisdom.in/assets/HQAIM_LOGO_Gradient_Minimal.svg"
-          alt="HQAIM Studios Logo">
-        <span class="brand-title">The AI Artisan</span>
-      </a>
+            <div class="content-wrapper">
+                <header class="publisher-top">
+                    <img src="https://quotes-app.wordsofwisdom.in/assets/HQAIM_LOGO_Gradient_Minimal.svg" alt="HQAIM Logo" class="publisher-logo">
+                    <div class="publisher-line-2">
+                        <span class="hq-text">HUMAN QUOTIENT</span>
+                        <span class="plus-symbol">+</span>
+                        <span class="ai-text" data-text="ARTIFICIAL INTELLIGENCE">ARTIFICIAL INTELLIGENCE</span>
+                        <span class="mastery-text">MASTERY</span>
+                    </div>
+                </header>
 
-      <nav class="main-nav" aria-label="Primary">
-        <ul>
-          <li><a href="foreword.html">Start</a></li>
-          <li><span class="dot">•</span><a href="modules.html">Explore</a></li>
-          <li><span class="dot">•</span><a href="fieldkit.html">Toolkit</a></li>
-          <li><span class="dot">•</span><a href="credits.html">Studio</a></li>
-          <li><span class="dot">•</span><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
+                <main class="main-content">
+                    <div class="logo-container">
+                        <div class="holo-globe">
+                            <div class="globe-sphere">
+                                <div class="globe-ring"></div> <div class="globe-ring"></div> <div class="globe-ring"></div>
+                                <div class="globe-ring"></div> <div class="globe-ring"></div> <div class="globe-ring"></div>
+                            </div>
+                        </div>
+                        <div class="holo-citadel-contained">
+                           <div class="citadel-hex"></div>
+                        </div>
 
-      <div class="tools">
-        <label class="search" aria-label="Search modules">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor"
-           d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5
-              6.5 6.5 0 1 0 9.5 16a6.47 6.47 0 0 0 4.23-1.57l.27.27v.79l5 5
-              1.5-1.5-4.99-5zM10.5 14A4.5 4.5 0 1 1 15 9.5
-              4.5 4.5 0 0 1 10.5 14z"/></svg>
-          <input id="searchBox" type="search" placeholder="Search modules…" aria-controls="toc">
-        </label>
+                        <div class="animated-logo">
+                            <img src="https://quotes-app.wordsofwisdom.in/assets/AIM_icon.svg" alt="Arrow Icon" class="logo-arrow">
+                            <img src="https://quotes-app.wordsofwisdom.in/assets/HQ-icon.svg" alt="Target Icon" class="logo-target">
+                        </div>
+                    </div>
+                    <div class="text-content">
+                        <h1 class="title">
+                            <span class="title-line-1">THE <span class="ai-letters">AI</span></span>
+                            <span class="title-line-2 artisan-letters">ARTISAN</span>
+                        </h1>
+                        <h2 class="subtitle typing-target"></h2>
+                        <p class="one-liner typing-target"></p>
+                    </div>
+                    <div class="author">Abdullah Khan</div>
+                </main>
 
-        <button id="themeToggle" class="toggle" aria-label="Switch to dark theme">
-          <svg id="sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-            <circle cx="12" cy="12" r="5" fill="#F6BE3E" />
-            <g stroke="#F6BE3E" stroke-width="2" stroke-linecap="round">
-              <line x1="12" y1="2" x2="12" y2="5"/>
-              <line x1="12" y1="19" x2="12" y2="22"/>
-              <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/>
-              <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/>
-              <line x1="2" y1="12" x2="5" y2="12"/>
-              <line x1="19" y1="12" x2="22" y2="12"/>
-              <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/>
-              <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/>
-            </g>
-          </svg>
-          <svg id="moon" viewBox="0 0 24 24" width="22" height="22" hidden>
-            <path fill="#FFFFFF" d="M21 12.79A9 9 0 1 1 11.21 3A7 7 0 0 0 21 12.79z"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- ===== MAIN ===== -->
-  <main id="main" class="main-wrap">
-
-    <!-- HERO -->
-    <section class="hero" aria-label="Overview">
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <p class="kicker">Simple inputs. Powerful outputs.</p>
-          <h1 class="display">The AI Artisan</h1>
-          <p class="sub">
-            From <strong>prompt</strong> to <strong>proof</strong>: five frameworks for clarity,
-            iteration, verification, and measurable value in everyday work.
-          </p>
-          <div class="cta">
-            <a class="btn" href="foreword.html">Start Reading</a>
-            <a class="btn outline" href="fieldkit.html">Toolkit</a>
-          </div>
-          <p class="tagline">Structure your thinking. Prove your outcomes.</p>
+                <footer>
+                    <a href="/toc.html" class="cta-button" aria-label="Explore the Playbook">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="cta-icon">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </a>
+                </footer>
+            </div>
         </div>
-
-        <figure class="hero-art">
-          <img
-            src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1600&auto=format&fit=crop"
-            alt="Abstract futuristic AI gradient visualization"
-            loading="lazy"
-            decoding="async" />
-        </figure>
-      </div>
-
-      <a href="#toc" class="scroll-btn" aria-label="Explore further">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor"
-             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="6 9 12 15 18 9"/>
-        </svg>
-      </a>
-    </section>
-
-    <!-- ===== TABLE OF CONTENTS ===== -->
-    <section id="toc" class="toc" aria-label="Table of Contents">
-      <!-- Parts & Modules -->
-      <div class="part-head"><span class="part-icon">🧭</span><h2 class="part-title">Part I · Foundations — The Starting Mindset</h2></div>
-      <div class="grid-cards two-col">
-        <a class="card" href="module-01.html"><h3>01 · The Promise and the Trap</h3><p>Why most AI outputs miss the mark and how to turn randomness into results.</p></a>
-        <a class="card" href="module-02.html"><h3>02 · The Value Gap</h3><p>Bridge the divide between ideas and meaningful, measurable outcomes.</p></a>
-        <a class="card" href="module-03.html"><h3>03 · The Frameworks of Thought</h3><p>Five simple mental models that make every prompt more consistent.</p></a>
-        <a class="card" href="module-04.html"><h3>04 · Buildsheet I — The First System</h3><p>Create a repeatable foundation for all your creative AI projects.</p></a>
-      </div>
-
-      <div class="part-head"><span class="part-icon">⚡</span><h2 class="part-title">Part II · Systems — Working with Structure</h2></div>
-      <div class="grid-cards two-col">
-        <a class="card" href="module-05.html"><h3>05 · Mindset Reset</h3><p>Shift from reactive use to reflective creation that improves over time.</p></a>
-        <a class="card" href="module-06.html"><h3>06 · From Asking to Architecting</h3><p>Design prompts as structured frameworks instead of guesswork queries.</p></a>
-        <a class="card" href="module-07.html"><h3>07 · Structured Outputs & Prompt Contracts</h3><p>Set clear agreements with AI for predictable, reusable output.</p></a>
-        <a class="card" href="module-08.html"><h3>08 · CLARITY-7™ Deep Dive</h3><p>Seven simple checks to ensure every AI interaction stays precise.</p></a>
-      </div>
-
-      <div class="part-head"><span class="part-icon">🔍</span><h2 class="part-title">Part III · Advanced Practice — Proof in Action</h2></div>
-      <div class="grid-cards two-col">
-        <a class="card" href="module-09.html"><h3>09 · SPARK-5™ in Action</h3><p>Move from ideas to validated outputs in five repeatable cycles.</p></a>
-        <a class="card" href="module-10.html"><h3>10 · MIRROR-6™ Playbook</h3><p>Use reflection gates to test, verify, and refine your own outputs.</p></a>
-        <a class="card" href="module-11.html"><h3>11 · Proof Artifacts™ in the Wild</h3><p>Transform everyday tasks into evidence of progress and value.</p></a>
-        <a class="card" href="module-12.html"><h3>12 · Buildsheet II — The Reusable Vault</h3><p>Build templates you can scale, share, and refine across platforms.</p></a>
-      </div>
-
-      <div class="part-head premium"><span class="part-icon">🔺</span><h2 class="part-title">Part IV · Scaling Value — The Master Keys <small class="premium-label">🟩 Premium</small></h2></div>
-      <div class="grid-cards two-col">
-        <a class="card premium" href="module-13.html"><h3>13 · VALOR-Δ — The Value Equation</h3><p>Quantify creative worth and communicate outcomes with confidence.</p></a>
-        <a class="card premium" href="module-14.html"><h3>14 · TESSERA™ — The Framework of Synthesis</h3><p>Combine multiple systems into a seamless creative ecosystem.</p></a>
-        <a class="card premium" href="module-15.html"><h3>15 · Pattern Forge™ II — Master Keys</h3><p>Unlock elite prompt patterns that adapt across any use case.</p></a>
-      </div>
-
-      <!-- Request Access -->
-      <div class="elite-access">
-        <p>Ready to explore deeper? Access the exclusive Master Keys suite and advanced modules.</p>
-        <a class="btn premium" href="premium.html">Request Access</a>
-      </div>
-    </section>
-  </main>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="site-footer">
-    <div class="wrap footer-grid">
-      <div class="footer-left">
-        <img class="logo small"
-          src="https://quotes-app.wordsofwisdom.in/assets/HQAIM_LOGO_Gradient_Minimal.svg"
-          alt="HQAIM Studios">
-        <span class="foot-meta">An HQAIM Studios Publication</span>
-      </div>
-      <div class="footer-right">
-        <a class="link" href="https://aiartisan.hqaim.com/">Home</a>
-        <span class="sep">•</span>
-        <a class="link" href="contact.html">Contact</a>
-        <span class="sep">•</span>
-        <span>© 2025 Abdullah Khan</span>
-      </div>
     </div>
-  </footer>
 
-  <button id="topBtn" aria-label="Scroll to top">↑</button>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const typingTargets = document.querySelectorAll('.typing-target');
+            const typingSpeed = 50; // Milliseconds per character
 
-  <script>
-    const root=document.documentElement,btn=document.getElementById('themeToggle'),
-          sun=document.getElementById('sun'),moon=document.getElementById('moon');
-    const setTheme=(dark)=>{root.dataset.theme=dark?'dark':'light';
-      sun.hidden=dark;moon.hidden=!dark;
-      btn.setAttribute('aria-label',dark?'Switch to light theme':'Switch to dark theme');
-      localStorage.setItem('theme',root.dataset.theme);}
-    setTheme(root.dataset.theme==='dark');
-    btn.addEventListener('click',()=>setTheme(root.dataset.theme!=='dark'));
-    const q=document.getElementById('searchBox');
-    const cards=[...document.querySelectorAll('.card')];
-    q?.addEventListener('input',()=>{const v=q.value.toLowerCase();
-      cards.forEach(el=>el.style.display=el.textContent.toLowerCase().includes(v)?'':'none');});
-    const topBtn=document.getElementById('topBtn');
-    window.addEventListener('scroll',()=>{topBtn.style.display=(window.scrollY>320)?'flex':'none';});
-    topBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
-  </script>
+            // Store the new, updated text in the map
+            const textMap = new Map();
+            textMap.set('subtitle', "Master Prompt Engineering — design with clarity, deliver with proof.");
+            textMap.set('one-liner', "A clear, practical guide that turns AI prompts into structured systems and measurable results.");
+
+            const typeWriter = (element, text, i = 0) => {
+                if (i < text.length) {
+                    element.textContent = text.substring(0, i + 1);
+                    setTimeout(() => typeWriter(element, text, i + 1), typingSpeed);
+                } else {
+                    element.classList.remove('typing');
+                }
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        let textToType = '';
+                        let delay = 0;
+
+                        if (target.classList.contains('subtitle')) {
+                            textToType = textMap.get('subtitle');
+                            // Start subtitle animation shortly after load/scroll
+                            delay = 500;
+                        } else if (target.classList.contains('one-liner')) {
+                            textToType = textMap.get('one-liner');
+                            // Add a delay for the one-liner to start after the subtitle finishes
+                            // This also allows the CSS divider line animation to trigger
+                            const subtitleText = textMap.get('subtitle');
+                            delay = (subtitleText.length * typingSpeed) + 1500; // Subtitle time + 1.5s pause
+                            
+                            // Trigger visibility for CSS animation
+                            target.classList.add('is-visible');
+                        }
+                        
+                        setTimeout(() => {
+                           target.classList.add('typing');
+                           typeWriter(target, textToType);
+                        }, delay);
+
+                        observer.unobserve(target);
+                    }
+                });
+            }, { threshold: 0.1 }); // Trigger when 10% is visible
+
+            typingTargets.forEach(target => {
+                if (target) {
+                    observer.observe(target);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
