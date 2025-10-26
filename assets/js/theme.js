@@ -1,474 +1,111 @@
 /* =========================================================
-   THE AI ARTISAN — GLOBAL STYLE SYSTEM (Aetherium Edition)
+   THE AI ARTISAN — THEME CONTROLLER (Aetherium Edition)
    Author: Abdullah Khan · HQAIM Studios
    Build: v1.1 (TOC Publication)
+   =========================================================
+   • Manages Light/Dark theme toggle.
+   • Persists user preference via localStorage.
+   • Respects system color scheme if no user setting.
+   • Accessible: announces theme changes via live region.
    ========================================================= */
 
-/* ------------------------------
-   ROOT TOKENS & BASE RESET
-   ------------------------------ */
-:root {
-  color-scheme: light dark;
-  --font-sans: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+(function () {
+  'use strict';
 
-  /* Aetherium Palette */
-  --violet: #7c3aed;
-  --blue: #2563eb;
-  --gold: #f6be3e;
-  --white: #ffffff;
-  --black: #0f172a;
+  const root = document.documentElement;
+  const toggleBtn = document.getElementById('themeToggle');
+  if (!toggleBtn) return;
 
-  /* LIGHT THEME (Default) */
-  --bg: var(--white);
-  --surface: #f8fafc;
-  --text: var(--black);
-  --muted: #475569;
-  --muted2: #64748b;
-  --border: #e2e8f0;
-  --accent: var(--violet);
-  --link: var(--blue);
-  --focus: rgba(37, 99, 235, .35);
-  --shadow: 0 8px 24px rgba(15, 23, 42, .08);
-  --bg-gradient: radial-gradient(140% 70% at 50% -10%, color-mix(in oklab, var(--violet) 8%, transparent), transparent 50%), var(--bg);
-}
+  const STORAGE_KEY = 'aiartisan_theme';
+  const LIVE_REGION_ID = 'theme-status-liveregion';
 
-html[data-theme="dark"] {
-  --bg: #0f172a;
-  --surface: #111827;
-  --text: #f8fafc;
-  --muted: #94a3b8;
-  --muted2: #a1a1aa;
-  --border: #1f2937;
-  --accent: #a78bfa;
-  --link: #7dd3fc;
-  --focus: rgba(124, 58, 237, .45);
-  --shadow: 0 8px 24px rgba(0, 0, 0, .18);
-  --bg-gradient: radial-gradient(140% 70% at 50% -10%, color-mix(in oklab, var(--accent) 12%, transparent), transparent 50%), var(--bg);
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { height: 100%; scroll-behavior: smooth; }
-body {
-  font: 16px/1.6 var(--font-sans);
-  background: var(--bg-gradient);
-  color: var(--text);
-  transition: background-color .18s linear, color .18s linear;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { transition: none !important; animation: none !important; }
-}
-
-/* ------------------------------
-   HEADER & NAVIGATION
-   ------------------------------ */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: color-mix(in oklab, var(--surface) 88%, transparent);
-  backdrop-filter: saturate(140%) blur(6px);
-  border-bottom: 1px solid var(--border);
-}
-.header-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: .7rem 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-.brand-wrap {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  color: var(--text);
-}
-.brand-logo {
-  width: 32px;
-  height: 32px;
-  display: inline-block;
-}
-.brand-text {
-  font-weight: 800;
-  letter-spacing: .2px;
-  font-size: 1rem;
-  background: linear-gradient(90deg, var(--violet), var(--blue));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Main Nav */
-.main-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 14px;
-  align-items: center;
-}
-.main-nav a {
-  color: var(--muted);
-  text-decoration: none;
-  font-weight: 600;
-  transition: color .2s;
-}
-.main-nav a[aria-current="page"],
-.main-nav a:hover {
-  color: var(--accent);
-}
-.nav-toggle {
-  display: none;
-  border: 0;
-  background: none;
-  cursor: pointer;
-}
-.nav-toggle-bar {
-  width: 22px;
-  height: 2px;
-  background: var(--text);
-  display: block;
-  margin: 4px 0;
-  border-radius: 2px;
-}
-
-/* ------------------------------
-   THEME TOGGLE
-   ------------------------------ */
-.theme-toggle {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  padding: 0;
-  transition: transform .18s, box-shadow .18s;
-}
-.theme-toggle:hover {
-  transform: translateY(-1px) scale(1.05);
-  box-shadow: 0 0 8px var(--focus);
-}
-.theme-toggle .icon {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  transition: transform .3s ease, opacity .3s ease;
-}
-.theme-toggle .icon-sun { color: var(--gold); transform: scale(0); opacity: 0; }
-.theme-toggle .icon-moon { color: var(--white); transform: scale(1); opacity: 1; }
-html[data-theme="light"] .theme-toggle .icon-sun { transform: scale(1); opacity: 1; }
-html[data-theme="light"] .theme-toggle .icon-moon { transform: scale(0); opacity: 0; }
-html[data-theme="dark"] .theme-toggle .icon-sun { transform: scale(0); opacity: 0; }
-html[data-theme="dark"] .theme-toggle .icon-moon { transform: scale(1); opacity: 1; }
-
-/* ------------------------------
-   HERO & SEARCH
-   ------------------------------ */
-.hero {
-  padding: clamp(24px, 5vw, 40px) 1.5rem 8px;
-  text-align: center;
-}
-.hero h1 {
-  font-weight: 800;
-  background: linear-gradient(90deg, var(--violet), var(--blue));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: clamp(1.9rem, 4vw, 2.5rem);
-  margin-bottom: 6px;
-}
-.hero p {
-  margin: 0 auto;
-  color: var(--muted);
-  max-width: 72ch;
-}
-
-.toolbar {
-  display: flex;
-  justify-content: center;
-  padding: 10px 1.5rem 6px;
-}
-.search {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  width: min(860px, 100%);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 10px 12px;
-  box-shadow: var(--shadow);
-}
-.search input {
-  border: 0;
-  outline: 0;
-  background: transparent;
-  color: var(--text);
-  width: 100%;
-  font: inherit;
-  font-size: 1.05rem;
-}
-.search svg { color: var(--muted2); }
-.search-meta {
-  text-align: center;
-  font-size: .92rem;
-  color: var(--muted);
-  margin: .35rem 0 .8rem;
-}
-
-/* ------------------------------
-   TOC PARTS & CARDS
-   ------------------------------ */
-.toc-part {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 8px 1.5rem;
-}
-.toc-part-title {
-  margin: 18px 0 6px;
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: var(--text);
-}
-.toc-part-blurb { margin: 0 0 10px; color: var(--muted); }
-.toc-rule {
-  height: 1px;
-  border: 0;
-  margin: 6px 0 14px;
-  background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--accent) 24%, transparent), transparent);
-}
-
-.toc-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-}
-@media (min-width: 768px) {
-  .toc-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-.toc-card {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  gap: 6px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: color-mix(in oklab, var(--surface) 82%, transparent);
-  padding: 16px;
-  transition: transform .12s ease, border-color .12s ease;
-}
-.toc-card:hover {
-  transform: translateY(-2px);
-  border-color: var(--accent);
-}
-.toc-card h3 { margin: 0; font-size: 1.06rem; }
-.toc-card h3 a { color: var(--text); text-decoration: none; }
-.toc-card p { margin: 2px 0 6px; color: var(--muted); line-height: 1.55; font-size: 0.95rem; }
-.toc-meta { display: flex; gap: .5rem .75rem; flex-wrap: wrap; color: var(--muted2); font-size: .9rem; }
-
-/* Badges */
-.badge {
-  padding: .2rem .6rem;
-  border-radius: 99px;
-  font-size: .78rem;
-  font-weight: 700;
-  background: color-mix(in oklab, var(--accent) 14%, transparent);
-  border: 1px solid color-mix(in oklab, var(--accent) 24%, transparent);
-  color: var(--accent);
-}
-.badge.blue {
-  background: color-mix(in oklab, var(--blue) 16%, transparent);
-  border-color: color-mix(in oklab, var(--blue) 28%, transparent);
-  color: var(--blue);
-}
-.badge.gold {
-  background: color-mix(in oklab, var(--gold) 25%, transparent);
-  border-color: color-mix(in oklab, var(--gold) 46%, transparent);
-  color: color-mix(in oklab, var(--gold) 80%, var(--black));
-}
-html[data-theme="dark"] .badge.gold { color: var(--gold); }
-
-/* Premium link */
-.card-actions a {
-  font-weight: 700;
-  color: var(--link);
-  transition: color .18s;
-}
-.toc-card[data-tags*="premium"] .card-actions a {
-  background: linear-gradient(90deg, var(--gold), color-mix(in oklab, var(--gold) 70%, var(--violet)));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 800;
-}
-.toc-card[data-tags*="premium"] .card-actions a:hover { filter: brightness(1.2); }
-
-/* ------------------------------
-   BACK TO TOP
-   ------------------------------ */
-.back-to-top {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  display: grid;
-  place-items: center;
-  box-shadow: var(--shadow);
-  color: var(--accent);
-  opacity: 0;
-  visibility: hidden;
-  cursor: pointer;
-  transition: opacity .2s, visibility .2s, transform .2s;
-  z-index: 80;
-}
-.back-to-top.visible {
-  opacity: 1;
-  visibility: visible;
-}
-.back-to-top:hover { transform: translateY(-2px); }
-.back-to-top:focus-visible {
-  outline: 3px solid var(--focus);
-  outline-offset: 3px;
-}
-
-/* ------------------------------
-   FOOTER (Two-tier, refined)
-   ------------------------------ */
-.site-footer {
-  margin-top: 32px;
-  padding: 16px 1.5rem;
-  border-top: 1px solid var(--border);
-  background: color-mix(in oklab, var(--surface) 88%, transparent);
-}
-.footer-divider {
-  height: 2px;
-  border: 0;
-  margin-bottom: 14px;
-  background: linear-gradient(90deg, var(--violet), var(--blue), var(--gold));
-  opacity: .35;
-}
-.footer-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  color: var(--muted);
-  font-size: .95rem;
-}
-.footer-logo {
-  height: 24px;
-  width: auto;
-  vertical-align: middle;
-  margin-right: 8px;
-  opacity: 0.8;
-  transition: opacity .18s;
-}
-.footer-brand-text {
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-  color: var(--muted);
-}
-.footer-brand-text:hover .footer-logo { opacity: 1; }
-.footer-brand-text:hover { color: var(--text); }
-.footer-nav { display: flex; gap: 12px; flex-wrap: wrap; }
-.footer-nav a { color: var(--muted); text-decoration: none; }
-.footer-nav a:hover { color: var(--accent); }
-.footer-bottom {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding-top: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: var(--muted2);
-  font-size: .85rem;
-}
-.footer-sitemap a { color: var(--muted2); text-decoration: none; }
-.footer-sitemap a:hover { color: var(--accent); }
-
-/* ------------------------------
-   RESPONSIVE NAVIGATION
-   ------------------------------ */
-@media (max-width: 820px) {
-  .nav-toggle { display: block; }
-  .main-nav ul {
-    position: fixed;
-    right: 12px;
-    top: 60px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    box-shadow: var(--shadow);
-    padding: 12px;
-    gap: 10px;
-    flex-direction: column;
-    transform: scale(.98);
-    opacity: 0;
-    pointer-events: none;
-    transition: all .18s ease-out;
+  // ------------------------------
+  // Accessible live region for announcements
+  // ------------------------------
+  let liveRegion = document.getElementById(LIVE_REGION_ID);
+  if (!liveRegion) {
+    liveRegion = document.createElement('div');
+    liveRegion.id = LIVE_REGION_ID;
+    liveRegion.setAttribute('aria-live', 'polite');
+    liveRegion.className = 'visually-hidden';
+    document.body.appendChild(liveRegion);
   }
-  .main-nav.open ul {
-    transform: scale(1);
-    opacity: 1;
-    pointer-events: auto;
-  }
-}
 
-/* ------------------------------
-   PRINT OPTIMIZATION (6x9)
-   ------------------------------ */
-@media print {
-  @page { size: 6in 9in; margin: 0.75in; }
-  html { color-scheme: light; }
-  :root {
-    --bg: #ffffff !important;
-    --surface: #ffffff !important;
-    --text: #111827 !important;
-    --muted: #374151 !important;
-    --border: #e5e7eb !important;
-    --accent: #7c3aed !important;
-    --shadow: none !important;
+  // ------------------------------
+  // Determine Theme Preference
+  // ------------------------------
+  function getPreferredTheme() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved === 'light' || saved === 'dark') {
+      return saved;
+    }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+    return 'light';
   }
-  body {
-    background: #fff !important;
-    color: #111827 !important;
-    font-size: 11pt;
+
+  // ------------------------------
+  // Apply Theme
+  // ------------------------------
+  function applyTheme(mode, announce = false) {
+    const isDark = mode === 'dark';
+    root.setAttribute('data-theme', mode);
+    localStorage.setItem(STORAGE_KEY, mode);
+
+    // Update ARIA + title
+    toggleBtn.setAttribute('aria-pressed', String(isDark));
+    const label = isDark ? 'Switch to light theme' : 'Switch to dark theme';
+    toggleBtn.setAttribute('aria-label', label);
+    toggleBtn.setAttribute('title', label);
+
+    // Optional: announce change
+    if (announce) {
+      liveRegion.textContent = `${mode.charAt(0).toUpperCase() + mode.slice(1)} theme enabled.`;
+    }
+
+    // Smooth background transition handling
+    document.body.classList.add('theme-transitioning');
+    window.setTimeout(() => {
+      document.body.classList.remove('theme-transitioning');
+    }, 250);
   }
-  .site-header,
-  .theme-toggle,
-  .toolbar,
-  .nav-toggle,
-  .footer-divider,
-  .site-footer,
-  .back-to-top {
-    display: none !important;
-  }
-  .toc-grid { grid-template-columns: 1fr !important; }
-  .toc-card {
-    background: #fff !important;
-    border-color: #e5e7eb !important;
-    box-shadow: none !important;
-    page-break-inside: avoid;
-  }
-  .toc-part-title, h1, h2, h3 { page-break-inside: avoid; color: var(--accent) !important; }
-  a { color: var(--text) !important; text-decoration: none !important; }
-}
+
+  // ------------------------------
+  // Initialize Theme
+  // ------------------------------
+  const initialTheme = getPreferredTheme();
+  applyTheme(initialTheme, false);
+
+  // ------------------------------
+  // Toggle Button Behavior
+  // ------------------------------
+  toggleBtn.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme');
+    const next = current === 'light' ? 'dark' : 'light';
+    applyTheme(next, true);
+  });
+
+  toggleBtn.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleBtn.click();
+    }
+  });
+
+  // ------------------------------
+  // Follow System Preference
+  // ------------------------------
+  const mq = window.matchMedia('(prefers-color-scheme: dark)');
+  mq.addEventListener('change', (e) => {
+    const hasUserSetting = !!localStorage.getItem(STORAGE_KEY);
+    if (!hasUserSetting) {
+      applyTheme(e.matches ? 'dark' : 'light', true);
+    }
+  });
+
+  // ------------------------------
+  // Debug Info
+  // ------------------------------
+  console.info('AI Artisan Theme Controller v1.1 — active:', root.getAttribute('data-theme'));
+})();
