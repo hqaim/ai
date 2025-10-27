@@ -4,50 +4,48 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>The AI Artisan — Full Prompt Engineering Framework Index</title>
+  <title>The AI Artisan — Complete Framework Index for Prompt Engineering</title>
   <meta id="themeColor" name="theme-color" content="#0f172a" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://aiartisan.hqaim.com/toc.html" />
 
-  <meta name="description" content="The AI Artisan — a complete index of frameworks and modules for mastering Prompt Engineering with clarity, structure, and proof. Explore CLARITY-7™, SPARK-5™, MIRROR-6™, VALOR-Δ, and TESSERA™." />
-  <meta name="keywords" content="Prompt Engineering, AI prompts, CLARITY-7, SPARK-5, MIRROR-6, VALOR-Δ, TESSERA, frameworks, proof, toolkit, systems, HQAIM" />
+  <meta name="description" content="Explore The AI Artisan — a complete, proof-driven index of frameworks and modules for mastering Prompt Engineering with clarity, structure, and measurable results." />
+  <meta name="keywords" content="Prompt Engineering, AI prompts, CLARITY-7, SPARK-5, MIRROR-6, VALOR-Δ, TESSERA, frameworks, proof, toolkit, systems, HQAIM, The AI Artisan" />
   <meta name="author" content="Abdullah Khan · HQAIM Studios" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="The AI Artisan — Full Prompt Engineering Framework Index" />
-  <meta property="og:description" content="Explore the complete, proof-driven system for Prompt Engineering — from mindset to methods, systems, value, and scale." />
+  <meta property="og:title" content="The AI Artisan — Complete Framework Index for Prompt Engineering" />
+  <meta property="og:description" content="Browse The AI Artisan’s full index — a clear, practical guide to designing prompts, proving results, and scaling real outcomes with structure and confidence." />
   <meta property="og:url" content="https://aiartisan.hqaim.com/toc.html" />
   <meta property="og:image" content="https://aiartisan.hqaim.com/assets/images/cover-hero.jpg" />
   <meta property="og:site_name" content="The AI Artisan" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="The AI Artisan — Full Prompt Engineering Framework Index" />
-  <meta name="twitter:description" content="A clear, practical guide to designing prompts, working in steps, checking quality, and proving value." />
+  <meta name="twitter:description" content="The AI Artisan: a complete index of frameworks and modules for structured, proof-driven Prompt Engineering." />
   <meta name="twitter:image" content="https://aiartisan.hqaim.com/assets/images/cover-hero.jpg" />
 
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"WebPage",
-    "name":"The AI Artisan — Table of Contents",
-    "url":"https://aiartisan.hqaim.com/toc.html",
-    "author":{"@type":"Person","name":"Abdullah Khan"},
-    "publisher":{"@type":"Organization","name":"HQAIM Studios"},
-    "description":"A complete, structured index of Prompt Engineering frameworks and modules for professionals.",
-    "about":"Prompt Engineering frameworks — CLARITY-7™, SPARK-5™, MIRROR-6™, VALOR-Δ, TESSERA™",
-    "inLanguage":"en",
-    "genre":"Professional, Technology",
-    "keywords":["Prompt Engineering","AI prompts","Frameworks","Proof","Toolkit","Systems"],
-    "breadcrumb":{
-      "@type":"BreadcrumbList",
-      "itemListElement":[
-        {"@type":"ListItem","position":1,"name":"Home","item":"https://aiartisan.hqaim.com/"},
-        {"@type":"ListItem","position":2,"name":"Index","item":"https://aiartisan.hqaim.com/toc.html"}
-      ]
-    }
+    "@context": "https://schema.org",
+    "@type": "Book",
+    "name": "The AI Artisan — Framework Index",
+    "url": "https://aiartisan.hqaim.com/toc.html",
+    "author": {
+      "@type": "Person",
+      "name": "Abdullah Khan"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "HQAIM Studios"
+    },
+    "description": "The AI Artisan is a structured playbook for mastering Prompt Engineering — transforming how professionals design, test, and scale intelligent systems.",
+    "about": "Prompt Engineering frameworks — CLARITY-7™, SPARK-5™, MIRROR-6™, VALOR-Δ, TESSERA™",
+    "inLanguage": "en",
+    "genre": "Technology",
+    "keywords": "Prompt Engineering, AI prompts, CLARITY-7, SPARK-5, MIRROR-6, VALOR-Δ, TESSERA, frameworks, proof, toolkit, systems, HQAIM, The AI Artisan"
   }
   </script>
-
   <meta name="color-scheme" content="light dark" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -109,8 +107,10 @@
       --bg: var(--slate-900);
       --surface: var(--slate-800);
       --text: var(--slate-50);
-      --muted: var(--slate-400);
-      --muted2: var(--slate-500);
+      /* === ENHANCEMENT: Dark Mode Contrast Fix === */
+      --muted: var(--slate-300); /* Was var(--slate-400) */
+      --muted2: var(--slate-400); /* Was var(--slate-500) */
+      /* === END ENHANCEMENT === */
       --border: var(--slate-700);
       --accent: #a78bfa; /* Lighter violet */
       --link: #7dd3fc;  /* Lighter blue */
@@ -407,11 +407,28 @@
 
 
     /* Enhanced Request Access Button */
+    .card-actions {
+      /* This ensures the badge and link align properly */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
     .card-actions a {
       font-weight: 700; color: var(--link);
       transition: color .18s, filter .18s, text-decoration .18s;
       text-decoration: none;
     }
+    /* === ENHANCEMENT: Re-order premium badge to be with actions */
+    .toc-card.premium .toc-meta {
+      order: 1; /* Send original toc-meta (with badge) to the bottom */
+    }
+    .toc-card.premium .card-actions {
+      order: 0; /* Put the actions div (with link) first */
+    }
+    /* === END ENHANCEMENT === */
+
     .toc-card.premium { /* Style premium cards */
       border: 2px solid transparent;
       background:
@@ -429,6 +446,7 @@
       -webkit-text-fill-color: transparent;
     }
     .toc-card[data-tags*="premium"] .card-actions a {
+      /* Apply a gradient to the text */
       background: linear-gradient(90deg, var(--gold), color-mix(in srgb, var(--gold) 70%, var(--accent)));
       -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -519,14 +537,16 @@
       flex-wrap: wrap; /* Allow wrapping on small screens */
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 10px 12px; /* row-gap, column-gap */
       order: 2; /* Brand line on bottom */
       text-align: center;
     }
     .footer-logo {
       height: 24px; width: auto;
       vertical-align: middle;
-      filter: grayscale(1) opacity(0.8); /* Standard colors disabled by default */
+      /* === ENHANCEMENT: Set logo to full color by default === */
+      filter: grayscale(0); /* Was grayscale(1) */
+      opacity: 0.8;
       transition: opacity .18s, filter .18s;
     }
     .footer-brand-text {
@@ -536,9 +556,11 @@
     }
     .footer-brand-text:hover .footer-logo {
       opacity: 1;
-      filter: grayscale(0); /* Enable standard colors on hover */
+      /* === ENHANCEMENT: Lighten/brighten on hover === */
+      filter: grayscale(0) hue-rotate(15deg) brightness(1.1); 
     }
     .footer-brand-text:hover { color: var(--text); }
+    /* === END ENHANCEMENT === */
 
     .author-link-wrapper {
       white-space: nowrap; /* Keep name and title together */
@@ -685,25 +707,25 @@
 
     <section class="toc-part" aria-labelledby="p1-title">
       <h2 id="p1-title" class="toc-part-title">🧭 Part I — Mindset & Foundations</h2>
-      <p class="toc-part-blurb">See the promise and the pitfalls. Move from quick guesses to steady, well-designed work.</p>
+      <p class="toc-part-blurb">Understand the promise and the pitfalls of AI. Move from quick experiments to clear, purposeful design.</p>
       <hr class="toc-rule" />
       <div class="toc-grid">
 
         <article class="toc-card" data-tags="mindset foundation hype focus steady honest value attention">
           <h3><a href="/modules/module-01.html">Module 01 — The Promise and the Trap</a></h3>
-          <p>See how hype can waste time and focus. Learn a steady way to think so your work stays useful and honest.</p>
+          <p>See how trends can distract from real progress. Learn to focus on useful, honest results that stand the test of time.</p>
           <div class="toc-meta"><span class="badge">Mindset</span><span class="badge blue">Foundations</span></div>
         </article>
 
         <article class="toc-card" data-tags="value gap clarity outcomes plan measurable results">
           <h3><a href="/modules/module-02.html">Module 02 — Defining the AI Value Gap</a></h3>
-          <p>Find the gap between busy work and real results. Make a short plan to close it on your next task.</p>
+          <p>Recognize the space between activity and true outcomes. Build a short plan to close that gap with clarity and intent.</p>
           <div class="toc-meta"><span class="badge">Value</span><span class="badge blue">Outcomes</span></div>
         </article>
 
         <article class="toc-card" data-tags="habits systems practice design repeatable flow artisan discipline">
           <h3><a href="/modules/module-03.html">Module 03 — From General AI User to AI Artisan</a></h3>
-          <p>Move from casual use to crafted design. Develop calm habits that turn scattered tasks into structured, reliable systems.</p>
+          <p>Move from casual use to crafted design. Develop calm habits that turn everyday tasks into structured, reliable systems.</p>
           <div class="toc-meta"><span class="badge">Practice</span></div>
         </article>
 
@@ -712,37 +734,37 @@
 
     <section class="toc-part" aria-labelledby="p2-title">
       <h2 id="p2-title" class="toc-part-title">⚙️ Part II — Frameworks & Methods</h2>
-      <p class="toc-part-blurb">Learn five clear methods to plan your work, take steady steps, check quality, prove value, and keep improving.</p>
+      <p class="toc-part-blurb">Master five proven frameworks to plan your work, build in steps, check quality, measure value, and keep improving.</p>
       <hr class="toc-rule" />
       <div class="toc-grid">
 
         <article class="toc-card" data-tags="frameworks clarity-7 schema context rules tone yield contract request">
           <h3><a href="/modules/module-04.html">Module 04 — CLARITY-7™</a></h3>
-          <p>Write requests that are clear and complete: what you want, why it matters, rules to follow, and what to return.</p>
+          <p>Frame each prompt as a clear plan: goal, reason, tone, and result — everything defined before you start.</p>
           <div class="toc-meta"><span class="badge">Framework</span><span class="badge blue">Schema</span></div>
         </article>
 
         <article class="toc-card" data-tags="frameworks spark-5 steps scaffold assess refine knit sequence small steps">
           <h3><a href="/modules/module-05.html">Module 05 — SPARK-5™</a></h3>
-          <p>Work in small steps. Make, check, fix, then join the parts so everything fits.</p>
+          <p>Work in focused cycles — make, test, refine, connect — until each piece fits smoothly into the whole.</p>
           <div class="toc-meta"><span class="badge">Framework</span><span class="badge blue">Sequencing</span></div>
         </article>
 
         <article class="toc-card" data-tags="frameworks mirror-6 quality meaning integrity relevance reliability repeatability check review">
           <h3><a href="/modules/module-06.html">Module 06 — MIRROR-6™</a></h3>
-          <p>Check your output for meaning, truth, and repeatability. Fix weak spots before you ship.</p>
+          <p>Review your output through six lenses of quality to ensure meaning, truth, and reliability every time.</p>
           <div class="toc-meta"><span class="badge">Framework</span><span class="badge blue">Quality</span></div>
         </article>
 
         <article class="toc-card" data-tags="frameworks valor-delta value risk decisions ship improve archive roi">
           <h3><a href="/modules/module-07.html">Module 07 — VALOR-Δ</a></h3>
-          <p>Weigh value and risk in simple terms. Decide what to launch, improve, or archive.</p>
+          <p>Measure value and risk side by side. Choose what to launch, what to refine, and what to leave behind.</p>
           <div class="toc-meta"><span class="badge">Framework</span><span class="badge blue">Value</span></div>
         </article>
 
         <article class="toc-card" data-tags="frameworks tessera loop plan do prove refine scale reuse improvement">
           <h3><a href="/modules/module-08.html">Module 08 — TESSERA™</a></h3>
-          <p>Run the loop: plan → do → prove → refine → scale. Save good versions so they’re easy to reuse.</p>
+          <p>Run the continuous loop: plan → create → check → refine → scale. Keep what works and improve what matters.</p>
           <div class="toc-meta"><span class="badge">Framework</span><span class="badge blue">Improvement</span></div>
         </article>
 
@@ -751,25 +773,25 @@
 
     <section class="toc-part" aria-labelledby="p3-title">
       <h2 id="p3-title" class="toc-part-title">🧩 Part III — Systems & Proof</h2>
-      <p class="toc-part-blurb">Turn good work into simple tools and records people can trust.</p>
+      <p class="toc-part-blurb">Turn your best work into reusable tools, consistent workflows, and visible evidence of progress.</p>
       <hr class="toc-rule" />
       <div class="toc-grid">
 
         <article class="toc-card" data-tags="pattern forge prompt vault library reuse repeatable patterns">
           <h3><a href="/modules/module-09.html">Module 09 — Pattern Forge™ & Prompt Vault™</a></h3>
-          <p>Save your best prompts as reusable patterns. Keep them in one place so quality stays high and work speeds up.</p>
+          <p>Save your strongest prompts as patterns. Reuse them to speed up work and raise quality with every run.</p>
           <div class="toc-meta"><span class="badge">Systems</span><span class="badge blue">Library</span></div>
         </article>
 
         <article class="toc-card" data-tags="buildsheets workflows checklist process handoffs clarity steps">
           <h3><a href="/modules/module-10.html">Module 10 — Buildsheets™ & Workflows</a></h3>
-          <p>Map each job as a simple checklist. Cut confusion and make hand-offs smooth.</p>
+          <p>Map each project step-by-step. Cut confusion and make collaboration clear and repeatable.</p>
           <div class="toc-meta"><span class="badge">Systems</span><span class="badge blue">Workflow</span></div>
         </article>
 
         <article class="toc-card" data-tags="proof artifacts logs scorecards dashboards evidence outcomes">
           <h3><a href="/modules/module-11.html">Module 11 — Proof Artifacts™</a></h3>
-          <p>Keep short records that show what changed, why, and what improved.</p>
+          <p>Keep concise logs and scorecards that show what changed, why it improved, and how results were earned.</p>
           <div class="toc-meta"><span class="badge gold">Proof</span></div>
         </article>
 
@@ -778,19 +800,19 @@
 
     <section class="toc-part" aria-labelledby="p4-title">
       <h2 id="p4-title" class="toc-part-title">📈 Part IV — Value & Growth</h2>
-      <p class="toc-part-blurb">Grow with proof. Keep what works, drop what doesn’t, and price with confidence.</p>
+      <p class="toc-part-blurb">Grow with evidence. Keep what works, refine what doesn’t, and price your results with confidence.</p>
       <hr class="toc-rule" />
       <div class="toc-grid">
 
         <article class="toc-card" data-tags="pricing value proof clients trust story outcomes">
           <h3><a href="/modules/module-12.html">Module 12 — Proof-Based Pricing</a></h3>
-          <p>Use evidence to set price and explain value in plain language clients trust.</p>
+          <p>Use visible outcomes to set fair prices and tell a story clients trust.</p>
           <div class="toc-meta"><span class="badge">Value</span></div>
         </article>
 
         <article class="toc-card" data-tags="assets scale leverage systems repeatable growth">
           <h3><a href="/modules/module-13.html">Module 13 — Systems that Scale</a></h3>
-          <p>Turn your best work into small, reliable systems. Grow with less effort and more consistency.</p>
+          <p>Turn what you do well into repeatable systems that expand your reach without extra effort.</p>
           <div class="toc-meta"><span class="badge">Scale</span></div>
         </article>
 
@@ -799,53 +821,62 @@
 
     <section class="toc-part" aria-labelledby="p5-title">
       <h2 id="p5-title" class="toc-part-title">🔑 Part V — Advanced Practice</h2>
-      <p class="toc-part-blurb">Advanced moves for serious builders. Optional premium lessons available on request.</p>
+      <p class="toc-part-blurb">Explore advanced methods for ambitious creators. Premium modules open new depth for those ready to go further.</p>
       <hr class="toc-rule" />
       <div class="toc-grid">
 
         <article class="toc-card premium" data-tags="advanced collaborative prompts premium compare choose decide team higher-order questions">
           <h3><a href="/modules/module-14.html">Module 14 — Collaborative Prompts (Premium)</a></h3>
-          <p>Ask stronger questions, compare options, and converge on clear choices with simple team-style patterns.</p>
-          <div class="card-actions"><a href="/premium-access.html">Request Access →</a></div>
-        </article>
+          <p>Use shared reasoning to explore ideas, compare paths, and reach stronger collective decisions.</p>
+          <div class="card-actions">
+            <div class="toc-meta">
+              <span class="badge gold">Premium</span>
+            </div>
+            <a href="/premium-access.html">Request Access →</a>
+          </div>
+          </article>
 
         <article class="toc-card premium" data-tags="advanced automation systems link steps guardrails safety premium flow">
           <h3><a href="/modules/module-15.html">Module 15 — Automation Systems (Premium)</a></h3>
-          <p>Link steps into a stable flow with safeguards. Keep control as you automate routine work.</p>
-          <div class="card-actions"><a href="/premium-access.html">Request Access →</a></div>
-        </article>
+          <p>Link reliable steps into smooth flows with guardrails. Automate routine work while keeping full control.</p>
+          <div class="card-actions">
+            <div class="toc-meta">
+              <span class="badge gold">Premium</span>
+            </div>
+            <a href="/premium-access.html">Request Access →</a>
+          </div>
+          </article>
 
       </div>
     </section>
 
     <section class="toc-part" aria-labelledby="pA-title">
       <h2 id="pA-title" class="toc-part-title">🧰 Toolkit — Resources & Templates</h2>
-      <p class="toc-part-blurb">Ready-to-use pages, checklists, and simple diagrams to start fast.</p>
+      <p class="toc-part-blurb">Ready-to-use templates, checklists, and visuals to help you work faster and design with confidence.</p>
       <hr class="toc-rule" />
       <div class="toc-grid">
 
         <article class="toc-card" data-tags="toolkit templates checklists logs scorecards">
           <h3><a href="/fieldkit.html">Toolkit — Templates & Checklists</a></h3>
-          <p>Grab the pages you need and start. Edit as you go—no extra setup required.</p>
+          <p>Start quickly with editable pages for logs, scorecards, and project outlines.</p>
           <div class="toc-meta"><span class="badge blue">Toolkit</span></div>
         </article>
 
         <article class="toc-card" data-tags="glossary index reference terminology terms">
           <h3><a href="/appendix.html">Glossary & Index</a></h3>
-          <p>Short, clear definitions and fast look-ups for key terms.</p>
+          <p>Simple, precise definitions and fast look-ups for every core concept.</p>
           <div class="toc-meta"><span class="badge blue">Reference</span></div>
         </article>
 
         <article class="toc-card" data-tags="diagrams visuals framework svg print charts">
           <h3><a href="/diagrams.html">Framework Diagrams</a></h3>
-          <p>Clean visuals for each method. Print-ready and easy to share.</p>
+          <p>Clean visuals that show each method at a glance — ideal for learning or print.</p>
           <div class="toc-meta"><span class="badge blue">Visuals</span></div>
         </article>
 
       </div>
     </section>
   </main>
-
   <button id="backToTop" class="back-to-top" aria-label="Back to top" title="Back to top">
     <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
          stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -885,119 +916,233 @@
     </footer>
   </section>
 
-  <script src="/assets/js/theme.js" defer></script>
   <script>
-  (function () {
-    'use strict';
+    /*
+    =========================================================
+    THE AI ARTISAN — THEME CONTROLLER (theme.js)
+    HQAIM Studios — Diamond Edition (vFinal - Enhanced)
+    =========================================================
+    * Handles theme persistence (localStorage)
+    * Respects system preference (prefers-color-scheme)
+    * Updates toggle button ARIA attributes
+    * CSS handles all icon visibility/animation
+    */
+    (function () {
+      'use strict';
 
-    // ---------- Mobile nav toggle ----------
-    const btn = document.querySelector('.nav-toggle');
-    const nav = document.getElementById('site-menu');
-    if (btn && nav) {
-      btn.addEventListener('click', () => {
-        const expanded = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!expanded));
-        nav.classList.toggle('open', !expanded);
-        if (!expanded) nav.querySelector('a,button')?.focus();
+      const root = document.documentElement;
+      const toggleBtn = document.getElementById('themeToggle');
+      if (!toggleBtn) return; // Exit if no button found
+      
+      const STORAGE_KEY = 'aiartisan_theme_preference'; // Unique storage key
+      const LIVE_REGION_ID = 'theme-status-liveregion'; // ID for the live region
+
+      // ------------------------------
+      // Accessible live region for announcements
+      // ------------------------------
+      let liveRegion = document.getElementById(LIVE_REGION_ID);
+      if (!liveRegion) {
+        liveRegion = document.createElement('div');
+        liveRegion.id = LIVE_REGION_ID;
+        liveRegion.setAttribute('aria-live', 'polite');
+        liveRegion.className = 'sr-only'; // Use the visually-hidden class
+        document.body.appendChild(liveRegion);
+      }
+
+      // ------------------------------
+      // Determine Theme Preference
+      // ------------------------------
+      function getPreferredTheme() {
+        let savedTheme = null;
+        try {
+          savedTheme = localStorage.getItem(STORAGE_KEY);
+        } catch (e) { /* Ignore private browsing errors */ }
+        
+        if (savedTheme === 'light' || savedTheme === 'dark') {
+          return savedTheme;
+        }
+        
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
+        
+        return 'light'; // Default to light
+      }
+
+      // ------------------------------
+      // Apply Theme
+      // ------------------------------
+      function applyTheme(theme, announce = false) {
+        const isDark = (theme === 'dark');
+        
+        root.setAttribute('data-theme', theme);
+        
+        toggleBtn.setAttribute('aria-pressed', String(isDark));
+        const newLabel = isDark ? 'Switch to light theme' : 'Switch to dark theme';
+        toggleBtn.setAttribute('aria-label', newLabel);
+        toggleBtn.setAttribute('title', newLabel);
+
+        try {
+          localStorage.setItem(STORAGE_KEY, theme);
+        } catch (e) {
+          console.warn('LocalStorage not available, theme persistence disabled.');
+        }
+        
+        // Update meta theme color dynamically
+        const themeColorMeta = document.getElementById('themeColor');
+        if (themeColorMeta) {
+            themeColorMeta.content = isDark ? '#0f172a' : '#ffffff'; // Match dark/light background
+        }
+
+        if (announce && liveRegion) {
+          liveRegion.textContent = `${theme.charAt(0).toUpperCase() + theme.slice(1)} theme enabled.`;
+        }
+      }
+
+      // ------------------------------
+      // Initialize Theme
+      // ------------------------------
+      applyTheme(getPreferredTheme(), false); // Don't announce on initial load
+
+      // ------------------------------
+      // Event Listeners
+      // ------------------------------
+      toggleBtn.addEventListener('click', () => {
+        const currentTheme = root.getAttribute('data-theme') || getPreferredTheme();
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        applyTheme(newTheme, true); // Announce the change
       });
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && nav.classList.contains('open')) {
-          btn.setAttribute('aria-expanded','false');
-          nav.classList.remove('open');
-          btn.focus();
+
+      toggleBtn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleBtn.click();
         }
       });
-    }
 
-    // ---------- Search filter ----------
-    const input = document.getElementById('tocFilter');
-    const cards = Array.from(document.querySelectorAll('.toc-card'));
-    const parts = Array.from(document.querySelectorAll('.toc-part'));
-    const counter = document.getElementById('resultCount');
-    let debounceTimer;
-
-    function updateCount(visibleCount) {
-      const total = cards.length;
-      if (!counter) return;
-      if (!input || !input.value.trim() || visibleCount === total) {
-        counter.textContent = 'Showing all ' + total + ' results';
-      } else {
-        counter.textContent = `Showing ${visibleCount} of ${total} results for "${input.value}"`;
-      }
-    }
-
-    function applyFilter() {
-      const q = (input?.value || '').trim().toLowerCase();
-      let visible = 0;
-      
-      cards.forEach(card => {
-        const text = (card.innerText || '').toLowerCase();
-        const tags = (card.getAttribute('data-tags') || '').toLowerCase();
-        const show = !q || text.includes(q) || tags.includes(q);
-        card.style.display = show ? '' : 'none';
-        if (show) visible++;
-      });
-      
-      parts.forEach(part => {
-        const visibleCards = part.querySelectorAll('.toc-card:not([style*="display: none"])').length;
-        // Hide part if it has no visible cards
-        part.style.display = visibleCards > 0 ? '' : 'none';
+      // Listen for system changes (if user has no manual override)
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.getItem(STORAGE_KEY)) {
+          const newTheme = e.matches ? 'dark' : 'light';
+          applyTheme(newTheme, true);
+        }
       });
 
-      updateCount(visible);
-    }
+    })();
+  </script>
+  
+  <script>
+    (function () {
+      'use strict';
 
-    if (input) {
-        input.addEventListener('input', () => {
-            clearTimeout(debounceTimer);
-            debounceTimer = setTimeout(applyFilter, 150); // Debounce for smoother filtering
+      // ---------- Mobile nav toggle ----------
+      const btn = document.querySelector('.nav-toggle');
+      const nav = document.getElementById('site-menu');
+      if (btn && nav) {
+        btn.addEventListener('click', () => {
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          nav.classList.toggle('open', !expanded);
+          if (!expanded) nav.querySelector('a,button')?.focus();
         });
-    }
-
-    document.addEventListener('keydown', (e) => {
-      const active = document.activeElement;
-      // Focus search with '/' unless in an input/textarea
-      if (e.key === '/' && active && active.tagName !== 'INPUT' && active.tagName !== 'TEXTAREA') { 
-        e.preventDefault(); 
-        input?.focus(); 
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && nav.classList.contains('open')) {
+            btn.setAttribute('aria-expanded','false');
+            nav.classList.remove('open');
+            btn.focus();
+          }
+        });
       }
-      // Clear search with 'Escape'
-      if (e.key === 'Escape' && active === input) { 
-        input.value = ''; 
-        applyFilter(); 
-        input.blur(); 
+
+      // ---------- Search filter ----------
+      const input = document.getElementById('tocFilter');
+      const cards = Array.from(document.querySelectorAll('.toc-card'));
+      const parts = Array.from(document.querySelectorAll('.toc-part'));
+      const counter = document.getElementById('resultCount');
+      let debounceTimer;
+
+      function updateCount(visibleCount) {
+        const total = cards.length;
+        if (!counter) return;
+        if (!input || !input.value.trim() || visibleCount === total) {
+          counter.textContent = 'Showing all ' + total + ' results';
+        } else {
+          counter.textContent = `Showing ${visibleCount} of ${total} results for "${input.value}"`;
+        }
       }
-    });
 
-    // ---------- Back to top ----------
-    const topBtn = document.getElementById('backToTop');
-    function onScroll() {
-      if (!topBtn) return;
-      // Show button only when scrolled down significantly AND not near the footer
-      const show = window.scrollY > 400 && (window.innerHeight + window.scrollY) < (document.body.offsetHeight - 100); // Increased buffer from footer
-      topBtn.classList.toggle('visible', show);
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll(); // Check on load
+      function applyFilter() {
+        const q = (input?.value || '').trim().toLowerCase();
+        let visible = 0;
+        
+        cards.forEach(card => {
+          const text = (card.innerText || '').toLowerCase();
+          const tags = (card.getAttribute('data-tags') || '').toLowerCase();
+          const show = !q || text.includes(q) || tags.includes(q);
+          card.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+        
+        parts.forEach(part => {
+          const visibleCards = part.querySelectorAll('.toc-card:not([style*="display: none"])').length;
+          // Hide part if it has no visible cards
+          part.style.display = visibleCards > 0 ? '' : 'none';
+        });
 
-    topBtn?.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-    topBtn?.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        topBtn.click();
+        updateCount(visible);
       }
-    });
 
-    // ---------- Footer year ----------
-    const y = document.getElementById('year');
-    if (y) y.textContent = new Date().getFullYear();
+      if (input) {
+          input.addEventListener('input', () => {
+              clearTimeout(debounceTimer);
+              debounceTimer = setTimeout(applyFilter, 150); // Debounce for smoother filtering
+          });
+      }
 
-    // Initial count on load
-    updateCount(cards.length);
+      document.addEventListener('keydown', (e) => {
+        const active = document.activeElement;
+        // Focus search with '/' unless in an input/textarea
+        if (e.key === '/' && active && active.tagName !== 'INPUT' && active.tagName !== 'TEXTAREA') { 
+          e.preventDefault(); 
+          input?.focus(); 
+        }
+        // Clear search with 'Escape'
+        if (e.key === 'Escape' && active === input) { 
+          input.value = ''; 
+          applyFilter(); 
+          input.blur(); 
+        }
+      });
 
-  })();
+      // ---------- Back to top ----------
+      const topBtn = document.getElementById('backToTop');
+      function onScroll() {
+        if (!topBtn) return;
+        // Show button only when scrolled down significantly AND not near the footer
+        const show = window.scrollY > 400 && (window.innerHeight + window.scrollY) < (document.body.offsetHeight - 100); // Increased buffer from footer
+        topBtn.classList.toggle('visible', show);
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll(); // Check on load
+
+      topBtn?.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      topBtn?.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          topBtn.click();
+        }
+      });
+
+      // ---------- Footer year ----------
+      const y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
+
+      // Initial count on load
+      updateCount(cards.length);
+
+    })();
   </script>
 </body>
 </html>
