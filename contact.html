@@ -1,200 +1,676 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
+  <!--
+    The AI Artisan — Contact Page
+    Diamond Edition v105 (Creative Redesign)
+    Author: Abdullah Khan · HQAIM Studios
+    Notes:
+      - Replaced standard hero/diagram with a Creative Typography Hero.
+      - Added "Resonating" background image with overlay.
+      - Removed SVG diagram per request.
+      - Preserved functional form logic.
+      - Design System v100 (Inter/Source Serif Pro).
+  -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact — The AI Artisan</title>
-  <meta name="description" content="Contact Abdullah Khan or HQAIM Studios regarding The AI Artisan Playbook — collaborations, media, or inquiries." />
+  
+  <!-- SEO Metadata -->
+  <title>Contact · The AI Artisan (Diamond Edition)</title>
+  <meta name="description" content="Connect with HQAIM Studios. We are ready to collaborate, support, and build with you." />
+  <meta name="keywords" content="contact AI Artisan, HQAIM Studios support, feedback, collaboration, premium access" />
+
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://aiartisan.hqaim.com/contact.html" />
-  <link rel="icon" href="/assets/images/favicon.ico" />
-  <meta name="theme-color" content="#0f172a" />
+  <meta id="themeColor" name="theme-color" content="#ffffff" />
+  <meta name="color-scheme" content="light dark" />
 
-  <!-- OpenGraph -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Contact — The AI Artisan" />
-  <meta property="og:description" content="Reach out to Abdullah Khan and HQAIM Studios for inquiries about The AI Artisan." />
+  <meta property="og:title" content="Contact · The AI Artisan" />
+  <meta property="og:description" content="Connect with HQAIM Studios. Let's build something extraordinary." />
   <meta property="og:url" content="https://aiartisan.hqaim.com/contact.html" />
-  <meta property="og:image" content="https://aiartisan.hqaim.com/assets/images/cover-hero.jpg" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto.format&fit=crop" />
+  <meta property="og:site_name" content="The AI Artisan" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Source+Serif+Pro:wght@600&display=swap" rel="stylesheet" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact · The AI Artisan" />
+  <meta name="twitter:description" content="Connect with HQAIM Studios. Let's build something extraordinary." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto.format&fit=crop" />
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="/assets/style.css" />
-  <style>
-    main {
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 3rem 1rem;
-      text-align: center;
-    }
-    h1 {
-      font-family: var(--font-serif);
-      font-size: clamp(2rem, 3.5vw, 2.7rem);
-      font-weight: 600;
-      background: linear-gradient(90deg, var(--violet), var(--blue));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    p.lead {
-      color: var(--text-muted);
-      font-size: 1.1rem;
-      max-width: 70ch;
-      margin: 1rem auto 2rem;
-      line-height: 1.6;
-    }
-    form {
-      display: grid;
-      gap: 1rem;
-      text-align: left;
-    }
-    label {
-      display: block;
-      color: var(--text);
-      font-weight: 500;
-      margin-bottom: 0.3rem;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 0.75rem;
-      border-radius: 0.5rem;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--text);
-      font: inherit;
-      resize: vertical;
-    }
-    input:focus, textarea:focus {
-      outline: 2px solid var(--blue);
-      outline-offset: 2px;
-    }
-    button {
-      margin-top: 1rem;
-      background: var(--violet);
-      color: #fff;
-      border: none;
-      border-radius: 0.5rem;
-      padding: 0.7rem 1.2rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s ease;
-    }
-    button:hover {
-      background: var(--blue);
-    }
-    .contact-info {
-      margin-top: 2.5rem;
-      color: var(--text-muted-2);
-      line-height: 1.7;
-      font-size: 0.95rem;
-    }
-    .contact-info a {
-      color: var(--brand);
-      font-weight: 500;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem 1rem 1rem;
-      font-size: 0.9rem;
-      color: var(--text-muted-2);
-    }
-  </style>
-</head>
+  <!-- Favicon -->
+  <link rel="icon" href="https://aiartisan.hqaim.com/images/favicon.ico" type="image/x-icon" />
 
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand-wrap" href="/index.html" aria-label="The AI Artisan home">
-        <img src="/assets/images/HQAIM-ICON-AI.svg" alt="HQAIM Studios Logo" width="140" height="28" />
-        <span class="brand-text">The AI Artisan</span>
-      </a>
-      <nav class="main-nav">
-        <ul>
-          <li><a href="/toc.html">Index</a></li>
-          <li><a href="/toolkit.html">Toolkit</a></li>
-          <li><a href="/premium.html">Premium</a></li>
-          <li><a href="/contact.html" aria-current="page">Contact</a></li>
-          <li>
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-              <svg class="icon" data-icon="moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 1021 12.79z"/></svg>
-              <svg class="icon" data-icon="sun" viewBox="0 0 24 24"><path d="M12 6a6 6 0 100 12 6 6 0 000-12z"/></svg>
-            </button>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main id="main" tabindex="-1">
-    <h1>Contact</h1>
-    <p class="lead">
-      Have a question, collaboration idea, or media request?  
-      We’d love to hear from you. Please use the form below or reach out directly via email.
-    </p>
-
-    <form id="contact-form" action="mailto:contact@hqaim.com" method="post" enctype="text/plain">
-      <div>
-        <label for="name">Name</label>
-        <input id="name" name="name" type="text" required placeholder="Your name" />
-      </div>
-
-      <div>
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" required placeholder="you@example.com" />
-      </div>
-
-      <div>
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="6" required placeholder="Your message..."></textarea>
-      </div>
-
-      <button type="submit">Send Message</button>
-    </form>
-
-    <div class="contact-info">
-      <p>📧 <strong>Email:</strong> <a href="mailto:contact@hqaim.com">contact@hqaim.com</a></p>
-      <p>🌐 <strong>Website:</strong> <a href="https://hqaim.com" target="_blank">https://hqaim.com</a></p>
-      <p>💼 <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/abdullahkhan-ai" target="_blank">Abdullah Khan</a></p>
-    </div>
-  </main>
-
-  <footer class="site-footer">
-    <p>© <span id="year"></span> Abdullah Khan · <a href="https://hqaim.com" target="_blank" rel="noopener noreferrer">HQAIM Studios</a></p>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="/assets/js/theme.js"></script>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <!-- Google Fonts: Inter (body) & Source Serif Pro (headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+Pro:wght@600;700;800&display=swap" rel="stylesheet">
 
   <!-- JSON-LD Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ContactPage",
+    "name": "Contact The AI Artisan",
+    "description": "Official contact page for HQAIM Studios and The AI Artisan project.",
     "url": "https://aiartisan.hqaim.com/contact.html",
-    "name": "Contact — The AI Artisan",
-    "description": "Contact page for The AI Artisan Playbook by Abdullah Khan and HQAIM Studios.",
-    "publisher": {
+    "mainEntity": {
       "@type": "Organization",
       "name": "HQAIM Studios",
-      "url": "https://hqaim.com"
-    },
-    "author": {
-      "@type": "Person",
-      "name": "Abdullah Khan"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "General Inquiries",
-      "email": "contact@hqaim.com"
+      "email": "info@hqaim.com",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "info@hqaim.com"
+      }
     }
   }
+  </script>
+
+  <style>
+    /* =========================================================
+       THE AI ARTISAN — Diamond Edition v100
+       Contact CSS (screen + print)
+       ========================================================= */
+
+    /* 0) Keyframes for fade-in */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 0) Tokens */
+    :root{
+      color-scheme: light dark;
+      /* Typography */
+      --font-sans: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+      --font-serif: 'Source Serif Pro', serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+      /* Core palette (Aetherium) */
+      --violet:#7c3aed; --blue:#2563eb; --green:#10b981; --gold:#f6be3e;
+      --white:#ffffff;  --black:#0f172a;
+
+      --slate-50:#f8fafc;  --slate-100:#f1f5f9; --slate-200:#e2e8f0;
+      --slate-300:#cbd5e1; --slate-400:#94a3b8; --slate-500:#64748b;
+      --slate-600:#475569; --slate-700:#334155; --slate-800:#1e293b;
+      --slate-900:#0f172a;
+
+      /* Light Mode Variables */
+      --bg:var(--white); --surface:var(--slate-50); --text:var(--slate-900);
+      --muted:#445268; --muted2:var(--slate-500); --border:var(--slate-200);
+      --accent:var(--violet); --link:var(--blue); --focus:rgba(37,99,235,.36);
+      --shadow-e2:0 8px 20px rgba(15,23,42,.08), 0 3px 8px rgba(15,23,42,.06);
+
+      --code-bg-light:#f7f7fb; --code-bg-dark:#0f172a;
+      --grad-1: linear-gradient(95deg, var(--link), var(--accent));
+      --grad-title: linear-gradient(90deg, var(--violet), var(--blue));
+
+      --wrap:1100px; --pad:1.5rem; --r:12px;
+    }
+
+    html[data-theme="dark"]{
+      --bg:var(--slate-900); --surface:var(--slate-800); --text:var(--slate-50);
+      --muted:var(--slate-300); --muted2:var(--slate-400); --border:var(--slate-700);
+      --accent:#a78bfa; --link:#7dd3fc; --focus:rgba(124,58,237,.45);
+      --shadow-e2:0 10px 28px rgba(0,0,0,.35);
+
+      /* ENHANCEMENT: Use lighter, theme-aware gradient for dark mode titles */
+      --grad-title: linear-gradient(90deg, var(--accent), var(--link));
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font:16px/1.65 var(--font-sans); color:var(--text);
+      background:var(--bg); /* Simplification for contact page base */
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      text-rendering:optimizeLegibility;
+    }
+    .wrap{max-width:var(--wrap); margin:0 auto; padding:0 var(--pad)}
+    
+    ul, ol { padding-left: 1.5em; margin: 1em 0; }
+    li { margin-bottom: 0.5em; }
+    p { margin: 0.8em 0; }
+    
+    .sr-only{
+      position:absolute!important; width:1px; height:1px; padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap; border:0;
+    }
+
+    /* 1) Header */
+    .site-header{
+      position:sticky; top:0; z-index:100;
+      backdrop-filter:saturate(140%) blur(8px);
+      background:color-mix(in srgb, var(--surface) 92%, transparent);
+      border-bottom:1px solid var(--border);
+      animation: fadeIn 0.5s ease-out;
+    }
+    .header-inner{
+      max-width:var(--wrap); margin:0 auto; padding:.65rem var(--pad);
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .brand-wrap{display:inline-flex; align-items:center; gap:10px; text-decoration:none; color:var(--text)}
+    .brand-logo{width:32px; height:32px; display:inline-block}
+    .brand-text{
+      font-weight:800; letter-spacing:.2px; font-size:1rem;
+      background:linear-gradient(95deg, var(--accent), var(--link));
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+      transition:filter .2s;
+    }
+    .brand-wrap:hover .brand-text{filter:brightness(1.06)}
+
+    .nav-toggle{display:none; border:0; background:none; cursor:pointer; padding:4px}
+    .nav-toggle-bar{
+      width:22px; height:2px; background:var(--text); display:block; margin:4px 0; border-radius:2px;
+      transition:transform .2s, opacity .2s;
+    }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2){opacity:0}
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+    nav.main-nav{display:block}
+    .main-nav ul{list-style:none; margin:0; padding:0; display:flex; align-items:center; gap:10px}
+    .main-nav a{
+      color:var(--muted); text-decoration:none; font-weight:600; padding:6px 10px; border-radius:8px; font-size:.95rem;
+      transition:color .2s, background-color .2s;
+    }
+    .main-nav a[aria-current="page"], .main-nav a:hover{
+      color:var(--accent); background-color:color-mix(in srgb, var(--accent) 10%, transparent)
+    }
+
+    .right-tools{display:inline-flex; align-items:center; gap:10px}
+    .theme-toggle{
+      width:40px; height:40px; border-radius:50%; border:1px solid var(--border); background:var(--surface);
+      display:grid; place-items:center; cursor:pointer; position:relative; overflow:hidden; padding:0;
+      transition:transform .18s, box-shadow .18s, background-color .18s; -webkit-tap-highlight-color:transparent;
+    }
+    .theme-toggle:hover{transform:translateY(-1px) scale(1.05); box-shadow:0 0 10px var(--focus)}
+    .theme-toggle .icon{position:absolute; width:20px; height:20px; transition:transform .3s cubic-bezier(.4,0,.2,1.4), opacity .25s linear}
+    .icon-sun{color:var(--gold); transform:scale(0) rotate(90deg); opacity:0}
+    .icon-moon{color:var(--white); transform:scale(1) rotate(0); opacity:1}
+    html[data-theme="light"] .icon-sun{transform:scale(1) rotate(0); opacity:1}
+    html[data-theme="light"] .icon-moon{transform:scale(0) rotate(-90deg); opacity:0}
+    html[data-theme="dark"]  .icon-sun{transform:scale(0) rotate(90deg); opacity:0}
+    html[data-theme="dark"]  .icon-moon{transform:scale(1) rotate(0); opacity:1}
+
+    @media (max-width:820px){
+      .nav-toggle{display:inline-block}
+      nav.main-nav{display:none}
+      nav.main-nav.open{display:block}
+      .main-nav ul{
+        position:fixed; right:12px; top:60px; background:var(--surface); border:1px solid var(--border);
+        border-radius:12px; box-shadow:var(--shadow-e2); padding:12px; gap:10px; flex-direction:column;
+        transform:scale(.98); opacity:0; pointer-events:none; transition:transform .18s ease-out, opacity .18s ease-out;
+      }
+      nav.main-nav.open ul{transform:scale(1); opacity:1; pointer-events:auto}
+    }
+
+    :focus-visible{outline:3px solid var(--focus); outline-offset:3px; border-radius:4px}
+    .skip-link{
+      position:absolute; left:12px; top:6px; z-index:200; background:var(--surface); color:var(--text);
+      padding:6px 10px; border-radius:8px; border:1px solid var(--border);
+      transform:translateY(-150%); transition:transform .2s;
+    }
+    .skip-link:focus{transform:translateY(0%)}
+
+    /* 2) Creative Hero Section */
+    .creative-hero {
+      position: relative;
+      padding: 6rem 1rem 8rem; /* Large padding for impact */
+      background-color: var(--slate-900); /* Fallback color */
+      background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto.format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      overflow: hidden;
+      text-align: center;
+      animation: fadeIn 0.5s ease-out backwards;
+    }
+    
+    /* Dark overlay */
+    .creative-hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(15, 23, 42, 0.75); /* Slate-900 with opacity */
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-title-large {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      /* Gradient Text Effect */
+      background: linear-gradient(135deg, #ffffff 0%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 60ch;
+      margin: 0 auto;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    /* 3) Form Container - Floating Over Hero */
+    .form-wrapper {
+      max-width: 700px;
+      margin: -4rem auto 3rem; /* Negative top margin pulls it up */
+      position: relative;
+      z-index: 3;
+      padding: 0 1rem;
+    }
+
+    /* Form Styling - Enhanced for Diamond Edition */
+    form.contact-form {
+      background: var(--bg);
+      padding: 2rem;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      animation: fadeIn 0.5s 0.2s ease-out backwards;
+    }
+    
+    label {
+      font-weight: 600;
+      margin-top: 1.2rem;
+      display: block;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+    label:first-of-type { margin-top: 0; }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px;
+      margin-top: .5rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 1rem;
+      background: var(--surface);
+      color: var(--text);
+      font-family: var(--font-sans);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px var(--focus);
+    }
+    button[type="submit"] {
+      margin-top: 2rem;
+      width: 100%;
+      padding: 14px 20px;
+      background: var(--grad-1);
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform .15s, box-shadow .15s, filter 0.2s;
+    }
+    button[type="submit"]:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.25);
+      filter: brightness(1.05);
+    }
+    html[data-theme="dark"] button[type="submit"] {
+      color: var(--black);
+      background: linear-gradient(95deg, var(--gold), color-mix(in srgb, var(--gold) 80%, #ffc66f));
+      box-shadow: 0 6px 20px rgba(246, 190, 62, 0.15);
+    }
+
+    .success-message, .error-message {
+      margin-top: 1.5rem;
+      padding: 16px;
+      border-radius: 8px;
+      display: none;
+      font-weight: 500;
+      text-align: center;
+    }
+    .success-message {
+      background: color-mix(in srgb, var(--green) 10%, var(--surface));
+      color: var(--green);
+      border: 1px solid color-mix(in srgb, var(--green) 30%, transparent);
+    }
+    .error-message {
+      background: color-mix(in srgb, #b91c1c 10%, var(--surface));
+      color: #b91c1c;
+      border: 1px solid color-mix(in srgb, #b91c1c 30%, transparent);
+    }
+    html[data-theme="dark"] .error-message { color: #f87171; }
+
+    .form-note {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 1.5rem;
+      line-height: 1.5;
+    }
+
+    .back-to-top{
+      position:fixed; bottom:26px; right:26px; width:48px; height:48px; border-radius:50%; border:1px solid var(--border);
+      display:grid; place-items:center; color:var(--accent); cursor:pointer; background:color-mix(in srgb, var(--surface) 92%, transparent);
+      box-shadow:var(--shadow-e2); opacity:0; visibility:hidden; transform:translateY(8px);
+      transition:opacity .18s, transform .18s, visibility .18s; z-index:90;
+    }
+    .back-to-top.visible{opacity:1; visibility:visible; transform:translateY(0)}
+    .back-to-top:hover{background:color-mix(in srgb, var(--surface) 90%, var(--accent))}
+
+    .footer-section{position:relative; z-index:1; margin-top:32px; border-top:1px solid var(--border); background:var(--surface)}
+    .footer-divider{height:2px; border:0; margin:0 0 16px; background:linear-gradient(90deg, transparent, var(--violet), var(--blue), var(--gold), transparent); opacity:.3}
+    .site-footer{padding:0 var(--pad) 16px; max-width:var(--wrap); margin:0 auto; color:var(--muted)}
+    .footer-flex{display:flex; flex-direction:column; align-items:center; gap:12px}
+    .footer-nav{display:flex; gap:16px; flex-wrap:wrap; justify-content:center}
+    .footer-nav a{color:var(--muted); text-decoration:none; font-weight:600}
+    .footer-nav a:hover{color:var(--accent); text-decoration:underline}
+    .footer-brand{display:flex; align-items:center; gap:10px}
+    .footer-logo{height:24px; width:auto; filter:grayscale(0); opacity:.9}
+    .copyright{font-size:.95rem; color:var(--muted)}
+
+    @media (max-width:560px){
+      .header-inner, .hero, .intro, .breadcrumbs, main#main, .site-footer{padding-left:1rem; padding-right:1rem}
+    }
+
+    /* Print 6×9 */
+    @media print{
+      @page{size:6in 9in; margin:0.75in}
+      html{color-scheme:light !important}
+      :root{
+        --bg:var(--white) !important; --surface:var(--white) !important; --text:var(--slate-900) !important;
+        --muted:#445268 !important; --muted2:var(--slate-500) !important; --border:var(--slate-200) !important;
+        --accent:var(--violet) !important; --link:var(--blue) !important;
+        --shadow-e2:none !important; --svg-label:#0f172a !important;
+        --svg-desc: var(--muted) !important;
+        --code-bg-light:#f7f7fb !important;
+        --grad-title: linear-gradient(90deg, var(--violet), var(--blue)) !important;
+      }
+      body{
+        background:var(--bg) !important; color:var(--text) !important;
+        font-size:11pt; line-height:1.6;
+        -webkit-print-color-adjust: exact !important; color-adjust: exact !important;
+        font-family: 'Inter', system-ui, sans-serif !important;
+      }
+      /* Hide creative hero image in print but keep title */
+      .creative-hero { 
+        background: none !important; 
+        color: var(--text) !important;
+        padding: 2rem 0 !important;
+        text-align: left !important;
+      }
+      .creative-hero::before { display: none; }
+      .hero-title-large {
+        font-size: 2.5rem !important;
+        -webkit-text-fill-color: var(--text) !important;
+        background: none !important;
+        text-shadow: none !important;
+      }
+      .hero-subtitle { color: var(--muted) !important; }
+      
+      /* Simplify form for print (it won't work on paper anyway, but looks cleaner) */
+      .form-wrapper { margin: 0 !important; box-shadow: none !important; padding: 0 !important; }
+      form.contact-form { box-shadow: none !important; border: none !important; padding: 0 !important; }
+      button[type="submit"] { display: none; }
+      input, textarea { border: 1px solid #ccc !important; background: #fff !important; }
+
+      .site-header, .theme-toggle, .back-to-top, .footer-section {display:none !important}
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#contact-form">Skip to contact form</a>
+  <div id="theme-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- ===================== Header ===================== -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand-wrap" href="/index.html" aria-label="The AI Artisan home">
+        <img src="https://aiartisan.hqaim.com/images/HQAIM_ICON.svg" class="brand-logo" alt="HQAIM Studios icon" width="32" height="32" />
+        <span class="brand-text">The AI Artisan</span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
+
+      <nav id="site-menu" class="main-nav" role="navigation" aria-label="Main">
+        <ul>
+          <li><a href="/foreword.html">Foreword</a></li>
+          <li><a href="/toc.html">Index</a></li>
+          <li><a href="/modules.html">Modules</a></li>
+          <li><a href="/fieldkit.html">Toolkit</a></li>
+          <li><a href="/premium.html">Premium</a></li>
+          <li><a href="/contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="right-tools">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle color theme" aria-pressed="false" role="switch" title="Toggle theme">
+          <svg class="icon icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+          </svg>
+          <svg class="icon icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== Creative Hero ===================== -->
+  <section class="creative-hero" aria-label="Welcome">
+    <div class="hero-content">
+      <h1 class="hero-title-large">Let’s Create Something Extraordinary.</h1>
+      <p class="hero-subtitle">
+        Whether you have feedback, a proposal, or a request for premium access, we are ready to listen. Connect directly with HQAIM Studios.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== Main Content ===================== -->
+  <main id="main" role="main">
+    
+    <!-- Contact Form Section (Floating Over Hero) -->
+    <div class="form-wrapper">
+      <form id="contact-form" class="contact-form" action="https://formspree.io/f/mkgyonpo" method="POST">
+        
+        <label for="name">Your Name</label>
+        <input id="name" name="name" type="text" required placeholder="e.g. Alex Chen" />
+      
+        <label for="email">Your Email</label>
+        <input id="email" name="email" type="email" required placeholder="alex@example.com" />
+      
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" required placeholder="How can we help you?"></textarea>
+      
+        <!-- Spam protection -->
+        <input type="hidden" name="_subject" value="New message from The AI Artisan Contact Page">
+        <input type="text" name="_gotcha" style="display:none">
+      
+        <button type="submit">Send Message</button>
+      
+        <p class="form-note">
+          All messages are sent securely and delivered directly to <strong>info@hqaim.com</strong>. We typically respond within 24-48 hours.
+        </p>
+
+        <div id="success" class="success-message">Your message has been sent successfully. We’ll reply soon.</div>
+        <div id="error" class="error-message">Something went wrong. Please try again later.</div>
+      
+      </form>
+    </div>
+
+  </main>
+
+  <!-- ===================== Back to Top ===================== -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" title="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <!-- ===================== Footer ===================== -->
+  <footer class="footer-section" role="contentinfo">
+    <hr class="footer-divider" />
+    <div class="site-footer">
+      <div class="footer-flex">
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="/toc.html" rel="noopener">Index</a>
+          <a href="/contact.html" rel="noopener">Contact</a>
+          <a href="/privacy.html" rel="noopener">Privacy</a>
+          <a href="/terms.html" rel="noopener">Terms</a>
+          <a href="/sitemap.xml" rel="noopener">Sitemap</a>
+        </nav>
+        <div class="footer-brand">
+          <img src="https://aiartisan.hqaim.com/assets/images/HQAIM_LOGO_Gradient_Minimal.svg" class="footer-logo" alt="HQAIM Studios logo" width="120" height="26" />
+          <span class="copyright">© <span id="year"></span> Abdullah Khan · HQAIM Studios</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== Inline JavaScript ===================== -->
+  <script>
+  (function(){
+    'use strict';
+    
+    const html = document.documentElement;
+    const metaTheme = document.getElementById('themeColor');
+    const toggle = document.getElementById('themeToggle');
+    const backToTop = document.getElementById('backToTop');
+    const navToggle = document.querySelector('.nav-toggle');
+    const mainNav = document.querySelector('nav.main-nav');
+    const yearEl = document.getElementById('year');
+    
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    /* Theme toggle logic */
+    const storageKey = 'aiartisan_theme_preference';
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function getPref(){
+      const saved = localStorage.getItem(storageKey);
+      if (saved === 'light' || saved === 'dark') return saved;
+      return prefersDark.matches ? 'dark' : 'light';
+    }
+    
+    function applyTheme(t){
+      html.dataset.theme = t;
+      if (metaTheme) metaTheme.setAttribute('content', t === 'dark' ? '#0f172a' : '#ffffff');
+      if (toggle) {
+        toggle.setAttribute('aria-pressed', String(t === 'dark'));
+        const newLabel = 'Switch to ' + (t === 'dark' ? 'light' : 'dark') + ' theme';
+        toggle.setAttribute('title', newLabel);
+        toggle.setAttribute('aria-label', newLabel);
+      }
+    }
+    
+    applyTheme(getPref());
+    
+    prefersDark.addEventListener('change', e => {
+      if (!localStorage.getItem(storageKey)) applyTheme(e.matches ? 'dark' : 'light');
+    });
+    
+    if (toggle){
+      toggle.addEventListener('click', () => {
+        const next = html.dataset.theme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem(storageKey, next);
+        applyTheme(next);
+      });
+      toggle.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle.click(); }
+      });
+    }
+
+    /* Mobile navigation */
+    if (navToggle && mainNav){
+      navToggle.addEventListener('click', ()=>{
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', String(!expanded));
+        mainNav.classList.toggle('open');
+      });
+    }
+
+    /* Back to top */
+    if (backToTop) {
+      function onScroll(){
+        if (window.scrollY > 400){ backToTop.classList.add('visible'); }
+        else { backToTop.classList.remove('visible'); }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll(); 
+      
+      backToTop.addEventListener('click', ()=>{
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    /* Form Logic */
+    const contactForm = document.getElementById("contact-form");
+    if (contactForm) {
+      contactForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const form = e.target;
+        const success = document.getElementById("success");
+        const error = document.getElementById("error");
+        const submitBtn = form.querySelector('button[type="submit"]');
+        
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        
+        const data = new FormData(form);
+        const action = form.action;
+        
+        try {
+          const res = await fetch(action, {
+            method: "POST",
+            body: data,
+            headers: { "Accept": "application/json" }
+          });
+        
+          if (res.ok) {
+            form.reset();
+            success.style.display = "block";
+            error.style.display = "none";
+            // Auto-hide success message after 5 seconds
+            setTimeout(() => { success.style.display = 'none'; }, 5000);
+          } else {
+            success.style.display = "none";
+            error.style.display = "block";
+          }
+        } catch {
+          success.style.display = "none";
+          error.style.display = "block";
+        } finally {
+          submitBtn.textContent = originalBtnText;
+          submitBtn.disabled = false;
+        }
+      });
+    }
+
+  })();
   </script>
 </body>
 </html>
