@@ -1,152 +1,812 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
+  <!--
+    The AI Artisan — Foreword & Front Matter
+    Diamond Edition v100 (Final)
+    Author: Abdullah Khan · HQAIM Studios
+    Notes:
+      - Collapsible Copyright Page implemented.
+      - Full manuscript integration (Foreword to Usage Guide).
+      - Custom "Core Principles Compass" SVG Diagram.
+      - Design System v100 (Inter/Source Serif Pro).
+  -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Foreword — The AI Artisan</title>
-  <meta name="description" content="Foreword to The AI Artisan — exploring the journey from prompting to proof, from inspiration to structured creativity." />
-  <link rel="canonical" href="https://aiartisan.hqaim.com/foreword.html" />
-  <link rel="icon" href="/assets/images/favicon.ico" />
-  <meta name="theme-color" content="#0f172a" />
+  
+  <!-- SEO Metadata -->
+  <title>Foreword — The AI Artisan (Diamond Edition)</title>
+  <meta name="description" content="The foundational philosophy and user guide for The AI Artisan. Learn the core principles of clarity, structure, and verification." />
+  <meta name="keywords" content="AI Artisan foreword, HQAIM Studios, Abdullah Khan, AI principles, structured prompting, prompt engineering book" />
 
-  <!-- OpenGraph -->
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://aiartisan.hqaim.com/foreword.html" />
+  <meta id="themeColor" name="theme-color" content="#ffffff" />
+  <meta name="color-scheme" content="light dark" />
+
+  <!-- Open Graph -->
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Foreword — The AI Artisan" />
-  <meta property="og:description" content="The introduction to The AI Artisan — where creative engineering meets measurable proof." />
-  <meta property="og:image" content="https://aiartisan.hqaim.com/assets/images/cover-hero.jpg" />
+  <meta property="og:description" content="The foundational philosophy and user guide for The AI Artisan." />
   <meta property="og:url" content="https://aiartisan.hqaim.com/foreword.html" />
+  <!-- Hero Image: Open Book/First Page -->
+  <meta property="og:image" content="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=1600&auto.format&fit=crop" />
+  <meta property="og:site_name" content="The AI Artisan" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Source+Serif+Pro:wght@600&display=swap" rel="stylesheet" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Foreword — The AI Artisan" />
+  <meta name="twitter:description" content="The foundational philosophy and user guide for The AI Artisan." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=1600&auto.format&fit=crop" />
 
-  <!-- Global stylesheet -->
-  <link rel="stylesheet" href="/assets/style.css" />
+  <!-- Favicon -->
+  <link rel="icon" href="https://aiartisan.hqaim.com/images/favicon.ico" type="image/x-icon" />
 
-  <style>
-    main {
-      max-width: 780px;
-      margin: 0 auto;
-      padding: 3.5rem 1.5rem;
-    }
-    h1 {
-      text-align: center;
-      font-family: var(--font-serif);
-      font-weight: 600;
-      font-size: clamp(2rem, 3vw, 2.6rem);
-      background: linear-gradient(90deg, var(--violet), var(--blue));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 1.2rem;
-    }
-    p {
-      color: var(--text-muted);
-      line-height: 1.75;
-      margin: 1.1rem 0;
-      font-size: 1.05rem;
-    }
-    .highlight {
-      font-weight: 600;
-      color: var(--text);
-    }
-    .quote {
-      font-style: italic;
-      color: var(--text);
-      border-left: 3px solid var(--brand);
-      padding-left: 1rem;
-      margin: 2rem 0;
-      background: linear-gradient(to right, var(--surface), transparent);
-    }
-    .signature {
-      text-align: right;
-      color: var(--text-muted-2);
-      margin-top: 3rem;
-      font-style: italic;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem 1rem 1rem;
-      font-size: 0.9rem;
-      color: var(--text-muted-2);
-    }
-  </style>
-</head>
-
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand-wrap" href="/index.html" aria-label="The AI Artisan home">
-        <img src="/assets/images/HQAIM-ICON-AI.svg" alt="HQAIM Studios Logo" width="140" height="28" />
-        <span class="brand-text">The AI Artisan</span>
-      </a>
-      <nav class="main-nav">
-        <ul>
-          <li><a href="/toc.html">Index</a></li>
-          <li><a href="/toolkit.html">Toolkit</a></li>
-          <li><a href="/premium.html">Premium</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-          <li><a href="/credits.html">Credits</a></li>
-          <li><a href="/foreword.html" aria-current="page">Foreword</a></li>
-          <li>
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-              <svg class="icon" data-icon="moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 1021 12.79z"/></svg>
-              <svg class="icon" data-icon="sun" viewBox="0 0 24 24"><path d="M12 6a6 6 0 100 12 6 6 0 000-12z"/></svg>
-            </button>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main id="main" tabindex="-1">
-    <h1>Foreword</h1>
-
-    <p>We are witnessing a transformation unlike any before. The tools of creation have shifted — from brushes and scripts to models and prompts. Yet, amidst the speed of progress, one principle remains timeless: <span class="highlight">creation demands proof</span>.</p>
-
-    <p><strong>The AI Artisan</strong> was born not as a collection of clever prompts, but as a philosophy — one that views artificial intelligence as a collaborator, not a shortcut. It challenges the notion that faster is always better, replacing it with a deeper goal: <em>to think clearly, design intentionally, and build proof-driven systems.</em></p>
-
-    <div class="quote">"Prompting is not an act of guessing — it is the craft of teaching intelligence through structure, logic, and proof."</div>
-
-    <p>Across its five parts, this playbook distills years of applied experimentation into systems of clarity, creativity, and value. From <strong>CLARITY-7™</strong> to <strong>TESSERA™</strong>, each framework represents an evolution — a bridge between human thought and computational reasoning.</p>
-
-    <p>Whether you are a designer, strategist, engineer, or educator, the principles within these pages remind us that true intelligence is collaborative. That mastery is not achieved through control — but through alignment.</p>
-
-    <p>Every great system begins with a single prompt. Every proof refines that beginning. And every artisan, human or otherwise, must learn not just to make — but to <em>understand why</em> what they make matters.</p>
-
-    <p class="signature">— Abdullah Khan<br>Founder, HQAIM Studios</p>
-  </main>
-
-  <footer class="site-footer">
-    <p>© <span id="year"></span> Abdullah Khan · <a href="https://hqaim.com" target="_blank" rel="noopener noreferrer">HQAIM Studios</a></p>
-  </footer>
-
-  <script src="/assets/js/theme.js"></script>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <!-- Google Fonts: Inter (body) & Source Serif Pro (headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+Pro:wght@600;700;800&display=swap" rel="stylesheet">
 
   <!-- JSON-LD Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Book",
-    "name": "The AI Artisan — From Prompt to Proof",
-    "url": "https://aiartisan.hqaim.com/foreword.html",
-    "author": {
-      "@type": "Person",
-      "name": "Abdullah Khan"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "HQAIM Studios",
-      "url": "https://hqaim.com"
-    },
-    "inLanguage": "en",
-    "description": "Foreword to The AI Artisan — exploring the journey from prompting to proof, from inspiration to structured creativity."
+    "name": "The AI Artisan",
+    "author": { "@type": "Person", "name": "Abdullah Khan" },
+    "publisher": { "@type": "Organization", "name": "HQAIM Studios" },
+    "datePublished": "2025",
+    "about": "Structured Prompt Engineering",
+    "url": "https://aiartisan.hqaim.com/foreword.html"
   }
+  </script>
+
+  <style>
+    /* =========================================================
+       THE AI ARTISAN — Diamond Edition v100
+       Foreword CSS (screen + print)
+       ========================================================= */
+
+    /* 0) Keyframes for fade-in */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 0) Tokens */
+    :root{
+      color-scheme: light dark;
+      /* Typography */
+      --font-sans: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+      --font-serif: 'Source Serif Pro', serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+      /* Core palette (Aetherium) */
+      --violet:#7c3aed; --blue:#2563eb; --green:#10b981; --gold:#f6be3e;
+      --white:#ffffff;  --black:#0f172a;
+
+      --slate-50:#f8fafc;  --slate-100:#f1f5f9; --slate-200:#e2e8f0;
+      --slate-300:#cbd5e1; --slate-400:#94a3b8; --slate-500:#64748b;
+      --slate-600:#475569; --slate-700:#334155; --slate-800:#1e293b;
+      --slate-900:#0f172a;
+
+      /* Light Mode Variables */
+      --bg:var(--white); --surface:var(--slate-50); --text:var(--slate-900);
+      --muted:#445268; --muted2:var(--slate-500); --border:var(--slate-200);
+      --accent:var(--violet); --link:var(--blue); --focus:rgba(37,99,235,.36);
+      --shadow-e2:0 8px 20px rgba(15,23,42,.08), 0 3px 8px rgba(15,23,42,.06);
+
+      /* Background shimmer */
+      --bg-gradient:
+        radial-gradient(1200px 600px at 0% -10%, color-mix(in srgb, var(--violet) 7%, transparent), transparent 70%),
+        radial-gradient(900px 500px at 100% 110%, color-mix(in srgb, var(--blue) 7%, transparent), transparent 70%),
+        linear-gradient(180deg, rgba(124,58,237,.03), rgba(37,99,235,.03)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Cpath fill='%239C92AC' fill-opacity='.015' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'/%3E%3C/svg%3E"),
+        var(--bg);
+
+      --svg-label:#0f172a;
+      --svg-desc: var(--muted);
+      /* Theme-aware SVG fills */
+      --svg-fill-violet: color-mix(in srgb, var(--violet) 10%, var(--surface));
+      --svg-fill-blue: color-mix(in srgb, var(--blue) 10%, var(--surface));
+      --svg-fill-green: color-mix(in srgb, var(--green) 10%, var(--surface));
+      --svg-fill-gold: color-mix(in srgb, var(--gold) 20%, var(--surface));
+      --svg-fill-slate: color-mix(in srgb, var(--slate-400) 20%, var(--surface));
+
+      --code-bg-light:#f7f7fb; --code-bg-dark:#0f172a;
+      --grad-1: linear-gradient(95deg, var(--link), var(--accent));
+      --grad-title: linear-gradient(90deg, var(--violet), var(--blue));
+
+      --wrap:1100px; --pad:1.5rem; --r:12px;
+    }
+
+    html[data-theme="dark"]{
+      --bg:var(--slate-900); --surface:var(--slate-800); --text:var(--slate-50);
+      --muted:var(--slate-300); --muted2:var(--slate-400); --border:var(--slate-700);
+      --accent:#a78bfa; --link:#7dd3fc; --focus:rgba(124,58,237,.45);
+      --shadow-e2:0 10px 28px rgba(0,0,0,.35);
+
+      --bg-gradient:
+        radial-gradient(1200px 600px at 0% -10%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 70%),
+        radial-gradient(900px 500px at 100% 110%, color-mix(in srgb, var(--link) 10%, transparent), transparent 70%),
+        linear-gradient(180deg, rgba(124,58,237,.06), rgba(37,99,235,.06)),
+        var(--bg);
+
+      --svg-label:#ffffff;
+      --svg-desc: var(--muted);
+      --svg-fill-violet: color-mix(in srgb, var(--accent) 20%, var(--surface));
+      --svg-fill-blue: color-mix(in srgb, var(--link) 20%, var(--surface));
+      --svg-fill-green: color-mix(in srgb, var(--green) 20%, var(--surface));
+      --svg-fill-gold: color-mix(in srgb, var(--gold) 25%, var(--surface));
+      --svg-fill-slate: color-mix(in srgb, var(--slate-400) 30%, var(--surface));
+      
+      --grad-title: linear-gradient(90deg, var(--accent), var(--link));
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font:16px/1.65 var(--font-sans); color:var(--text);
+      background:var(--bg-gradient); background-attachment:fixed;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      text-rendering:optimizeLegibility;
+    }
+    .wrap{max-width:var(--wrap); margin:0 auto; padding:0 var(--pad)}
+    
+    ul, ol { padding-left: 1.5em; margin: 1em 0; }
+    li { margin-bottom: 0.5em; }
+    p { margin: 0.8em 0; }
+    
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation:none!important;transition:none!important}
+    }
+
+    .sr-only{
+      position:absolute!important; width:1px; height:1px; padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap; border:0;
+    }
+
+    /* 1) Header */
+    .site-header{
+      position:sticky; top:0; z-index:100;
+      backdrop-filter:saturate(140%) blur(8px);
+      background:color-mix(in srgb, var(--surface) 92%, transparent);
+      border-bottom:1px solid var(--border);
+      animation: fadeIn 0.5s ease-out;
+    }
+    .header-inner{
+      max-width:var(--wrap); margin:0 auto; padding:.65rem var(--pad);
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .brand-wrap{display:inline-flex; align-items:center; gap:10px; text-decoration:none; color:var(--text)}
+    .brand-logo{width:32px; height:32px; display:inline-block}
+    .brand-text{
+      font-weight:800; letter-spacing:.2px; font-size:1rem;
+      background:linear-gradient(95deg, var(--accent), var(--link));
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+      transition:filter .2s;
+    }
+    .brand-wrap:hover .brand-text{filter:brightness(1.06)}
+
+    .nav-toggle{display:none; border:0; background:none; cursor:pointer; padding:4px}
+    .nav-toggle-bar{
+      width:22px; height:2px; background:var(--text); display:block; margin:4px 0; border-radius:2px;
+      transition:transform .2s, opacity .2s;
+    }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2){opacity:0}
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+    nav.main-nav{display:block}
+    .main-nav ul{list-style:none; margin:0; padding:0; display:flex; align-items:center; gap:10px}
+    .main-nav a{
+      color:var(--muted); text-decoration:none; font-weight:600; padding:6px 10px; border-radius:8px; font-size:.95rem;
+      transition:color .2s, background-color .2s;
+    }
+    .main-nav a[aria-current="page"], .main-nav a:hover{
+      color:var(--accent); background-color:color-mix(in srgb, var(--accent) 10%, transparent)
+    }
+
+    .right-tools{display:inline-flex; align-items:center; gap:10px}
+    .theme-toggle{
+      width:40px; height:40px; border-radius:50%; border:1px solid var(--border); background:var(--surface);
+      display:grid; place-items:center; cursor:pointer; position:relative; overflow:hidden; padding:0;
+      transition:transform .18s, box-shadow .18s, background-color .18s; -webkit-tap-highlight-color:transparent;
+    }
+    .theme-toggle:hover{transform:translateY(-1px) scale(1.05); box-shadow:0 0 10px var(--focus)}
+    .theme-toggle .icon{position:absolute; width:20px; height:20px; transition:transform .3s cubic-bezier(.4,0,.2,1.4), opacity .25s linear}
+    .icon-sun{color:var(--gold); transform:scale(0) rotate(90deg); opacity:0}
+    .icon-moon{color:var(--white); transform:scale(1) rotate(0); opacity:1}
+    html[data-theme="light"] .icon-sun{transform:scale(1) rotate(0); opacity:1}
+    html[data-theme="light"] .icon-moon{transform:scale(0) rotate(-90deg); opacity:0}
+    html[data-theme="dark"]  .icon-sun{transform:scale(0) rotate(90deg); opacity:0}
+    html[data-theme="dark"]  .icon-moon{transform:scale(1) rotate(0); opacity:1}
+
+    @media (max-width:820px){
+      .nav-toggle{display:inline-block}
+      nav.main-nav{display:none}
+      nav.main-nav.open{display:block}
+      .main-nav ul{
+        position:fixed; right:12px; top:60px; background:var(--surface); border:1px solid var(--border);
+        border-radius:12px; box-shadow:var(--shadow-e2); padding:12px; gap:10px; flex-direction:column;
+        transform:scale(.98); opacity:0; pointer-events:none; transition:transform .18s ease-out, opacity .18s ease-out;
+      }
+      nav.main-nav.open ul{transform:scale(1); opacity:1; pointer-events:auto}
+    }
+
+    :focus-visible{outline:3px solid var(--focus); outline-offset:3px; border-radius:4px}
+    .skip-link{
+      position:absolute; left:12px; top:6px; z-index:200; background:var(--surface); color:var(--text);
+      padding:6px 10px; border-radius:8px; border:1px solid var(--border);
+      transform:translateY(-150%); transition:transform .2s;
+    }
+    .skip-link:focus{transform:translateY(0%)}
+
+    /* 2) Hero + Intro */
+    .hero{
+      max-width:var(--wrap); margin:0 auto; padding:18px var(--pad) 0;
+      animation: fadeIn 0.5s 0.1s ease-out backwards;
+    }
+    .hero-figure{
+      margin:0; border-radius:14px; overflow:hidden; border:1px solid var(--border); box-shadow:var(--shadow-e2); background:var(--surface);
+    }
+    .hero-figure img{display:block; width:100%; height:auto; aspect-ratio:16/7; object-fit:cover; background-color:var(--surface)}
+    .hero-caption{margin:0; padding:10px 14px; font-size:.96rem; color:var(--muted); background:color-mix(in srgb, var(--surface) 92%, transparent); border-top:1px solid var(--border)}
+
+    .intro{
+      padding:12px var(--pad) 4px; max-width:var(--wrap); margin:0 auto;
+      animation: fadeIn 0.5s 0.2s ease-out backwards;
+    }
+    .intro p{margin:10px 0; color:var(--muted); font-size:clamp(1rem, 1.2vw, 1.05rem); max-width:75ch}
+
+    .breadcrumbs{
+      max-width:var(--wrap); margin:0 auto; padding:8px var(--pad) 0; font-size:.95rem; color:var(--muted);
+      animation: fadeIn 0.5s 0.3s ease-out backwards;
+    }
+    .breadcrumbs a{color:var(--muted); text-decoration:none; font-weight:600}
+    .breadcrumbs a:hover{color:var(--accent); text-decoration:underline}
+    .breadcrumbs .sep{opacity:.6; padding:0 .35rem}
+
+    /* 3) Main content */
+    main#main{
+      max-width:var(--wrap); margin:0 auto; padding:8px var(--pad) 24px;
+      animation: fadeIn 0.5s 0.4s ease-out backwards;
+    }
+    .page-title{
+      margin:8px 0 4px; font-size:clamp(1.9rem, 3.8vw, 2.6rem); font-weight:800;
+      font-family: var(--font-serif);
+      background: var(--grad-title);
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; letter-spacing:.2px;
+    }
+    .page-sub{margin:0 0 10px; color:var(--muted); font-weight:600}
+
+    section.module-section{
+      margin:20px 0; padding:14px; border-radius:12px; background:color-mix(in srgb, var(--surface) 86%, transparent);
+      border:1px solid var(--border); box-shadow:var(--shadow-e2); page-break-before:always;
+    }
+    section.module-section:first-of-type{page-break-before:auto}
+    
+    .section-title{
+      margin:0 0 6px; font-size:clamp(1.2rem, 2.3vw, 1.45rem); font-weight:800; letter-spacing:.2px; color:var(--text);
+      font-family: var(--font-serif);
+      background: var(--grad-title);
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+    }
+    .section-lead{margin:2px 0 10px; color:var(--muted)}
+    
+    blockquote.core {
+      margin: 1em 0;
+      padding: 10px 14px;
+      border-left: 4px solid var(--accent);
+      background: color-mix(in srgb, var(--accent) 6%, var(--surface));
+      border-radius: 0 8px 8px 0;
+      font-family: var(--font-serif);
+      font-size: 1.05em;
+      letter-spacing: 0.1px;
+    }
+    blockquote.core p { margin: 0; font-weight: 600; }
+
+    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+    @media (max-width:820px){.grid-2{grid-template-columns:1fr}}
+
+    .card{background:color-mix(in srgb, var(--surface) 88%, transparent); border:1px solid var(--border); border-radius:12px; padding:12px 14px;}
+    .card h3 { margin-top: 0; font-family: var(--font-serif); }
+    .card ul, .card ol { padding-left: 1.2em; }
+
+    /* Copyright Details Styles */
+    details.copyright-details {
+      background: color-mix(in srgb, var(--surface) 95%, transparent);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin: 0 auto 24px;
+      max-width: var(--wrap);
+      font-size: 0.9rem;
+    }
+    details.copyright-details summary {
+      padding: 10px 14px;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--muted);
+      list-style: none;
+    }
+    details.copyright-details summary::-webkit-details-marker { display: none; }
+    details.copyright-details summary:hover {
+      color: var(--accent);
+      background: color-mix(in srgb, var(--surface) 90%, transparent);
+    }
+    details.copyright-details[open] summary {
+      border-bottom: 1px solid var(--border);
+      color: var(--accent);
+    }
+    .copyright-content {
+      padding: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .copyright-content p { margin: 0 0 0.8em; }
+    .copyright-content p:last-child { margin-bottom: 0; }
+
+    /* SVG Diagram */
+    figure.diagram-flow{margin:0; padding:0}
+    .diagram-flow svg{
+      display:block; width:100%; height:auto; background:color-mix(in srgb, var(--surface) 88%, transparent);
+      border:1px solid var(--border); border-radius:12px;
+      font-family: var(--font-sans);
+    }
+    .diagram-flow figcaption{margin-top:8px; font-size:.95rem; color:var(--muted)}
+    .svg-label{fill:var(--svg-label); font-weight:700;}
+    .svg-desc{
+      fill: var(--svg-desc);
+      font-weight: 600;
+      font-size: 11px;
+      opacity: 0.9;
+    }
+    .g-violet-stroke { stroke: #7c3aed; }
+    .g-blue-stroke { stroke: #2563eb; }
+    .g-green-stroke { stroke: #10b981; }
+    .g-gold-stroke { stroke: #f6be3e; }
+    .g-slate-stroke { stroke: #94a3b8; }
+    .g-arrow-path { stroke: var(--muted2); stroke-width: 2.5; }
+    html[data-theme="dark"] .g-violet-stroke { stroke: #a78bfa; }
+    html[data-theme="dark"] .g-blue-stroke { stroke: #7dd3fc; }
+    html[data-theme="dark"] .g-green-stroke { stroke: #6ee7b7; }
+    html[data-theme="dark"] .g-gold-stroke { stroke: #fde08a; }
+    html[data-theme="dark"] .g-slate-stroke { stroke: #e2e8f0; }
+
+    .back-to-top{
+      position:fixed; bottom:26px; right:26px; width:48px; height:48px; border-radius:50%; border:1px solid var(--border);
+      display:grid; place-items:center; color:var(--accent); cursor:pointer; background:color-mix(in srgb, var(--surface) 92%, transparent);
+      box-shadow:var(--shadow-e2); opacity:0; visibility:hidden; transform:translateY(8px);
+      transition:opacity .18s, transform .18s, visibility .18s; z-index:90;
+    }
+    .back-to-top.visible{opacity:1; visibility:visible; transform:translateY(0)}
+    .back-to-top:hover{background:color-mix(in srgb, var(--surface) 90%, var(--accent))}
+
+    .footer-section{position:relative; z-index:1; margin-top:32px; border-top:1px solid var(--border); background:var(--surface)}
+    .footer-divider{height:2px; border:0; margin:0 0 16px; background:linear-gradient(90deg, transparent, var(--violet), var(--blue), var(--gold), transparent); opacity:.3}
+    .site-footer{padding:0 var(--pad) 16px; max-width:var(--wrap); margin:0 auto; color:var(--muted)}
+    .footer-flex{display:flex; flex-direction:column; align-items:center; gap:12px}
+    .footer-nav{display:flex; gap:16px; flex-wrap:wrap; justify-content:center}
+    .footer-nav a{color:var(--muted); text-decoration:none; font-weight:600}
+    .footer-nav a:hover{color:var(--accent); text-decoration:underline}
+    .footer-brand{display:flex; align-items:center; gap:10px}
+    .footer-logo{height:24px; width:auto; filter:grayscale(0); opacity:.9}
+    .copyright{font-size:.95rem; color:var(--muted)}
+
+    @media (max-width:560px){
+      .header-inner, .hero, .intro, .breadcrumbs, main#main, .site-footer{padding-left:1rem; padding-right:1rem}
+    }
+
+    /* Print 6×9 */
+    @media print{
+      @page{size:6in 9in; margin:0.75in}
+      html{color-scheme:light !important}
+      :root{
+        --bg:var(--white) !important; --surface:var(--white) !important; --text:var(--slate-900) !important;
+        --muted:#445268 !important; --muted2:var(--slate-500) !important; --border:var(--slate-200) !important;
+        --accent:var(--violet) !important; --link:var(--blue) !important;
+        --shadow-e2:none !important; --svg-label:#0f172a !important;
+        --svg-desc: var(--muted) !important;
+        --code-bg-light:#f7f7fb !important;
+        --grad-title: linear-gradient(90deg, var(--violet), var(--blue)) !important;
+        --svg-fill-violet: color-mix(in srgb, var(--violet) 10%, var(--white)) !important;
+        --svg-fill-blue: color-mix(in srgb, var(--blue) 10%, var(--white)) !important;
+        --svg-fill-green: color-mix(in srgb, var(--green) 10%, var(--white)) !important;
+        --svg-fill-gold: color-mix(in srgb, var(--gold) 20%, var(--white)) !important;
+        --svg-fill-slate: color-mix(in srgb, var(--slate-400) 20%, var(--white)) !important;
+      }
+      body{
+        background:var(--bg) !important; color:var(--text) !important;
+        font-size:11pt; line-height:1.6;
+        -webkit-print-color-adjust: exact !important; color-adjust: exact !important;
+        font-family: 'Inter', system-ui, sans-serif !important;
+      }
+      .page-title, .section-title, .card h3 {
+        font-family: 'Source Serif Pro', serif !important;
+        -webkit-text-fill-color: transparent !important;
+        background: var(--grad-title) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+      }
+      .section-title { border-left: none !important; padding-left: 0 !important; }
+      .site-header, .theme-toggle, .back-to-top, .footer-section, .copy-btn, .breadcrumbs, details > summary {display:none !important}
+      /* Ensure Copyright is open in print */
+      details.copyright-details[open] { border: none; }
+      details.copyright-details > summary { display: none; }
+      details.copyright-details > .copyright-content { display: block; padding: 0; }
+      
+      section.module-section{ box-shadow:none !important; background:var(--white) !important; border: none !important; padding: 10px 0; }
+      .diagram-flow svg{ background:var(--white) !important; border: none !important; }
+      .card { border: none !important; background: var(--white) !important; box-shadow: none !important; }
+      .hero-figure { page-break-after: avoid; } 
+      .hero-figure img { max-width: 100%; height: auto; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="theme-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- ===================== Header ===================== -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand-wrap" href="/index.html" aria-label="The AI Artisan home">
+        <img src="https://aiartisan.hqaim.com/images/HQAIM_ICON.svg" class="brand-logo" alt="HQAIM Studios icon" width="32" height="32" />
+        <span class="brand-text">The AI Artisan</span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
+
+      <nav id="site-menu" class="main-nav" role="navigation" aria-label="Main">
+        <ul>
+          <li><a href="/foreword.html" aria-current="page">Foreword</a></li>
+          <li><a href="/toc.html">Index</a></li>
+          <li><a href="/modules.html">Modules</a></li>
+          <li><a href="/fieldkit.html">Toolkit</a></li>
+          <li><a href="/premium.html">Premium</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="right-tools">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle color theme" aria-pressed="false" role="switch" title="Toggle theme">
+          <svg class="icon icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+          </svg>
+          <svg class="icon icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== Hero ===================== -->
+  <section class="hero" aria-label="Foreword hero">
+    <figure class="hero-figure">
+      
+      <img
+        src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=1600&auto.format&fit=crop"
+        alt="An open book with structured typography, representing the beginning of a journey."
+        decoding="async"
+        fetchpriority="high"
+        width="1600"
+        height="700"
+        onerror="this.src='https://placehold.co/1600x700/f8fafc/64748b?text=Foreword+Hero+Image';this.onerror=null;"
+      />
+      <figcaption class="hero-caption">
+        The AI Artisan is not just a manual; it is a structured philosophy for clarity, consistency, and meaningful outcomes.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ===================== Intro ===================== -->
+  <div class="intro">
+    <p>This section outlines the philosophy, purpose, and origins of The AI Artisan. It introduces the core principles that guide the entire system and explains how to use this book to build lasting skills.</p>
+  </div>
+
+  <!-- ===================== Breadcrumbs ===================== -->
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="/index.html">Home</a><span class="sep">/</span>
+    <span aria-current="page">Foreword</span>
+  </nav>
+
+  <!-- ===================== Main ===================== -->
+  <main id="main" role="main" tabindex="-1" aria-labelledby="page-title">
+
+    <!-- 1. Copyright (Collapsible) -->
+    <details class="copyright-details">
+      <summary>Copyright & Legal Notice (Click to Expand)</summary>
+      <div class="copyright-content">
+        <p><strong>The AI Artisan — Copyright Page</strong></p>
+        <p>Copyright © 2025 Abdullah Khan · HQAIM Studios<br>All rights reserved.</p>
+        <p><strong>Title:</strong> The AI Artisan: Master Prompt Engineering — design with clarity, deliver with proof.</p>
+        <p>No part of this publication may be reproduced, stored, or transmitted in any form—including electronic, mechanical, photocopying, recording, or scanning—without written permission from the publisher. Brief quotations may be used in reviews, academic work, or instructional contexts with proper attribution.</p>
+        <p>All proprietary frameworks and systems in this book—including CLARITY-7™, SPARK-5™, MIRROR-6™, VALOR-Δ, TESSERA™, Pattern Forge™, Prompt Vault™, BuildSheets™, and Proof Artifacts™—are trademarks and intellectual property of HQAIM Studios.</p>
+        <p>This book provides structured practices for clarity, reasoning, and AI-supported work. It does not replace professional judgment. Readers are responsible for verifying accuracy, using outputs responsibly, and complying with all relevant laws and platform policies.</p>
+        <p><strong>Printed in India</strong><br>First Public Edition: 2025</p>
+        <p><strong>Publisher:</strong> HQAIM Studios<br><strong>Imprint:</strong> HQAIM Press<br><strong>Author:</strong> Abdullah Khan<br><strong>ISBN:</strong> Pending assignment<br><strong>Website:</strong> www.hqaim.com<br><strong>Author Contact:</strong> linkedin.com/in/digital-entrepreneur/</p>
+      </div>
+    </details>
+
+    <!-- 2. Foreword -->
+    <h1 id="page-title" class="page-title">Foreword</h1>
+    <section id="foreword-text" class="module-section">
+      <p class="section-lead">Artificial intelligence expanded access to powerful tools, yet most people still struggle to produce consistent results. Many generate large volumes of text, but little measurable improvement follows. This gap exists because typical prompting habits lack structure, precision, and clear intent.</p>
+      <p>The AI Artisan was created to solve this problem. It provides a practical method for defining intent, refining drafts, verifying accuracy, measuring value, and maintaining continuity. The system works across major AI models and across domains. It focuses on clarity, structure, and measurable outcomes.</p>
+      <p>HQAIM Studios developed these methods through extensive testing and documentation. The studio concentrates on applied intelligence, stable workflows, and long-term reliability. Its work supports learners, professionals, and teams that require predictable and repeatable performance.</p>
+      <p>The author, Abdullah Khan, founded HQAIM Studios to design clear and dependable systems for modern work. His approach is influenced by the documented engineering of Ismail Al-Jazari, whose mechanical designs established early foundations for automated systems. Al-Jazari’s disciplined methods shaped the structured principles used in this book.</p>
+      <p>The five frameworks—CLARITY-7™, SPARK-5™, MIRROR-6™, VALOR-Δ, and TESSERA™—address common failure points in prompting. They clarify intent, strengthen drafts, verify accuracy, measure value, and preserve continuity. Applied together, they form a complete and stable method.</p>
+      <p>The writing in this book is calm, precise, and consistent. Every prompt follows the same structure and works across platforms. The content remains practical and accessible for readers at any level.</p>
+      
+      <blockquote class="core">
+        <p>The goal is reliability. When intent becomes clear, drafts improve. When accuracy is checked, errors drop. When value is measured, outcomes become meaningful. When proven methods are stored, progress accelerates. These habits form the discipline of the AI Artisan.</p>
+      </blockquote>
+      
+      <p>This book serves readers who want clarity, consistency, and measurable results. It provides a complete method for working with AI in a predictable way.</p>
+    </section>
+
+    <!-- 3. Preface -->
+    <section id="preface" class="module-section">
+      <h2 class="section-title">Preface</h2>
+      <p>This book begins with a simple observation: people generate more output than outcomes. Many tasks produce text quickly, yet progress remains limited. The issue is not the capability of AI tools. The issue is unclear instructions, weak structure, and limited review.</p>
+      <p>This book addresses these problems directly. It provides a structured method for defining tasks, refining drafts, verifying accuracy, measuring value, and storing what works. The approach converts prompting from guesswork into a disciplined workflow.</p>
+      
+      <div class="grid-2">
+        <div class="card">
+          <h3>Part I — Mindset & Foundations</h3>
+          <p>Explains clarity, intent, and the Value Gap. Establishes the foundation for all later work.</p>
+        </div>
+        <div class="card">
+          <h3>Part II — Frameworks & Methods</h3>
+          <p>Presents the five core frameworks. Each is written in clear language and supported with practical prompts.</p>
+        </div>
+        <div class="card">
+          <h3>Part III — Systems & Proof</h3>
+          <p>Defines Pattern Forge™, Prompt Vault™, BuildSheets™, and Proof Artifacts™. Shows how to build reusable systems that support consistent results.</p>
+        </div>
+        <div class="card">
+          <h3>Part IV — Value & Growth</h3>
+          <p>Connects outcomes to value, pricing, and professional development. Helps readers use proof to support decisions and offers.</p>
+        </div>
+      </div>
+      
+      <p><strong>Part V — Advanced Practice:</strong> Introduces advanced methods for ambitious users and teams. Builds on the stability of earlier modules.</p>
+      <p>Each module follows a consistent structure. Concepts are explained clearly. Prompts use a unified format. Examples remain practical and direct. These patterns build confidence and reduce uncertainty.</p>
+      <p>This edition remains model-agnostic. It focuses on method rather than model behavior. It works across GPT, Claude, Gemini, Grok, Llama, DeepSeek, Mixtral, and future systems. This ensures long-term relevance.</p>
+    </section>
+
+    <!-- 4. About the Author -->
+    <section id="author" class="module-section">
+      <h2 class="section-title">About the Author</h2>
+      <p><strong>Abdullah Khan — Founder, HQAIM Studios</strong></p>
+      <p>Abdullah Khan is a systems designer focused on clarity, structure, and reliable outcomes. His work spans engineering, design, editorial architecture, and workflow development. He creates tools and frameworks that help individuals and teams produce consistent results in an AI-augmented environment.</p>
+      <p>He founded HQAIM Studios to advance structured intelligence. The studio develops practical systems for prompt engineering, editing, reasoning, and proof-driven work. These systems aim to make AI reliable for real tasks rather than interesting demonstrations.</p>
+      
+      <p>Across the HQAIM ecosystem—including The AI Artisan, Pattern Forge™, Prompt Vault™, BuildSheets™, and Proof Artifacts™—his goal is consistent: convert complexity into clear and reliable systems.</p>
+      <p>Readers may connect with him at <a href="https://linkedin.com/in/digital-entrepreneur/" target="_blank" rel="noopener">linkedin.com/in/digital-entrepreneur/</a>.</p>
+    </section>
+
+    <!-- 5. About HQAIM Studios -->
+    <section id="studio" class="module-section">
+      <h2 class="section-title">About HQAIM Studios</h2>
+      <p><strong>Human Quotient + AI Mastery</strong></p>
+      <p>HQAIM Studios builds systems for structured intelligence. It focuses on clarity, consistency, and measurable progress. Its work spans frameworks, templates, applied reasoning, and reproducible workflows. The aim is simple: help individuals and teams work with stability and purpose.</p>
+      <p>The studio develops practical resources, including:</p>
+      <ul>
+        <li><strong>Pattern Forge™</strong> — reusable prompt patterns</li>
+        <li><strong>Prompt Vault™</strong> — organized prompt libraries</li>
+        <li><strong>BuildSheets™</strong> — structured project outlines</li>
+        <li><strong>Proof Artifacts™</strong> — documented evidence of value and improvement</li>
+      </ul>
+      <p>Each resource supports reliable performance across varied tasks. The studio avoids complexity that does not contribute to outcomes. Its work emphasizes predictable methods that scale with practice.</p>
+      <p>The AI Artisan is the central reference for these systems. It defines the mindset, frameworks, and habits that guide the studio’s designs.</p>
+    </section>
+
+    <!-- 6. Introduction -->
+    <section id="intro-book" class="module-section">
+      <h2 class="section-title">Introduction: Why This Book Exists</h2>
+      <p>AI made output creation easy. It did not make outcomes automatic. Many users generate text quickly, yet results remain inconsistent. The issue is not the model. The issue is unclear intent, weak structure, and limited review.</p>
+      <p>This book addresses these problems with direct and practical guidance. It provides a structured method for defining tasks, refining drafts, verifying accuracy, measuring value, and storing what works. It converts prompting into a reliable practice.</p>
+      <p>Each module remains clear, practical, and model-agnostic. The prompts use strict templates. They reduce ambiguity and improve consistency. This approach helps readers build confidence and stable habits.</p>
+    </section>
+
+    <!-- 7. Core Principles -->
+    <section id="principles" class="module-section">
+      <h2 class="section-title">Core Principles</h2>
+      <p>Clarity · Structure · Verification · Value. These principles shape every module and framework.</p>
+      
+      <!-- SVG Diagram: Core Principles Compass -->
+      <figure class="diagram-flow" style="margin-top: 1.5em;">
+        <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dsTitle dsDesc">
+          <title id="dsTitle">Diagram: Core Principles Compass</title>
+          <desc id="dsDesc">Four cardinal directions visualizing the core principles of the book.</desc>
+          
+          <g transform="translate(40 50)">
+            <circle cx="80" cy="80" r="60" fill="none" stroke="var(--violet)" stroke-width="3" />
+            <text x="80" y="75" class="svg-label" text-anchor="middle" font-size="14">CLARITY</text>
+            <text x="80" y="95" class="svg-desc" text-anchor="middle" font-size="11">Intent First</text>
+          </g>
+
+          <g transform="translate(220 50)">
+            <circle cx="80" cy="80" r="60" fill="none" stroke="var(--blue)" stroke-width="3" />
+            <text x="80" y="75" class="svg-label" text-anchor="middle" font-size="14">STRUCTURE</text>
+            <text x="80" y="95" class="svg-desc" text-anchor="middle" font-size="11">Schemas & Steps</text>
+          </g>
+
+          <g transform="translate(400 50)">
+            <circle cx="80" cy="80" r="60" fill="none" stroke="var(--green)" stroke-width="3" />
+            <text x="80" y="75" class="svg-label" text-anchor="middle" font-size="14">VERIFICATION</text>
+            <text x="80" y="95" class="svg-desc" text-anchor="middle" font-size="11">Check Accuracy</text>
+          </g>
+
+          <g transform="translate(580 50)">
+            <circle cx="80" cy="80" r="60" fill="none" stroke="var(--gold)" stroke-width="3" />
+            <text x="80" y="75" class="svg-label" text-anchor="middle" font-size="14">VALUE</text>
+            <text x="80" y="95" class="svg-desc" text-anchor="middle" font-size="11">Measure Δ</text>
+          </g>
+          
+          <!-- Connecting Line -->
+          <line x1="180" y1="130" x2="220" y2="130" stroke="var(--muted2)" stroke-width="2" />
+          <line x1="360" y1="130" x2="400" y2="130" stroke="var(--muted2)" stroke-width="2" />
+          <line x1="540" y1="130" x2="580" y2="130" stroke="var(--muted2)" stroke-width="2" />
+          
+        </svg>
+      </figure>
+
+      <ul style="margin-top: 1.5em;">
+        <li><strong>Clarity first:</strong> Define intent before generating.</li>
+        <li><strong>Structure always:</strong> Use schemas, fields, and steps.</li>
+        <li><strong>Verification required:</strong> Check meaning, relevance, and reliability.</li>
+        <li><strong>Value measured through Δ:</strong> Improvement must be visible and repeatable.</li>
+        <li><strong>Reuse what works:</strong> Build a library of proven prompts.</li>
+        <li><strong>Calm, simple communication:</strong> Use short sentences and clear language.</li>
+        <li><strong>Proof over volume:</strong> Outputs matter only when they produce outcomes.</li>
+      </ul>
+    </section>
+
+    <!-- 8. How to Use -->
+    <section id="usage" class="module-section">
+      <h2 class="section-title">How to Use This Book</h2>
+      <p>This book is a field manual. You may read it sequentially or use it as a reference.</p>
+      
+      <div class="grid-2">
+        <div class="card">
+          <h3>Sequential Reading</h3>
+          <ol>
+            <li><strong>Part I:</strong> Mindset & Foundations</li>
+            <li><strong>Part II:</strong> Frameworks & Methods</li>
+            <li><strong>Part III:</strong> Systems & Proof</li>
+            <li><strong>Part IV:</strong> Value & Growth</li>
+            <li><strong>Part V:</strong> Advanced Practice</li>
+          </ol>
+        </div>
+        <div class="card">
+          <h3>Daily Application</h3>
+          <ul>
+            <li>Start with <strong>CLARITY-7™</strong>.</li>
+            <li>Improve drafts with <strong>SPARK-5™</strong>.</li>
+            <li>Audit with <strong>MIRROR-6™</strong>.</li>
+            <li>Measure value with <strong>VALOR-Δ</strong>.</li>
+            <li>Store consistent methods with <strong>TESSERA™</strong>.</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top: 1.2em;"><strong>Long-term use:</strong> Build a personal Prompt Vault™. Use BuildSheets™ for recurring work. Capture Proof Artifacts™ for documented progress. This book supports long-term skill development. It helps readers build a reliable practice that grows with experience.</p>
+    </section>
+
+  </main>
+
+  <!-- ===================== Back to Top ===================== -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" title="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <!-- ===================== Footer ===================== -->
+  <footer class="footer-section" role="contentinfo">
+    <hr class="footer-divider" />
+    <div class="site-footer">
+      <div class="footer-flex">
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="/toc.html" rel="noopener">Index</a>
+          <a href="/contact.html" rel="noopener">Contact</a>
+          <a href="/privacy.html" rel="noopener">Privacy</a>
+          <a href="/terms.html" rel="noopener">Terms</a>
+          <a href="/sitemap.xml" rel="noopener">Sitemap</a>
+        </nav>
+        <div class="footer-brand">
+          <img src="https://aiartisan.hqaim.com/assets/images/HQAIM_LOGO_Gradient_Minimal.svg" class="footer-logo" alt="HQAIM Studios logo" width="120" height="26" />
+          <span class="copyright">© <span id="year"></span> Abdullah Khan · HQAIM Studios</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== Inline JavaScript ===================== -->
+  <script>
+  (function(){
+    'use strict';
+    
+    const html = document.documentElement;
+    const metaTheme = document.getElementById('themeColor');
+    const toggle = document.getElementById('themeToggle');
+    const backToTop = document.getElementById('backToTop');
+    const navToggle = document.querySelector('.nav-toggle');
+    const mainNav = document.querySelector('nav.main-nav');
+    const yearEl = document.getElementById('year');
+    
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    /* Theme toggle logic */
+    const storageKey = 'aiartisan_theme_preference';
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function getPref(){
+      const saved = localStorage.getItem(storageKey);
+      if (saved === 'light' || saved === 'dark') return saved;
+      return prefersDark.matches ? 'dark' : 'light';
+    }
+    
+    function applyTheme(t){
+      html.dataset.theme = t;
+      if (metaTheme) metaTheme.setAttribute('content', t === 'dark' ? '#0f172a' : '#ffffff');
+      if (toggle) {
+        toggle.setAttribute('aria-pressed', String(t === 'dark'));
+        const newLabel = 'Switch to ' + (t === 'dark' ? 'light' : 'dark') + ' theme';
+        toggle.setAttribute('title', newLabel);
+        toggle.setAttribute('aria-label', newLabel);
+      }
+    }
+    
+    applyTheme(getPref());
+    
+    prefersDark.addEventListener('change', e => {
+      if (!localStorage.getItem(storageKey)) applyTheme(e.matches ? 'dark' : 'light');
+    });
+    
+    if (toggle){
+      toggle.addEventListener('click', () => {
+        const next = html.dataset.theme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem(storageKey, next);
+        applyTheme(next);
+      });
+      toggle.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle.click(); }
+      });
+    }
+
+    /* Mobile navigation */
+    if (navToggle && mainNav){
+      navToggle.addEventListener('click', ()=>{
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', String(!expanded));
+        mainNav.classList.toggle('open');
+      });
+    }
+
+    /* Back to top */
+    if (backToTop) {
+      function onScroll(){
+        if (window.scrollY > 400){ backToTop.classList.add('visible'); }
+        else { backToTop.classList.remove('visible'); }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll(); 
+      
+      backToTop.addEventListener('click', ()=>{
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+  })();
   </script>
 </body>
 </html>
