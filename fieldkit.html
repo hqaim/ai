@@ -1,246 +1,1060 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
+  <!--
+    The AI Artisan — Toolkit: Resources & Templates
+    Diamond Edition v100 (Field Kit)
+    Author: Abdullah Khan · HQAIM Studios
+    Notes:
+      - Fully integrated Design System v100.
+      - Templates and Logs formatted as copyable code blocks.
+      - Custom "Toolkit Ecosystem" SVG Diagram.
+      - 6x9 Print Optimization included.
+  -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Toolkit — The AI Artisan</title>
-  <meta name="description" content="The AI Artisan Toolkit — Framework Index, Pattern Forge Libraries, Checklists, Templates, Glossary, and References for applied prompt engineering." />
+  
+  <!-- SEO Metadata -->
+  <title>Toolkit — Resources & Templates · The AI Artisan (Diamond Edition)</title>
+  <meta name="description" content="A structured toolkit of templates, checklists, scorecards, and logs designed to support clear intent, stable workflows, and accurate verification." />
+  <meta name="keywords" content="AI toolkit, templates, checklists, scorecards, CLARITY-7, SPARK-5, MIRROR-6, VALOR-Δ, TESSERA, workflow tools" />
+
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://aiartisan.hqaim.com/fieldkit.html" />
-  <link rel="icon" href="/assets/images/favicon.ico" />
-  <meta name="theme-color" content="#0f172a" />
+  <meta id="themeColor" name="theme-color" content="#ffffff" />
+  <meta name="color-scheme" content="light dark" />
 
-  <!-- OpenGraph -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Toolkit — The AI Artisan" />
-  <meta property="og:description" content="Access The AI Artisan Toolkit — pattern forges, framework index, templates, and glossary." />
+  <meta property="og:title" content="Toolkit — Resources & Templates · The AI Artisan" />
+  <meta property="og:description" content="Practical tools for clarity, consistency, and reliable outcomes. Templates, checklists, and scorecards for the AI Artisan." />
   <meta property="og:url" content="https://aiartisan.hqaim.com/fieldkit.html" />
-  <meta property="og:image" content="https://aiartisan.hqaim.com/assets/images/cover-hero.jpg" />
+  <!-- Hero Image: Organized Knolling/Tools -->
+  <meta property="og:image" content="https://images.unsplash.com/photo-1581092335397-9583eb92d232?q=80&w=1600&auto.format&fit=crop" />
+  <meta property="og:site_name" content="The AI Artisan" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Source+Serif+Pro:wght@600&display=swap" rel="stylesheet" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Toolkit — Resources & Templates · The AI Artisan" />
+  <meta name="twitter:description" content="Practical tools for clarity, consistency, and reliable outcomes." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1581092335397-9583eb92d232?q=80&w=1600&auto.format&fit=crop" />
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="/assets/style.css" />
-  <style>
-    main {
-      max-width: 950px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem;
-    }
-    h1 {
-      text-align: center;
-      font-family: var(--font-serif);
-      font-weight: 600;
-      font-size: clamp(2rem, 3vw, 2.6rem);
-      background: linear-gradient(90deg, var(--violet), var(--blue));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    p.lead {
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 1.1rem;
-      margin: 1rem auto 3rem;
-      max-width: 75ch;
-      line-height: 1.6;
-    }
-    section {
-      margin-bottom: 3rem;
-    }
-    h2 {
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 0.4rem;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.3rem;
-    }
-    h3 {
-      font-size: 1.1rem;
-      color: var(--text);
-      margin-top: 1rem;
-      margin-bottom: 0.3rem;
-    }
-    ul, ol {
-      margin: 0.5rem 0 1rem 1.5rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-    li {
-      margin-bottom: 0.3rem;
-    }
-    code {
-      background: var(--surface);
-      padding: 0.2rem 0.4rem;
-      border-radius: 0.3rem;
-      font-size: 0.95rem;
-    }
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 0.75rem;
-      padding: 1.25rem;
-      margin-top: 1rem;
-    }
-    .glossary-term {
-      margin-top: 1rem;
-      font-weight: 600;
-      color: var(--text);
-    }
-    .glossary-def {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-left: 1rem;
-      line-height: 1.6;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem 1rem 1rem;
-      font-size: 0.9rem;
-      color: var(--text-muted-2);
-    }
-  </style>
-</head>
+  <!-- Favicon -->
+  <link rel="icon" href="https://aiartisan.hqaim.com/images/favicon.ico" type="image/x-icon" />
 
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand-wrap" href="/index.html" aria-label="The AI Artisan home">
-        <img src="/assets/images/HQAIM-ICON-AI.svg" alt="HQAIM Studios Logo" width="140" height="28" />
-        <span class="brand-text">The AI Artisan</span>
-      </a>
-      <nav class="main-nav">
-        <ul>
-          <li><a href="/toc.html">Index</a></li>
-          <li><a href="/toolkit.html" aria-current="page">Toolkit</a></li>
-          <li><a href="/premium.html">Premium</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-          <li><a href="/credits.html">Credits</a></li>
-          <li>
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-              <svg class="icon" data-icon="moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 1021 12.79z"/></svg>
-              <svg class="icon" data-icon="sun" viewBox="0 0 24 24"><path d="M12 6a6 6 0 100 12 6 6 0 000-12z"/></svg>
-            </button>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main id="main" tabindex="-1">
-    <h1>The AI Artisan Toolkit</h1>
-    <p class="lead">A complete library of frameworks, patterns, templates, and terminology for applied prompt engineering and proof-driven creative systems.</p>
-
-    <!-- Framework Index -->
-    <section id="frameworks">
-      <h2>Framework Index</h2>
-      <div class="card">
-        <ul>
-          <li><strong>CLARITY-7™</strong> — Prompt Architecture and Diagnostic Model.</li>
-          <li><strong>SPARK-5™</strong> — Sequential Creative Production Framework.</li>
-          <li><strong>MIRROR-6™</strong> — Self-Review, Reflection, and Refinement Model.</li>
-          <li><strong>VALOR-Δ</strong> — Value, Ethics, and Risk Alignment Pyramid.</li>
-          <li><strong>TESSERA™</strong> — Meta-Framework for Integrated System Synthesis.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Pattern Forge Library -->
-    <section id="patterns">
-      <h2>Pattern Forge™ Library</h2>
-      <p>Reusable structures to standardize and scale prompting workflows:</p>
-      <div class="card">
-        <ul>
-          <li><strong>Context → Task → Proof</strong> — The base pattern for all AI operations.</li>
-          <li><strong>Decompose → Design → Deliver</strong> — Ideal for solution architecture prompts.</li>
-          <li><strong>Think → Verify → Explain</strong> — Reflective reasoning pattern for AI collaboration.</li>
-          <li><strong>Scaffold → Test → Iterate</strong> — Core pattern for iterative development.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Templates -->
-    <section id="templates">
-      <h2>Prompt Templates & Buildsheet™</h2>
-      <div class="card">
-        <p>Below are commonly used templates from the Buildsheet™ architecture used across modules.</p>
-        <ol>
-          <li><code>{"role": "Analyst", "task": "Decompose the user goal", "output": "Steps"}</code></li>
-          <li><code>{"role": "Designer", "task": "Generate structured schema", "output": "JSON"}</code></li>
-          <li><code>{"role": "Verifier", "task": "Evaluate the results", "output": "Proof Table"}</code></li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- Checklists -->
-    <section id="checklists">
-      <h2>Checklists</h2>
-      <p>Validation sheets for clarity, structure, and ethical consistency.</p>
-      <div class="card">
-        <ul>
-          <li>✅ Ensure clear role and task defined before execution.</li>
-          <li>✅ Verify input/output schema alignment.</li>
-          <li>✅ Run Proof Artifact validation.</li>
-          <li>✅ Confirm compliance with VALOR-Δ ethics standard.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Glossary -->
-    <section id="glossary">
-      <h2>Glossary</h2>
-      <div class="card">
-        <p><span class="glossary-term">Buildsheet™</span><br><span class="glossary-def">Structured table used to capture prompt architecture, variables, and proof results.</span></p>
-        <p><span class="glossary-term">Framework</span><br><span class="glossary-def">A system of repeatable patterns that ensures structured reasoning and results.</span></p>
-        <p><span class="glossary-term">Prompt Chain</span><br><span class="glossary-def">A sequence of interconnected prompts forming a workflow or proof pipeline.</span></p>
-        <p><span class="glossary-term">Proof Artifact™</span><br><span class="glossary-def">Evidence-based output that validates a prompt or process against a measurable goal.</span></p>
-      </div>
-    </section>
-
-    <!-- References -->
-    <section id="references">
-      <h2>Further Reading & References</h2>
-      <div class="card">
-        <ul>
-          <li>“Prompt Engineering for Applied Systems” — HQAIM Whitepaper (2024)</li>
-          <li>“AI Systems Proofs & Ethics in VALOR-Δ” — Abdullah Khan, 2025</li>
-          <li>“Meta-Frameworks in Synthetic Design” — Journal of AI Methods, Vol. 22</li>
-        </ul>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <p>© <span id="year"></span> Abdullah Khan · <a href="https://hqaim.com" target="_blank" rel="noopener noreferrer">HQAIM Studios</a></p>
-  </footer>
-
-  <script src="/assets/js/theme.js"></script>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <!-- Google Fonts: Inter (body) & Source Serif Pro (headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+Pro:wght@600;700;800&display=swap" rel="stylesheet">
 
   <!-- JSON-LD Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Toolkit — The AI Artisan",
-    "url": "https://aiartisan.hqaim.com/fieldkit.html",
-    "description": "The AI Artisan Toolkit: frameworks, templates, checklists, and glossary for structured prompt engineering.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "HQAIM Studios",
-      "url": "https://hqaim.com"
-    },
-    "author": {
-      "@type": "Person",
-      "name": "Abdullah Khan"
-    }
+    "headline": "The AI Artisan Field Kit",
+    "name": "Toolkit — Resources & Templates",
+    "description": "A structured toolkit of templates, checklists, scorecards, and logs designed to support clear intent, stable workflows, and accurate verification.",
+    "publisher": { "@type": "Organization", "name": "HQAIM Studios" },
+    "author": { "@type": "Person", "name": "Abdullah Khan" },
+    "datePublished": "2025-12-05",
+    "image": "https://images.unsplash.com/photo-1581092335397-9583eb92d232?q=80&w=1600&auto.format&fit=crop",
+    "url": "https://aiartisan.hqaim.com/fieldkit.html"
   }
+  </script>
+
+  <style>
+    /* =========================================================
+       THE AI ARTISAN — Diamond Edition v100
+       Field Kit CSS (screen + print)
+       ========================================================= */
+
+    /* 0) Keyframes for fade-in */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 0) Tokens */
+    :root{
+      color-scheme: light dark;
+      /* Typography */
+      --font-sans: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+      --font-serif: 'Source Serif Pro', serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+      /* Core palette (Aetherium) */
+      --violet:#7c3aed; --blue:#2563eb; --green:#10b981; --gold:#f6be3e;
+      --white:#ffffff;  --black:#0f172a;
+
+      --slate-50:#f8fafc;  --slate-100:#f1f5f9; --slate-200:#e2e8f0;
+      --slate-300:#cbd5e1; --slate-400:#94a3b8; --slate-500:#64748b;
+      --slate-600:#475569; --slate-700:#334155; --slate-800:#1e293b;
+      --slate-900:#0f172a;
+
+      /* Light Mode Variables */
+      --bg:var(--white); --surface:var(--slate-50); --text:var(--slate-900);
+      --muted:#445268; --muted2:var(--slate-500); --border:var(--slate-200);
+      --accent:var(--violet); --link:var(--blue); --focus:rgba(37,99,235,.36);
+      --shadow-e2:0 8px 20px rgba(15,23,42,.08), 0 3px 8px rgba(15,23,42,.06);
+
+      /* Background shimmer */
+      --bg-gradient:
+        radial-gradient(1200px 600px at 0% -10%, color-mix(in srgb, var(--violet) 7%, transparent), transparent 70%),
+        radial-gradient(900px 500px at 100% 110%, color-mix(in srgb, var(--blue) 7%, transparent), transparent 70%),
+        linear-gradient(180deg, rgba(124,58,237,.03), rgba(37,99,235,.03)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Cpath fill='%239C92AC' fill-opacity='.015' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'/%3E%3C/svg%3E"),
+        var(--bg);
+
+      --svg-label:#0f172a;
+      --svg-desc: var(--muted);
+      /* Theme-aware SVG fills */
+      --svg-fill-violet: color-mix(in srgb, var(--violet) 10%, var(--surface));
+      --svg-fill-blue: color-mix(in srgb, var(--blue) 10%, var(--surface));
+      --svg-fill-green: color-mix(in srgb, var(--green) 10%, var(--surface));
+      --svg-fill-gold: color-mix(in srgb, var(--gold) 20%, var(--surface));
+      --svg-fill-slate: color-mix(in srgb, var(--slate-400) 20%, var(--surface));
+
+      --code-bg-light:#f7f7fb; --code-bg-dark:#0f172a;
+      --grad-1: linear-gradient(95deg, var(--link), var(--accent));
+      --grad-title: linear-gradient(90deg, var(--violet), var(--blue));
+
+      --wrap:1100px; --pad:1.5rem; --r:12px;
+    }
+
+    html[data-theme="dark"]{
+      --bg:var(--slate-900); --surface:var(--slate-800); --text:var(--slate-50);
+      --muted:var(--slate-300); --muted2:var(--slate-400); --border:var(--slate-700);
+      --accent:#a78bfa; --link:#7dd3fc; --focus:rgba(124,58,237,.45);
+      --shadow-e2:0 10px 28px rgba(0,0,0,.35);
+
+      --bg-gradient:
+        radial-gradient(1200px 600px at 0% -10%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 70%),
+        radial-gradient(900px 500px at 100% 110%, color-mix(in srgb, var(--link) 10%, transparent), transparent 70%),
+        linear-gradient(180deg, rgba(124,58,237,.06), rgba(37,99,235,.06)),
+        var(--bg);
+
+      --svg-label:#ffffff;
+      --svg-desc: var(--muted);
+      --svg-fill-violet: color-mix(in srgb, var(--accent) 20%, var(--surface));
+      --svg-fill-blue: color-mix(in srgb, var(--link) 20%, var(--surface));
+      --svg-fill-green: color-mix(in srgb, var(--green) 20%, var(--surface));
+      --svg-fill-gold: color-mix(in srgb, var(--gold) 25%, var(--surface));
+      --svg-fill-slate: color-mix(in srgb, var(--slate-400) 30%, var(--surface));
+      
+      --grad-title: linear-gradient(90deg, var(--accent), var(--link));
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font:16px/1.65 var(--font-sans); color:var(--text);
+      background:var(--bg-gradient); background-attachment:fixed;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      text-rendering:optimizeLegibility;
+    }
+    .wrap{max-width:var(--wrap); margin:0 auto; padding:0 var(--pad)}
+    
+    ul, ol { padding-left: 1.5em; margin: 1em 0; }
+    li { margin-bottom: 0.5em; }
+    p { margin: 0.8em 0; }
+    
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation:none!important;transition:none!important}
+    }
+
+    .sr-only{
+      position:absolute!important; width:1px; height:1px; padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap; border:0;
+    }
+
+    /* 1) Header */
+    .site-header{
+      position:sticky; top:0; z-index:100;
+      backdrop-filter:saturate(140%) blur(8px);
+      background:color-mix(in srgb, var(--surface) 92%, transparent);
+      border-bottom:1px solid var(--border);
+      animation: fadeIn 0.5s ease-out;
+    }
+    .header-inner{
+      max-width:var(--wrap); margin:0 auto; padding:.65rem var(--pad);
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .brand-wrap{display:inline-flex; align-items:center; gap:10px; text-decoration:none; color:var(--text)}
+    .brand-logo{width:32px; height:32px; display:inline-block}
+    .brand-text{
+      font-weight:800; letter-spacing:.2px; font-size:1rem;
+      background:linear-gradient(95deg, var(--accent), var(--link));
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+      transition:filter .2s;
+    }
+    .brand-wrap:hover .brand-text{filter:brightness(1.06)}
+
+    .nav-toggle{display:none; border:0; background:none; cursor:pointer; padding:4px}
+    .nav-toggle-bar{
+      width:22px; height:2px; background:var(--text); display:block; margin:4px 0; border-radius:2px;
+      transition:transform .2s, opacity .2s;
+    }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2){opacity:0}
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+    nav.main-nav{display:block}
+    .main-nav ul{list-style:none; margin:0; padding:0; display:flex; align-items:center; gap:10px}
+    .main-nav a{
+      color:var(--muted); text-decoration:none; font-weight:600; padding:6px 10px; border-radius:8px; font-size:.95rem;
+      transition:color .2s, background-color .2s;
+    }
+    .main-nav a[aria-current="page"], .main-nav a:hover{
+      color:var(--accent); background-color:color-mix(in srgb, var(--accent) 10%, transparent)
+    }
+
+    .right-tools{display:inline-flex; align-items:center; gap:10px}
+    .theme-toggle{
+      width:40px; height:40px; border-radius:50%; border:1px solid var(--border); background:var(--surface);
+      display:grid; place-items:center; cursor:pointer; position:relative; overflow:hidden; padding:0;
+      transition:transform .18s, box-shadow .18s, background-color .18s; -webkit-tap-highlight-color:transparent;
+    }
+    .theme-toggle:hover{transform:translateY(-1px) scale(1.05); box-shadow:0 0 10px var(--focus)}
+    .theme-toggle .icon{position:absolute; width:20px; height:20px; transition:transform .3s cubic-bezier(.4,0,.2,1.4), opacity .25s linear}
+    .icon-sun{color:var(--gold); transform:scale(0) rotate(90deg); opacity:0}
+    .icon-moon{color:var(--white); transform:scale(1) rotate(0); opacity:1}
+    html[data-theme="light"] .icon-sun{transform:scale(1) rotate(0); opacity:1}
+    html[data-theme="light"] .icon-moon{transform:scale(0) rotate(-90deg); opacity:0}
+    html[data-theme="dark"]  .icon-sun{transform:scale(0) rotate(90deg); opacity:0}
+    html[data-theme="dark"]  .icon-moon{transform:scale(1) rotate(0); opacity:1}
+
+    @media (max-width:820px){
+      .nav-toggle{display:inline-block}
+      nav.main-nav{display:none}
+      nav.main-nav.open{display:block}
+      .main-nav ul{
+        position:fixed; right:12px; top:60px; background:var(--surface); border:1px solid var(--border);
+        border-radius:12px; box-shadow:var(--shadow-e2); padding:12px; gap:10px; flex-direction:column;
+        transform:scale(.98); opacity:0; pointer-events:none; transition:transform .18s ease-out, opacity .18s ease-out;
+      }
+      nav.main-nav.open ul{transform:scale(1); opacity:1; pointer-events:auto}
+    }
+
+    :focus-visible{outline:3px solid var(--focus); outline-offset:3px; border-radius:4px}
+    .skip-link{
+      position:absolute; left:12px; top:6px; z-index:200; background:var(--surface); color:var(--text);
+      padding:6px 10px; border-radius:8px; border:1px solid var(--border);
+      transform:translateY(-150%); transition:transform .2s;
+    }
+    .skip-link:focus{transform:translateY(0%)}
+
+    /* 2) Hero + Intro */
+    .hero{
+      max-width:var(--wrap); margin:0 auto; padding:18px var(--pad) 0;
+      animation: fadeIn 0.5s 0.1s ease-out backwards;
+    }
+    .hero-figure{
+      margin:0; border-radius:14px; overflow:hidden; border:1px solid var(--border); box-shadow:var(--shadow-e2); background:var(--surface);
+    }
+    .hero-figure img{display:block; width:100%; height:auto; aspect-ratio:16/7; object-fit:cover; background-color:var(--surface)}
+    .hero-caption{margin:0; padding:10px 14px; font-size:.96rem; color:var(--muted); background:color-mix(in srgb, var(--surface) 92%, transparent); border-top:1px solid var(--border)}
+
+    .intro{
+      padding:12px var(--pad) 4px; max-width:var(--wrap); margin:0 auto;
+      animation: fadeIn 0.5s 0.2s ease-out backwards;
+    }
+    .intro p{margin:10px 0; color:var(--muted); font-size:clamp(1rem, 1.2vw, 1.05rem); max-width:75ch}
+
+    .breadcrumbs{
+      max-width:var(--wrap); margin:0 auto; padding:8px var(--pad) 0; font-size:.95rem; color:var(--muted);
+      animation: fadeIn 0.5s 0.3s ease-out backwards;
+    }
+    .breadcrumbs a{color:var(--muted); text-decoration:none; font-weight:600}
+    .breadcrumbs a:hover{color:var(--accent); text-decoration:underline}
+    .breadcrumbs .sep{opacity:.6; padding:0 .35rem}
+
+    /* 3) Main content */
+    main#main{
+      max-width:var(--wrap); margin:0 auto; padding:8px var(--pad) 24px;
+      animation: fadeIn 0.5s 0.4s ease-out backwards;
+    }
+    .page-title{
+      margin:8px 0 4px; font-size:clamp(1.9rem, 3.8vw, 2.6rem); font-weight:800;
+      font-family: var(--font-serif);
+      background: var(--grad-title);
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; letter-spacing:.2px;
+    }
+    .page-sub{margin:0 0 10px; color:var(--muted); font-weight:600}
+
+    section.module-section{
+      margin:20px 0; padding:14px; border-radius:12px; background:color-mix(in srgb, var(--surface) 86%, transparent);
+      border:1px solid var(--border); box-shadow:var(--shadow-e2); page-break-before:always;
+    }
+    section.module-section:first-of-type{page-break-before:auto}
+    
+    .section-title{
+      margin:0 0 6px; font-size:clamp(1.2rem, 2.3vw, 1.45rem); font-weight:800; letter-spacing:.2px; color:var(--text);
+      font-family: var(--font-serif);
+      background: var(--grad-title);
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+    }
+    .section-lead{margin:2px 0 10px; color:var(--muted)}
+    
+    blockquote.core {
+      margin: 1em 0;
+      padding: 10px 14px;
+      border-left: 4px solid var(--accent);
+      background: color-mix(in srgb, var(--accent) 6%, var(--surface));
+      border-radius: 0 8px 8px 0;
+      font-family: var(--font-serif);
+      font-size: 1.05em;
+      letter-spacing: 0.1px;
+    }
+    blockquote.core p { margin: 0; font-weight: 600; }
+
+    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+    .grid-3{display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px}
+    @media (max-width:820px){.grid-2, .grid-3{grid-template-columns:1fr}}
+
+    .card{background:color-mix(in srgb, var(--surface) 88%, transparent); border:1px solid var(--border); border-radius:12px; padding:12px 14px;}
+    .card h3 {
+      margin-top: 0;
+      font-family: var(--font-serif);
+    }
+    .card ul, .card ol { padding-left: 1.2em; }
+
+    /* Prompts / Copy Blocks */
+    .prompt{position:relative; margin:12px 0 6px; border-radius:12px; border:1px solid var(--border); overflow:hidden; background:var(--code-bg-light)}
+    html[data-theme="dark"] .prompt{background:color-mix(in srgb, var(--code-bg-dark) 92%, transparent)}
+    .prompt-header{display:flex; justify-content:space-between; align-items:center; padding:8px 10px; border-bottom:1px solid var(--border); background:color-mix(in srgb, var(--surface) 92%, transparent)}
+    .prompt-title{font-weight:800; font-size: 0.95rem;}
+    .prompt pre{margin:0; padding:12px; overflow-x:hidden; white-space:pre-wrap; word-break:break-word}
+    .prompt code{
+      font-family: var(--font-mono);
+      font-size:.95rem; white-space:pre-wrap; display:block;
+    }
+    .prompt-meta{font-size:.92rem; color:var(--muted); margin:4px 0}
+    .copy-btn{
+      appearance:none; border:1px solid var(--border); background:var(--grad-1); color:#fff; font-weight:700; font-size:.85rem; border-radius:6px; padding:4px 10px;
+      cursor:pointer; transition:transform .15s, box-shadow .15s;
+    }
+    .copy-btn:hover{transform:translateY(-1px); box-shadow:0 4px 10px rgba(0,0,0,.18)}
+    html[data-theme="dark"] .copy-btn{color:var(--black); background:linear-gradient(95deg, var(--gold), color-mix(in srgb, var(--gold) 80%, #ffc66f)); border-color:color-mix(in srgb, var(--gold) 25%, var(--border))}
+    
+    .prompt-explainer { margin-top: 14px; }
+    .prompt-explainer h3 {
+      margin-top: 0;
+      font-family: var(--font-serif);
+    }
+    
+    details {
+      margin-top: 1em;
+      background: color-mix(in srgb, var(--border) 20%, transparent);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    details[open] { background: color-mix(in srgb, var(--surface) 80%, transparent); }
+    summary {
+      font-weight: 600;
+      color: var(--muted);
+      padding: 8px 12px;
+      cursor: pointer;
+      list-style-position: inside;
+      transition: background-color .2s;
+    }
+    summary:hover {
+      background: color-mix(in srgb, var(--border) 40%, transparent);
+    }
+    details[open] summary {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+    }
+    .details-content {
+      padding: 0 12px 12px;
+      border-top: 1px solid var(--border);
+      margin-top: 8px;
+    }
+    .details-content p, .details-content ol, .details-content ul { margin-bottom: 0; }
+
+    /* SVG Diagram */
+    figure.diagram-flow{margin:0; padding:0}
+    .diagram-flow svg{
+      display:block; width:100%; height:auto; background:color-mix(in srgb, var(--surface) 88%, transparent);
+      border:1px solid var(--border); border-radius:12px;
+      font-family: var(--font-sans);
+    }
+    .diagram-flow figcaption{margin-top:8px; font-size:.95rem; color:var(--muted)}
+    .svg-label{fill:var(--svg-label); font-weight:700;}
+    .svg-desc{
+      fill: var(--svg-desc);
+      font-weight: 600;
+      font-size: 11px;
+      opacity: 0.9;
+    }
+    .g-violet-stroke { stroke: #7c3aed; }
+    .g-blue-stroke { stroke: #2563eb; }
+    .g-green-stroke { stroke: #10b981; }
+    .g-gold-stroke { stroke: #f6be3e; }
+    .g-slate-stroke { stroke: #94a3b8; }
+    .g-arrow-path { stroke: var(--muted2); stroke-width: 2.5; }
+    html[data-theme="dark"] .g-violet-stroke { stroke: #a78bfa; }
+    html[data-theme="dark"] .g-blue-stroke { stroke: #7dd3fc; }
+    html[data-theme="dark"] .g-green-stroke { stroke: #6ee7b7; }
+    html[data-theme="dark"] .g-gold-stroke { stroke: #fde08a; }
+    html[data-theme="dark"] .g-slate-stroke { stroke: #e2e8f0; }
+
+    .back-to-top{
+      position:fixed; bottom:26px; right:26px; width:48px; height:48px; border-radius:50%; border:1px solid var(--border);
+      display:grid; place-items:center; color:var(--accent); cursor:pointer; background:color-mix(in srgb, var(--surface) 92%, transparent);
+      box-shadow:var(--shadow-e2); opacity:0; visibility:hidden; transform:translateY(8px);
+      transition:opacity .18s, transform .18s, visibility .18s; z-index:90;
+    }
+    .back-to-top.visible{opacity:1; visibility:visible; transform:translateY(0)}
+    .back-to-top:hover{background:color-mix(in srgb, var(--surface) 90%, var(--accent))}
+
+    .footer-section{position:relative; z-index:1; margin-top:32px; border-top:1px solid var(--border); background:var(--surface)}
+    .footer-divider{height:2px; border:0; margin:0 0 16px; background:linear-gradient(90deg, transparent, var(--violet), var(--blue), var(--gold), transparent); opacity:.3}
+    .site-footer{padding:0 var(--pad) 16px; max-width:var(--wrap); margin:0 auto; color:var(--muted)}
+    .footer-flex{display:flex; flex-direction:column; align-items:center; gap:12px}
+    .footer-nav{display:flex; gap:16px; flex-wrap:wrap; justify-content:center}
+    .footer-nav a{color:var(--muted); text-decoration:none; font-weight:600}
+    .footer-nav a:hover{color:var(--accent); text-decoration:underline}
+    .footer-brand{display:flex; align-items:center; gap:10px}
+    .footer-logo{height:24px; width:auto; filter:grayscale(0); opacity:.9}
+    .copyright{font-size:.95rem; color:var(--muted)}
+
+    @media (max-width:560px){
+      .header-inner, .hero, .intro, .breadcrumbs, main#main, .site-footer{padding-left:1rem; padding-right:1rem}
+    }
+
+    /* Print 6×9 */
+    @media print{
+      @page{size:6in 9in; margin:0.75in}
+      html{color-scheme:light !important}
+      :root{
+        --bg:var(--white) !important; --surface:var(--white) !important; --text:var(--slate-900) !important;
+        --muted:#445268 !important; --muted2:var(--slate-500) !important; --border:var(--slate-200) !important;
+        --accent:var(--violet) !important; --link:var(--blue) !important;
+        --shadow-e2:none !important; --svg-label:#0f172a !important;
+        --svg-desc: var(--muted) !important;
+        --code-bg-light:#f7f7fb !important;
+        --grad-title: linear-gradient(90deg, var(--violet), var(--blue)) !important;
+        --svg-fill-violet: color-mix(in srgb, var(--violet) 10%, var(--white)) !important;
+        --svg-fill-blue: color-mix(in srgb, var(--blue) 10%, var(--white)) !important;
+        --svg-fill-green: color-mix(in srgb, var(--green) 10%, var(--white)) !important;
+        --svg-fill-gold: color-mix(in srgb, var(--gold) 20%, var(--white)) !important;
+        --svg-fill-slate: color-mix(in srgb, var(--slate-400) 20%, var(--white)) !important;
+      }
+      body{
+        background:var(--bg) !important; color:var(--text) !important;
+        font-size:11pt; line-height:1.6;
+        -webkit-print-color-adjust: exact !important; color-adjust: exact !important;
+        font-family: 'Inter', system-ui, sans-serif !important;
+      }
+      .page-title, .section-title, .card h3, .prompt-explainer h3 {
+        font-family: 'Source Serif Pro', serif !important;
+        -webkit-text-fill-color: transparent !important;
+        background: var(--grad-title) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+      }
+      .section-title { border-left: none !important; padding-left: 0 !important; }
+      .prompt code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace !important; }
+      .site-header, .theme-toggle, .back-to-top, .footer-section, .copy-btn, .breadcrumbs, details > summary {display:none !important}
+      section.module-section{ box-shadow:none !important; background:var(--white) !important; border: none !important; padding: 10px 0; }
+      .prompt{ background:var(--code-bg-light) !important; border: 1px solid var(--border) !important; }
+      .diagram-flow svg{ background:var(--white) !important; border: none !important; }
+      .card { border: none !important; background: var(--white) !important; box-shadow: none !important; }
+      .hero-figure { page-break-after: avoid; } 
+      .hero-figure img { max-width: 100%; height: auto; }
+      details, .details-content { border: none !important; background: none !important; padding: 0 !important; margin: 0 !important; }
+      details[open] { padding: 0 !important; }
+      details > * { display: block !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="live-status" class="sr-only" aria-live="polite"></div>
+
+  <!-- ===================== Header ===================== -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand-wrap" href="/index.html" aria-label="The AI Artisan home">
+        <img src="https://aiartisan.hqaim.com/images/HQAIM_ICON.svg" class="brand-logo" alt="HQAIM Studios icon" width="32" height="32" />
+        <span class="brand-text">The AI Artisan</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
+      <nav id="site-menu" class="main-nav" role="navigation" aria-label="Main">
+        <ul>
+          <li><a href="/foreword.html">Foreword</a></li>
+          <li><a href="/toc.html">Index</a></li>
+          <li><a href="/modules.html">Modules</a></li>
+          <li><a href="/fieldkit.html" aria-current="page">Toolkit</a></li>
+          <li><a href="/premium.html">Premium</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="right-tools">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle color theme" aria-pressed="false" role="switch">
+          <svg class="icon icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+          <svg class="icon icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== Hero ===================== -->
+  <section class="hero" aria-label="Toolkit hero">
+    <figure class="hero-figure">
+      <img
+        src="https://images.unsplash.com/photo-1581092335397-9583eb92d232?q=80&w=1600&auto.format&fit=crop"
+        alt="A neatly organized workbench with artisan tools, representing the Field Kit."
+        decoding="async"
+        fetchpriority="high"
+        width="1600"
+        height="700"
+        onerror="this.src='https://placehold.co/1600x700/f8fafc/64748b?text=The+Field+Kit';this.onerror=null;"
+      />
+      <figcaption class="hero-caption">
+        Practical tools for clarity, consistency, and reliable outcomes.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ===================== Intro ===================== -->
+  <div class="intro">
+    <p>This toolkit provides ready-to-use resources for defining intent, refining drafts, evaluating accuracy, measuring value, and storing work. Each item supports stronger structure and more reliable outcomes. All tools are compatible with major AI platforms.</p>
+  </div>
+
+  <!-- ===================== Breadcrumbs ===================== -->
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="/toc.html">Index</a><span class="sep">/</span>
+    <span aria-current="page">Toolkit</span>
+  </nav>
+
+  <!-- ===================== Main ===================== -->
+  <main id="main" role="main" tabindex="-1" aria-labelledby="page-title">
+    
+    <h1 id="page-title" class="page-title">Toolkit — Resources & Templates</h1>
+    <p class="page-sub">Structured tools for the AI Artisan.</p>
+
+    <!-- 2. How to Use -->
+    <section id="fk-sec-2" class="module-section">
+      <h2 class="section-title">How to Use This Toolkit</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Workflow</h3>
+          <ul>
+            <li>Use <strong>templates</strong> to start tasks with clarity.</li>
+            <li>Use <strong>checklists</strong> to review drafts systematically.</li>
+            <li>Use <strong>scorecards</strong> to verify accuracy and measure value.</li>
+            <li>Use <strong>logs</strong> to store your final prompts and outputs for reuse.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Integration</h3>
+          <p>Combine tools as needed depending on your workflow. These resources are designed to work independently or as a connected system (TESSERA™).</p>
+        </div>
+      </div>
+
+      <!-- TOOLKIT ECOSYSTEM SVG -->
+      <figure class="diagram-flow" style="margin-top: 1.5em;">
+        <svg viewBox="0 0 800 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dsTitle dsDesc">
+          <title id="dsTitle">Toolkit Ecosystem</title>
+          <desc id="dsDesc">A horizontal flow: Templates -> Checklists -> Scorecards -> Logs.</desc>
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M0,0 L10,5 L0,10 z" fill="var(--muted2)"/>
+            </marker>
+          </defs>
+
+          <g transform="translate(20 60)">
+            <rect width="160" height="80" rx="8" fill="var(--svg-fill-violet)" />
+            <rect width="160" height="80" rx="8" fill="none" class="g-violet-stroke" stroke-width="2"/>
+            <text x="80" y="35" class="svg-label" text-anchor="middle" font-size="14" font-weight="bold">TEMPLATES</text>
+            <text x="80" y="55" class="svg-desc" text-anchor="middle" font-size="11">(Define Intent)</text>
+          </g>
+          <path d="M180,100 L220,100" fill="none" class="g-arrow-path" marker-end="url(#arrow)"/>
+
+          <g transform="translate(220 60)">
+            <rect width="160" height="80" rx="8" fill="var(--svg-fill-blue)" />
+            <rect width="160" height="80" rx="8" fill="none" class="g-blue-stroke" stroke-width="2"/>
+            <text x="80" y="35" class="svg-label" text-anchor="middle" font-size="14" font-weight="bold">CHECKLISTS</text>
+            <text x="80" y="55" class="svg-desc" text-anchor="middle" font-size="11">(Refine Drafts)</text>
+          </g>
+          <path d="M380,100 L420,100" fill="none" class="g-arrow-path" marker-end="url(#arrow)"/>
+
+          <g transform="translate(420 60)">
+            <rect width="160" height="80" rx="8" fill="var(--svg-fill-green)" />
+            <rect width="160" height="80" rx="8" fill="none" class="g-green-stroke" stroke-width="2"/>
+            <text x="80" y="35" class="svg-label" text-anchor="middle" font-size="14" font-weight="bold">SCORECARDS</text>
+            <text x="80" y="55" class="svg-desc" text-anchor="middle" font-size="11">(Verify & Value)</text>
+          </g>
+          <path d="M580,100 L620,100" fill="none" class="g-arrow-path" marker-end="url(#arrow)"/>
+
+          <g transform="translate(620 60)">
+            <rect width="160" height="80" rx="8" fill="var(--svg-fill-gold)" />
+            <rect width="160" height="80" rx="8" fill="none" class="g-gold-stroke" stroke-width="2"/>
+            <text x="80" y="35" class="svg-label" text-anchor="middle" font-size="14" font-weight="bold">LOGS</text>
+            <text x="80" y="55" class="svg-desc" text-anchor="middle" font-size="11">(Store & Reuse)</text>
+          </g>
+        </svg>
+      </figure>
+    </section>
+
+    <!-- 3. Templates (CLARITY-7) -->
+    <section id="fk-sec-3" class="module-section">
+      <h2 class="section-title">Templates (CLARITY-7™)</h2>
+      <p class="section-lead">Templates provide structure for common tasks. Each uses CLARITY-7™ to define purpose, audience, constraints, tone, format, inputs, and expected output.</p>
+
+      <div class="grid-2">
+        <!-- 3.1 Intent Template -->
+        <div class="prompt">
+          <div class="prompt-header">
+            <span class="prompt-title">3.1 Intent Template</span>
+            <button class="copy-btn" type="button" data-copy="#code-t1">Copy</button>
+          </div>
+          <pre><code id="code-t1">### Intent Template (CLARITY-7™)
+1. Purpose: [Why are you doing this?]
+2. Audience: [Who is this for?]
+3. Required Inputs: [Data/Context provided]
+4. Constraints: [Boundaries/Limits]
+5. Tone: [Style/Voice]
+6. Format: [Structure of result]
+7. Expected Output: [What specifically should be produced?]</code></pre>
+        </div>
+
+        <!-- 3.2 Research Request -->
+        <div class="prompt">
+          <div class="prompt-header">
+            <span class="prompt-title">3.2 Research Request</span>
+            <button class="copy-btn" type="button" data-copy="#code-t2">Copy</button>
+          </div>
+          <pre><code id="code-t2">### Research Request Template
+Goal: [Specific knowledge needed]
+Scope: [Breadth vs Depth]
+Sources: [Preferred source types]
+Constraints: [Date range, exclusions]
+Evaluation Criteria: [How to judge relevance]
+Deliverable Format: [Summary/Bullet points/Report]</code></pre>
+        </div>
+
+        <!-- 3.3 Content Drafting -->
+        <div class="prompt">
+          <div class="prompt-header">
+            <span class="prompt-title">3.3 Content Drafting</span>
+            <button class="copy-btn" type="button" data-copy="#code-t3">Copy</button>
+          </div>
+          <pre><code id="code-t3">### Content Drafting Template
+Topic: [Subject]
+Audience: [Reader profile]
+Style Rules: [Voice guidelines]
+Structure Requirements: [Headings/Sections]
+Length: [Word count range]
+Quality Targets: [Clarity/Engagement]
+Output Format: [Markdown/Email/Doc]</code></pre>
+        </div>
+
+        <!-- 3.4 Problem Solving -->
+        <div class="prompt">
+          <div class="prompt-header">
+            <span class="prompt-title">3.4 Problem-Solving</span>
+            <button class="copy-btn" type="button" data-copy="#code-t4">Copy</button>
+          </div>
+          <pre><code id="code-t4">### Problem-Solving Template
+Problem Statement: [Clear definition]
+Relevant Context: [Background info]
+Constraints: [Budget/Time/Resources]
+Available Data: [Inputs provided]
+Desired Outcome: [What success looks like]
+Validation Method: [How to test solution]
+Required Steps: [Logical sequence]</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Checklists (SPARK-5) -->
+    <section id="fk-sec-4" class="module-section">
+      <h2 class="section-title">Checklists (SPARK-5™)</h2>
+      <p class="section-lead">Checklists reduce blind spots. Use these principles to refine clarity, alignment, structure, and consistency.</p>
+      
+      <div class="grid-3">
+        <div class="card">
+          <h3>4.1 Pre-Prompt</h3>
+          <ul>
+            <li>□ Purpose defined</li>
+            <li>□ Audience specified</li>
+            <li>□ Constraints added</li>
+            <li>□ Format selected</li>
+            <li>□ Success criteria set</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>4.2 Post-Draft</h3>
+          <ul>
+            <li>□ Irrelevant content removed</li>
+            <li>□ Structure consistent</li>
+            <li>□ Tone correct</li>
+            <li>□ Examples accurate</li>
+            <li>□ Steps complete</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>4.3 Context Completeness</h3>
+          <ul>
+            <li>□ Background included</li>
+            <li>□ Domain rules stated</li>
+            <li>□ Edge cases noted</li>
+            <li>□ Scope defined</li>
+            <li>□ Expected boundaries set</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Scorecards (MIRROR-6 / VALOR) -->
+    <section id="fk-sec-5" class="module-section">
+      <h2 class="section-title">Scorecards</h2>
+      <p class="section-lead">Evaluate quality and value using MIRROR-6™ (Accuracy) and VALOR-Δ (Value).</p>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>5.1 Accuracy (MIRROR-6™)</h3>
+          <p><em>Rate 1–5 (Pass/Fail)</em></p>
+          <ul>
+            <li><strong>Meaning:</strong> Matches intent?</li>
+            <li><strong>Integrity:</strong> Correct facts?</li>
+            <li><strong>Relevance:</strong> On topic?</li>
+            <li><strong>Reliability:</strong> Reproducible?</li>
+            <li><strong>Outcome alignment:</strong> Fits goal?</li>
+            <li><strong>Repeatability:</strong> Process clear?</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>5.2 Value (VALOR-Δ)</h3>
+          <p><em>Rate 1–5</em></p>
+          <ul>
+            <li><strong>Value:</strong> Utility</li>
+            <li><strong>Alignment:</strong> Fit</li>
+            <li><strong>Leverage:</strong> Efficiency</li>
+            <li><strong>Outcome Quality:</strong> Impact</li>
+            <li><strong>Repeatability:</strong> Stability</li>
+            <li><strong>Δ Improvement:</strong> Gain over manual</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>5.3 Workflow Quality</h3>
+          <p><em>Checklist</em></p>
+          <ul>
+            <li>Clarity of steps</li>
+            <li>Logic flow</li>
+            <li>Checkpoints present</li>
+            <li>Efficiency</li>
+            <li>Completeness</li>
+            <li>Adaptability</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Logs & Archives (TESSERA) -->
+    <section id="fk-sec-6" class="module-section">
+      <h2 class="section-title">Logs & Archives (TESSERA™)</h2>
+      <p class="section-lead">Logs retain progress and create a personal library. Copy these structures to your note-taking system.</p>
+
+      <div class="prompt">
+        <div class="prompt-header">
+          <span class="prompt-title">6.1 Prompt Log</span>
+          <button class="copy-btn" type="button" data-copy="#code-l1">Copy</button>
+        </div>
+        <pre><code id="code-l1">Task: [Name]
+Date: [YYYY-MM-DD] | Version: [v1.0]
+Context: [Situation]
+Final Prompt: [Paste exact text]
+Refinement Notes: [What you changed]
+Verification Results: [Pass/Fail]
+Final Output: [Link or Summary]</code></pre>
+      </div>
+
+      <div class="grid-2">
+        <div class="prompt">
+          <div class="prompt-header">
+            <span class="prompt-title">6.2 Workflow Log</span>
+            <button class="copy-btn" type="button" data-copy="#code-l2">Copy</button>
+          </div>
+          <pre><code id="code-l2">Workflow Name: [Title]
+Steps: [1, 2, 3...]
+Checkpoints: [Verification steps]
+Validation Notes: [Did it work?]
+Value Score: [1-5]
+Final Decision: [Keep/Refine/Discard]</code></pre>
+        </div>
+        <div class="prompt">
+          <div class="prompt-header">
+            <span class="prompt-title">6.3 Improvement Log</span>
+            <button class="copy-btn" type="button" data-copy="#code-l3">Copy</button>
+          </div>
+          <pre><code id="code-l3">Initial State: [Baseline]
+Refinements Applied: [Changes]
+MIRROR-6™ Results: [Pass/Fail]
+VALOR-Δ Score: [Before vs After]
+Outcome Comparison: [Notes]
+Next Revision Plan: [Action]</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Field Tools -->
+    <section id="fk-sec-7" class="module-section">
+      <h2 class="section-title">Field Tools</h2>
+      <p class="section-lead">Small, fast tools for everyday use.</p>
+      <div class="grid-2">
+        <div class="card">
+          <h3>7.1 Pattern Selector</h3>
+          <p>Choose the right reasoning pattern:</p>
+          <ul>
+            <li><strong>Divergent Generation:</strong> For brainstorming.</li>
+            <li><strong>Convergent Selection:</strong> For narrowing options.</li>
+            <li><strong>Multi-Stage Reasoning:</strong> For complex logic.</li>
+            <li><strong>Constraint-Driven Shaping:</strong> For specific formats.</li>
+            <li><strong>Transformation Steps:</strong> For rewriting/formatting.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>7.2 Workflow Builder</h3>
+          <p>Step-by-step creator for common task structures. Supports planning, sequencing, and defining checkpoints.</p>
+        </div>
+        <div class="card">
+          <h3>7.3 Verification Protocol</h3>
+          <p>A simplified MIRROR-6™ form for quick checks. Extremely useful during fast iteration cycles.</p>
+        </div>
+        <div class="card">
+          <h3>7.4 Δ Tracker</h3>
+          <p>A compact VALOR-Δ tracker for recording improvements across versions. Focuses on the "Delta" (Change).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Practical Examples -->
+    <section id="fk-sec-8" class="module-section">
+      <h2 class="section-title">Practical Examples</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>8.1 Using an Intent Template</h3>
+          <ol>
+            <li>Fill the CLARITY-7 fields for a writing task.</li>
+            <li>Generate a first draft.</li>
+            <li>Refine using SPARK-5™.</li>
+            <li>Verify with MIRROR-6™.</li>
+          </ol>
+        </div>
+        <div class="card">
+          <h3>8.2 Using a Scorecard</h3>
+          <ol>
+            <li>Apply MIRROR-6™ to a product description.</li>
+            <li>Document scores (1-5).</li>
+            <li>Improve the weak areas.</li>
+            <li>Re-score to measure Δ.</li>
+          </ol>
+        </div>
+        <div class="card">
+          <h3>8.3 Using a Log</h3>
+          <ol>
+            <li>Complete a task.</li>
+            <li>Capture the final prompt and output.</li>
+            <li>Add notes on what worked.</li>
+            <li>Save for future reuse.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Best Practices -->
+    <section id="fk-sec-9" class="module-section">
+      <h2 class="section-title">Best Practices</h2>
+      <div class="card">
+        <ul>
+          <li>Keep templates simple and consistent.</li>
+          <li>Avoid unnecessary fields.</li>
+          <li>Use checklists <em>before</em> and <em>after</em> generation.</li>
+          <li>Score outputs regularly to build accuracy habits.</li>
+          <li>Store every major prompt and workflow.</li>
+          <li>Reuse successful tools instead of rebuilding them.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 10. Quick List -->
+    <section id="fk-sec-10" class="module-section">
+      <h2 class="section-title">Frequently Used Tools (Quick List)</h2>
+      <div class="grid-2">
+        <div class="card">
+          <ul>
+            <li>CLARITY-7™ Intent Sheet</li>
+            <li>SPARK-5™ Refinement Checklist</li>
+            <li>MIRROR-6™ Accuracy Scorecard</li>
+            <li>VALOR-Δ Value Scorecard</li>
+          </ul>
+        </div>
+        <div class="card">
+          <ul>
+            <li>TESSERA™ Continuity Log</li>
+            <li>Workflow Builder</li>
+            <li>Pattern Selector</li>
+            <li>Δ Tracker</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. Invitation -->
+    <section id="fk-sec-11" class="module-section">
+      <h2 class="section-title">Reader Invitation</h2>
+      <p>If you create a template, checklist, or scorecard that improves your workflow, you are welcome to share it through our contact page. Useful tools may become part of future editions of the Field Kit.</p>
+    </section>
+
+  </main>
+
+  <!-- ===================== Back to Top ===================== -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" title="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <!-- ===================== Footer ===================== -->
+  <footer class="footer-section" role="contentinfo">
+    <hr class="footer-divider" />
+    <div class="site-footer">
+      <div class="footer-flex">
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="/toc.html">Index</a>
+          <a href="/contact.html">Contact</a>
+          <a href="/privacy.html">Privacy</a>
+          <a href="/terms.html">Terms</a>
+          <a href="/sitemap.xml">Sitemap</a>
+        </nav>
+        <div class="footer-brand">
+          <img src="https://aiartisan.hqaim.com/assets/images/HQAIM_LOGO_Gradient_Minimal.svg" class="footer-logo" alt="HQAIM Studios logo" width="120" height="26" />
+          <span class="copyright">© <span id="year"></span> Abdullah Khan · HQAIM Studios</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== JS ===================== -->
+  <script>
+  (function(){
+    'use strict';
+    const html = document.documentElement;
+    const metaTheme = document.getElementById('themeColor');
+    const toggle = document.getElementById('themeToggle');
+    const backToTop = document.getElementById('backToTop');
+    const navToggle = document.querySelector('.nav-toggle');
+    const mainNav = document.querySelector('nav.main-nav');
+    const yearEl = document.getElementById('year');
+    const liveStatus = document.getElementById('live-status');
+
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    /* Theme Logic */
+    const storageKey = 'aiartisan_theme_preference';
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function getPref(){
+      const saved = localStorage.getItem(storageKey);
+      if (saved === 'light' || saved === 'dark') return saved;
+      return prefersDark.matches ? 'dark' : 'light';
+    }
+    
+    function applyTheme(t){
+      html.dataset.theme = t;
+      if (metaTheme) metaTheme.setAttribute('content', t === 'dark' ? '#0f172a' : '#ffffff');
+      if (toggle) {
+        toggle.setAttribute('aria-pressed', String(t === 'dark'));
+        toggle.setAttribute('title', 'Switch to ' + (t === 'dark' ? 'light' : 'dark') + ' theme');
+      }
+    }
+    
+    applyTheme(getPref());
+    
+    if (toggle){
+      toggle.addEventListener('click', () => {
+        const next = html.dataset.theme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem(storageKey, next);
+        applyTheme(next);
+      });
+    }
+
+    /* Copy Logic */
+    document.querySelectorAll('.copy-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const targetSelector = btn.getAttribute('data-copy');
+        const target = document.querySelector(targetSelector);
+        if(!target) return;
+        const text = target.textContent.trim();
+        
+        // Try clipboard API first
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(text).then(() => {
+             flashCopy(btn);
+          }).catch(() => {
+             fallbackCopy(text, btn);
+          });
+        } else {
+          fallbackCopy(text, btn);
+        }
+      });
+    });
+
+    function fallbackCopy(text, btn){
+       const ta = document.createElement('textarea');
+       ta.value = text;
+       ta.style.position='fixed'; ta.style.opacity='0';
+       document.body.appendChild(ta);
+       ta.select();
+       try{
+         document.execCommand('copy');
+         flashCopy(btn);
+       } catch(e){
+         console.error(e);
+       }
+       document.body.removeChild(ta);
+    }
+
+    function flashCopy(btn){
+      const original = btn.textContent;
+      btn.textContent = 'Copied!';
+      if(liveStatus) liveStatus.textContent = 'Content copied to clipboard.';
+      setTimeout(()=>{ 
+        btn.textContent = original; 
+        if(liveStatus) liveStatus.textContent = '';
+      }, 2000);
+    }
+
+    /* Mobile Nav */
+    if (navToggle && mainNav){
+      navToggle.addEventListener('click', ()=>{
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', String(!expanded));
+        mainNav.classList.toggle('open');
+      });
+    }
+
+    /* Back to Top */
+    if (backToTop) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) backToTop.classList.add('visible');
+        else backToTop.classList.remove('visible');
+      }, { passive: true });
+      
+      backToTop.addEventListener('click', ()=>{
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  })();
   </script>
 </body>
 </html>
