@@ -1002,5 +1002,29 @@
 
   })();
   </script>
+<script>
+async function requestAccess() {
+  const pw = document.getElementById('pw').value.trim();
+  const params = new URLSearchParams(location.search);
+  const key = params.get('key'); 
+
+  const res = await fetch('YOUR_API_GATEWAY_ENDPOINT_HERE', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ password: pw, key })
+  });
+
+  if (res.status !== 200) {
+    const body = await res.json().catch(()=>({error:'Unknown'}));
+    alert('Access denied: ' + (body.error || res.status));
+    return;
+  }
+
+  const { url } = await res.json();
+  window.location.href = url;
+}
+</script>
+
 </body>
 </html>
+
