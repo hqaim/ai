@@ -1,196 +1,917 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
+  <!--
+    The AI Artisan — Appendices & Toolkit: Glossary & Index
+    Diamond Edition v101 (Hero Update)
+    Author: Abdullah Khan · HQAIM Studios
+    Notes:
+      - Full integration of Glossary manuscript.
+      - Design System v100 (Inter/Source Serif Pro).
+      - Custom "Knowledge Architecture" SVG Diagram.
+      - 6x9 Print Optimization.
+  -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Appendices & Toolkit — The AI Artisan</title>
-  <meta name="description" content="Explore The AI Artisan Appendices and Toolkit — framework index, pattern libraries, checklists, glossary, and advanced resources." />
-  <link rel="canonical" href="https://aiartisan.hqaim.com/appendix.html" />
-  <link rel="icon" href="/assets/images/favicon.ico" />
-  <meta name="theme-color" content="#0f172a" />
+  
+  <!-- SEO Metadata -->
+  <title>Appendices & Toolkit — Glossary & Index · The AI Artisan (Diamond Edition)</title>
+  <meta name="description" content="A complete glossary and index for all frameworks, terms, and methods used in The AI Artisan. Designed for fast lookup and precise understanding." />
+  <meta name="keywords" content="AI glossary, index, CLARITY-7, SPARK-5, MIRROR-6, VALOR-Δ, TESSERA, prompt terms, workflow terms, reference guide" />
 
-  <!-- OpenGraph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Appendices & Toolkit — The AI Artisan" />
-  <meta property="og:description" content="Framework Index, Pattern Forge Libraries, Buildsheet Templates, and Glossary — The AI Artisan Toolkit for Applied Prompt Engineering." />
-  <meta property="og:image" content="https://aiartisan.hqaim.com/assets/images/cover-hero.jpg" />
-  <meta property="og:url" content="https://aiartisan.hqaim.com/appendix.html" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://aiartisan.hqaim.com/glossary.html" />
+  <meta id="themeColor" name="theme-color" content="#ffffff" />
+  <meta name="color-scheme" content="light dark" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Source+Serif+Pro:wght@600&display=swap" rel="stylesheet" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Appendices & Toolkit — Glossary & Index · The AI Artisan" />
+  <meta property="og:description" content="A complete glossary and index for all frameworks, terms, and methods used in The AI Artisan." />
+  <meta property="og:url" content="https://aiartisan.hqaim.com/glossary.html" />
+  <!-- Hero Image: Open Reference/Knowledge -->
+  <meta property="og:image" content="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=1600&auto.format&fit=crop" />
+  <meta property="og:site_name" content="The AI Artisan" />
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="/assets/style.css" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Appendices & Toolkit — Glossary & Index · The AI Artisan" />
+  <meta name="twitter:description" content="A complete glossary and index for all frameworks, terms, and methods used in The AI Artisan." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=1600&auto.format&fit=crop" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://aiartisan.hqaim.com/images/favicon.ico" type="image/x-icon" />
+
+  <!-- Google Fonts: Inter (body) & Source Serif Pro (headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+Pro:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Appendix — Glossary & Index",
+    "name": "Appendices & Toolkit — Glossary & Index · The AI Artisan",
+    "description": "Clear definitions and structured references for every core concept in The AI Artisan.",
+    "publisher": { "@type": "Organization", "name": "HQAIM Studios" },
+    "author": { "@type": "Person", "name": "Abdullah Khan" },
+    "datePublished": "2025-12-10",
+    "inLanguage": "en",
+    "image": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=1600&auto.format&fit=crop",
+    "url": "https://aiartisan.hqaim.com/glossary.html"
+  }
+  </script>
 
   <style>
-    main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem;
+    /* =========================================================
+       THE AI ARTISAN — Diamond Edition v100
+       Glossary CSS (screen + print)
+       ========================================================= */
+
+    /* 0) Keyframes for fade-in */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    h1 {
-      text-align: center;
+
+    /* 0) Tokens */
+    :root{
+      color-scheme: light dark;
+      /* Typography */
+      --font-sans: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+      --font-serif: 'Source Serif Pro', serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+      /* Core palette (Aetherium) */
+      --violet:#7c3aed; --blue:#2563eb; --green:#10b981; --gold:#f6be3e;
+      --white:#ffffff;  --black:#0f172a;
+
+      --slate-50:#f8fafc;  --slate-100:#f1f5f9; --slate-200:#e2e8f0;
+      --slate-300:#cbd5e1; --slate-400:#94a3b8; --slate-500:#64748b;
+      --slate-600:#475569; --slate-700:#334155; --slate-800:#1e293b;
+      --slate-900:#0f172a;
+
+      /* Light Mode Variables */
+      --bg:var(--white); --surface:var(--slate-50); --text:var(--slate-900);
+      --muted:#445268; --muted2:var(--slate-500); --border:var(--slate-200);
+      --accent:var(--violet); --link:var(--blue); --focus:rgba(37,99,235,.36);
+      --shadow-e2:0 8px 20px rgba(15,23,42,.08), 0 3px 8px rgba(15,23,42,.06);
+
+      /* Background shimmer */
+      --bg-gradient:
+        radial-gradient(1200px 600px at 0% -10%, color-mix(in srgb, var(--violet) 7%, transparent), transparent 70%),
+        radial-gradient(900px 500px at 100% 110%, color-mix(in srgb, var(--blue) 7%, transparent), transparent 70%),
+        linear-gradient(180deg, rgba(124,58,237,.03), rgba(37,99,235,.03)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Cpath fill='%239C92AC' fill-opacity='.015' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'/%3E%3C/svg%3E"),
+        var(--bg);
+
+      --svg-label:#0f172a;
+      --svg-desc: var(--muted);
+      /* Theme-aware SVG fills */
+      --svg-fill-violet: color-mix(in srgb, var(--violet) 10%, var(--surface));
+      --svg-fill-blue: color-mix(in srgb, var(--blue) 10%, var(--surface));
+      --svg-fill-green: color-mix(in srgb, var(--green) 10%, var(--surface));
+      --svg-fill-gold: color-mix(in srgb, var(--gold) 20%, var(--surface));
+      --svg-fill-slate: color-mix(in srgb, var(--slate-400) 20%, var(--surface));
+
+      --code-bg-light:#f7f7fb; --code-bg-dark:#0f172a;
+      --grad-1: linear-gradient(95deg, var(--link), var(--accent));
+      --grad-title: linear-gradient(90deg, var(--violet), var(--blue));
+
+      --wrap:1100px; --pad:1.5rem; --r:12px;
+    }
+
+    html[data-theme="dark"]{
+      --bg:var(--slate-900); --surface:var(--slate-800); --text:var(--slate-50);
+      --muted:var(--slate-300); --muted2:var(--slate-400); --border:var(--slate-700);
+      --accent:#a78bfa; --link:#7dd3fc; --focus:rgba(124,58,237,.45);
+      --shadow-e2:0 10px 28px rgba(0,0,0,.35);
+
+      --bg-gradient:
+        radial-gradient(1200px 600px at 0% -10%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 70%),
+        radial-gradient(900px 500px at 100% 110%, color-mix(in srgb, var(--link) 10%, transparent), transparent 70%),
+        linear-gradient(180deg, rgba(124,58,237,.06), rgba(37,99,235,.06)),
+        var(--bg);
+
+      --svg-label:#ffffff;
+      --svg-desc: var(--muted);
+      --svg-fill-violet: color-mix(in srgb, var(--accent) 20%, var(--surface));
+      --svg-fill-blue: color-mix(in srgb, var(--link) 20%, var(--surface));
+      --svg-fill-green: color-mix(in srgb, var(--green) 20%, var(--surface));
+      --svg-fill-gold: color-mix(in srgb, var(--gold) 25%, var(--surface));
+      --svg-fill-slate: color-mix(in srgb, var(--slate-400) 30%, var(--surface));
+      
+      --grad-title: linear-gradient(90deg, var(--accent), var(--link));
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font:16px/1.65 var(--font-sans); color:var(--text);
+      background:var(--bg-gradient); background-attachment:fixed;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      text-rendering:optimizeLegibility;
+    }
+    .wrap{max-width:var(--wrap); margin:0 auto; padding:0 var(--pad)}
+    
+    ul, ol { padding-left: 1.5em; margin: 1em 0; }
+    li { margin-bottom: 0.5em; }
+    p { margin: 0.8em 0; }
+    
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation:none!important;transition:none!important}
+    }
+
+    .sr-only{
+      position:absolute!important; width:1px; height:1px; padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap; border:0;
+    }
+
+    /* 1) Header */
+    .site-header{
+      position:sticky; top:0; z-index:100;
+      backdrop-filter:saturate(140%) blur(8px);
+      background:color-mix(in srgb, var(--surface) 92%, transparent);
+      border-bottom:1px solid var(--border);
+      animation: fadeIn 0.5s ease-out;
+    }
+    .header-inner{
+      max-width:var(--wrap); margin:0 auto; padding:.65rem var(--pad);
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .brand-wrap{display:inline-flex; align-items:center; gap:10px; text-decoration:none; color:var(--text)}
+    .brand-logo{width:32px; height:32px; display:inline-block}
+    .brand-text{
+      font-weight:800; letter-spacing:.2px; font-size:1rem;
+      background:linear-gradient(95deg, var(--accent), var(--link));
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+      transition:filter .2s;
+    }
+    .brand-wrap:hover .brand-text{filter:brightness(1.06)}
+
+    .nav-toggle{display:none; border:0; background:none; cursor:pointer; padding:4px}
+    .nav-toggle-bar{
+      width:22px; height:2px; background:var(--text); display:block; margin:4px 0; border-radius:2px;
+      transition:transform .2s, opacity .2s;
+    }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2){opacity:0}
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+    nav.main-nav{display:block}
+    .main-nav ul{list-style:none; margin:0; padding:0; display:flex; align-items:center; gap:10px}
+    .main-nav a{
+      color:var(--muted); text-decoration:none; font-weight:600; padding:6px 10px; border-radius:8px; font-size:.95rem;
+      transition:color .2s, background-color .2s;
+    }
+    .main-nav a[aria-current="page"], .main-nav a:hover{
+      color:var(--accent); background-color:color-mix(in srgb, var(--accent) 10%, transparent)
+    }
+
+    .right-tools{display:inline-flex; align-items:center; gap:10px}
+    .theme-toggle{
+      width:40px; height:40px; border-radius:50%; border:1px solid var(--border); background:var(--surface);
+      display:grid; place-items:center; cursor:pointer; position:relative; overflow:hidden; padding:0;
+      transition:transform .18s, box-shadow .18s, background-color .18s; -webkit-tap-highlight-color:transparent;
+    }
+    .theme-toggle:hover{transform:translateY(-1px) scale(1.05); box-shadow:0 0 10px var(--focus)}
+    .theme-toggle .icon{position:absolute; width:20px; height:20px; transition:transform .3s cubic-bezier(.4,0,.2,1.4), opacity .25s linear}
+    .icon-sun{color:var(--gold); transform:scale(0) rotate(90deg); opacity:0}
+    .icon-moon{color:var(--white); transform:scale(1) rotate(0); opacity:1}
+    html[data-theme="light"] .icon-sun{transform:scale(1) rotate(0); opacity:1}
+    html[data-theme="light"] .icon-moon{transform:scale(0) rotate(-90deg); opacity:0}
+    html[data-theme="dark"]  .icon-sun{transform:scale(0) rotate(90deg); opacity:0}
+    html[data-theme="dark"]  .icon-moon{transform:scale(1) rotate(0); opacity:1}
+
+    @media (max-width:820px){
+      .nav-toggle{display:inline-block}
+      nav.main-nav{display:none}
+      nav.main-nav.open{display:block}
+      .main-nav ul{
+        position:fixed; right:12px; top:60px; background:var(--surface); border:1px solid var(--border);
+        border-radius:12px; box-shadow:var(--shadow-e2); padding:12px; gap:10px; flex-direction:column;
+        transform:scale(.98); opacity:0; pointer-events:none; transition:transform .18s ease-out, opacity .18s ease-out;
+      }
+      nav.main-nav.open ul{transform:scale(1); opacity:1; pointer-events:auto}
+    }
+
+    :focus-visible{outline:3px solid var(--focus); outline-offset:3px; border-radius:4px}
+    .skip-link{
+      position:absolute; left:12px; top:6px; z-index:200; background:var(--surface); color:var(--text);
+      padding:6px 10px; border-radius:8px; border:1px solid var(--border);
+      transform:translateY(-150%); transition:transform .2s;
+    }
+    .skip-link:focus{transform:translateY(0%)}
+
+    /* 2) Hero + Intro */
+    .hero{
+      max-width:var(--wrap); margin:0 auto; padding:18px var(--pad) 0;
+      animation: fadeIn 0.5s 0.1s ease-out backwards;
+    }
+    .hero-figure{
+      margin:0; border-radius:14px; overflow:hidden; border:1px solid var(--border); box-shadow:var(--shadow-e2); background:var(--surface);
+    }
+    .hero-figure img{display:block; width:100%; height:auto; aspect-ratio:16/7; object-fit:cover; background-color:var(--surface)}
+    .hero-caption{margin:0; padding:10px 14px; font-size:.96rem; color:var(--muted); background:color-mix(in srgb, var(--surface) 92%, transparent); border-top:1px solid var(--border)}
+
+    .intro{
+      padding:12px var(--pad) 4px; max-width:var(--wrap); margin:0 auto;
+      animation: fadeIn 0.5s 0.2s ease-out backwards;
+    }
+    .intro p{margin:10px 0; color:var(--muted); font-size:clamp(1rem, 1.2vw, 1.05rem); max-width:75ch}
+
+    .breadcrumbs{
+      max-width:var(--wrap); margin:0 auto; padding:8px var(--pad) 0; font-size:.95rem; color:var(--muted);
+      animation: fadeIn 0.5s 0.3s ease-out backwards;
+    }
+    .breadcrumbs a{color:var(--muted); text-decoration:none; font-weight:600}
+    .breadcrumbs a:hover{color:var(--accent); text-decoration:underline}
+    .breadcrumbs .sep{opacity:.6; padding:0 .35rem}
+
+    /* 3) Main content */
+    main#main{
+      max-width:var(--wrap); margin:0 auto; padding:8px var(--pad) 24px;
+      animation: fadeIn 0.5s 0.4s ease-out backwards;
+    }
+    .page-title{
+      margin:8px 0 4px; font-size:clamp(1.9rem, 3.8vw, 2.6rem); font-weight:800;
       font-family: var(--font-serif);
+      background: var(--grad-title);
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; letter-spacing:.2px;
+    }
+    .page-sub{margin:0 0 10px; color:var(--muted); font-weight:600}
+
+    section.module-section{
+      margin:20px 0; padding:14px; border-radius:12px; background:color-mix(in srgb, var(--surface) 86%, transparent);
+      border:1px solid var(--border); box-shadow:var(--shadow-e2); page-break-before:always;
+    }
+    section.module-section:first-of-type{page-break-before:auto}
+    
+    .section-title{
+      margin:0 0 6px; font-size:clamp(1.2rem, 2.3vw, 1.45rem); font-weight:800; letter-spacing:.2px; color:var(--text);
+      font-family: var(--font-serif);
+      background: var(--grad-title);
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+    }
+    .section-lead{margin:2px 0 10px; color:var(--muted)}
+    
+    blockquote.core {
+      margin: 1em 0;
+      padding: 10px 14px;
+      border-left: 4px solid var(--accent);
+      background: color-mix(in srgb, var(--accent) 6%, var(--surface));
+      border-radius: 0 8px 8px 0;
+      font-family: var(--font-serif);
+      font-size: 1.05em;
+      letter-spacing: 0.1px;
+    }
+    blockquote.core p { margin: 0; font-weight: 600; }
+
+    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+    .grid-3{display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px}
+    @media (max-width:820px){.grid-2, .grid-3{grid-template-columns:1fr}}
+
+    .card{background:color-mix(in srgb, var(--surface) 88%, transparent); border:1px solid var(--border); border-radius:12px; padding:12px 14px;}
+    .card h3 { margin-top: 0; font-family: var(--font-serif); }
+    .card ul, .card ol { padding-left: 1.2em; }
+
+    /* Glossary Definition Style */
+    .def-term { font-weight: 700; color: var(--text); font-size: 1.05rem; display: block; margin-bottom: 4px; }
+    .def-desc { color: var(--muted); line-height: 1.6; margin: 0 0 14px; }
+    .def-meta { font-size: 0.85rem; color: var(--muted2); margin-top: -8px; margin-bottom: 12px; display: block; }
+
+    /* SVG Diagram */
+    figure.diagram-flow{margin:0; padding:0}
+    .diagram-flow svg{
+      display:block; width:100%; height:auto; background:color-mix(in srgb, var(--surface) 88%, transparent);
+      border:1px solid var(--border); border-radius:12px;
+      font-family: var(--font-sans);
+    }
+    .diagram-flow figcaption{margin-top:8px; font-size:.95rem; color:var(--muted)}
+    .svg-label{fill:var(--svg-label); font-weight:700;}
+    .svg-desc{
+      fill: var(--svg-desc);
       font-weight: 600;
-      font-size: clamp(2rem, 3vw, 2.5rem);
-      background: linear-gradient(90deg, var(--violet), var(--blue));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-size: 11px;
+      opacity: 0.9;
     }
-    .lead {
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 1.1rem;
-      margin: 1rem auto 2rem;
-      line-height: 1.6;
-      max-width: 70ch;
+    .g-violet-stroke { stroke: #7c3aed; }
+    .g-blue-stroke { stroke: #2563eb; }
+    .g-green-stroke { stroke: #10b981; }
+    .g-gold-stroke { stroke: #f6be3e; }
+    .g-slate-stroke { stroke: #94a3b8; }
+    .g-arrow-path { stroke: var(--muted2); stroke-width: 2.5; }
+    html[data-theme="dark"] .g-violet-stroke { stroke: #a78bfa; }
+    html[data-theme="dark"] .g-blue-stroke { stroke: #7dd3fc; }
+    html[data-theme="dark"] .g-green-stroke { stroke: #6ee7b7; }
+    html[data-theme="dark"] .g-gold-stroke { stroke: #fde08a; }
+    html[data-theme="dark"] .g-slate-stroke { stroke: #e2e8f0; }
+
+    .back-to-top{
+      position:fixed; bottom:26px; right:26px; width:48px; height:48px; border-radius:50%; border:1px solid var(--border);
+      display:grid; place-items:center; color:var(--accent); cursor:pointer; background:color-mix(in srgb, var(--surface) 92%, transparent);
+      box-shadow:var(--shadow-e2); opacity:0; visibility:hidden; transform:translateY(8px);
+      transition:opacity .18s, transform .18s, visibility .18s; z-index:90;
     }
-    .appendix-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
+    .back-to-top.visible{opacity:1; visibility:visible; transform:translateY(0)}
+    .back-to-top:hover{background:color-mix(in srgb, var(--surface) 90%, var(--accent))}
+
+    .footer-section{position:relative; z-index:1; margin-top:32px; border-top:1px solid var(--border); background:var(--surface)}
+    .footer-divider{height:2px; border:0; margin:0 0 16px; background:linear-gradient(90deg, transparent, var(--violet), var(--blue), var(--gold), transparent); opacity:.3}
+    .site-footer{padding:0 var(--pad) 16px; max-width:var(--wrap); margin:0 auto; color:var(--muted)}
+    .footer-flex{display:flex; flex-direction:column; align-items:center; gap:12px}
+    .footer-nav{display:flex; gap:16px; flex-wrap:wrap; justify-content:center}
+    .footer-nav a{color:var(--muted); text-decoration:none; font-weight:600}
+    .footer-nav a:hover{color:var(--accent); text-decoration:underline}
+    .footer-brand{display:flex; align-items:center; gap:10px}
+    .footer-logo{height:24px; width:auto; filter:grayscale(0); opacity:.9}
+    .copyright{font-size:.95rem; color:var(--muted)}
+
+    @media (max-width:560px){
+      .header-inner, .hero, .intro, .breadcrumbs, main#main, .site-footer{padding-left:1rem; padding-right:1rem}
     }
-    .appendix-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 0.75rem;
-      padding: 1.5rem;
-      transition: border-color 0.2s ease, transform 0.2s ease;
-    }
-    .appendix-card:hover {
-      border-color: var(--brand);
-      transform: translateY(-3px);
-    }
-    .appendix-card h2 {
-      font-size: 1.2rem;
-      color: var(--text);
-      margin-bottom: 0.5rem;
-    }
-    .appendix-card p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-    .appendix-card a {
-      display: inline-block;
-      margin-top: 1rem;
-      font-weight: 600;
-      color: var(--brand);
-      text-decoration: none;
-    }
-    .appendix-card a:hover {
-      text-decoration: underline;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem 1rem 1rem;
-      font-size: 0.9rem;
-      color: var(--text-muted-2);
+
+    /* Print 6×9 */
+    @media print{
+      @page{size:6in 9in; margin:0.75in}
+      html{color-scheme:light !important}
+      :root{
+        --bg:var(--white) !important; --surface:var(--white) !important; --text:var(--slate-900) !important;
+        --muted:#445268 !important; --muted2:var(--slate-500) !important; --border:var(--slate-200) !important;
+        --accent:var(--violet) !important; --link:var(--blue) !important;
+        --shadow-e2:none !important; --svg-label:#0f172a !important;
+        --svg-desc: var(--muted) !important;
+        --code-bg-light:#f7f7fb !important;
+        --grad-title: linear-gradient(90deg, var(--violet), var(--blue)) !important;
+        --svg-fill-violet: color-mix(in srgb, var(--violet) 10%, var(--white)) !important;
+        --svg-fill-blue: color-mix(in srgb, var(--blue) 10%, var(--white)) !important;
+        --svg-fill-green: color-mix(in srgb, var(--green) 10%, var(--white)) !important;
+        --svg-fill-gold: color-mix(in srgb, var(--gold) 20%, var(--white)) !important;
+        --svg-fill-slate: color-mix(in srgb, var(--slate-400) 20%, var(--white)) !important;
+      }
+      body{
+        background:var(--bg) !important; color:var(--text) !important;
+        font-size:11pt; line-height:1.6;
+        -webkit-print-color-adjust: exact !important; color-adjust: exact !important;
+        font-family: 'Inter', system-ui, sans-serif !important;
+      }
+      .page-title, .section-title, .card h3 {
+        font-family: 'Source Serif Pro', serif !important;
+        -webkit-text-fill-color: transparent !important;
+        background: var(--grad-title) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+      }
+      .section-title { border-left: none !important; padding-left: 0 !important; }
+      .site-header, .theme-toggle, .back-to-top, .footer-section, .copy-btn, .breadcrumbs, details > summary {display:none !important}
+      section.module-section{ box-shadow:none !important; background:var(--white) !important; border: none !important; padding: 10px 0; }
+      .diagram-flow svg{ background:var(--white) !important; border: none !important; }
+      .card { border: none !important; background: var(--white) !important; box-shadow: none !important; }
+      .hero-figure { page-break-after: avoid; } 
+      .hero-figure img { max-width: 100%; height: auto; }
     }
   </style>
 </head>
 
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+  <div id="theme-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
 
-  <header class="site-header">
+  <!-- ===================== Header ===================== -->
+  <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand-wrap" href="/index.html" aria-label="The AI Artisan home">
-        <img src="/assets/images/HQAIM-ICON-AI.svg" alt="HQAIM Studios Logo" width="140" height="28" />
+        <img src="https://aiartisan.hqaim.com/images/HQAIM_ICON.svg" class="brand-logo" alt="HQAIM Studios icon" width="32" height="32" />
         <span class="brand-text">The AI Artisan</span>
       </a>
-      <nav class="main-nav">
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
+
+      <nav id="site-menu" class="main-nav" role="navigation" aria-label="Main">
         <ul>
+          <li><a href="/foreword.html">Foreword</a></li>
           <li><a href="/toc.html">Index</a></li>
-          <li><a href="/toolkit.html">Toolkit</a></li>
+          <li><a href="/modules.html">Modules</a></li>
+          <li><a href="/fieldkit.html">Toolkit</a></li>
           <li><a href="/premium.html">Premium</a></li>
           <li><a href="/contact.html">Contact</a></li>
-          <li><a href="/credits.html">Credits</a></li>
-          <li><a href="/appendix.html" aria-current="page">Appendices</a></li>
-          <li>
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-              <svg class="icon" data-icon="moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 1021 12.79z"/></svg>
-              <svg class="icon" data-icon="sun" viewBox="0 0 24 24"><path d="M12 6a6 6 0 100 12 6 6 0 000-12z"/></svg>
-            </button>
-          </li>
         </ul>
       </nav>
+
+      <div class="right-tools">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle color theme" aria-pressed="false" role="switch" title="Toggle theme">
+          <svg class="icon icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+          </svg>
+          <svg class="icon icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+        </button>
+      </div>
     </div>
   </header>
 
-  <main id="main" tabindex="-1">
-    <h1>Appendices & Toolkit</h1>
-    <p class="lead">This section provides supporting resources, frameworks, and practical references to help you apply, test, and scale your AI systems effectively.</p>
+  <!-- ===================== Hero ===================== -->
+  <section class="hero" aria-label="Glossary hero">
+    <figure class="hero-figure">
+      
+      <img
+        src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=1600&auto.format&fit=crop"
+        alt="An organized library index, representing structured knowledge and definitions."
+        decoding="async"
+        fetchpriority="high"
+        width="1600"
+        height="700"
+        onerror="this.src='https://placehold.co/1600x700/f8fafc/64748b?text=Glossary+Hero+Image';this.onerror=null;"
+      />
+      <figcaption class="hero-caption">
+        Precise language creates precise results. A glossary ensures that every term, framework, and metric is understood and applied consistently.
+      </figcaption>
+    </figure>
+  </section>
 
-    <section class="appendix-grid">
-      <div class="appendix-card">
-        <h2>Framework Index</h2>
-        <p>Complete schema and description of CLARITY-7™, SPARK-5™, MIRROR-6™, VALOR-Δ, and TESSERA™ frameworks.</p>
-        <a href="/fieldkit.html">View Framework Index →</a>
+  <!-- ===================== Intro ===================== -->
+  <div class="intro">
+    <p>This appendix provides clear definitions for all terms used across the modules. Each definition is concise, practical, and designed for quick reference. It supports both beginners learning the system and professionals applying it in real work.</p>
+  </div>
+
+  <!-- ===================== Breadcrumbs ===================== -->
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="/toc.html">Index</a><span class="sep">/</span>
+    <a href="/fieldkit.html">Toolkit</a><span class="sep">/</span>
+    <span aria-current="page">Glossary</span>
+  </nav>
+
+  <!-- ===================== Main ===================== -->
+  <main id="main" role="main" tabindex="-1" aria-labelledby="page-title">
+    
+    <!-- 1. Page Title -->
+    <h1 id="page-title" class="page-title">Appendix — Glossary & Index</h1>
+    <p class="page-sub">Clear definitions and structured references for every core concept.</p>
+
+    <!-- 2. How to Use -->
+    <section id="gl-sec-2" class="module-section">
+      <h2 class="section-title">How to Use This Appendix</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Definitions</h3>
+          <p>Use the Glossary sections to find clear, standard definitions for frameworks and terms. This ensures you are using the language of the system correctly.</p>
+        </div>
+        <div class="card">
+          <h3>Locations</h3>
+          <p>Use the Index sections to locate where specific frameworks, tools, and concepts appear in the modules. This helps you jump to the right lesson.</p>
+        </div>
       </div>
 
-      <div class="appendix-card">
-        <h2>Pattern Forge™ Library</h2>
-        <p>Reusable prompt and build patterns for everyday creation, automation, and refinement workflows.</p>
-        <a href="/fieldkit.html#patterns">Explore Library →</a>
-      </div>
+      <!-- SVG: Knowledge Architecture Map -->
+      <figure class="diagram-flow" style="margin-top: 1.5em;">
+        <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dsTitle dsDesc">
+          <title id="dsTitle">Diagram: Knowledge Architecture</title>
+          <desc id="dsDesc">Visualizes the flow from Core Frameworks to Concepts, then to Prompting Terms, and finally Workflow Tools.</desc>
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M0,0 L10,5 L0,10 z" fill="var(--muted2)"/>
+            </marker>
+          </defs>
 
-      <div class="appendix-card">
-        <h2>Prompt Logs & Templates</h2>
-        <p>Ready-to-use prompt formats, context sheets, and example Buildsheet™ templates for real-world systems.</p>
-        <a href="/fieldkit.html#templates">Open Logs →</a>
-      </div>
+          <!-- Box 1: Frameworks -->
+          <g transform="translate(40 50)">
+            <rect width="160" height="200" rx="12" fill="var(--svg-fill-violet)" />
+            <rect width="160" height="200" rx="12" fill="none" class="g-violet-stroke" stroke-width="2"/>
+            <text x="80" y="40" class="svg-label" text-anchor="middle" font-size="14" font-weight="bold">FRAMEWORKS</text>
+            <text x="80" y="70" class="svg-desc" text-anchor="middle" font-size="12">CLARITY-7™</text>
+            <text x="80" y="90" class="svg-desc" text-anchor="middle" font-size="12">SPARK-5™</text>
+            <text x="80" y="110" class="svg-desc" text-anchor="middle" font-size="12">MIRROR-6™</text>
+            <text x="80" y="130" class="svg-desc" text-anchor="middle" font-size="12">VALOR-Δ</text>
+            <text x="80" y="150" class="svg-desc" text-anchor="middle" font-size="12">TESSERA™</text>
+          </g>
+          <path d="M200,150 L240,150" fill="none" class="g-arrow-path" marker-end="url(#arrow)"/>
 
-      <div class="appendix-card">
-        <h2>Checklist Compendium</h2>
-        <p>Quick validation sheets for clarity, alignment, and testing — ideal for workflow proofing and team reviews.</p>
-        <a href="/fieldkit.html#checklists">Browse Checklists →</a>
-      </div>
+          <!-- Box 2: Concepts -->
+          <g transform="translate(240 50)">
+            <rect width="160" height="200" rx="12" fill="var(--svg-fill-blue)" />
+            <rect width="160" height="200" rx="12" fill="none" class="g-blue-stroke" stroke-width="2"/>
+            <text x="80" y="40" class="svg-label" text-anchor="middle" font-size="14" font-weight="bold">KEY CONCEPTS</text>
+            <text x="80" y="70" class="svg-desc" text-anchor="middle" font-size="12">Intent Design</text>
+            <text x="80" y="90" class="svg-desc" text-anchor="middle" font-size="12">Structured Prompt</text>
+            <text x="80" y="110" class="svg-desc" text-anchor="middle" font-size="12">Alignment</text>
+            <text x="80" y="130" class="svg-desc" text-anchor="middle" font-size="12">Refinement</text>
+            <text x="80" y="150" class="svg-desc" text-anchor="middle" font-size="12">Continuity</text>
+          </g>
+          <path d="M400,150 L440,150" fill="none" class="g-arrow-path" marker-end="url(#arrow)"/>
 
-      <div class="appendix-card">
-        <h2>Glossary</h2>
-        <p>Key terminology from prompt engineering, system design, and AI product development explained concisely.</p>
-        <a href="/fieldkit.html#glossary">View Glossary →</a>
-      </div>
+          <!-- Box 3: Tools -->
+          <g transform="translate(440 50)">
+            <rect width="160" height="200" rx="12" fill="var(--svg-fill-green)" />
+            <rect width="160" height="200" rx="12" fill="none" class="g-green-stroke" stroke-width="2"/>
+            <text x="80" y="40" class="svg-label" text-anchor="middle" font-size="14" font-weight="bold">WORKFLOW TOOLS</text>
+            <text x="80" y="70" class="svg-desc" text-anchor="middle" font-size="12">Templates</text>
+            <text x="80" y="90" class="svg-desc" text-anchor="middle" font-size="12">Checklists</text>
+            <text x="80" y="110" class="svg-desc" text-anchor="middle" font-size="12">Scorecards</text>
+            <text x="80" y="130" class="svg-desc" text-anchor="middle" font-size="12">Logs</text>
+            <text x="80" y="150" class="svg-desc" text-anchor="middle" font-size="12">Selectors</text>
+          </g>
+          <path d="M600,150 L640,150" fill="none" class="g-arrow-path" marker-end="url(#arrow)"/>
 
-      <div class="appendix-card">
-        <h2>Further Reading</h2>
-        <p>Hand-picked resources, research papers, and future studies aligned with The AI Artisan frameworks.</p>
-        <a href="/fieldkit.html#references">Explore Further →</a>
+          <!-- Box 4: Application -->
+          <g transform="translate(640 50)">
+            <rect width="120" height="200" rx="12" fill="var(--svg-fill-gold)" />
+            <rect width="120" height="200" rx="12" fill="none" class="g-gold-stroke" stroke-width="2"/>
+            <text x="60" y="100" class="svg-label" text-anchor="middle" font-size="14" font-weight="bold">RESULT</text>
+            <text x="60" y="120" class="svg-desc" text-anchor="middle" font-size="12">(Modules & Kit)</text>
+          </g>
+        </svg>
+        <figcaption>Knowledge Architecture: How frameworks flow into concepts and become practical tools.</figcaption>
+      </figure>
+    </section>
+
+    <!-- 3. Glossary — Core Frameworks -->
+    <section id="gl-sec-3" class="module-section">
+      <h2 class="section-title">Glossary — Core Frameworks</h2>
+      <div class="grid-2">
+        <div class="card">
+          <span class="def-term">CLARITY-7™</span>
+          <p class="def-desc">A seven-field structure for defining intent: purpose, audience, constraints, tone, format, inputs, and expected output.</p>
+        </div>
+        <div class="card">
+          <span class="def-term">SPARK-5™</span>
+          <p class="def-desc">A five-pass refinement method to strengthen clarity, alignment, structure, consistency, and outcome focus.</p>
+        </div>
+        <div class="card">
+          <span class="def-term">MIRROR-6™</span>
+          <p class="def-desc">A six-dimension accuracy check covering meaning, integrity, relevance, reliability, outcome alignment, and repeatability.</p>
+        </div>
+        <div class="card">
+          <span class="def-term">VALOR-Δ</span>
+          <p class="def-desc">A value measurement model that evaluates alignment, leverage, outcome quality, repeatability, and Δ improvement.</p>
+        </div>
+        <div class="card">
+          <span class="def-term">TESSERA™</span>
+          <p class="def-desc">A continuity framework for storing prompts, workflows, decisions, and outputs in reusable formats.</p>
+        </div>
       </div>
     </section>
+
+    <!-- 4. Glossary — Key Concepts -->
+    <section id="gl-sec-4" class="module-section">
+      <h2 class="section-title">Glossary — Key Concepts</h2>
+      <div class="grid-2">
+        <div class="card">
+          <span class="def-term">Intent Design</span>
+          <p class="def-desc">The process of defining purpose, audience, and boundaries before generating any output.</p>
+        </div>
+        <div class="card">
+          <span class="def-term">Structured Prompt</span>
+          <p class="def-desc">A prompt built using defined fields, constraints, and measurable expectations.</p>
+        </div>
+        <div class="card">
+          <span class="def-term">Outcome Alignment</span>
+          <p class="def-desc">Ensuring the generated result matches the intended practical purpose.</p>
+        </div>
+        <div class="card">
+          <span class="def-term">Refinement Pass</span>
+          <p class="def-desc">A focused revision cycle guided by SPARK-5™.</p>
+        </div>
+        <div class="card">
+          <span class="def-term">Accuracy Gate</span>
+          <p class="def-desc">A checkpoint where MIRROR-6™ is used to validate correctness and alignment.</p>
+        </div>
+        <div class="card">
+          <span class="def-term">Value Measurement</span>
+          <p class="def-desc">Evaluating whether an output creates practical improvement using VALOR-Δ.</p>
+        </div>
+        <div class="card">
+          <span class="def-term">Continuity Log</span>
+          <p class="def-desc">A template for storing prompts, outputs, review notes, and scores for future reuse.</p>
+        </div>
+        <div class="card">
+          <span class="def-term">Workflow</span>
+          <p class="def-desc">A defined sequence of steps used to perform a task from intent to verified outcome.</p>
+        </div>
+        <div class="card">
+          <span class="def-term">Pattern</span>
+          <p class="def-desc">A reusable reasoning or generation method used within prompts or workflows.</p>
+        </div>
+        <div class="card">
+          <span class="def-term">Proof Artifact™</span>
+          <p class="def-desc">A documented example showing how a structured prompt produced a measurable, verifiable result.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Glossary — Prompting Terms -->
+    <section id="gl-sec-5" class="module-section">
+      <h2 class="section-title">Glossary — Prompting Terms</h2>
+      <div class="grid-2">
+        <div class="card">
+          <span class="def-term">Context Block</span>
+          <p class="def-desc">Information that guides the model about purpose, audience, or boundaries.</p>
+        </div>
+        <div class="card">
+          <span class="def-term">Constraint Block</span>
+          <p class="def-desc">Rules that restrict how the model should behave (e.g., length, exclusions).</p>
+        </div>
+        <div class="card">
+          <span class="def-term">Output Specification</span>
+          <p class="def-desc">Clear instructions describing expected format, style, or level of detail.</p>
+        </div>
+        <div class="card">
+          <span class="def-term">Evaluation Criteria</span>
+          <p class="def-desc">Standards used to measure accuracy or value within a prompt.</p>
+        </div>
+        <div class="card">
+          <span class="def-term">Verification Step</span>
+          <p class="def-desc">A checkpoint used to confirm alignment during a workflow.</p>
+        </div>
+        <div class="card">
+          <span class="def-term">Version Note</span>
+          <p class="def-desc">A short record explaining changes made between iterations.</p>
+        </div>
+        <div class="card">
+          <span class="def-term">Δ Improvement</span>
+          <p class="def-desc">The measurable difference between an earlier version and an updated version.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Glossary — Workflow Tools -->
+    <section id="gl-sec-6" class="module-section">
+      <h2 class="section-title">Glossary — Workflow Tools</h2>
+      <div class="grid-3">
+        <div class="card">
+          <span class="def-term">Template</span>
+          <p class="def-desc">A structured form used to define intent or plan steps.</p>
+        </div>
+        <div class="card">
+          <span class="def-term">Checklist</span>
+          <p class="def-desc">A short list of required checks used to prevent errors.</p>
+        </div>
+        <div class="card">
+          <span class="def-term">Scorecard</span>
+          <p class="def-desc">A rating grid used for accuracy or value evaluation.</p>
+        </div>
+        <div class="card">
+          <span class="def-term">Log</span>
+          <p class="def-desc">A structured record used to capture prompts, drafts, and final decisions.</p>
+        </div>
+        <div class="card">
+          <span class="def-term">Pattern Selector</span>
+          <p class="def-desc">A guide that helps choose an appropriate reasoning pattern.</p>
+        </div>
+        <div class="card">
+          <span class="def-term">Workflow Builder</span>
+          <p class="def-desc">A tool for constructing a step-by-step path for any task.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Index — Frameworks and Tools -->
+    <section id="gl-sec-7" class="module-section">
+      <h2 class="section-title">Index — Frameworks and Tools</h2>
+      <div class="grid-2">
+        <div class="card">
+          <span class="def-term">CLARITY-7™</span>
+          <span class="def-meta">Modules: 4, 10, 16, 17, 18</span>
+          <p class="def-desc"><strong>Tools:</strong> Intent Template, Research Template, Structured Prompt Builder.<br><strong>Use:</strong> Intent definition, context design.</p>
+        </div>
+        <div class="card">
+          <span class="def-term">SPARK-5™</span>
+          <span class="def-meta">Modules: 5, 10, 16, 17, 18</span>
+          <p class="def-desc"><strong>Tools:</strong> Refinement Checklist, Post-Draft Checklist.<br><strong>Use:</strong> Strengthening draft quality.</p>
+        </div>
+        <div class="card">
+          <span class="def-term">MIRROR-6™</span>
+          <span class="def-meta">Modules: 6, 10, 11, 16, 17, 18</span>
+          <p class="def-desc"><strong>Tools:</strong> Accuracy Scorecard, Verification Protocol.<br><strong>Use:</strong> Output validation.</p>
+        </div>
+        <div class="card">
+          <span class="def-term">VALOR-Δ</span>
+          <span class="def-meta">Modules: 7, 10, 11, 16, 17, 18</span>
+          <p class="def-desc"><strong>Tools:</strong> Value Scorecard, Δ Tracker.<br><strong>Use:</strong> Value assessment and comparison.</p>
+        </div>
+        <div class="card">
+          <span class="def-term">TESSERA™</span>
+          <span class="def-meta">Modules: 8, 10, 17, 18</span>
+          <p class="def-desc"><strong>Tools:</strong> Prompt Log, Workflow Log, Continuity Tracker.<br><strong>Use:</strong> Reuse and long-term memory.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Index — Key Topics -->
+    <section id="gl-sec-8" class="module-section">
+      <h2 class="section-title">Index — Key Topics</h2>
+      <div class="card">
+        <ul style="list-style: none; padding: 0;">
+          <li style="margin-bottom: 12px;">
+            <strong>Structured Prompting</strong> (Modules 1, 4, 10, 16) — Methods for building predictable outputs.
+          </li>
+          <li style="margin-bottom: 12px;">
+            <strong>Refinement Cycles</strong> (Modules 5, 10, 16) — Iterative improvement using SPARK-5™.
+          </li>
+          <li style="margin-bottom: 12px;">
+            <strong>Accuracy & Alignment</strong> (Modules 6, 11, 17) — Validation using MIRROR-6™.
+          </li>
+          <li style="margin-bottom: 12px;">
+            <strong>Value Measurement</strong> (Modules 2, 7, 11, 17) — Decision support using VALOR-Δ.
+          </li>
+          <li style="margin-bottom: 12px;">
+            <strong>Workflows & Systems</strong> (Modules 9–12, 16–18) — Multi-step task structures.
+          </li>
+          <li style="margin-bottom: 12px;">
+            <strong>Proof Artifacts™</strong> (Modules 11, 12) — Evidence of reliability and value.
+          </li>
+          <li>
+            <strong>Templates & Tools</strong> (Modules 10, 17, 18) — Framework-driven instruments.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 9. Index — Practical Tools -->
+    <section id="gl-sec-9" class="module-section">
+      <h2 class="section-title">Index — Practical Tools</h2>
+      <div class="grid-2">
+        <div class="card">
+          <span class="def-term">Intent Templates</span>
+          <p class="def-desc"><strong>Locations:</strong> Toolkit, Modules 4, 10, 17, 18.<br><strong>Use:</strong> Starting tasks with clarity.</p>
+        </div>
+        <div class="card">
+          <span class="def-term">Checklists</span>
+          <p class="def-desc"><strong>Locations:</strong> Toolkit, Modules 5, 10, 18.<br><strong>Use:</strong> Preventing blind spots.</p>
+        </div>
+        <div class="card">
+          <span class="def-term">Scorecards</span>
+          <p class="def-desc"><strong>Locations:</strong> Toolkit, Modules 6, 7, 17, 18.<br><strong>Use:</strong> Accuracy and value verification.</p>
+        </div>
+        <div class="card">
+          <span class="def-term">Logs & Continuity Tools</span>
+          <p class="def-desc"><strong>Locations:</strong> Toolkit, Modules 8, 17, 18.<br><strong>Use:</strong> Storing and reusing structured work.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Cross-References -->
+    <section id="gl-sec-10" class="module-section">
+      <h2 class="section-title">Cross-References</h2>
+      <p class="section-lead">To support learning and practical use, each glossary item links directly to concepts explored in the core modules. This helps users trace concepts back to their original explanation and revisit detailed instructions when needed.</p>
+      <p>Use the <strong>Toolkit</strong> for blank templates, and refer to <strong>Modules 16 & 17</strong> for advanced pattern examples.</p>
+    </section>
+
   </main>
 
-  <footer class="site-footer">
-    <p>© <span id="year"></span> Abdullah Khan · <a href="https://hqaim.com" target="_blank" rel="noopener noreferrer">HQAIM Studios</a></p>
+  <!-- ===================== Back to Top ===================== -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" title="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <!-- ===================== Footer ===================== -->
+  <footer class="footer-section" role="contentinfo">
+    <hr class="footer-divider" />
+    <div class="site-footer">
+      <div class="footer-flex">
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="/toc.html" rel="noopener">Index</a>
+          <a href="/contact.html" rel="noopener">Contact</a>
+          <a href="/privacy.html" rel="noopener">Privacy</a>
+          <a href="/terms.html" rel="noopener">Terms</a>
+          <a href="/sitemap.xml" rel="noopener">Sitemap</a>
+        </nav>
+        <div class="footer-brand">
+          <img src="https://aiartisan.hqaim.com/assets/images/HQAIM_LOGO_Gradient_Minimal.svg" class="footer-logo" alt="HQAIM Studios logo" width="120" height="26" />
+          <span class="copyright">© <span id="year"></span> Abdullah Khan · HQAIM Studios</span>
+        </div>
+      </div>
+    </div>
   </footer>
 
-  <script src="/assets/js/theme.js"></script>
+  <!-- ===================== Inline JavaScript ===================== -->
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  (function(){
+    'use strict';
+    
+    const html = document.documentElement;
+    const metaTheme = document.getElementById('themeColor');
+    const toggle = document.getElementById('themeToggle');
+    const backToTop = document.getElementById('backToTop');
+    const navToggle = document.querySelector('.nav-toggle');
+    const mainNav = document.querySelector('nav.main-nav');
+    const yearEl = document.getElementById('year');
+    
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Appendices & Toolkit — The AI Artisan",
-    "url": "https://aiartisan.hqaim.com/appendix.html",
-    "description": "Explore The AI Artisan Appendices — framework index, checklists, pattern forges, and glossary for applied prompt engineering.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "HQAIM Studios",
-      "url": "https://hqaim.com"
-    },
-    "author": {
-      "@type": "Person",
-      "name": "Abdullah Khan"
+    /* Theme toggle logic */
+    const storageKey = 'aiartisan_theme_preference';
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function getPref(){
+      const saved = localStorage.getItem(storageKey);
+      if (saved === 'light' || saved === 'dark') return saved;
+      return prefersDark.matches ? 'dark' : 'light';
     }
-  }
+    
+    function applyTheme(t){
+      html.dataset.theme = t;
+      if (metaTheme) metaTheme.setAttribute('content', t === 'dark' ? '#0f172a' : '#ffffff');
+      if (toggle) {
+        toggle.setAttribute('aria-pressed', String(t === 'dark'));
+        const newLabel = 'Switch to ' + (t === 'dark' ? 'light' : 'dark') + ' theme';
+        toggle.setAttribute('title', newLabel);
+        toggle.setAttribute('aria-label', newLabel);
+      }
+    }
+    
+    applyTheme(getPref());
+    
+    prefersDark.addEventListener('change', e => {
+      if (!localStorage.getItem(storageKey)) applyTheme(e.matches ? 'dark' : 'light');
+    });
+    
+    if (toggle){
+      toggle.addEventListener('click', () => {
+        const next = html.dataset.theme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem(storageKey, next);
+        applyTheme(next);
+      });
+      toggle.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle.click(); }
+      });
+    }
+
+    /* Mobile navigation */
+    if (navToggle && mainNav){
+      navToggle.addEventListener('click', ()=>{
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', String(!expanded));
+        mainNav.classList.toggle('open');
+      });
+    }
+
+    /* Back to top */
+    if (backToTop) {
+      function onScroll(){
+        if (window.scrollY > 400){ backToTop.classList.add('visible'); }
+        else { backToTop.classList.remove('visible'); }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll(); 
+      
+      backToTop.addEventListener('click', ()=>{
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+  })();
   </script>
 </body>
 </html>
