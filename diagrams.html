@@ -1,0 +1,986 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <!--
+    The AI Artisan — Framework Diagrams (Visual Index)
+    Diamond Edition v113
+    Author: Abdullah Khan · HQAIM Studios
+    Notes:
+      - Contains 13 Custom SVGs representing the core frameworks.
+      - Uses Aetherium Palette for all vector graphics.
+      - Fully responsive and print-optimized.
+      - Footer: EXACT copy of Module 01 architecture.
+      - VALOR-Δ & MIRROR-6: Text layers forced to front.
+      - System Scaling: Text centered correctly.
+  -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Metadata -->
+  <title>Framework Diagrams — Visual Index · The AI Artisan (Diamond Edition)</title>
+  <meta name="description" content="A complete visual index of The AI Artisan frameworks, showing clear diagrams for intent design, refinement, accuracy checks, value scoring, continuity, and workflows." />
+  <meta name="keywords" content="AI diagrams, CLARITY-7, SPARK-5, MIRROR-6, VALOR-Δ, TESSERA, workflow diagrams, prompt frameworks, visual index, reference graphics" />
+
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://aiartisan.hqaim.com/diagrams.html" />
+  <meta id="themeColor" name="theme-color" content="#ffffff" />
+  <meta name="color-scheme" content="light dark" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Framework Diagrams — Visual Index · The AI Artisan" />
+  <meta property="og:description" content="Clear visuals for understanding each framework and workflow in The AI Artisan." />
+  <meta property="og:url" content="https://aiartisan.hqaim.com/diagrams.html" />
+  <!-- Unique Hero Image -->
+  <meta property="og:image" content="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1600&auto.format&fit=crop" />
+  <meta property="og:site_name" content="The AI Artisan" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://aiartisan.hqaim.com/images/favicon.ico" type="image/x-icon" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+Pro:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================================
+       THE AI ARTISAN — Diamond Edition v113
+       Diagrams Page CSS
+       ========================================================= */
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    :root{
+      color-scheme: light dark;
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --font-serif: 'Source Serif Pro', serif;
+      
+      --violet:#7c3aed; --blue:#2563eb; --green:#10b981; --gold:#f6be3e;
+      --white:#ffffff;  --black:#0f172a;
+
+      --slate-50:#f8fafc;  --slate-100:#f1f5f9; --slate-200:#e2e8f0;
+      --slate-300:#cbd5e1; --slate-400:#94a3b8; --slate-500:#64748b;
+      --slate-600:#475569; --slate-700:#334155; --slate-800:#1e293b;
+      --slate-900:#0f172a;
+
+      /* Light */
+      --bg:var(--white); --surface:var(--slate-50); --text:var(--slate-900);
+      --muted:#445268; --muted2:var(--slate-500); --border:var(--slate-200);
+      --accent:var(--violet); --link:var(--blue); --focus:rgba(37,99,235,.36);
+      --shadow-e2:0 8px 20px rgba(15,23,42,.08), 0 3px 8px rgba(15,23,42,.06);
+
+      --bg-gradient:
+        radial-gradient(1200px 600px at 0% -10%, color-mix(in srgb, var(--violet) 7%, transparent), transparent 70%),
+        radial-gradient(900px 500px at 100% 110%, color-mix(in srgb, var(--blue) 7%, transparent), transparent 70%),
+        linear-gradient(180deg, rgba(124,58,237,.03), rgba(37,99,235,.03)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Cpath fill='%239C92AC' fill-opacity='.015' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'/%3E%3C/svg%3E"),
+        var(--bg);
+
+      --svg-label:#0f172a;
+      --svg-desc: var(--muted);
+      --svg-fill-violet: color-mix(in srgb, var(--violet) 10%, var(--surface));
+      --svg-fill-blue: color-mix(in srgb, var(--blue) 10%, var(--surface));
+      --svg-fill-green: color-mix(in srgb, var(--green) 10%, var(--surface));
+      --svg-fill-gold: color-mix(in srgb, var(--gold) 20%, var(--surface));
+      --svg-fill-slate: color-mix(in srgb, var(--slate-400) 20%, var(--surface));
+
+      --grad-title: linear-gradient(90deg, var(--violet), var(--blue));
+      --wrap:1100px; --pad:1.5rem;
+    }
+
+    html[data-theme="dark"]{
+      --bg:var(--slate-900); --surface:var(--slate-800); --text:var(--slate-50);
+      --muted:var(--slate-300); --muted2:var(--slate-400); --border:var(--slate-700);
+      --accent:#a78bfa; --link:#7dd3fc; --focus:rgba(124,58,237,.45);
+      --shadow-e2:0 10px 28px rgba(0,0,0,.35);
+
+      --bg-gradient:
+        radial-gradient(1200px 600px at 0% -10%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 70%),
+        radial-gradient(900px 500px at 100% 110%, color-mix(in srgb, var(--link) 10%, transparent), transparent 70%),
+        linear-gradient(180deg, rgba(124,58,237,.06), rgba(37,99,235,.06)),
+        var(--bg);
+
+      --svg-label:#ffffff;
+      --svg-desc: var(--muted);
+      --svg-fill-violet: color-mix(in srgb, var(--accent) 20%, var(--surface));
+      --svg-fill-blue: color-mix(in srgb, var(--link) 20%, var(--surface));
+      --svg-fill-green: color-mix(in srgb, var(--green) 20%, var(--surface));
+      --svg-fill-gold: color-mix(in srgb, var(--gold) 25%, var(--surface));
+      --svg-fill-slate: color-mix(in srgb, var(--slate-400) 30%, var(--surface));
+      
+      --grad-title: linear-gradient(90deg, var(--accent), var(--link));
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0; font:16px/1.65 var(--font-sans); color:var(--text);
+      background:var(--bg-gradient); background-attachment:fixed;
+      -webkit-font-smoothing:antialiased;
+    }
+    .wrap{max-width:var(--wrap); margin:0 auto; padding:0 var(--pad)}
+    
+    /* Header (Standard) */
+    .site-header{
+      position:sticky; top:0; z-index:100;
+      backdrop-filter:saturate(140%) blur(8px);
+      background:color-mix(in srgb, var(--surface) 92%, transparent);
+      border-bottom:1px solid var(--border);
+      animation: fadeIn 0.5s ease-out;
+    }
+    .header-inner{
+      max-width:var(--wrap); margin:0 auto; padding:.65rem var(--pad);
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .brand-wrap{display:inline-flex; align-items:center; gap:10px; text-decoration:none; color:var(--text)}
+    .brand-logo{width:32px; height:32px;}
+    .brand-text{
+      font-weight:800; font-size:1rem;
+      background:linear-gradient(95deg, var(--accent), var(--link));
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+    }
+    .brand-wrap:hover .brand-text{filter:brightness(1.06)}
+
+    /* Navigation */
+    .nav-toggle{display:none; border:0; background:none; cursor:pointer; padding:4px}
+    .nav-toggle-bar{
+      width:22px; height:2px; background:var(--text); display:block; margin:4px 0; border-radius:2px;
+    }
+    nav.main-nav{display:block}
+    nav.main-nav ul{list-style:none; margin:0; padding:0; display:flex; align-items:center; gap:10px}
+    nav.main-nav a{
+      color:var(--muted); text-decoration:none; font-weight:600; padding:6px 10px; border-radius:8px; font-size:.95rem;
+      transition:color .2s, background .2s;
+    }
+    nav.main-nav a:hover, nav.main-nav a[aria-current="page"]{
+      color:var(--accent); background:color-mix(in srgb, var(--accent) 10%, transparent);
+    }
+    
+    @media (max-width:820px){
+      .nav-toggle{display:block}
+      nav.main-nav{display:none}
+      nav.main-nav.open{display:block}
+      .main-nav ul{
+        position:fixed; right:12px; top:60px; background:var(--surface); border:1px solid var(--border);
+        border-radius:12px; box-shadow:var(--shadow-e2); padding:12px; gap:10px; flex-direction:column;
+      }
+    }
+
+    /* Theme Toggle */
+    .right-tools{display:inline-flex; align-items:center; gap:10px}
+    .theme-toggle{
+      width:40px; height:40px; border-radius:50%; border:1px solid var(--border); background:var(--surface);
+      display:grid; place-items:center; cursor:pointer; position:relative; overflow:hidden; padding:0;
+      transition:transform .18s, box-shadow .18s, background-color .18s; -webkit-tap-highlight-color:transparent;
+    }
+    .theme-toggle:hover{transform:translateY(-1px) scale(1.05); box-shadow:0 0 10px var(--focus)}
+    .theme-toggle .icon{position:absolute; width:20px; height:20px; transition:transform .3s cubic-bezier(.4,0,.2,1.4), opacity .25s linear}
+    .icon-sun{color:var(--gold); transform:scale(0) rotate(90deg); opacity:0}
+    .icon-moon{color:var(--white); transform:scale(1) rotate(0); opacity:1}
+    html[data-theme="light"] .icon-sun{transform:scale(1) rotate(0); opacity:1}
+    html[data-theme="light"] .icon-moon{transform:scale(0) rotate(-90deg); opacity:0}
+    html[data-theme="dark"]  .icon-sun{transform:scale(0) rotate(90deg); opacity:0}
+    html[data-theme="dark"]  .icon-moon{transform:scale(1) rotate(0); opacity:1}
+    
+    /* Hero & Main */
+    .hero{ max-width:var(--wrap); margin:0 auto; padding:18px var(--pad) 0; animation: fadeIn 0.5s 0.1s ease-out backwards; }
+    .hero-figure{
+      margin:0; border-radius:14px; overflow:hidden; border:1px solid var(--border);
+      box-shadow:var(--shadow-e2); background:var(--surface);
+    }
+    .hero-figure img{display:block; width:100%; height:auto; aspect-ratio:16/7; object-fit:cover;}
+    .hero-caption{padding:10px 14px; font-size:.96rem; color:var(--muted); border-top:1px solid var(--border); background:color-mix(in srgb, var(--surface) 92%, transparent);}
+
+    .intro{ padding:12px var(--pad); max-width:var(--wrap); margin:0 auto; animation: fadeIn 0.5s 0.2s ease-out backwards;}
+    .intro p{margin:10px 0; color:var(--muted); font-size:clamp(1rem, 1.2vw, 1.05rem); max-width:75ch}
+    
+    .breadcrumbs{ max-width:var(--wrap); margin:0 auto; padding:8px var(--pad); font-size:.95rem; color:var(--muted); animation: fadeIn 0.5s 0.3s ease-out backwards;}
+    .breadcrumbs a{color:var(--muted); text-decoration:none; font-weight:600}
+    .breadcrumbs a:hover{color:var(--accent); text-decoration:underline}
+    .breadcrumbs .sep{opacity:.6; padding:0 .35rem}
+
+    main#main{ max-width:var(--wrap); margin:0 auto; padding:8px var(--pad) 40px; animation: fadeIn 0.5s 0.4s ease-out backwards; }
+    
+    .page-title{
+      font-family: var(--font-serif); font-size:clamp(1.9rem, 3.8vw, 2.6rem); font-weight:800;
+      background: var(--grad-title); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+      margin-bottom: 0.2em; letter-spacing:.2px;
+    }
+    .page-sub{color:var(--muted); font-weight:600; margin-top:0; margin-bottom: 20px;}
+
+    /* Diagram Cards */
+    .diagram-section {
+      margin: 32px 0; padding: 24px; border-radius: 16px;
+      background: color-mix(in srgb, var(--surface) 50%, transparent);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-e2);
+      page-break-inside: avoid;
+    }
+    .diagram-header {
+      display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;
+    }
+    .diagram-title {
+      font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; margin: 0;
+      color: var(--text);
+    }
+    .diagram-meta {
+      font-size: 0.9rem; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    
+    /* SVG Styling */
+    .diagram-container {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+      overflow-x: auto;
+      text-align: center;
+    }
+    .diagram-container svg {
+      max-width: 100%; height: auto;
+      font-family: var(--font-sans);
+    }
+    .svg-label { fill: var(--svg-label); font-weight: 700; }
+    .svg-desc { fill: var(--svg-desc); font-size: 0.85em; opacity: 0.9; }
+    
+    /* SVG Stroke Colors */
+    .g-violet-stroke { stroke: #7c3aed; }
+    .g-blue-stroke { stroke: #2563eb; }
+    .g-green-stroke { stroke: #10b981; }
+    .g-gold-stroke { stroke: #f6be3e; }
+    .g-slate-stroke { stroke: #94a3b8; }
+    .g-arrow-path { stroke: var(--muted2); stroke-width: 2; fill: none; }
+    
+    /* Dark Mode Overrides for Strokes */
+    html[data-theme="dark"] .g-violet-stroke { stroke: #a78bfa; }
+    html[data-theme="dark"] .g-blue-stroke { stroke: #7dd3fc; }
+    html[data-theme="dark"] .g-green-stroke { stroke: #6ee7b7; }
+    html[data-theme="dark"] .g-gold-stroke { stroke: #fde08a; }
+    html[data-theme="dark"] .g-slate-stroke { stroke: #e2e8f0; }
+
+    .diagram-desc { color: var(--muted); font-size: 1rem; line-height: 1.6; margin: 8px 0 4px; }
+    .diagram-usage { margin-top: 4px; font-size: 0.95rem; color: var(--text); font-weight: 600; }
+
+    /* Back to Top */
+    .back-to-top{
+      position:fixed; bottom:26px; right:26px; width:48px; height:48px; border-radius:50%; border:1px solid var(--border);
+      display:grid; place-items:center; color:var(--accent); background:color-mix(in srgb, var(--surface) 92%, transparent); cursor:pointer;
+      box-shadow:var(--shadow-e2); opacity:0; visibility:hidden; transition:opacity .18s, transform .18s, visibility .18s; z-index: 90;
+    }
+    .back-to-top.visible{ opacity:1; visibility:visible; transform: translateY(0); }
+    .back-to-top:hover{ background:color-mix(in srgb, var(--surface) 90%, var(--accent)); }
+
+    /* Footer (Strict Module 01 Parity) */
+    .footer-section{position:relative; z-index:1; margin-top:32px; border-top:1px solid var(--border); background:var(--surface)}
+    .footer-divider{height:2px; border:0; margin:0 0 16px; background:linear-gradient(90deg, transparent, var(--violet), var(--blue), var(--gold), transparent); opacity:.3}
+    .site-footer{padding:0 var(--pad) 16px; max-width:var(--wrap); margin:0 auto; color:var(--muted)}
+    .footer-flex{display:flex; flex-direction:column; align-items:center; gap:12px}
+    .footer-nav{display:flex; gap:16px; flex-wrap:wrap; justify-content:center}
+    .footer-nav a{color:var(--muted); text-decoration:none; font-weight:600}
+    .footer-nav a:hover{color:var(--accent); text-decoration:underline}
+    .footer-brand{display:flex; align-items:center; gap:10px}
+    .footer-logo{height:24px; width:auto; filter:grayscale(0); opacity:.9}
+    .copyright{font-size:.95rem; color:var(--muted)}
+
+    @media print{
+      @page{size:landscape; margin:0.5in;} 
+      body{ background:white !important; color:black !important; }
+      .site-header, .theme-toggle, .back-to-top, .footer-section {display:none !important}
+      .diagram-section { break-inside: avoid; border: 1px solid #ccc !important; box-shadow: none !important; margin: 20px 0 !important; background:white !important; }
+      .diagram-container { border: none !important; background:white !important; }
+      .hero-figure { display: none !important; } 
+      .page-title { color:black !important; background:none !important; -webkit-text-fill-color:black !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Standard Header -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand-wrap" href="/index.html" aria-label="The AI Artisan home">
+        <img src="https://aiartisan.hqaim.com/images/HQAIM_ICON.svg" class="brand-logo" alt="HQAIM Studios icon" width="32" height="32" />
+        <span class="brand-text">The AI Artisan</span>
+      </a>
+
+      <!-- Mobile hamburger -->
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
+
+      <!-- Main navigation -->
+      <nav id="site-menu" class="main-nav" role="navigation" aria-label="Main">
+        <ul>
+          <li><a href="/foreword.html">Foreword</a></li>
+          <li><a href="/toc.html">Index</a></li>
+          <li><a href="/modules.html">Modules</a></li>
+          <li><a href="/fieldkit.html">Toolkit</a></li>
+          <li><a href="/premium.html">Premium</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Theme toggle -->
+      <div class="right-tools">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle color theme" aria-pressed="false" role="switch" title="Toggle theme">
+          <!-- Sun (light) -->
+          <svg class="icon icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+          </svg>
+          <!-- Moon (dark) -->
+          <svg class="icon icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" aria-label="Diagrams hero">
+    <figure class="hero-figure">
+      <!-- Unique Hero Image (Abstract Geometric) -->
+      <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1600&auto.format&fit=crop" alt="Abstract blue geometric shapes representing structured data" decoding="async" fetchpriority="high" width="1600" height="700" onerror="this.src='https://placehold.co/1600x700/f8fafc/64748b?text=Diagrams+Hero';this.onerror=null;">
+      <figcaption class="hero-caption">Precise visualization of abstract frameworks is essential for mastery. These diagrams serve as the visual lexicon for The AI Artisan.</figcaption>
+    </figure>
+  </section>
+
+  <div class="intro">
+    <p>This page provides reference diagrams for all core frameworks and workflow structures in The AI Artisan. Each visual is described clearly so it can be reproduced for print or digital use.</p>
+  </div>
+
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="/toc.html">Index</a><span class="sep">/</span><span aria-current="page">Visual Index</span>
+  </nav>
+
+  <main id="main" role="main" tabindex="-1" aria-labelledby="page-title">
+    <h1 id="page-title" class="page-title">Framework Diagrams — Visual Index</h1>
+    <p class="page-sub">Clear visuals for understanding each framework and workflow.</p>
+
+    <!-- 3. CLARITY-7 -->
+    <section class="diagram-section">
+      <div class="diagram-header">
+        <h2 class="diagram-title">CLARITY-7™ Diagram</h2>
+        <span class="diagram-meta">Intent Design Structure</span>
+      </div>
+      <div class="diagram-container">
+        <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+             <marker id="arrow-down-c7" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M0,0 L10,5 L0,10 z" fill="var(--muted2)"/>
+            </marker>
+          </defs>
+          <!-- Stack -->
+          <g transform="translate(100 20)">
+             <rect width="200" height="50" rx="8" fill="var(--svg-fill-violet)" stroke="none"/>
+             <rect width="200" height="50" rx="8" fill="none" class="g-violet-stroke" stroke-width="2"/>
+             <text x="100" y="30" text-anchor="middle" class="svg-label" font-size="14">1. Purpose</text>
+          </g>
+          <g transform="translate(100 85)">
+             <rect width="200" height="50" rx="8" fill="var(--svg-fill-blue)" stroke="none"/>
+             <rect width="200" height="50" rx="8" fill="none" class="g-blue-stroke" stroke-width="2"/>
+             <text x="100" y="30" text-anchor="middle" class="svg-label" font-size="14">2. Audience</text>
+          </g>
+          <g transform="translate(100 150)">
+             <rect width="200" height="50" rx="8" fill="var(--svg-fill-blue)" stroke="none"/>
+             <rect width="200" height="50" rx="8" fill="none" class="g-blue-stroke" stroke-width="2"/>
+             <text x="100" y="30" text-anchor="middle" class="svg-label" font-size="14">3. Inputs</text>
+          </g>
+          <g transform="translate(100 215)">
+             <rect width="200" height="50" rx="8" fill="var(--svg-fill-green)" stroke="none"/>
+             <rect width="200" height="50" rx="8" fill="none" class="g-green-stroke" stroke-width="2"/>
+             <text x="100" y="30" text-anchor="middle" class="svg-label" font-size="14">4. Constraints</text>
+          </g>
+           <g transform="translate(100 280)">
+             <rect width="200" height="50" rx="8" fill="var(--svg-fill-green)" stroke="none"/>
+             <rect width="200" height="50" rx="8" fill="none" class="g-green-stroke" stroke-width="2"/>
+             <text x="100" y="30" text-anchor="middle" class="svg-label" font-size="14">5. Tone</text>
+          </g>
+          <g transform="translate(100 345)">
+             <rect width="200" height="50" rx="8" fill="var(--svg-fill-gold)" stroke="none"/>
+             <rect width="200" height="50" rx="8" fill="none" class="g-gold-stroke" stroke-width="2"/>
+             <text x="100" y="30" text-anchor="middle" class="svg-label" font-size="14">6. Format</text>
+          </g>
+          <g transform="translate(100 410)">
+             <rect width="200" height="50" rx="8" fill="var(--svg-fill-gold)" stroke="none"/>
+             <rect width="200" height="50" rx="8" fill="none" class="g-gold-stroke" stroke-width="2"/>
+             <text x="100" y="30" text-anchor="middle" class="svg-label" font-size="14">7. Expected Output</text>
+          </g>
+          <!-- Connectors -->
+          <line x1="200" y1="70" x2="200" y2="85" class="g-arrow-path" />
+          <line x1="200" y1="135" x2="200" y2="150" class="g-arrow-path" />
+          <line x1="200" y1="200" x2="200" y2="215" class="g-arrow-path" />
+          <line x1="200" y1="265" x2="200" y2="280" class="g-arrow-path" />
+          <line x1="200" y1="330" x2="200" y2="345" class="g-arrow-path" />
+          <line x1="200" y1="395" x2="200" y2="410" class="g-arrow-path" />
+        </svg>
+      </div>
+      <p class="diagram-desc">A simple top-to-bottom flow showing how each field contributes to complete intent definition.</p>
+      <p class="diagram-usage">Usage: Reference for building templates and structured prompts.</p>
+    </section>
+
+    <!-- 4. SPARK-5 -->
+    <section class="diagram-section">
+      <div class="diagram-header">
+        <h2 class="diagram-title">SPARK-5™ Diagram</h2>
+        <span class="diagram-meta">Five-Pass Refinement Cycle</span>
+      </div>
+      <div class="diagram-container">
+        <svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+             <marker id="arrow-down-sp5" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M0,0 L10,5 L0,10 z" fill="var(--muted2)"/>
+            </marker>
+          </defs>
+          <!-- Center -->
+          <text x="250" y="155" text-anchor="middle" class="svg-label" font-size="12" fill="var(--muted)">REFINE</text>
+          
+          <!-- Nodes -->
+          <g transform="translate(210 20)">
+            <rect width="80" height="40" rx="12" fill="var(--svg-fill-blue)" stroke="none"/>
+            <text x="40" y="25" text-anchor="middle" class="svg-label" font-size="12">Structure</text>
+          </g>
+          
+          <g transform="translate(360 80)">
+            <rect width="80" height="40" rx="12" fill="var(--svg-fill-blue)" stroke="none"/>
+            <text x="40" y="25" text-anchor="middle" class="svg-label" font-size="12">Precision</text>
+          </g>
+          
+          <g transform="translate(320 220)">
+            <rect width="80" height="40" rx="12" fill="var(--svg-fill-blue)" stroke="none"/>
+            <text x="40" y="25" text-anchor="middle" class="svg-label" font-size="12">Alignment</text>
+          </g>
+          
+           <g transform="translate(100 220)">
+            <rect width="80" height="40" rx="12" fill="var(--svg-fill-blue)" stroke="none"/>
+            <text x="40" y="25" text-anchor="middle" class="svg-label" font-size="12">Readability</text>
+          </g>
+          
+          <g transform="translate(60 80)">
+            <rect width="100" height="40" rx="12" fill="var(--svg-fill-blue)" stroke="none"/>
+            <text x="50" y="25" text-anchor="middle" class="svg-label" font-size="12">Completeness</text>
+          </g>
+          
+          <!-- Arc Paths (Loop) -->
+          <path d="M290,40 Q340,40 400,80" fill="none" stroke="var(--muted2)" stroke-width="2" marker-end="url(#arrow-down-sp5)"/>
+          <path d="M400,120 Q400,180 360,220" fill="none" stroke="var(--muted2)" stroke-width="2" marker-end="url(#arrow-down-sp5)"/>
+          <path d="M320,240 Q250,260 180,240" fill="none" stroke="var(--muted2)" stroke-width="2" marker-end="url(#arrow-down-sp5)"/>
+          <path d="M140,220 Q100,180 110,120" fill="none" stroke="var(--muted2)" stroke-width="2" marker-end="url(#arrow-down-sp5)"/>
+          <path d="M110,80 Q160,40 210,40" fill="none" stroke="var(--muted2)" stroke-width="2" marker-end="url(#arrow-down-sp5)"/>
+        </svg>
+      </div>
+      <p class="diagram-desc">A closed loop indicating refinement cycles. Arrows show continuous improvement while preserving intent.</p>
+      <p class="diagram-usage">Usage: Used in drafting workflows and refining outputs.</p>
+    </section>
+
+    <!-- 5. MIRROR-6 -->
+    <section class="diagram-section">
+      <div class="diagram-header">
+        <h2 class="diagram-title">MIRROR-6™ Diagram</h2>
+        <span class="diagram-meta">Accuracy and Alignment Check</span>
+      </div>
+      <div class="diagram-container">
+        <svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+           <!-- Row 1 -->
+           <g transform="translate(20 20)">
+             <rect width="170" height="60" rx="6" fill="var(--svg-fill-green)" class="g-green-stroke" stroke-width="2"/>
+           </g>
+           <g transform="translate(215 20)">
+             <rect width="170" height="60" rx="6" fill="var(--svg-fill-green)" class="g-green-stroke" stroke-width="2"/>
+           </g>
+           <g transform="translate(410 20)">
+             <rect width="170" height="60" rx="6" fill="var(--svg-fill-green)" class="g-green-stroke" stroke-width="2"/>
+           </g>
+           
+           <!-- Row 2 -->
+           <g transform="translate(20 100)">
+             <rect width="170" height="60" rx="6" fill="var(--svg-fill-green)" class="g-green-stroke" stroke-width="2"/>
+           </g>
+           <g transform="translate(215 100)">
+             <rect width="170" height="60" rx="6" fill="var(--svg-fill-green)" class="g-green-stroke" stroke-width="2"/>
+           </g>
+           <g transform="translate(410 100)">
+             <rect width="170" height="60" rx="6" fill="var(--svg-fill-green)" class="g-green-stroke" stroke-width="2"/>
+           </g>
+
+           <!-- Text (Top Layer) -->
+           <text x="105" y="55" text-anchor="middle" class="svg-label" style="fill:var(--svg-label); font-weight:700; pointer-events:none;">1. Meaning</text>
+           <text x="300" y="55" text-anchor="middle" class="svg-label" style="fill:var(--svg-label); font-weight:700; pointer-events:none;">2. Accuracy</text>
+           <text x="495" y="55" text-anchor="middle" class="svg-label" style="fill:var(--svg-label); font-weight:700; pointer-events:none;">3. Relevance</text>
+           <text x="105" y="135" text-anchor="middle" class="svg-label" style="fill:var(--svg-label); font-weight:700; pointer-events:none;">4. Reliability</text>
+           <text x="300" y="135" text-anchor="middle" class="svg-label" style="fill:var(--svg-label); font-weight:700; pointer-events:none;">5. Outcome</text>
+           <text x="495" y="135" text-anchor="middle" class="svg-label" style="fill:var(--svg-label); font-weight:700; pointer-events:none;">6. Repeatability</text>
+        </svg>
+      </div>
+      <p class="diagram-desc">A stable grid layout showing six independent gates. Each gate must pass before accepting an output.</p>
+      <p class="diagram-usage">Usage: Verification tool for checking correctness.</p>
+    </section>
+
+    <!-- 6. VALOR-Δ -->
+    <section class="diagram-section">
+      <div class="diagram-header">
+        <h2 class="diagram-title">VALOR-Δ Diagram</h2>
+        <span class="diagram-meta">Value Measurement Model</span>
+      </div>
+      <div class="diagram-container">
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <!-- Spokes first -->
+          <line x1="200" y1="170" x2="200" y2="80" stroke="var(--gold)" stroke-width="3" />
+          <line x1="225" y1="185" x2="300" y2="140" stroke="var(--gold)" stroke-width="3" />
+          <line x1="225" y1="215" x2="300" y2="260" stroke="var(--gold)" stroke-width="3" />
+          <line x1="200" y1="230" x2="200" y2="320" stroke="var(--gold)" stroke-width="3" />
+          <line x1="175" y1="215" x2="100" y2="260" stroke="var(--gold)" stroke-width="3" />
+          <line x1="175" y1="185" x2="100" y2="140" stroke="var(--gold)" stroke-width="3" />
+          
+          <!-- Outer Circle -->
+          <circle cx="200" cy="200" r="140" fill="none" stroke="var(--border)" stroke-width="1" stroke-dasharray="4"/>
+
+          <!-- Center Circle (Background) -->
+          <circle cx="200" cy="200" r="30" fill="var(--svg-fill-gold)" stroke="none"/>
+
+          <!-- Text Labels (Brought to front for readability) -->
+          <text x="200" y="205" text-anchor="middle" font-weight="bold" font-size="16" fill="var(--svg-label)" style="pointer-events:none;">Δ</text>
+          
+          <text x="200" y="70" text-anchor="middle" class="svg-label" style="fill:var(--svg-label); font-weight:700; text-shadow: 0 0 4px var(--bg);">Value</text>
+          <text x="320" y="135" text-anchor="middle" class="svg-label" style="fill:var(--svg-label); font-weight:700; text-shadow: 0 0 4px var(--bg);">Alignment</text>
+          <text x="320" y="275" text-anchor="middle" class="svg-label" style="fill:var(--svg-label); font-weight:700; text-shadow: 0 0 4px var(--bg);">Leverage</text>
+          <text x="200" y="340" text-anchor="middle" class="svg-label" style="fill:var(--svg-label); font-weight:700; text-shadow: 0 0 4px var(--bg);">Outcome</text>
+          <text x="80" y="275" text-anchor="middle" class="svg-label" style="fill:var(--svg-label); font-weight:700; text-shadow: 0 0 4px var(--bg);">Repeatability</text>
+          <text x="80" y="135" text-anchor="middle" class="svg-label" style="fill:var(--svg-label); font-weight:700; text-shadow: 0 0 4px var(--bg);">Δ Imp.</text>
+        </svg>
+      </div>
+      <p class="diagram-desc">A score wheel to visualize scores and compare value across versions.</p>
+      <p class="diagram-usage">Usage: Assessing practical improvement and decision support.</p>
+    </section>
+
+    <!-- 7. TESSERA -->
+    <section class="diagram-section">
+      <div class="diagram-header">
+        <h2 class="diagram-title">TESSERA™ Diagram</h2>
+        <span class="diagram-meta">Continuity and Reuse Structure</span>
+      </div>
+      <div class="diagram-container">
+        <svg viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
+          <!-- 2x2 Grid of Tiles -->
+          <g transform="translate(10 10)">
+             <rect width="190" height="190" rx="8" fill="var(--svg-fill-slate)" stroke="none"/>
+             <text x="95" y="100" text-anchor="middle" class="svg-label" font-size="18">Prompt</text>
+          </g>
+          <g transform="translate(210 10)">
+             <rect width="190" height="190" rx="8" fill="var(--svg-fill-slate)" stroke="none"/>
+             <text x="95" y="100" text-anchor="middle" class="svg-label" font-size="18">Output</text>
+          </g>
+          <g transform="translate(10 210)">
+             <rect width="190" height="190" rx="8" fill="var(--svg-fill-slate)" stroke="none"/>
+             <text x="95" y="100" text-anchor="middle" class="svg-label" font-size="18">Decisions</text>
+          </g>
+          <g transform="translate(210 210)">
+             <rect width="190" height="190" rx="8" fill="var(--svg-fill-slate)" stroke="none"/>
+             <text x="95" y="100" text-anchor="middle" class="svg-label" font-size="18">Proof</text>
+          </g>
+          <!-- Connectors center -->
+          <circle cx="205" cy="205" r="20" fill="var(--white)" stroke="var(--slate-400)" stroke-width="4"/>
+        </svg>
+      </div>
+      <p class="diagram-desc">Tiles connect to form a reusable “memory pattern.” Represents storage and reuse of structured work.</p>
+      <p class="diagram-usage">Usage: Used for logs, archives, and workflow libraries.</p>
+    </section>
+
+    <!-- 8. Prompt Patterns -->
+    <section class="diagram-section">
+      <div class="diagram-header">
+        <h2 class="diagram-title">Advanced Prompt Pattern Map</h2>
+        <span class="diagram-meta">Prompt Patterns</span>
+      </div>
+      <div class="diagram-container">
+        <svg viewBox="0 0 800 150" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+             <marker id="arrow-right-pp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M0,0 L10,5 L0,10 z" fill="var(--muted2)"/>
+            </marker>
+          </defs>
+          
+          <g transform="translate(20 40)">
+            <rect width="160" height="70" rx="8" fill="var(--svg-fill-violet)" stroke="none"/>
+            <text x="80" y="40" text-anchor="middle" class="svg-label">Reasoning</text>
+          </g>
+          <line x1="180" y1="75" x2="210" y2="75" stroke="var(--muted2)" stroke-width="2" marker-end="url(#arrow-right-pp)"/>
+
+          <g transform="translate(210 40)">
+            <rect width="160" height="70" rx="8" fill="var(--svg-fill-blue)" stroke="none"/>
+            <text x="80" y="40" text-anchor="middle" class="svg-label">Exploration</text>
+          </g>
+          <line x1="370" y1="75" x2="400" y2="75" stroke="var(--muted2)" stroke-width="2" marker-end="url(#arrow-right-pp)"/>
+
+          <g transform="translate(400 40)">
+            <rect width="160" height="70" rx="8" fill="var(--svg-fill-green)" stroke="none"/>
+            <text x="80" y="40" text-anchor="middle" class="svg-label">Transformation</text>
+          </g>
+          <line x1="560" y1="75" x2="590" y2="75" stroke="var(--muted2)" stroke-width="2" marker-end="url(#arrow-right-pp)"/>
+
+          <g transform="translate(590 40)">
+            <rect width="160" height="70" rx="8" fill="var(--svg-fill-gold)" stroke="none"/>
+            <text x="80" y="35" text-anchor="middle" class="svg-label">Decision</text>
+            <text x="80" y="55" text-anchor="middle" class="svg-desc">(Δ Scored)</text>
+          </g>
+        </svg>
+      </div>
+      <p class="diagram-desc">Clear separation of pattern families. Arrows show optional chaining between pattern groups.</p>
+      <p class="diagram-usage">Usage: Supports Module 16 pattern selection.</p>
+    </section>
+
+    <!-- 9. Workflow Stack -->
+    <section class="diagram-section">
+      <div class="diagram-header">
+        <h2 class="diagram-title">Workflow Architecture Stack</h2>
+        <span class="diagram-meta">Workflow Structure</span>
+      </div>
+      <div class="diagram-container">
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+           <defs>
+             <marker id="arrow-down-wf" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M0,0 L10,5 L0,10 z" fill="var(--muted2)"/>
+            </marker>
+          </defs>
+
+          <!-- Bottom Up -->
+          <g transform="translate(100 280)">
+             <rect width="200" height="60" rx="0" fill="var(--svg-fill-gold)" class="g-gold-stroke" stroke-width="2"/>
+             <text x="100" y="35" text-anchor="middle" class="svg-label">Verification & Value</text>
+             <text x="100" y="55" text-anchor="middle" class="svg-desc">(MIRROR-6 + VALOR-Δ)</text>
+          </g>
+          <g transform="translate(100 200)">
+             <rect width="200" height="60" rx="0" fill="var(--svg-fill-green)" class="g-green-stroke" stroke-width="2"/>
+             <text x="100" y="35" text-anchor="middle" class="svg-label">Refinement</text>
+             <text x="100" y="55" text-anchor="middle" class="svg-desc">(SPARK-5)</text>
+          </g>
+          <g transform="translate(100 120)">
+             <rect width="200" height="60" rx="0" fill="var(--svg-fill-blue)" class="g-blue-stroke" stroke-width="2"/>
+             <text x="100" y="35" text-anchor="middle" class="svg-label">Creation</text>
+          </g>
+          <g transform="translate(100 40)">
+             <rect width="200" height="60" rx="0" fill="var(--svg-fill-violet)" class="g-violet-stroke" stroke-width="2"/>
+             <text x="100" y="35" text-anchor="middle" class="svg-label">Intent Layer</text>
+             <text x="100" y="55" text-anchor="middle" class="svg-desc">(CLARITY-7)</text>
+          </g>
+          <!-- Arrow pointing DOWN -->
+          <line x1="320" y1="50" x2="320" y2="330" stroke="var(--muted2)" stroke-width="2" marker-end="url(#arrow-down-wf)" />
+        </svg>
+      </div>
+      <p class="diagram-desc">Stack shows how workflows move from intent to final proof.</p>
+      <p class="diagram-usage">Usage: Supports Module 17.</p>
+    </section>
+
+    <!-- 10. Field Kit -->
+    <section class="diagram-section">
+      <div class="diagram-header">
+        <h2 class="diagram-title">Field Kit Structure Map</h2>
+        <span class="diagram-meta">Toolkit Overview</span>
+      </div>
+      <div class="diagram-container">
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+           <!-- 4 Quadrants -->
+           <g transform="translate(20 20)">
+             <rect width="170" height="170" rx="12" fill="var(--svg-fill-violet)" stroke="none"/>
+             <text x="85" y="90" text-anchor="middle" class="svg-label" font-size="18">Templates</text>
+           </g>
+           <g transform="translate(210 20)">
+             <rect width="170" height="170" rx="12" fill="var(--svg-fill-blue)" stroke="none"/>
+             <text x="85" y="90" text-anchor="middle" class="svg-label" font-size="18">Checklists</text>
+           </g>
+           <g transform="translate(20 210)">
+             <rect width="170" height="170" rx="12" fill="var(--svg-fill-green)" stroke="none"/>
+             <text x="85" y="90" text-anchor="middle" class="svg-label" font-size="18">Scorecards</text>
+           </g>
+           <g transform="translate(210 210)">
+             <rect width="170" height="170" rx="12" fill="var(--svg-fill-gold)" stroke="none"/>
+             <text x="85" y="90" text-anchor="middle" class="svg-label" font-size="18">Logs</text>
+           </g>
+           
+           <!-- Cross Arrows -->
+           <path d="M190,105 L210,105" stroke="var(--muted2)" stroke-width="2"/>
+           <path d="M105,190 L105,210" stroke="var(--muted2)" stroke-width="2"/>
+           <path d="M295,190 L295,210" stroke="var(--muted2)" stroke-width="2"/>
+           <path d="M190,295 L210,295" stroke="var(--muted2)" stroke-width="2"/>
+        </svg>
+      </div>
+      <p class="diagram-desc">Shows how tools support each other across tasks. Templates -> Checklists -> Scorecards -> Logs.</p>
+      <p class="diagram-usage">Usage: Supports Module 18.</p>
+    </section>
+
+    <!-- 11. Proof Artifact -->
+    <section class="diagram-section">
+      <div class="diagram-header">
+        <h2 class="diagram-title">Evidence Pathway</h2>
+        <span class="diagram-meta">Proof Artifact™ Diagram</span>
+      </div>
+      <div class="diagram-container">
+        <svg viewBox="0 0 600 150" xmlns="http://www.w3.org/2000/svg">
+           <g transform="translate(20 40)">
+             <rect width="140" height="70" rx="8" fill="var(--svg-fill-blue)" stroke="none"/>
+             <text x="70" y="40" text-anchor="middle" class="svg-label">Input</text>
+           </g>
+           <line x1="160" y1="75" x2="200" y2="75" stroke="var(--muted2)" stroke-width="2" marker-end="url(#arrow-right-pp)"/>
+           
+           <g transform="translate(200 40)">
+             <rect width="180" height="70" rx="8" fill="var(--svg-fill-violet)" stroke="none"/>
+             <text x="90" y="35" text-anchor="middle" class="svg-label">Structured</text>
+             <text x="90" y="55" text-anchor="middle" class="svg-label">Prompt</text>
+           </g>
+           <line x1="380" y1="75" x2="420" y2="75" stroke="var(--muted2)" stroke-width="2" marker-end="url(#arrow-right-pp)"/>
+           
+           <g transform="translate(420 40)">
+             <rect width="160" height="70" rx="8" fill="var(--svg-fill-gold)" stroke="none"/>
+             <text x="80" y="35" text-anchor="middle" class="svg-label">Verified Output</text>
+             <text x="80" y="55" text-anchor="middle" class="svg-desc">(with Δ)</text>
+           </g>
+        </svg>
+      </div>
+      <p class="diagram-desc">Shows the path from raw input to verified, documented result. Final block includes Δ improvement indicator.</p>
+      <p class="diagram-usage">Usage: Supports Module 11.</p>
+    </section>
+    
+    <!-- 12. Multi-Step Prompt -->
+    <section class="diagram-section">
+      <div class="diagram-header">
+        <h2 class="diagram-title">Sequenced Reasoning Flow</h2>
+        <span class="diagram-meta">Multi-Step Prompt</span>
+      </div>
+      <div class="diagram-container">
+        <svg viewBox="0 0 600 120" xmlns="http://www.w3.org/2000/svg">
+          <!-- Nodes -->
+          <circle cx="50" cy="60" r="30" fill="var(--svg-fill-blue)" stroke="none"/>
+          <text x="50" y="65" text-anchor="middle" class="svg-label" font-size="12">Step 1</text>
+
+          <line x1="80" y1="60" x2="140" y2="60" stroke="var(--muted2)" stroke-width="2"/>
+          <rect x="95" y="50" width="30" height="20" fill="var(--white)" stroke="var(--green)" stroke-width="2"/> <!-- Mirror-6 Icon -->
+
+          <circle cx="170" cy="60" r="30" fill="var(--svg-fill-blue)" stroke="none"/>
+          <text x="170" y="65" text-anchor="middle" class="svg-label" font-size="12">Step 2</text>
+          
+          <line x1="200" y1="60" x2="260" y2="60" stroke="var(--muted2)" stroke-width="2"/>
+          <rect x="215" y="50" width="30" height="20" fill="var(--white)" stroke="var(--green)" stroke-width="2"/>
+
+          <circle cx="290" cy="60" r="30" fill="var(--svg-fill-blue)" stroke="none"/>
+          <text x="290" y="65" text-anchor="middle" class="svg-label" font-size="12">Step 3</text>
+          
+          <line x1="320" y1="60" x2="380" y2="60" stroke="var(--muted2)" stroke-width="2"/>
+          <rect x="335" y="50" width="30" height="20" fill="var(--white)" stroke="var(--green)" stroke-width="2"/>
+
+          <circle cx="410" cy="60" r="30" fill="var(--svg-fill-violet)" stroke="none"/>
+          <text x="410" y="65" text-anchor="middle" class="svg-label" font-size="12">Review</text>
+
+          <line x1="440" y1="60" x2="500" y2="60" stroke="var(--muted2)" stroke-width="2" marker-end="url(#arrow-right-pp)"/>
+          
+          <rect x="500" y="30" width="80" height="60" rx="4" fill="var(--svg-fill-gold)" stroke="none"/>
+          <text x="540" y="65" text-anchor="middle" class="svg-label" font-size="12">Output</text>
+        </svg>
+      </div>
+      <p class="diagram-desc">Visualizes logical separation of stages in complex tasks with MIRROR-6™ verification checkpoints between nodes.</p>
+      <p class="diagram-usage">Usage: Supports Modules 10 and 16.</p>
+    </section>
+
+    <!-- 13. System Scaling -->
+    <section class="diagram-section">
+      <div class="diagram-header">
+        <h2 class="diagram-title">Scaling Through Repeatable Systems</h2>
+        <span class="diagram-meta">System Scaling</span>
+      </div>
+      <div class="diagram-container">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+          <!-- Stacked Layers growing -->
+          <g transform="translate(100 200)">
+            <rect width="200" height="50" rx="4" fill="var(--svg-fill-violet)" stroke="none"/>
+            <!-- Text positioned better -->
+            <text x="100" y="30" text-anchor="middle" class="svg-label" style="fill:var(--svg-label)">Reusable Prompts</text>
+          </g>
+          <g transform="translate(80 130)">
+            <rect width="240" height="50" rx="4" fill="var(--svg-fill-blue)" stroke="none"/>
+            <text x="120" y="30" text-anchor="middle" class="svg-label" style="fill:var(--svg-label)">Reusable Workflows</text>
+          </g>
+          <g transform="translate(60 60)">
+            <rect width="280" height="50" rx="4" fill="var(--svg-fill-gold)" stroke="none"/>
+            <text x="140" y="30" text-anchor="middle" class="svg-label" style="fill:var(--svg-label)">Automated Sequences</text>
+          </g>
+          
+          <!-- Upward Arrows on sides -->
+          <path d="M60,225 L40,225 L40,85 L60,85" fill="none" stroke="var(--muted2)" stroke-width="2" marker-end="url(#arrow-down-c7)"/> 
+        </svg>
+      </div>
+      <p class="diagram-desc">Illustrates how consistency leads to scaling without extra effort.</p>
+      <p class="diagram-usage">Usage: Supports Module 13.</p>
+    </section>
+
+    <!-- 14. Collaboration -->
+    <section class="diagram-section">
+      <div class="diagram-header">
+        <h2 class="diagram-title">Shared Reasoning Structure</h2>
+        <span class="diagram-meta">Collaboration</span>
+      </div>
+      <div class="diagram-container">
+        <svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+          <!-- Lane 1 -->
+          <line x1="50" y1="50" x2="550" y2="50" stroke="var(--muted2)" stroke-width="1" stroke-dasharray="4"/>
+          <circle cx="100" cy="50" r="15" fill="var(--svg-fill-violet)"/>
+          <circle cx="200" cy="50" r="15" fill="var(--svg-fill-violet)"/>
+          <circle cx="300" cy="50" r="15" fill="var(--svg-fill-violet)"/>
+          <text x="20" y="55" class="svg-desc">User 1</text>
+          
+          <!-- Lane 2 -->
+          <line x1="50" y1="150" x2="550" y2="150" stroke="var(--muted2)" stroke-width="1" stroke-dasharray="4"/>
+          <circle cx="100" cy="150" r="15" fill="var(--svg-fill-blue)"/>
+          <circle cx="200" cy="150" r="15" fill="var(--svg-fill-blue)"/>
+          <circle cx="300" cy="150" r="15" fill="var(--svg-fill-blue)"/>
+          <text x="20" y="155" class="svg-desc">User 2</text>
+
+          <!-- Alignment Center -->
+          <rect x="380" y="40" width="100" height="120" rx="8" fill="var(--svg-fill-green)" stroke="none"/>
+          <text x="430" y="100" text-anchor="middle" class="svg-label" fill="white">Alignment</text>
+          <text x="430" y="115" text-anchor="middle" class="svg-desc" fill="white">(MIRROR-6)</text>
+
+          <!-- Merge -->
+          <path d="M480,100 L550,100" stroke="var(--muted2)" stroke-width="2" marker-end="url(#arrow-right-pp)"/>
+        </svg>
+      </div>
+      <p class="diagram-desc">Shows how collaborative prompts combine independent reasoning paths (Intent -> Draft -> Review) into a shared alignment check.</p>
+      <p class="diagram-usage">Usage: Supports Module 14.</p>
+    </section>
+
+    <!-- 15. Automation -->
+    <section class="diagram-section">
+      <div class="diagram-header">
+        <h2 class="diagram-title">Guardrailed Automation Flow</h2>
+        <span class="diagram-meta">Automation</span>
+      </div>
+      <div class="diagram-container">
+        <svg viewBox="0 0 700 120" xmlns="http://www.w3.org/2000/svg">
+           <g transform="translate(20 40)">
+             <circle cx="30" cy="20" r="20" fill="var(--svg-fill-blue)"/>
+             <text x="30" y="60" text-anchor="middle" class="svg-label" font-size="12">Trigger</text>
+           </g>
+           <line x1="70" y1="60" x2="100" y2="60" stroke="var(--muted2)" stroke-width="2" marker-end="url(#arrow-right-pp)"/>
+
+           <g transform="translate(100 40)">
+             <rect width="100" height="40" rx="4" fill="var(--svg-fill-blue)"/>
+             <text x="50" y="25" text-anchor="middle" class="svg-label" font-size="12">Step 1</text>
+           </g>
+           <line x1="200" y1="60" x2="230" y2="60" stroke="var(--muted2)" stroke-width="2" marker-end="url(#arrow-right-pp)"/>
+
+           <g transform="translate(230 40)">
+             <rect width="100" height="40" rx="4" fill="var(--svg-fill-green)"/>
+             <text x="50" y="25" text-anchor="middle" class="svg-label" font-size="12">Step 2</text>
+           </g>
+           <line x1="330" y1="60" x2="360" y2="60" stroke="var(--muted2)" stroke-width="2" marker-end="url(#arrow-right-pp)"/>
+           
+           <!-- Gate -->
+           <g transform="translate(360 30)">
+             <polygon points="30,0 60,30 30,60 0,30" fill="var(--svg-fill-gold)"/>
+             <text x="30" y="35" text-anchor="middle" class="svg-label" font-size="10">GATE</text>
+           </g>
+           <line x1="420" y1="60" x2="450" y2="60" stroke="var(--muted2)" stroke-width="2" marker-end="url(#arrow-right-pp)"/>
+
+           <g transform="translate(450 40)">
+             <rect width="120" height="40" rx="4" fill="var(--svg-fill-gold)"/>
+             <text x="60" y="25" text-anchor="middle" class="svg-label" font-size="12">Final Output</text>
+           </g>
+        </svg>
+      </div>
+      <p class="diagram-desc">Represents automation with human-controlled accuracy checks (Review Gate).</p>
+      <p class="diagram-usage">Usage: Supports Module 15.</p>
+    </section>
+
+    <!-- 16. Summary -->
+    <section class="diagram-section">
+      <h2 class="diagram-title">Visual Index Summary</h2>
+      <div class="intro">
+        <p>Each framework, pattern, and workflow includes its own visual identity. All diagrams use the Aetherium palette and follow a clean, minimal layout. They are suited for print, coursework, slides, or technical documentation.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <!-- Standard Footer -->
+  <footer class="footer-section" role="contentinfo">
+    <hr class="footer-divider" />
+    <div class="site-footer">
+      <div class="footer-flex">
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="/toc.html" rel="noopener">Index</a>
+          <a href="/contact.html" rel="noopener">Contact</a>
+          <a href="/privacy.html" rel="noopener">Privacy</a>
+          <a href="/terms.html" rel="noopener">Terms</a>
+          <a href="/sitemap.xml" rel="noopener">Sitemap</a>
+        </nav>
+        <div class="footer-brand">
+          <img src="https://aiartisan.hqaim.com/assets/images/HQAIM_LOGO_Gradient_Minimal.svg" class="footer-logo" alt="HQAIM Studios logo" width="120" height="26" />
+          <span class="copyright">© <span id="year"></span> Abdullah Khan · HQAIM Studios</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    'use strict';
+    const html=document.documentElement;
+    const toggle=document.getElementById('themeToggle');
+    const backToTop=document.getElementById('backToTop');
+    const navToggle=document.querySelector('.nav-toggle');
+    const mainNav=document.querySelector('nav.main-nav');
+    const yearEl=document.getElementById('year');
+    if(yearEl)yearEl.textContent=new Date().getFullYear();
+    
+    /* Theme */
+    const storageKey='aiartisan_theme_preference';
+    const prefersDark=window.matchMedia('(prefers-color-scheme: dark)');
+    function getPref(){
+      const saved=localStorage.getItem(storageKey);
+      if(saved) return saved;
+      return prefersDark.matches?'dark':'light';
+    }
+    function applyTheme(t){
+      html.dataset.theme=t;
+      if(toggle) toggle.setAttribute('aria-pressed', String(t==='dark'));
+    }
+    applyTheme(getPref());
+    if(toggle){
+      toggle.addEventListener('click', ()=>{
+        const next=html.dataset.theme==='dark'?'light':'dark';
+        localStorage.setItem(storageKey,next);
+        applyTheme(next);
+      });
+    }
+    
+    /* Nav */
+    if(navToggle && mainNav){
+      navToggle.addEventListener('click', ()=>{
+        const expanded=navToggle.getAttribute('aria-expanded')==='true';
+        navToggle.setAttribute('aria-expanded',String(!expanded));
+        mainNav.classList.toggle('open');
+      });
+    }
+    
+    /* Scroll */
+    if(backToTop){
+      window.addEventListener('scroll', ()=>{
+        if(window.scrollY>400) backToTop.classList.add('visible');
+        else backToTop.classList.remove('visible');
+      });
+      backToTop.addEventListener('click', ()=>{
+        window.scrollTo({top:0, behavior:'smooth'});
+      });
+    }
+  })();
+  </script>
+</body>
+</html>
