@@ -1,0 +1,4 @@
+Contact: mailto:info@hqaim.com
+Preferred-Languages: en
+Encryption: NONE
+Policy: https://aiartisan.hqaim.com/privacy.html

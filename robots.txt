@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /modules/
+Disallow: /premium-access.html
+Disallow: /premium.html
+Allow: /
+Sitemap: https://aiartisan.hqaim.com/sitemap.xml
