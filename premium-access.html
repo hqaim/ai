@@ -440,31 +440,31 @@
     
     /* Explicitly style the PayPal submit input/button via class targeting */
     .pp-LRCYEZGQYS5J2 {
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      width: 100% !important;
-      padding: 16px 20px !important;
-      min-height: 60px !important;
-      background: #FFD140 !important; /* PayPal Gold by default */
-      color: #000000 !important; /* Black text by default */
-      border: 1px solid #eab308 !important;
-      border-radius: 8px !important;
-      cursor: pointer !important;
-      font-family: var(--font-sans) !important;
-      font-weight: 700 !important;
-      font-size: 1.1rem !important;
-      transition: transform 0.15s, box-shadow 0.15s, filter 0.2s !important;
-      box-shadow: 0 4px 12px rgba(234, 179, 8, 0.25) !important;
-      margin-bottom: 12px !important; /* Space for trust icons */
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 16px 20px;
+      min-height: 60px;
+      background: #FFD140; /* PayPal Gold by default */
+      color: #000000; /* Black text by default */
+      border: 1px solid #eab308;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: transform 0.15s, box-shadow 0.15s, filter 0.2s;
+      box-shadow: 0 4px 12px rgba(234, 179, 8, 0.25);
+      margin-bottom: 12px; /* Space for trust icons */
       appearance: none;
       -webkit-appearance: none;
     }
     
     /* Professional Hover Effect */
     .pp-LRCYEZGQYS5J2:hover {
-      transform: translateY(-1px) !important;
-      box-shadow: 0 8px 20px rgba(234, 179, 8, 0.4) !important;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(234, 179, 8, 0.4);
       filter: brightness(0.95); /* Subtle darkening for tactile feel */
     }
 
@@ -604,6 +604,7 @@
       }
       .section-title { border-left: none !important; padding-left: 0 !important; }
       .site-header, .theme-toggle, .back-to-top, .footer-section, .copy-btn, .breadcrumbs, details > summary {display:none !important}
+      
       section.module-section{ box-shadow:none !important; background:var(--white) !important; border: none !important; padding: 10px 0; }
       .diagram-flow svg{ background:var(--white) !important; border: none !important; }
       .card { border: none !important; background: var(--white) !important; box-shadow: none !important; }
@@ -839,7 +840,9 @@
             
             <!-- Integrated PayPal Form -->
             <form action="https://www.paypal.com/ncp/payment/LRCYEZGQYS5J2" method="post" target="_blank" class="paypal-form">
-              <input class="pp-LRCYEZGQYS5J2" type="submit" value="Purchase Premium Access" />
+              <button type="submit" class="pp-LRCYEZGQYS5J2">
+                Purchase Premium Access
+              </button>
               <div class="paypal-trust">
                 <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="Accepted Cards: Visa, Mastercard, Amex, Discover" />
                 <section>Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
