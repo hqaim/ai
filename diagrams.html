@@ -3,14 +3,14 @@
 <head>
   <!--
     The AI Artisan — Framework Diagrams (Visual Index)
-    Diamond Edition v113
+    Diamond Edition v114
     Author: Abdullah Khan · HQAIM Studios
     Notes:
       - Contains 13 Custom SVGs representing the core frameworks.
       - Uses Aetherium Palette for all vector graphics.
       - Fully responsive and print-optimized.
-      - Footer: EXACT copy of Module 01 architecture.
-      - VALOR-Δ & MIRROR-6: Text layers forced to front.
+      - Footer: EXACT copy of Module 01 architecture (corrected).
+      - VALOR-Δ & MIRROR-6: Text layers forced to front for readability.
       - System Scaling: Text centered correctly.
   -->
   <meta charset="utf-8" />
@@ -45,7 +45,7 @@
 
   <style>
     /* =========================================================
-       THE AI ARTISAN — Diamond Edition v113
+       THE AI ARTISAN — Diamond Edition v114
        Diagrams Page CSS
        ========================================================= */
 
@@ -274,7 +274,7 @@
     .back-to-top.visible{ opacity:1; visibility:visible; transform: translateY(0); }
     .back-to-top:hover{ background:color-mix(in srgb, var(--surface) 90%, var(--accent)); }
 
-    /* Footer (Strict Module 01 Parity) */
+    /* Footer (Corrected Module 01 Parity) */
     .footer-section{position:relative; z-index:1; margin-top:32px; border-top:1px solid var(--border); background:var(--surface)}
     .footer-divider{height:2px; border:0; margin:0 0 16px; background:linear-gradient(90deg, transparent, var(--violet), var(--blue), var(--gold), transparent); opacity:.3}
     .site-footer{padding:0 var(--pad) 16px; max-width:var(--wrap); margin:0 auto; color:var(--muted)}
@@ -509,7 +509,7 @@
              <rect width="170" height="60" rx="6" fill="var(--svg-fill-green)" class="g-green-stroke" stroke-width="2"/>
            </g>
 
-           <!-- Text (Top Layer) -->
+           <!-- Text (Top Layer - High Readability) -->
            <text x="105" y="55" text-anchor="middle" class="svg-label" style="fill:var(--svg-label); font-weight:700; pointer-events:none;">1. Meaning</text>
            <text x="300" y="55" text-anchor="middle" class="svg-label" style="fill:var(--svg-label); font-weight:700; pointer-events:none;">2. Accuracy</text>
            <text x="495" y="55" text-anchor="middle" class="svg-label" style="fill:var(--svg-label); font-weight:700; pointer-events:none;">3. Relevance</text>
@@ -544,15 +544,15 @@
           <!-- Center Circle (Background) -->
           <circle cx="200" cy="200" r="30" fill="var(--svg-fill-gold)" stroke="none"/>
 
-          <!-- Text Labels (Brought to front for readability) -->
+          <!-- Text Labels (Brought to front for readability with shadow) -->
           <text x="200" y="205" text-anchor="middle" font-weight="bold" font-size="16" fill="var(--svg-label)" style="pointer-events:none;">Δ</text>
           
-          <text x="200" y="70" text-anchor="middle" class="svg-label" style="fill:var(--svg-label); font-weight:700; text-shadow: 0 0 4px var(--bg);">Value</text>
-          <text x="320" y="135" text-anchor="middle" class="svg-label" style="fill:var(--svg-label); font-weight:700; text-shadow: 0 0 4px var(--bg);">Alignment</text>
-          <text x="320" y="275" text-anchor="middle" class="svg-label" style="fill:var(--svg-label); font-weight:700; text-shadow: 0 0 4px var(--bg);">Leverage</text>
-          <text x="200" y="340" text-anchor="middle" class="svg-label" style="fill:var(--svg-label); font-weight:700; text-shadow: 0 0 4px var(--bg);">Outcome</text>
-          <text x="80" y="275" text-anchor="middle" class="svg-label" style="fill:var(--svg-label); font-weight:700; text-shadow: 0 0 4px var(--bg);">Repeatability</text>
-          <text x="80" y="135" text-anchor="middle" class="svg-label" style="fill:var(--svg-label); font-weight:700; text-shadow: 0 0 4px var(--bg);">Δ Imp.</text>
+          <text x="200" y="70" text-anchor="middle" class="svg-label" style="fill:var(--svg-label); font-weight:700; text-shadow: 0 0 6px var(--bg);">Value</text>
+          <text x="320" y="135" text-anchor="middle" class="svg-label" style="fill:var(--svg-label); font-weight:700; text-shadow: 0 0 6px var(--bg);">Alignment</text>
+          <text x="320" y="275" text-anchor="middle" class="svg-label" style="fill:var(--svg-label); font-weight:700; text-shadow: 0 0 6px var(--bg);">Leverage</text>
+          <text x="200" y="340" text-anchor="middle" class="svg-label" style="fill:var(--svg-label); font-weight:700; text-shadow: 0 0 6px var(--bg);">Outcome</text>
+          <text x="80" y="275" text-anchor="middle" class="svg-label" style="fill:var(--svg-label); font-weight:700; text-shadow: 0 0 6px var(--bg);">Repeatability</text>
+          <text x="80" y="135" text-anchor="middle" class="svg-label" style="fill:var(--svg-label); font-weight:700; text-shadow: 0 0 6px var(--bg);">Δ Imp.</text>
         </svg>
       </div>
       <p class="diagram-desc">A score wheel to visualize scores and compare value across versions.</p>
