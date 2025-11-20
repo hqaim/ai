@@ -339,6 +339,99 @@
       .hero-premium h1 { background: none; -webkit-text-fill-color: #000; }
       .btn-instamojo, .pp-LRCYEZGQYS5J2, .whatsapp-btn { border: 1px solid #000; background: none !important; color: #000 !important; box-shadow: none !important; }
     }
+
+/* Enhanced Unlock Section — Dark/Light Compatible */
+.enhanced-unlock {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  margin: 3rem auto;
+  max-width: 520px;
+  box-shadow: var(--shadow-e2);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.unlock-title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+.unlock-description {
+  margin-bottom: 1.5rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.unlock-label {
+  display: block;
+  text-align: left;
+  color: var(--muted2);
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.enhanced-unlock-input {
+  width: 100% !important;
+  padding: 0.85rem 1rem;
+  border-radius: 12px !important;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 1rem;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.enhanced-unlock-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--focus);
+}
+
+.enhanced-unlock-btn {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.9rem 1.25rem;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+  color: var(--accent);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.15s, box-shadow 0.25s;
+}
+
+.enhanced-unlock-btn:hover {
+  background: color-mix(in srgb, var(--accent) 20%, var(--surface));
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-e2);
+}
+
+.unlock-error {
+  margin-top: 1rem;
+  color: #ef4444;
+  font-size: 0.9rem;
+}
+
+.unlock-success {
+  margin-top: 1rem;
+  color: #10b981;
+  font-size: 0.9rem;
+}
+
+/* Dark mode refinements */
+html[data-theme="dark"] .enhanced-unlock {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+html[data-theme="dark"] .enhanced-unlock-btn:hover {
+  background: color-mix(in srgb, var(--accent) 25%, var(--surface));
+}
   </style>
 </head>
 
@@ -521,16 +614,38 @@
       </div>
     </section>
 
-    <!-- Unlock Section -->
-    <div class="unlock-box">
-      <h3>🔐 Password Unlock</h3>
-      <p>If you already have a Premium password, unlock your access here:</p>
-      <form onsubmit="alert('Verifying access...'); return false;">
-        <input type="password" placeholder="Enter Password" class="unlock-input" required />
-        <button type="submit" class="unlock-btn">Unlock Premium</button>
-      </form>
-      <p style="margin-top:1rem; font-size:0.85rem; color:var(--muted);">Access verifies instantly.</p>
-    </div>
+<!-- Unlock Section (Dark/Light Mode Enhanced) -->
+<div class="unlock-box enhanced-unlock">
+  <h3 class="unlock-title">🔐 Premium Access Unlock</h3>
+  <p class="unlock-description">
+    Enter your Premium password to unlock your modules instantly:
+  </p>
+
+  <div class="unlock-form">
+    <label for="premiumPassword" class="unlock-label">Password</label>
+
+    <input id="premiumPassword"
+           type="password"
+           class="unlock-input enhanced-unlock-input"
+           placeholder="Enter Premium Password"
+           autocomplete="off"
+           required />
+
+    <button onclick="unlockPremium()" class="unlock-btn enhanced-unlock-btn">
+      Unlock Now
+    </button>
+
+    <!-- Error Message -->
+    <p id="unlockError" class="unlock-error" style="display:none;">
+      Incorrect password. Please try again.
+    </p>
+
+    <!-- Success Message -->
+    <p id="unlockSuccess" class="unlock-success" style="display:none;">
+      ✔ Access Granted — Redirecting…
+    </p>
+  </div>
+</div>
     
     <div class="content-wrapper" style="margin-top: 3rem; text-align: center;">
       <h2>Focus on Practical Value</h2>
@@ -623,5 +738,51 @@
     }
   })();
   </script>
+<script>
+async function unlockPremium() {
+  const input = document.getElementById("premiumPassword");
+  const password = input.value.trim();
+
+  // Extract ?key=... from URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const key = urlParams.get("key");
+
+  if (!key) {
+    alert("Missing content key. Contact support.");
+    return;
+  }
+
+  if (!password) {
+    alert("Please enter the password.");
+    return;
+  }
+
+  try {
+    const res = await fetch("https://ighfktyhwl.execute-api.us-east-1.amazonaws.com/default/AIArtisanPresignFunction", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ password, key })
+    });
+
+    if (!res.ok) {
+      alert("Incorrect password");
+      return;
+    }
+
+    const data = await res.json();
+
+    if (!data || !data.url) {
+      alert("Unexpected response from server.");
+      return;
+    }
+
+    window.location.href = data.url;
+
+  } catch (err) {
+    console.error(err);
+    alert("Network error — check console.");
+  }
+}
+</script>
 </body>
 </html>
