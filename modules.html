@@ -3,13 +3,12 @@
 <head>
   <!--
     The AI Artisan — Modules Index
-    Diamond Edition v100 (Final)
+    Diamond Edition v101 (Diagram Removed)
     Author: Abdullah Khan · HQAIM Studios
     Notes:
-      - Full integration of Modules Index manuscript.
+      - Removed "Module Pathway Map" SVG per user request.
+      - Retained all module listings and structure.
       - Design System v100 (Inter/Source Serif Pro).
-      - Custom "Module Pathway Map" SVG Diagram.
-      - 6x9 Print Optimization.
   -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -380,33 +379,6 @@
       margin: 0;
     }
     
-    /* SVG Diagram */
-    figure.diagram-flow{margin:0; padding:0}
-    .diagram-flow svg{
-      display:block; width:100%; height:auto; background:color-mix(in srgb, var(--surface) 88%, transparent);
-      border:1px solid var(--border); border-radius:12px;
-      font-family: var(--font-sans);
-    }
-    .diagram-flow figcaption{margin-top:8px; font-size:.95rem; color:var(--muted)}
-    .svg-label{fill:var(--svg-label); font-weight:700;}
-    .svg-desc{
-      fill: var(--svg-desc);
-      font-weight: 600;
-      font-size: 11px;
-      opacity: 0.9;
-    }
-    .g-violet-stroke { stroke: #7c3aed; }
-    .g-blue-stroke { stroke: #2563eb; }
-    .g-green-stroke { stroke: #10b981; }
-    .g-gold-stroke { stroke: #f6be3e; }
-    .g-slate-stroke { stroke: #94a3b8; }
-    .g-arrow-path { stroke: var(--muted2); stroke-width: 2.5; }
-    html[data-theme="dark"] .g-violet-stroke { stroke: #a78bfa; }
-    html[data-theme="dark"] .g-blue-stroke { stroke: #7dd3fc; }
-    html[data-theme="dark"] .g-green-stroke { stroke: #6ee7b7; }
-    html[data-theme="dark"] .g-gold-stroke { stroke: #fde08a; }
-    html[data-theme="dark"] .g-slate-stroke { stroke: #e2e8f0; }
-
     .back-to-top{
       position:fixed; bottom:26px; right:26px; width:48px; height:48px; border-radius:50%; border:1px solid var(--border);
       display:grid; place-items:center; color:var(--accent); cursor:pointer; background:color-mix(in srgb, var(--surface) 92%, transparent);
@@ -443,11 +415,6 @@
         --svg-desc: var(--muted) !important;
         --code-bg-light:#f7f7fb !important;
         --grad-title: linear-gradient(90deg, var(--violet), var(--blue)) !important;
-        --svg-fill-violet: color-mix(in srgb, var(--violet) 10%, var(--white)) !important;
-        --svg-fill-blue: color-mix(in srgb, var(--blue) 10%, var(--white)) !important;
-        --svg-fill-green: color-mix(in srgb, var(--green) 10%, var(--white)) !important;
-        --svg-fill-gold: color-mix(in srgb, var(--gold) 20%, var(--white)) !important;
-        --svg-fill-slate: color-mix(in srgb, var(--slate-400) 20%, var(--white)) !important;
       }
       body{
         background:var(--bg) !important; color:var(--text) !important;
@@ -465,7 +432,6 @@
       .section-title { border-left: none !important; padding-left: 0 !important; }
       .site-header, .theme-toggle, .back-to-top, .footer-section, .copy-btn, .breadcrumbs, details > summary {display:none !important}
       section.module-section{ box-shadow:none !important; background:var(--white) !important; border: none !important; padding: 10px 0; }
-      .diagram-flow svg{ background:var(--white) !important; border: none !important; }
       .card { border: none !important; background: var(--white) !important; box-shadow: none !important; }
       .module-card { break-inside: avoid; border: 1px solid #ccc !important; }
       .hero-figure { page-break-after: avoid; } 
@@ -689,54 +655,6 @@
     <section id="usage" class="module-section">
       <h2 class="section-title">How to Use This Index</h2>
       
-      <!-- Module Pathway Map SVG -->
-      <figure class="diagram-flow" style="margin-top: 1.5em;">
-        <svg viewBox="0 0 800 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dsTitle dsDesc">
-          <title id="dsTitle">Diagram: Module Pathway Map</title>
-          <desc id="dsDesc">A horizontal timeline showing the progression from Part I to Part V.</desc>
-          <defs>
-            <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-              <path d="M0,0 L10,5 L0,10 z" fill="var(--muted2)"/>
-            </marker>
-          </defs>
-
-          <!-- Nodes -->
-          <g transform="translate(20 60)">
-            <rect width="120" height="60" rx="8" fill="var(--svg-fill-violet)" />
-            <rect width="120" height="60" rx="8" fill="none" class="g-violet-stroke" stroke-width="2"/>
-            <text x="60" y="35" class="svg-label" text-anchor="middle" font-size="12" font-weight="bold">MINDSET</text>
-          </g>
-          <path d="M140,90 L170,90" fill="none" class="g-arrow-path" marker-end="url(#arrow)"/>
-
-          <g transform="translate(170 60)">
-            <rect width="120" height="60" rx="8" fill="var(--svg-fill-blue)" />
-            <rect width="120" height="60" rx="8" fill="none" class="g-blue-stroke" stroke-width="2"/>
-            <text x="60" y="35" class="svg-label" text-anchor="middle" font-size="12" font-weight="bold">FRAMEWORKS</text>
-          </g>
-          <path d="M290,90 L320,90" fill="none" class="g-arrow-path" marker-end="url(#arrow)"/>
-
-          <g transform="translate(320 60)">
-            <rect width="120" height="60" rx="8" fill="var(--svg-fill-green)" />
-            <rect width="120" height="60" rx="8" fill="none" class="g-green-stroke" stroke-width="2"/>
-            <text x="60" y="35" class="svg-label" text-anchor="middle" font-size="12" font-weight="bold">SYSTEMS</text>
-          </g>
-          <path d="M440,90 L470,90" fill="none" class="g-arrow-path" marker-end="url(#arrow)"/>
-
-          <g transform="translate(470 60)">
-            <rect width="120" height="60" rx="8" fill="var(--svg-fill-gold)" />
-            <rect width="120" height="60" rx="8" fill="none" class="g-gold-stroke" stroke-width="2"/>
-            <text x="60" y="35" class="svg-label" text-anchor="middle" font-size="12" font-weight="bold">VALUE</text>
-          </g>
-          <path d="M590,90 L620,90" fill="none" class="g-arrow-path" marker-end="url(#arrow)"/>
-
-          <g transform="translate(620 60)">
-            <rect width="120" height="60" rx="8" fill="var(--svg-fill-slate)" />
-            <rect width="120" height="60" rx="8" fill="none" class="g-slate-stroke" stroke-width="2"/>
-            <text x="60" y="35" class="svg-label" text-anchor="middle" font-size="12" font-weight="bold">ADVANCED</text>
-          </g>
-        </svg>
-      </figure>
-
       <ul style="margin-top: 1.5em;">
         <li><strong>Start with Part I</strong> if you are new to structured prompting.</li>
         <li><strong>Move to Part II</strong> once you understand intent and the Value Gap.</li>
