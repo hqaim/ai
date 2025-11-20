@@ -2,689 +2,151 @@
 <html lang="en" data-theme="light">
 <head>
   <!--
-    The AI Artisan — Premium Edition
-    Diamond Edition v210 (Visual Match & Logic Refinement)
+    The AI Artisan — Premium Edition (Access Gateway)
+    Corrected & production-ready premium-access.html
     Author: Abdullah Khan · HQAIM Studios
-    Notes:
-      - Header: Elite version with SVG Icons.
-      - Hero Text: Exact match to image_1f0201.png.
-      - Payment: Gold Button + Card Icons + Powered by PayPal + Coupon Text (Match image_1f0280.png).
-      - Footer: Strict Module 01 Standard.
-      - Design System v100.
   -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
-  <title>Premium Edition — The AI Artisan (Diamond Edition)</title>
-  <meta name="description" content="Upgrade to The AI Artisan Premium Edition. Access advanced modules, collaborative workflows, automation systems, and the extended field kit." />
-  
-  <link rel="canonical" href="https://aiartisan.hqaim.com/premium.html" />
-  <meta id="themeColor" name="theme-color" content="#ffffff" />
-  
-  <!-- Favicon & Fonts -->
+  <title>Premium Access — The AI Artisan (Unlock)</title>
+  <meta name="description" content="Unlock Premium modules for The AI Artisan. Enter your purchased password to gain access." />
+  <meta name="robots" content="noindex, nofollow" />
   <link rel="icon" href="https://aiartisan.hqaim.com/images/favicon.ico" type="image/x-icon" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* =========================================================
-       THE AI ARTISAN — Diamond Edition v210
-       ========================================================= */
-    
-    :root{
-      color-scheme: light dark;
-      --font-sans: 'Inter', system-ui, sans-serif;
-      --font-serif: 'Source Serif Pro', serif;
-      --font-mono: ui-monospace, monospace;
+    /* Minimal duplicate of your Diamond Edition tokens to match visual style */
+    :root{color-scheme:light dark; --font-sans:'Inter',system-ui,sans-serif; --font-serif:'Source Serif Pro',serif; --violet:#7c3aed; --blue:#2563eb; --gold:#f59e0b; --white:#ffffff; --black:#0f172a; --slate-50:#f8fafc; --slate-700:#334155; --slate-900:#0f172a; --bg:var(--white); --surface:var(--slate-50); --text:var(--slate-900); --muted:#445268; --border:#e6eef8; --accent:var(--violet); --wrap:1000px; --pad:1.5rem; --r:12px; --shadow-e2:0 8px 20px rgba(15,23,42,.08), 0 3px 8px rgba(15,23,42,.06);} 
+    html[data-theme="dark"]{--bg:var(--slate-900);--surface:#111827;--text:#f8fafc;--muted:#9aa6bf;--border:#1f2937;--accent:#a78bfa}
+    *{box-sizing:border-box}body{margin:0;font-family:var(--font-sans);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+    .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+    .site-header{position:sticky;top:0;z-index:100;backdrop-filter:saturate(140%) blur(12px);background:color-mix(in srgb,var(--surface) 92%,transparent);border-bottom:1px solid var(--border)}
+    .header-inner{max-width:var(--wrap);margin:0 auto;padding:.75rem var(--pad);display:flex;align-items:center;justify-content:space-between}
+    .brand-wrap{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
+    .brand-logo{width:32px;height:32px}
+    .brand-text{font-weight:800;background:linear-gradient(95deg,var(--accent),var(--blue));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .main-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:10px}
+    .main-nav a{color:var(--muted);text-decoration:none;font-weight:600;padding:6px 10px;border-radius:8px}
+    .main-nav a[aria-current="page"],.main-nav a:hover{color:var(--accent);background-color:color-mix(in srgb,var(--accent) 10%,transparent)}
+    .theme-toggle{width:40px;height:40px;border-radius:50%;border:1px solid var(--border);background:var(--surface);display:grid;place-items:center;cursor:pointer}
+    .nav-toggle{display:none}
+    @media(max-width:900px){.nav-toggle{display:block}.main-nav{display:none}.main-nav.open{display:block}}
 
-      --violet:#7c3aed; --blue:#2563eb; --green:#10b981; --gold:#f59e0b;
-      --white:#ffffff;  --black:#0f172a;
-      
-      --slate-50:#f8fafc;  --slate-100:#f1f5f9; --slate-200:#e2e8f0;
-      --slate-300:#cbd5e1; --slate-400:#94a3b8; --slate-500:#64748b;
-      --slate-600:#475569; --slate-700:#334155; --slate-800:#1e293b;
-      --slate-900:#0f172a;
+    /* Hero small spacer so header doesn't overlap */
+    .hero-spacer{height:36px}
 
-      /* Light Mode */
-      --bg:var(--white); --surface:var(--slate-50); --text:var(--slate-900);
-      --muted:#445268; --muted2:var(--slate-500); --border:var(--slate-200);
-      --accent:var(--violet); --link:var(--blue); --focus:rgba(37,99,235,.36);
-      --shadow-e2:0 8px 20px rgba(15,23,42,.08), 0 3px 8px rgba(15,23,42,.06);
+    main#main{padding:1.5rem var(--pad) 4rem}
 
-      --bg-gradient:
-        radial-gradient(1200px 600px at 0% -10%, color-mix(in srgb, var(--violet) 5%, transparent), transparent 70%),
-        radial-gradient(900px 500px at 100% 110%, color-mix(in srgb, var(--blue) 5%, transparent), transparent 70%),
-        linear-gradient(180deg, rgba(124,58,237,.02), rgba(37,99,235,.02)),
-        var(--bg);
+    /* Enhanced Unlock Box */
+    .enhanced-unlock{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2.5rem 2rem;margin:2.5rem auto;max-width:640px;box-shadow:var(--shadow-e2);}
+    .unlock-title{font-family:var(--font-serif);font-size:1.4rem;margin-bottom:.5rem}
+    .unlock-description{color:var(--muted);margin-bottom:1rem}
+    .unlock-label{display:block;text-align:left;color:var(--muted);font-size:.85rem;margin-bottom:6px;font-weight:600}
+    .enhanced-unlock-input{width:100%;padding:.85rem 1rem;border-radius:12px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:1rem}
+    .enhanced-unlock-btn{margin-top:1rem;width:100%;padding:.9rem 1.25rem;font-size:1rem;border-radius:12px;border:1px solid var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--surface));color:var(--accent);font-weight:700;cursor:pointer}
+    .enhanced-unlock-btn:hover{transform:translateY(-2px)}
+    .unlock-error{margin-top:1rem;color:#ef4444;font-size:0.95rem;display:none}
+    .unlock-success{margin-top:1rem;color:#10b981;font-size:0.95rem;display:none}
 
-      --grad-title: linear-gradient(90deg, var(--violet), var(--blue));
-      --grad-instamojo: linear-gradient(135deg, #4f46e5, #3730a3);
-      
-      --wrap:1000px; --pad:1.5rem;
-    }
+    .back-to-top{position:fixed;bottom:26px;right:26px;width:48px;height:48px;border-radius:50%;border:1px solid var(--border);display:grid;place-items:center;color:var(--accent);background:var(--surface);box-shadow:var(--shadow-e2);opacity:0;visibility:hidden;transition:opacity .18s,transform .18s;z-index:90}
+    .back-to-top.visible{opacity:1;visibility:visible}
 
-    html[data-theme="dark"]{
-      --bg:var(--slate-900); --surface:var(--slate-800); --text:var(--slate-50);
-      --muted:var(--slate-300); --muted2:var(--slate-400); --border:var(--slate-700);
-      --accent:#a78bfa; --link:#7dd3fc; --focus:rgba(124,58,237,.45);
-      --shadow-e2:0 10px 28px rgba(0,0,0,.35);
-      
-      --bg-gradient:
-        radial-gradient(1200px 600px at 0% -10%, color-mix(in srgb, var(--accent) 8%, transparent), transparent 70%),
-        radial-gradient(900px 500px at 100% 110%, color-mix(in srgb, var(--link) 8%, transparent), transparent 70%),
-        var(--bg);
+    .footer-section{margin-top:32px;border-top:1px solid var(--border);background:var(--surface)}
+    .site-footer{padding:0 var(--pad) 16px;max-width:var(--wrap);margin:0 auto;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+    .footer-nav{display:flex;gap:16px}
+    .footer-nav a{color:var(--muted);text-decoration:none}
 
-      --grad-title: linear-gradient(90deg, var(--accent), var(--link));
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0; font:16px/1.65 var(--font-sans); color:var(--text); background:var(--bg-gradient); background-attachment:fixed;}
-    .wrap{max-width:var(--wrap); margin:0 auto; padding:0 var(--pad)}
-    
-    /* 1) Elite Header */
-    .site-header{
-      position:sticky; top:0; z-index:100;
-      backdrop-filter:saturate(140%) blur(16px);
-      background:color-mix(in srgb, var(--surface) 90%, transparent);
-      border-bottom:1px solid var(--border);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-      animation: fadeIn 0.5s ease-out;
-    }
-    .header-inner{
-      max-width:var(--wrap); margin:0 auto; padding:.75rem var(--pad);
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-    }
-    .brand-wrap{display:inline-flex; align-items:center; gap:10px; text-decoration:none; color:var(--text)}
-    .brand-logo{width:32px; height:32px;}
-    .brand-text{
-      font-weight:800; letter-spacing:.2px; font-size:1.05rem;
-      background:var(--grad-title); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
-    }
-
-    /* Enhanced Nav with Icons */
-    .main-nav ul{list-style:none; margin:0; padding:0; display:flex; align-items:center; gap:6px}
-    .main-nav a{
-      display: inline-flex; align-items: center; gap: 6px;
-      color:var(--muted); text-decoration:none; font-weight:600; padding:8px 14px; border-radius:10px; font-size:.9rem;
-      transition: all 0.2s ease;
-    }
-    .main-nav a svg { width: 16px; height: 16px; opacity: 0.7; transition: opacity 0.2s; stroke: currentColor; stroke-width: 2; }
-    .main-nav a:hover{
-      color:var(--accent); background-color:color-mix(in srgb, var(--accent) 8%, transparent);
-    }
-    .main-nav a:hover svg { opacity: 1; stroke: var(--accent); }
-    .main-nav a[aria-current="page"] {
-      color:var(--accent); background-color:color-mix(in srgb, var(--accent) 12%, transparent);
-    }
-    .main-nav a[aria-current="page"] svg { opacity: 1; stroke: var(--accent); }
-
-    .nav-toggle{display:none; border:0; background:none; cursor:pointer; padding:4px}
-    .nav-toggle-bar{width:22px; height:2px; background:var(--text); display:block; margin:4px 0; border-radius:2px;}
-    
-    @media (max-width:900px){
-      .nav-toggle{display:block}
-      .main-nav{display:none}
-      .main-nav.open{display:block}
-      .main-nav ul{
-        position:fixed; right:12px; top:68px; background:var(--surface); border:1px solid var(--border);
-        border-radius:12px; box-shadow:var(--shadow-e2); padding:12px; flex-direction:column; min-width: 200px;
-      }
-      .main-nav a { justify-content: flex-start; width: 100%; }
-    }
-
-    /* Theme Toggle */
-    .theme-toggle{
-      width:40px; height:40px; border-radius:50%; border:1px solid var(--border); background:var(--surface);
-      display:grid; place-items:center; cursor:pointer; position:relative; overflow:hidden; padding:0;
-      transition: all 0.2s;
-    }
-    .theme-toggle:hover{transform:scale(1.05); border-color: var(--accent);}
-    .theme-toggle .icon{position:absolute; width:20px; height:20px; transition:transform .3s cubic-bezier(.4,0,.2,1.4), opacity .25s linear}
-    .icon-sun{color:var(--gold); transform:scale(0) rotate(90deg); opacity:0}
-    .icon-moon{color:var(--white); transform:scale(1) rotate(0); opacity:1}
-    html[data-theme="light"] .icon-sun{transform:scale(1) rotate(0); opacity:1}
-    html[data-theme="light"] .icon-moon{transform:scale(0) rotate(-90deg); opacity:0}
-    html[data-theme="dark"]  .icon-sun{transform:scale(0) rotate(90deg); opacity:0}
-    html[data-theme="dark"]  .icon-moon{transform:scale(1) rotate(0); opacity:1}
-
-    /* 2) Creative Hero (Premium Upgrade) */
-    .hero-premium {
-      position: relative;
-      padding: 6rem 1rem 8rem;
-      background-color: var(--slate-900);
-      /* Subtle texture or dark image */
-      background-image: url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1600&auto.format&fit=crop');
-      background-size: cover; background-position: center;
-      color: white; text-align: center; overflow: hidden;
-      animation: fadeIn 0.6s ease-out;
-      margin-bottom: -4rem; /* Overlap with content */
-    }
-    .hero-premium::before {
-      content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(180deg, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.95) 100%);
-      z-index: 1;
-    }
-    .hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
-    
-    .hero-premium h1 {
-      font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800;
-      margin-bottom: 1rem; line-height: 1.1;
-      /* Gold-Violet Gradient for Elite Look */
-      background: linear-gradient(135deg, #FDE68A 0%, #A78BFA 100%);
-      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-      text-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    }
-    .hero-premium p {
-      font-size: 1.25rem; color: rgba(255,255,255,0.9); line-height: 1.6; max-width: 70ch; margin: 0 auto;
-    }
-
-    /* 3) Main Content (Floating Card Style) */
-    main#main {
-      position: relative; z-index: 3;
-      max-width: var(--wrap); margin: 0 auto; padding: 0 var(--pad) 4rem;
-    }
-    
-    .content-wrapper {
-      background: var(--bg);
-      border-radius: 24px;
-      border: 1px solid var(--border);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-      padding: 3rem 2rem;
-      margin-bottom: 3rem;
-    }
-
-    .feature-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 3rem;
-    }
-    .feature-card {
-      background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 1.8rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .feature-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-e2); border-color: var(--accent); }
-    .feature-number { font-size: 0.8rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 8px; }
-    .feature-card h3 { font-family: var(--font-serif); font-size: 1.3rem; margin: 0 0 0.5rem; color: var(--text); }
-    .feature-card p { font-size: 0.95rem; color: var(--muted); line-height: 1.5; margin: 0; }
-    
-    .content-block { margin-bottom: 3rem; }
-    .content-block h2 { font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; color: var(--text); }
-    .content-block ul { padding-left: 1.2em; margin-top: 0.5rem; }
-
-    /* 4) Upgrade / Payment Section */
-    .upgrade-section {
-      background: linear-gradient(135deg, color-mix(in srgb, var(--surface) 95%, var(--violet)), var(--bg));
-      border: 1px solid var(--border); border-radius: 20px; padding: 3rem 2rem; text-align: center;
-      box-shadow: var(--shadow-e2); margin: 4rem 0; position: relative; overflow: hidden;
-    }
-    .upgrade-section::before {
-      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--grad-title);
-    }
-    
-    .price-display {
-      display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin: 2.5rem 0;
-    }
-    .price-box {
-      flex: 1; min-width: 300px; max-width: 400px;
-      background: var(--bg); padding: 2rem; border-radius: 16px;
-      border: 1px solid var(--border); box-shadow: 0 8px 24px rgba(0,0,0,0.04);
-      display: flex; flex-direction: column; align-items: center;
-    }
-    .price-region {
-      font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; display: block;
-    }
-    .price-val {
-      font-size: 2.2rem; font-weight: 800; color: var(--violet);
-      display: flex; align-items: center; gap: 12px;
-    }
-    .price-strike {
-      text-decoration: line-through; color: var(--muted); font-size: 1.2rem; font-weight: 500; opacity: 0.7;
-    }
-    
-    /* Instamojo Button */
-    .btn-instamojo {
-      display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%;
-      padding: 16px; background: #4f46e5; color: white; text-decoration: none;
-      border-radius: 8px; margin-top: 1.5rem; transition: transform 0.15s, box-shadow 0.15s;
-      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
-    }
-    .btn-instamojo:hover { transform: translateY(-2px); background: #4338ca; box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4); color: white; }
-    .btn-instamojo span:first-child { font-weight: 700; font-size: 1.1rem; }
-    .btn-instamojo span:last-child { font-size: 0.85rem; opacity: 0.9; font-weight: 400; margin-top: 2px; }
-
-    /* ENHANCED PAYPAL BUTTON (Exact Match to Screenshot/Code) */
-    .paypal-form-container {
-      display: inline-grid; justify-items: center; align-content: start; gap: 0.5rem; width: 100%; margin-top: 1.5rem;
-    }
-    .pp-LRCYEZGQYS5J2 {
-      text-align: center; border: none; border-radius: 0.25rem; min-width: 11.625rem; padding: 0 2rem; height: 3.2rem;
-      font-weight: 700; background-color: #FFD140; color: #000000; font-family: "Helvetica Neue", Arial, sans-serif;
-      font-size: 1rem; line-height: 1.25rem; cursor: pointer; width: 100%;
-      transition: filter 0.2s, transform 0.1s;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-    }
-    .pp-LRCYEZGQYS5J2:hover { filter: brightness(0.95); transform: translateY(-1px); }
-    
-    /* Trust Icons & Powered By */
-    .paypal-trust-icons { margin-top: 8px; height: 24px; width: auto; }
-    .paypal-powered-by { 
-      font-size: 0.75rem; color: var(--muted); display: flex; align-items: center; gap: 4px; margin-top: 4px; 
-    }
-    .paypal-powered-by img { height: 0.875rem; vertical-align: middle; }
-    /* Dark Mode Fix for PayPal Logo */
-    html[data-theme="dark"] .paypal-powered-by img {
-      filter: brightness(0) invert(1); opacity: 0.8;
-    }
-
-    .discount-badge {
-      display: inline-block; margin-top: 16px; padding: 6px 12px;
-      background: color-mix(in srgb, var(--green) 10%, var(--surface));
-      border: 1px solid color-mix(in srgb, var(--green) 30%, transparent);
-      color: var(--green); border-radius: 20px; font-size: 0.85rem; font-weight: 700;
-    }
-
-    /* 5) Unlock Section */
-    .unlock-box {
-      background: var(--surface); border: 1px dashed var(--border); border-radius: 12px;
-      padding: 2rem; text-align: center; max-width: 500px; margin: 3rem auto 0;
-    }
-    .unlock-input {
-      padding: 12px; border: 1px solid var(--border); border-radius: 8px;
-      font-size: 1rem; width: 60%; margin-right: 8px; background: var(--bg); color: var(--text);
-    }
-    .unlock-btn {
-      padding: 12px 20px; background: var(--surface); border: 1px solid var(--accent);
-      color: var(--accent); border-radius: 8px; font-weight: 700; cursor: pointer;
-    }
-    
-    /* WhatsApp Button (Visible on Dark/Light) */
-    .whatsapp-btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      background-color: #25D366; color: #fff !important; /* Force white text */
-      font-weight: 700; padding: 12px 24px; border-radius: 50px; margin-top: 16px;
-      text-decoration: none; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
-      transition: transform 0.15s, box-shadow 0.15s;
-    }
-    .whatsapp-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(37, 211, 102, 0.6); color: #fff; }
-    .whatsapp-btn svg { width: 20px; height: 20px; fill: #fff; }
-
-    .back-to-top{
-      position:fixed; bottom:26px; right:26px; width:48px; height:48px; border-radius:50%; border:1px solid var(--border);
-      display:grid; place-items:center; color:var(--accent); background:color-mix(in srgb, var(--surface) 92%, transparent); cursor:pointer;
-      box-shadow:var(--shadow-e2); opacity:0; visibility:hidden; transition:opacity .18s, transform .18s, visibility .18s; z-index:90;
-    }
-    .back-to-top.visible{opacity:1; visibility:visible; transform:translateY(0)}
-    .back-to-top:hover{background:color-mix(in srgb, var(--surface) 90%, var(--accent))}
-
-    /* Footer (Standard) */
-    .footer-section{position:relative; z-index:1; margin-top:32px; border-top:1px solid var(--border); background:var(--surface)}
-    .footer-divider{height:2px; border:0; margin:0 0 16px; background:linear-gradient(90deg, transparent, var(--violet), var(--blue), var(--gold), transparent); opacity:.3}
-    .site-footer{padding:0 var(--pad) 16px; max-width:var(--wrap); margin:0 auto; color:var(--muted)}
-    .footer-flex{display:flex; flex-direction:column; align-items:center; gap:12px}
-    .footer-nav{display:flex; gap:16px; flex-wrap:wrap; justify-content:center}
-    .footer-nav a{color:var(--muted); text-decoration:none; font-weight:600}
-    .footer-nav a:hover{color:var(--accent); text-decoration:underline}
-    .footer-brand{display:flex; align-items:center; gap:10px}
-    .footer-logo{height:24px; width:auto; filter:grayscale(0); opacity:.9}
-    .copyright{font-size:.95rem; color:var(--muted)}
-
-    /* Animation */
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-
-    @media print {
-      body { background: #fff; color: #000; }
-      .site-header, .theme-toggle, .back-to-top, .unlock-box { display: none; }
-      .upgrade-section { border: 1px solid #000; box-shadow: none; background: none; }
-      .hero-premium { background: none; color: #000; }
-      .hero-premium h1 { background: none; -webkit-text-fill-color: #000; }
-      .btn-instamojo, .pp-LRCYEZGQYS5J2, .whatsapp-btn { border: 1px solid #000; background: none !important; color: #000 !important; box-shadow: none !important; }
-    }
-
-/* Enhanced Unlock Section — Dark/Light Compatible */
-.enhanced-unlock {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 2.5rem 2rem;
-  margin: 3rem auto;
-  max-width: 520px;
-  box-shadow: var(--shadow-e2);
-  transition: background 0.3s ease, border-color 0.3s ease;
-}
-
-.unlock-title {
-  font-family: var(--font-serif);
-  font-size: 1.4rem;
-  margin-bottom: 0.75rem;
-  color: var(--text);
-}
-
-.unlock-description {
-  margin-bottom: 1.5rem;
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-
-.unlock-label {
-  display: block;
-  text-align: left;
-  color: var(--muted2);
-  font-size: 0.85rem;
-  margin-bottom: 6px;
-  font-weight: 600;
-}
-
-.enhanced-unlock-input {
-  width: 100% !important;
-  padding: 0.85rem 1rem;
-  border-radius: 12px !important;
-  border: 1px solid var(--border);
-  background: var(--bg);
-  color: var(--text);
-  font-size: 1rem;
-  transition: border-color 0.25s, box-shadow 0.25s;
-}
-
-.enhanced-unlock-input:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 4px var(--focus);
-}
-
-.enhanced-unlock-btn {
-  margin-top: 1rem;
-  width: 100%;
-  padding: 0.9rem 1.25rem;
-  font-size: 1rem;
-  border-radius: 12px;
-  border: 1px solid var(--accent);
-  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
-  color: var(--accent);
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.25s, transform 0.15s, box-shadow 0.25s;
-}
-
-.enhanced-unlock-btn:hover {
-  background: color-mix(in srgb, var(--accent) 20%, var(--surface));
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-e2);
-}
-
-.unlock-error {
-  margin-top: 1rem;
-  color: #ef4444;
-  font-size: 0.9rem;
-}
-
-.unlock-success {
-  margin-top: 1rem;
-  color: #10b981;
-  font-size: 0.9rem;
-}
-
-/* Dark mode refinements */
-html[data-theme="dark"] .enhanced-unlock {
-  background: var(--surface);
-  border-color: var(--border);
-}
-
-html[data-theme="dark"] .enhanced-unlock-btn:hover {
-  background: color-mix(in srgb, var(--accent) 25%, var(--surface));
-}
+    @media (max-width:560px){.header-inner,.wrap{padding-left:1rem;padding-right:1rem}.site-footer{flex-direction:column;gap:8px}}
   </style>
 </head>
-
 <body>
+  <a class="skip-link" href="#main" style="position:absolute;left:12px;top:6px;z-index:200;background:var(--surface);color:var(--text);padding:6px 10px;border-radius:8px;border:1px solid var(--border);transform:translateY(-150%);">Skip to content</a>
 
-  <!-- Elite Header with Icons -->
-  <header class="site-header">
+  <!-- Header (Exact look & links preserved) -->
+  <header class="site-header" role="banner">
     <div class="header-inner">
-      <a class="brand-wrap" href="/index.html">
-        <img src="https://aiartisan.hqaim.com/images/HQAIM_ICON.svg" class="brand-logo" alt="HQAIM Icon">
+      <a class="brand-wrap" href="/index.html" aria-label="The AI Artisan home">
+        <img src="https://aiartisan.hqaim.com/images/HQAIM_ICON.svg" class="brand-logo" alt="HQAIM Studios icon" width="32" height="32" />
         <span class="brand-text">The AI Artisan</span>
       </a>
-      <button class="nav-toggle" aria-label="Menu"><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span></button>
-      
-      <nav class="main-nav">
+      <nav class="main-nav" role="navigation" aria-label="Main">
         <ul>
-          <li>
-            <a href="/modules.html">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-              Modules
-            </a>
-          </li>
-          <li>
-            <a href="/fieldkit.html">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
-              Toolkit
-            </a>
-          </li>
-          <li>
-            <a href="/premium.html" aria-current="page">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-              Premium
-            </a>
-          </li>
-          <li>
-            <a href="/contact.html">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-              Contact
-            </a>
-          </li>
+          <li><a href="/foreword.html">Foreword</a></li>
+          <li><a href="/toc.html">Index</a></li>
+          <li><a href="/modules.html">Modules</a></li>
+          <li><a href="/fieldkit.html">Toolkit</a></li>
+          <li><a href="/premium.html" aria-current="page">Premium</a></li>
+          <li><a href="/contact.html">Contact</a></li>
         </ul>
       </nav>
 
-      <div class="right-tools">
-        <button id="themeToggle" class="theme-toggle" title="Toggle Theme">
-          <svg class="icon icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-          <svg class="icon icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      <div style="display:flex;align-items:center;gap:10px">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle color theme" aria-pressed="false" title="Toggle theme">
+          <svg class="icon icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+          <svg class="icon icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" style="display:none"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Creative Hero (Updated Text) -->
-  <section class="hero-premium">
-    <div class="hero-content">
-      <h1>Advanced Methods for Structured Intelligence.</h1>
-      <p>Designed for readers who need deeper structure, stronger control, and reliable outcomes.</p>
-      <p style="margin-top:1.5rem; font-size:1.1rem; opacity:0.8;">
-        The core edition gives you a complete foundation. The <strong>Premium Edition</strong> extends this for professional use. It delivers additional capability without adding complexity, following the same calm, repeatable approach.
-      </p>
-    </div>
-  </section>
+  <div class="hero-spacer"></div>
 
-  <main id="main">
-    
-    <!-- Floating Content Wrapper -->
-    <div class="content-wrapper">
-      <div class="content-block">
-        <h2>What the Premium Edition Includes</h2>
-        <p>The Premium Edition provides access to advanced modules and materials that expand the system beyond the core practice.</p>
-        
-        <div class="feature-grid">
-          <div class="feature-card">
-            <span class="feature-number">Module 14</span>
-            <h3>Collaborative Reasoning Structures</h3>
-            <p>Clear methods for shared reasoning, comparison, and structured decision-making.</p>
-          </div>
-          <div class="feature-card">
-            <span class="feature-number">Module 15</span>
-            <h3>Controlled Automation Systems</h3>
-            <p>Reliable multi-step flows with guardrails. Useful for work that needs predictable consistency.</p>
-          </div>
-          <div class="feature-card">
-            <span class="feature-number">Module 16</span>
-            <h3>Precision Prompt Patterns</h3>
-            <p>High-detail templates for technical, analytical, editorial, and professional tasks.</p>
-          </div>
-          <div class="feature-card">
-            <span class="feature-number">Module 17</span>
-            <h3>The Workflow Library</h3>
-            <p>Structured project workflows for research, planning, drafting, verification, and delivery.</p>
-          </div>
-          <div class="feature-card">
-            <span class="feature-number">Module 18</span>
-            <h3>Extended Field Kit</h3>
-            <p>Templates, checklists, and ready-to-use tools for daily execution. Includes BuildSheets™, Pattern Forge patterns, and Proof Artifact structures.</p>
-          </div>
+  <main id="main" role="main" tabindex="-1" class="wrap">
+
+    <!-- Lead-in message -->
+    <div style="max-width:900px;margin:0 auto;text-align:center;padding-top:10px;">
+      <h1 style="font-family:var(--font-serif);font-size:1.6rem;margin:0 0 .5rem;">Premium Access — Unlock Your Modules</h1>
+      <p style="color:var(--muted);margin:0 0 1rem;">Enter the Premium password you purchased. Access is granted instantly when the password is correct.</p>
+    </div>
+
+    <!-- ENHANCED UNLOCK BOX -->
+    <div class="enhanced-unlock">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+        <div style="font-size:1.6rem">🔐</div>
+        <div>
+          <div class="unlock-title">Premium Access Unlock</div>
+          <div class="unlock-description">Enter your Premium password to unlock the modules landing page.</div>
         </div>
       </div>
 
-      <div class="content-block">
-        <h2>Unannounced Bonuses Included With Premium</h2>
-        <p>These modules are not listed in the public TOC. They are included as part of Premium access.</p>
-        <ul>
-          <li><strong>Module 16 — Advanced Prompt Patterns:</strong> Specialised templates for complex and demanding tasks.</li>
-          <li><strong>Module 17 — Workflow Library:</strong> Structured workflows for real projects and team environments.</li>
-          <li><strong>Module 18 — The Field Kit:</strong> Tools, templates, and reference sheets for practical daily use.</li>
-        </ul>
-        <p>Each module builds on earlier concepts and strengthens long-term skill.</p>
-      </div>
+      <label for="premiumPassword" class="unlock-label">Password</label>
+      <input id="premiumPassword" type="password" class="enhanced-unlock-input" placeholder="Enter Premium Password" autocomplete="off" />
 
-      <div class="content-block">
-        <h2>Who Premium Is Designed For</h2>
-        <p>Premium access is ideal for:</p>
-        <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-          <li>consultants and freelancers</li>
-          <li>educators and trainers</li>
-          <li>analysts and researchers</li>
-          <li>team leads and operations roles</li>
-          <li>content, product, design, and business professionals</li>
-          <li>anyone managing high-stakes or multi-step work</li>
-        </ul>
-        <p>It supports readers who require predictable, documented, and repeatable results.</p>
-      </div>
+      <button id="unlockBtn" class="enhanced-unlock-btn" onclick="unlockPremium()">Unlock Now</button>
 
-      <div class="content-block">
-        <h2>A Consistent System</h2>
-        <p>Premium modules follow the same principles as the core edition:</p>
-        <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-          <li>short, clear instructions</li>
-          <li>calm voice</li>
-          <li>predictable structure</li>
-          <li>stable frameworks</li>
-          <li>model-agnostic prompts</li>
-          <li>measurable outcomes</li>
-        </ul>
-        <p>Every module uses CLARITY-7™, SPARK-5™, MIRROR-6™, VALOR-Δ, and TESSERA™. This ensures continuity from beginner to advanced practice.</p>
+      <p id="unlockError" class="unlock-error">Incorrect password. Please try again or contact support.</p>
+      <p id="unlockSuccess" class="unlock-success">✔ Access granted — redirecting…</p>
+
+      <div style="margin-top:1rem;text-align:center;color:var(--muted);font-size:.95rem">
+        <span style="display:inline-block;margin-top:8px">Need help? <a href="mailto:support@hqaim.com" style="color:var(--accent);text-decoration:underline">support@hqaim.com</a></span>
       </div>
     </div>
 
-    <!-- Pricing Section -->
-    <section class="upgrade-section" id="upgrade">
-      <h2>Request Premium Access</h2>
-      <p>Premium Edition access is available through a one-time upgrade.</p>
-
-      <div class="price-display">
-        
-        <!-- India Pricing -->
-        <div class="price-box">
-          <span class="price-region">For Indian Users</span>
-          <div class="price-val">
-            <span class="price-strike">₹8,759</span> ₹5,259
-          </div>
-          <a href="https://hqaimstudio.mojo.page/ai-artisan-premium-access" class="btn-instamojo" target="_blank" rel="noopener">
-            <span>Pay with Instamojo</span>
-            <span style="font-size: 0.85rem; opacity: 0.9; font-weight: 400;">Credit Card, UPI, Netbanking</span>
-          </a>
-          <p class="discount-badge">Use code <strong>ARTISAN40</strong> for 40% OFF</p>
-        </div>
-
-        <!-- International Pricing -->
-        <div class="price-box">
-          <span class="price-region">For International Users</span>
-          <div class="price-val">
-            <span class="price-strike">$99.00</span> $59.40 USD
-          </div>
-          
-          <!-- Enhanced PayPal Button (Exact Match) -->
-          <form action="https://www.paypal.com/ncp/payment/LRCYEZGQYS5J2" method="post" target="_blank" class="paypal-form-container">
-            <input class="pp-LRCYEZGQYS5J2" type="submit" value="Purchase Premium Access" />
-            <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" class="paypal-trust-icons"/>
-            <section class="paypal-powered-by">
-               Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" />
-            </section>
-          </form>
-
-          <p class="discount-badge">Use code <strong>ARTISAN40</strong> for 40% OFF</p>
-        </div>
-
-      </div>
-    </section>
-
-<!-- Unlock Section (Dark/Light Mode Enhanced) -->
-<div class="unlock-box enhanced-unlock">
-  <h3 class="unlock-title">🔐 Premium Access Unlock</h3>
-  <p class="unlock-description">
-    Enter your Premium password to unlock your modules instantly:
-  </p>
-
-  <div class="unlock-form">
-    <label for="premiumPassword" class="unlock-label">Password</label>
-
-    <input id="premiumPassword"
-           type="password"
-           class="unlock-input enhanced-unlock-input"
-           placeholder="Enter Premium Password"
-           autocomplete="off"
-           required />
-
-    <button onclick="unlockPremium()" class="unlock-btn enhanced-unlock-btn">
-      Unlock Now
-    </button>
-
-    <!-- Error Message -->
-    <p id="unlockError" class="unlock-error" style="display:none;">
-      Incorrect password. Please try again.
-    </p>
-
-    <!-- Success Message -->
-    <p id="unlockSuccess" class="unlock-success" style="display:none;">
-      ✔ Access Granted — Redirecting…
-    </p>
-  </div>
-</div>
-    
-    <div class="content-wrapper" style="margin-top: 3rem; text-align: center;">
-      <h2>Focus on Practical Value</h2>
-      <p>The Premium Edition is built for reliability. It supports clearer planning, stronger reasoning, measurable improvement, consistent delivery, structured problem-solving, and better review and verification. It is designed for real work, not volume or novelty.</p>
-    </div>
-
-    <!-- Support -->
-    <div class="content-block" style="text-align: center; margin-top: 4rem;">
-      <p>For assistance with Premium Access: <a href="mailto:support@hqaim.com" style="color: var(--link);">support@hqaim.com</a></p>
-      
-      <a href="https://api.whatsapp.com/send?phone=919172991319&text=AI%20Artisan%20Premium%20Access%20—%20HQAIM%20Studios" target="_blank" class="whatsapp-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-        Connect on WhatsApp
-      </a>
-    </div>
+    <!-- Small footer note -->
+    <div style="text-align:center;margin-top:1.5rem;color:var(--muted);font-size:0.95rem">After unlocking you'll be redirected to the modules landing page. Links expire automatically for security.</div>
 
   </main>
 
   <!-- Back to Top -->
-  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" title="Back to top">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
   </button>
 
   <!-- Footer -->
-  <footer class="footer-section">
-    <hr class="footer-divider" />
+  <footer class="footer-section" role="contentinfo">
     <div class="site-footer">
-      <div class="footer-flex">
-        <nav class="footer-nav">
-          <a href="/toc.html">Index</a>
-          <a href="/contact.html">Contact</a>
-          <a href="/privacy.html">Privacy</a>
-          <a href="/terms.html">Terms</a>
-          <a href="/sitemap.xml">Sitemap</a>
-        </nav>
-        <div class="footer-brand">
-          <img src="https://aiartisan.hqaim.com/assets/images/HQAIM_LOGO_Gradient_Minimal.svg" class="footer-logo" alt="HQAIM Studios logo" width="120" height="26">
-          <span class="copyright">© 2025 Abdullah Khan · HQAIM Studios</span>
-        </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="/toc.html">Index</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:10px">
+        <img src="https://aiartisan.hqaim.com/assets/images/HQAIM_LOGO_Gradient_Minimal.svg" alt="HQAIM Studios" style="height:26px" />
+        <div style="color:var(--muted);font-size:0.95rem">© <span id="year"></span> Abdullah Khan · HQAIM Studios</div>
       </div>
     </div>
   </footer>
@@ -692,97 +154,75 @@ html[data-theme="dark"] .enhanced-unlock-btn:hover {
   <script>
   (function(){
     'use strict';
-    const html=document.documentElement;
-    const toggle=document.getElementById('themeToggle');
-    const backToTop=document.getElementById('backToTop');
-    const navToggle=document.querySelector('.nav-toggle');
-    const mainNav=document.querySelector('.main-nav');
-    const storageKey='aiartisan_theme_preference';
-    const prefersDark=window.matchMedia('(prefers-color-scheme: dark)');
-    
-    function getPref(){
-      const saved=localStorage.getItem(storageKey);
-      if(saved) return saved;
-      return prefersDark.matches?'dark':'light';
-    }
-    function applyTheme(t){
-      html.dataset.theme=t;
-      if(toggle) toggle.setAttribute('aria-pressed', String(t==='dark'));
-    }
+    // Theme toggle / initial state
+    const html = document.documentElement;
+    const metaTheme = document.getElementById('themeColor');
+    const toggle = document.getElementById('themeToggle');
+    const backToTop = document.getElementById('backToTop');
+    const navToggle = document.querySelector('.nav-toggle');
+    const mainNav = document.querySelector('nav.main-nav');
+    const yearEl = document.getElementById('year');
+    if(yearEl) yearEl.textContent = new Date().getFullYear();
+
+    const storageKey = 'aiartisan_theme_preference';
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    function getPref(){ const saved = localStorage.getItem(storageKey); if(saved==='light'||saved==='dark') return saved; return prefersDark.matches ? 'dark' : 'light'; }
+    function applyTheme(t){ html.dataset.theme = t; const sun = document.querySelector('.icon-sun'); const moon = document.querySelector('.icon-moon'); if(sun) sun.style.display = t==='light'? 'inline' : 'none'; if(moon) moon.style.display = t==='dark'? 'inline' : 'none'; if(toggle) toggle.setAttribute('aria-pressed', String(t==='dark')); }
     applyTheme(getPref());
-    
-    if(toggle){
-      toggle.addEventListener('click', ()=>{
-        const next=html.dataset.theme==='dark'?'light':'dark';
-        localStorage.setItem(storageKey,next);
-        applyTheme(next);
-      });
-    }
-    
-    if(navToggle && mainNav){
-      navToggle.addEventListener('click', ()=>{
-        const expanded=navToggle.getAttribute('aria-expanded')==='true';
-        navToggle.setAttribute('aria-expanded',String(!expanded));
-        mainNav.classList.toggle('open');
-      });
-    }
-    
-    if(backToTop){
-      window.addEventListener('scroll', ()=>{
-        if(window.scrollY>400) backToTop.classList.add('visible');
-        else backToTop.classList.remove('visible');
-      });
-      backToTop.addEventListener('click', ()=>{
-        window.scrollTo({top:0, behavior:'smooth'});
-      });
-    }
+    prefersDark.addEventListener('change', e => { if(!localStorage.getItem(storageKey)) applyTheme(e.matches ? 'dark' : 'light'); });
+    if(toggle){ toggle.addEventListener('click', ()=>{ const next = html.dataset.theme === 'dark' ? 'light' : 'dark'; localStorage.setItem(storageKey, next); applyTheme(next); }); }
+
+    if(navToggle && mainNav){ navToggle.addEventListener('click', ()=>{ const expanded = navToggle.getAttribute('aria-expanded') === 'true'; navToggle.setAttribute('aria-expanded', String(!expanded)); mainNav.classList.toggle('open'); }); }
+
+    if(backToTop){ window.addEventListener('scroll', ()=>{ if(window.scrollY>400) backToTop.classList.add('visible'); else backToTop.classList.remove('visible'); }); backToTop.addEventListener('click', ()=>{ window.scrollTo({ top: 0, behavior: 'smooth' }); }); }
   })();
   </script>
-<script>
-async function unlockPremium() {
-  const input = document.getElementById("premiumPassword");
-  const password = input.value.trim();
 
-  // Extract ?key=... from URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const key = urlParams.get("key");
+  <!-- Corrected unlock function: hardcoded key (modules/index.html) & improved UX -->
+  <script>
+  async function unlockPremium() {
+    const input = document.getElementById("premiumPassword");
+    const password = input.value.trim();
 
-  if (!key) {
-    alert("Missing content key. Contact support.");
-    return;
-  }
+    const errorEl = document.getElementById('unlockError');
+    const successEl = document.getElementById('unlockSuccess');
+    if(errorEl) errorEl.style.display = 'none';
+    if(successEl) successEl.style.display = 'none';
 
-  if (!password) {
-    alert("Please enter the password.");
-    return;
-  }
-
-  try {
-    const res = await fetch("https://ighfktyhwl.execute-api.us-east-1.amazonaws.com/default/AIArtisanPresignFunction", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ password, key })
-    });
-
-    if (!res.ok) {
-      alert("Incorrect password");
+    if (!password) {
+      if(errorEl){ errorEl.textContent = 'Please enter the password.'; errorEl.style.display = 'block'; }
       return;
     }
 
-    const data = await res.json();
+    const key = 'modules/index.html'; // always unlock modules landing page
 
-    if (!data || !data.url) {
-      alert("Unexpected response from server.");
-      return;
+    try {
+      const res = await fetch('https://ighfktyhwl.execute-api.us-east-1.amazonaws.com/default/AIArtisanPresignFunction', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password, key })
+      });
+
+      if (!res.ok) {
+        if(errorEl){ errorEl.textContent = 'Incorrect password. Please try again.'; errorEl.style.display = 'block'; }
+        return;
+      }
+
+      const data = await res.json();
+      if (!data || !data.url) {
+        alert('Unexpected response from server. Contact support.');
+        return;
+      }
+
+      if(successEl){ successEl.style.display = 'block'; }
+      // Small delay so user sees success
+      setTimeout(()=>{ window.location.href = data.url; }, 700);
+
+    } catch (err) {
+      console.error(err);
+      if(errorEl){ errorEl.textContent = 'Network error — check console or try again.'; errorEl.style.display = 'block'; }
     }
-
-    window.location.href = data.url;
-
-  } catch (err) {
-    console.error(err);
-    alert("Network error — check console.");
   }
-}
-</script>
+  </script>
 </body>
 </html>
