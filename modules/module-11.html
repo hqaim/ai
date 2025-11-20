@@ -1,0 +1,1078 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <!--
+    The AI Artisan — Module 11: Proof Artifacts™
+    Diamond Edition v109 Final (SVG Intersection Fix)
+    Author: Abdullah Khan · HQAIM Studios
+    Notes:
+      - FIXED: SVG Diagram spacing (Right side no longer intersects border).
+      - FIXED: Prompt 2 visual glitch.
+      - FIXED: All formatting (Markdown/LaTeX removed).
+      - Hero Image: Verified.
+  -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Metadata -->
+  <title>Module 11 — Proof Artifacts™ · The AI Artisan (Diamond Edition)</title>
+  <meta name="description" content="Learn how to create clear, structured Proof Artifacts™ that document outcomes, measure improvement, and support reliable decisions based on visible evidence." />
+  <meta name="keywords" content="proof artifacts, evidence logs, value tracking, workflows, outcomes, Δ measurement, VALOR-Δ, MIRROR-6 accuracy, continuity, AI results" />
+
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://aiartisan.hqaim.com/modules/module-11.html" />
+  <meta id="themeColor" name="theme-color" content="#ffffff" />
+  <meta name="color-scheme" content="light dark" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Module 11 — Proof Artifacts™ · The AI Artisan (Diamond Edition)" />
+  <meta property="og:description" content="Learn how to create clear, structured Proof Artifacts™ that document outcomes, measure improvement, and support reliable decisions based on visible evidence." />
+  <meta property="og:url" content="https://aiartisan.hqaim.com/modules/module-11.html" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1600&auto.format&fit=crop" />
+  <meta property="og:site_name" content="The AI Artisan" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Module 11 — Proof Artifacts™ · The AI Artisan (Diamond Edition)" />
+  <meta name="twitter:description" content="Learn how to create clear, structured Proof Artifacts™ that document outcomes, measure improvement, and support reliable decisions based on visible evidence." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1600&auto.format&fit=crop" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://aiartisan.hqaim.com/images/favicon.ico" type="image/x-icon" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+Pro:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================================
+       THE AI ARTISAN — Diamond Edition v67 (Golden Template)
+       Single-file CSS (screen + print)
+       ========================================================= */
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    :root{
+      color-scheme: light dark;
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --font-serif: 'Source Serif Pro', serif;
+      --font-mono: ui-monospace, SFMono-Regular, monospace;
+
+      --violet:#7c3aed; --blue:#2563eb; --green:#10b981; --gold:#f6be3e;
+      --white:#ffffff;  --black:#0f172a;
+
+      --slate-50:#f8fafc;  --slate-100:#f1f5f9; --slate-200:#e2e8f0;
+      --slate-300:#cbd5e1; --slate-400:#94a3b8; --slate-500:#64748b;
+      --slate-600:#475569; --slate-700:#334155; --slate-800:#1e293b;
+      --slate-900:#0f172a;
+
+      /* Light */
+      --bg:var(--white); --surface:var(--slate-50); --text:var(--slate-900);
+      --muted:#445268; --muted2:var(--slate-500); --border:var(--slate-200);
+      --accent:var(--violet); --link:var(--blue); --focus:rgba(37,99,235,.36);
+      --shadow-e2:0 8px 20px rgba(15,23,42,.08), 0 3px 8px rgba(15,23,42,.06);
+
+      --bg-gradient:
+        radial-gradient(1200px 600px at 0% -10%, color-mix(in srgb, var(--violet) 7%, transparent), transparent 70%),
+        radial-gradient(900px 500px at 100% 110%, color-mix(in srgb, var(--blue) 7%, transparent), transparent 70%),
+        linear-gradient(180deg, rgba(124,58,237,.03), rgba(37,99,235,.03)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Cpath fill='%239C92AC' fill-opacity='.015' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'/%3E%3C/svg%3E"),
+        var(--bg);
+
+      --svg-label:#0f172a;
+      --svg-desc: var(--muted);
+      --svg-fill-violet: color-mix(in srgb, var(--violet) 10%, var(--surface));
+      --svg-fill-blue: color-mix(in srgb, var(--blue) 10%, var(--surface));
+      --svg-fill-green: color-mix(in srgb, var(--green) 10%, var(--surface));
+      --svg-fill-gold: color-mix(in srgb, var(--gold) 20%, var(--surface));
+      --svg-fill-slate: color-mix(in srgb, var(--slate-400) 20%, var(--surface));
+
+      --code-bg-light:#f7f7fb; --code-bg-dark:#0f172a;
+      --grad-1: linear-gradient(95deg, var(--link), var(--accent));
+      --grad-title: linear-gradient(90deg, var(--violet), var(--blue));
+
+      --wrap:1100px; --pad:1.5rem;
+    }
+    html[data-theme="dark"]{
+      --bg:var(--slate-900); --surface:var(--slate-800); --text:var(--slate-50);
+      --muted:var(--slate-300); --muted2:var(--slate-400); --border:var(--slate-700);
+      --accent:#a78bfa; --link:#7dd3fc; --focus:rgba(124,58,237,.45);
+      --shadow-e2:0 10px 28px rgba(0,0,0,.35);
+
+      --bg-gradient:
+        radial-gradient(1200px 600px at 0% -10%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 70%),
+        radial-gradient(900px 500px at 100% 110%, color-mix(in srgb, var(--link) 10%, transparent), transparent 70%),
+        linear-gradient(180deg, rgba(124,58,237,.06), rgba(37,99,235,.06)),
+        var(--bg);
+
+      --svg-label:#ffffff;
+      --svg-desc: var(--muted);
+      --svg-fill-violet: color-mix(in srgb, var(--accent) 20%, var(--surface));
+      --svg-fill-blue: color-mix(in srgb, var(--link) 20%, var(--surface));
+      --svg-fill-green: color-mix(in srgb, var(--green) 20%, var(--surface));
+      --svg-fill-gold: color-mix(in srgb, var(--gold) 25%, var(--surface));
+      --svg-fill-slate: color-mix(in srgb, var(--slate-400) 30%, var(--surface));
+      
+      --grad-title: linear-gradient(90deg, var(--accent), var(--link));
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font:16px/1.65 var(--font-sans); color:var(--text);
+      background:var(--bg-gradient); background-attachment:fixed;
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    .wrap{max-width:var(--wrap); margin:0 auto; padding:0 var(--pad)}
+    
+    ul, ol { padding-left: 1.5em; margin: 1em 0; }
+    li { margin-bottom: 0.5em; }
+    p { margin: 0.8em 0; }
+    
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation:none!important;transition:none!important}
+    }
+
+    .sr-only{
+      position:absolute!important; width:1px; height:1px; padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap; border:0;
+    }
+
+    /* Header */
+    .site-header{
+      position:sticky; top:0; z-index:100;
+      backdrop-filter:saturate(140%) blur(8px);
+      background:color-mix(in srgb, var(--surface) 92%, transparent);
+      border-bottom:1px solid var(--border);
+      animation: fadeIn 0.5s ease-out;
+    }
+    .header-inner{
+      max-width:var(--wrap); margin:0 auto; padding:.65rem var(--pad);
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .brand-wrap{display:inline-flex; align-items:center; gap:10px; text-decoration:none; color:var(--text)}
+    .brand-logo{width:32px; height:32px; display:inline-block}
+    .brand-text{
+      font-weight:800; letter-spacing:.2px; font-size:1rem;
+      background:linear-gradient(95deg, var(--accent), var(--link));
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+      transition:filter .2s;
+    }
+    .brand-wrap:hover .brand-text{filter:brightness(1.06)}
+
+    .nav-toggle{display:none; border:0; background:none; cursor:pointer; padding:4px}
+    .nav-toggle-bar{
+      width:22px; height:2px; background:var(--text); display:block; margin:4px 0; border-radius:2px;
+      transition:transform .2s, opacity .2s;
+    }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2){opacity:0}
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+    nav.main-nav{display:block}
+    .main-nav ul{list-style:none; margin:0; padding:0; display:flex; align-items:center; gap:10px}
+    .main-nav a{
+      color:var(--muted); text-decoration:none; font-weight:600; padding:6px 10px; border-radius:8px; font-size:.95rem;
+      transition:color .2s, background-color .2s;
+    }
+    .main-nav a[aria-current="page"], .main-nav a:hover{
+      color:var(--accent); background-color:color-mix(in srgb, var(--accent) 10%, transparent)
+    }
+
+    .right-tools{display:inline-flex; align-items:center; gap:10px}
+    .theme-toggle{
+      width:40px; height:40px; border-radius:50%; border:1px solid var(--border); background:var(--surface);
+      display:grid; place-items:center; cursor:pointer; position:relative; overflow:hidden; padding:0;
+      transition:transform .18s, box-shadow .18s, background-color .18s; -webkit-tap-highlight-color:transparent;
+    }
+    .theme-toggle:hover{transform:translateY(-1px) scale(1.05); box-shadow:0 0 10px var(--focus)}
+    .theme-toggle .icon{position:absolute; width:20px; height:20px; transition:transform .3s cubic-bezier(.4,0,.2,1.4), opacity .25s linear}
+    .icon-sun{color:var(--gold); transform:scale(0) rotate(90deg); opacity:0}
+    .icon-moon{color:var(--white); transform:scale(1) rotate(0); opacity:1}
+    html[data-theme="light"] .icon-sun{transform:scale(1) rotate(0); opacity:1}
+    html[data-theme="light"] .icon-moon{transform:scale(0) rotate(-90deg); opacity:0}
+    html[data-theme="dark"]  .icon-sun{transform:scale(0) rotate(90deg); opacity:0}
+    html[data-theme="dark"]  .icon-moon{transform:scale(1) rotate(0); opacity:1}
+
+    @media (max-width:820px){
+      .nav-toggle{display:inline-block}
+      nav.main-nav{display:none}
+      nav.main-nav.open{display:block}
+      .main-nav ul{
+        position:fixed; right:12px; top:60px; background:var(--surface); border:1px solid var(--border);
+        border-radius:12px; box-shadow:var(--shadow-e2); padding:12px; gap:10px; flex-direction:column;
+        transform:scale(.98); opacity:0; pointer-events:none; transition:transform .18s ease-out, opacity .18s ease-out;
+      }
+      nav.main-nav.open ul{transform:scale(1); opacity:1; pointer-events:auto}
+    }
+
+    :focus-visible{outline:3px solid var(--focus); outline-offset:3px; border-radius:4px}
+    .skip-link{
+      position:absolute; left:12px; top:6px; z-index:200; background:var(--surface); color:var(--text);
+      padding:6px 10px; border-radius:8px; border:1px solid var(--border);
+      transform:translateY(-150%); transition:transform .2s;
+    }
+    .skip-link:focus{transform:translateY(0%)}
+
+    /* Hero */
+    .hero{
+      max-width:var(--wrap); margin:0 auto; padding:18px var(--pad) 0;
+      animation: fadeIn 0.5s 0.1s ease-out backwards;
+    }
+    .hero-figure{
+      margin:0; border-radius:14px; overflow:hidden; border:1px solid var(--border); box-shadow:var(--shadow-e2); background:var(--surface);
+    }
+    .hero-figure img{display:block; width:100%; height:auto; aspect-ratio:16/7; object-fit:cover; background-color:var(--surface)}
+    .hero-caption{margin:0; padding:10px 14px; font-size:.96rem; color:var(--muted); background:color-mix(in srgb, var(--surface) 92%, transparent); border-top:1px solid var(--border)}
+
+    .intro{
+      padding:12px var(--pad) 4px; max-width:var(--wrap); margin:0 auto;
+      animation: fadeIn 0.5s 0.2s ease-out backwards;
+    }
+    .intro p{margin:10px 0; color:var(--muted); font-size:clamp(1rem, 1.2vw, 1.05rem); max-width:75ch}
+
+    .breadcrumbs{
+      max-width:var(--wrap); margin:0 auto; padding:8px var(--pad) 0; font-size:.95rem; color:var(--muted);
+      animation: fadeIn 0.5s 0.3s ease-out backwards;
+    }
+    .breadcrumbs a{color:var(--muted); text-decoration:none; font-weight:600}
+    .breadcrumbs a:hover{color:var(--accent); text-decoration:underline}
+    .breadcrumbs .sep{opacity:.6; padding:0 .35rem}
+
+    /* Main */
+    main#main{
+      max-width:var(--wrap); margin:0 auto; padding:8px var(--pad) 24px;
+      animation: fadeIn 0.5s 0.4s ease-out backwards;
+    }
+    .page-title{
+      margin:8px 0 4px; font-size:clamp(1.9rem, 3.8vw, 2.6rem); font-weight:800;
+      font-family: var(--font-serif);
+      background: var(--grad-title);
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; letter-spacing:.2px;
+    }
+    .page-sub{margin:0 0 10px; color:var(--muted); font-weight:600}
+
+    section.module-section{
+      margin:20px 0; padding:14px; border-radius:12px; background:color-mix(in srgb, var(--surface) 86%, transparent);
+      border:1px solid var(--border); box-shadow:var(--shadow-e2); page-break-before:always;
+    }
+    section.module-section:first-of-type{page-break-before:auto}
+    
+    .section-title{
+      margin:0 0 6px; font-size:clamp(1.2rem, 2.3vw, 1.45rem); font-weight:800; letter-spacing:.2px; color:var(--text);
+      font-family: var(--font-serif);
+      background: var(--grad-title);
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+    }
+    .section-lead{margin:2px 0 10px; color:var(--muted)}
+    
+    blockquote.core {
+      margin: 1em 0;
+      padding: 10px 14px;
+      border-left: 4px solid var(--accent);
+      background: color-mix(in srgb, var(--accent) 6%, var(--surface));
+      border-radius: 0 8px 8px 0;
+      font-family: var(--font-serif);
+      font-size: 1.05em;
+      letter-spacing: 0.1px;
+    }
+    blockquote.core p { margin: 0; font-weight: 600; }
+
+    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+    @media (max-width:820px){.grid-2{grid-template-columns:1fr}}
+
+    .card{background:color-mix(in srgb, var(--surface) 88%, transparent); border:1px solid var(--border); border-radius:12px; padding:12px 14px;}
+    .card h3 {
+      margin-top: 0;
+      font-family: var(--font-serif);
+    }
+    .card ul, .card ol { padding-left: 1.2em; }
+
+    .prompt{position:relative; margin:12px 0 6px; border-radius:12px; border:1px solid var(--border); overflow:hidden; background:var(--code-bg-light)}
+    html[data-theme="dark"] .prompt{background:color-mix(in srgb, var(--code-bg-dark) 92%, transparent)}
+    .prompt-header{display:flex; justify-content:space-between; align-items:center; padding:8px 10px; border-bottom:1px solid var(--border); background:color-mix(in srgb, var(--surface) 92%, transparent)}
+    .prompt-title{font-weight:800}
+    .prompt pre{margin:0; padding:12px; overflow-x:hidden; white-space:pre-wrap; word-break:break-word}
+    .prompt code{
+      font-family: var(--font-mono);
+      font-size:.95rem; white-space:pre-wrap; display:block;
+    }
+    .prompt-meta{font-size:.92rem; color:var(--muted); margin:4px 0}
+    .copy-btn{
+      appearance:none; border:1px solid var(--border); background:var(--grad-1); color:#fff; font-weight:700; font-size:.9rem; border-radius:8px; padding:6px 10px;
+      cursor:pointer; transition:transform .15s, box-shadow .15s, filter .15s;
+    }
+    .copy-btn:hover{transform:translateY(-1px); box-shadow:0 4px 10px rgba(0,0,0,.18)}
+    .copy-btn:focus-visible{outline:3px solid var(--focus); outline-offset:2px}
+    html[data-theme="dark"] .copy-btn{color:var(--black); background:linear-gradient(95deg, var(--gold), color-mix(in srgb, var(--gold) 80%, #ffc66f)); border-color:color-mix(in srgb, var(--gold) 25%, var(--border))}
+    
+    .prompt-explainer { margin-top: 14px; }
+    .prompt-explainer h3 {
+      margin-top: 0;
+      font-family: var(--font-serif);
+    }
+    
+    details {
+      margin-top: 1em;
+      background: color-mix(in srgb, var(--border) 20%, transparent);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    details[open] { background: color-mix(in srgb, var(--surface) 80%, transparent); }
+    summary {
+      font-weight: 600;
+      color: var(--muted);
+      padding: 8px 12px;
+      cursor: pointer;
+      list-style-position: inside;
+      transition: background-color .2s;
+    }
+    summary:hover {
+      background: color-mix(in srgb, var(--border) 40%, transparent);
+    }
+    details[open] summary {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+    }
+    .details-content {
+      padding: 0 12px 12px;
+      border-top: 1px solid var(--border);
+      margin-top: 8px;
+    }
+    .details-content p, .details-content ol, .details-content ul { margin-bottom: 0; }
+    .details-content code {
+      background: color-mix(in srgb, var(--border) 50%, transparent);
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-size: .9em;
+    }
+
+    /* SVG */
+    figure.diagram-flow{margin:0; padding:0}
+    .diagram-flow svg{
+      display:block; width:100%; height:auto; background:color-mix(in srgb, var(--surface) 88%, transparent);
+      border:1px solid var(--border); border-radius:12px;
+      font-family: var(--font-sans);
+    }
+    .diagram-flow figcaption{margin-top:8px; font-size:.95rem; color:var(--muted)}
+    .svg-label{fill:var(--svg-label); font-weight:700;}
+    .svg-desc{
+      fill: var(--svg-desc);
+      font-weight: 600;
+      font-size: 11px;
+      opacity: 0.9;
+    }
+    .g-violet-stroke { stroke: #7c3aed; }
+    .g-blue-stroke { stroke: #2563eb; }
+    .g-green-stroke { stroke: #10b981; }
+    .g-gold-stroke { stroke: #f6be3e; }
+    .g-slate-stroke { stroke: #94a3b8; }
+    .g-arrow-path {
+      stroke: var(--muted2);
+      stroke-width: 2.5;
+    }
+    .g-arrow-path-solution {
+      stroke: var(--accent);
+      stroke-width: 3;
+    }
+    html[data-theme="dark"] .g-violet-stroke { stroke: #a78bfa; }
+    html[data-theme="dark"] .g-blue-stroke { stroke: #7dd3fc; }
+    html[data-theme="dark"] .g-green-stroke { stroke: #6ee7b7; }
+    html[data-theme="dark"] .g-gold-stroke { stroke: #fde08a; }
+    html[data-theme="dark"] .g-slate-stroke { stroke: #e2e8f0; }
+    html[data-theme="dark"] .g-arrow-path-solution { stroke: var(--accent); }
+
+    .next-module-link {
+      color: var(--link);
+      text-decoration: underline;
+      font-size: 1.1em;
+      font-weight: 700;
+    }
+    .next-module-link:hover {
+      color: var(--accent);
+    }
+
+    /* Back to top */
+    .back-to-top{
+      position:fixed; bottom:26px; right:26px; width:48px; height:48px; border-radius:50%; border:1px solid var(--border);
+      display:grid; place-items:center; color:var(--accent); cursor:pointer; background:color-mix(in srgb, var(--surface) 92%, transparent);
+      box-shadow:var(--shadow-e2); opacity:0; visibility:hidden; transform:translateY(8px);
+      transition:opacity .18s, transform .18s, visibility .18s; z-index:90;
+    }
+    .back-to-top.visible{opacity:1; visibility:visible; transform:translateY(0)}
+    .back-to-top:hover{background:color-mix(in srgb, var(--surface) 90%, var(--accent))}
+
+    /* Footer */
+    .footer-section{position:relative; z-index:1; margin-top:32px; border-top:1px solid var(--border); background:var(--surface)}
+    .footer-divider{height:2px; border:0; margin:0 0 16px; background:linear-gradient(90deg, transparent, var(--violet), var(--blue), var(--gold), transparent); opacity:.3}
+    .site-footer{padding:0 var(--pad) 16px; max-width:var(--wrap); margin:0 auto; color:var(--muted)}
+    .footer-flex{display:flex; flex-direction:column; align-items:center; gap:12px}
+    .footer-nav{display:flex; gap:16px; flex-wrap:wrap; justify-content:center}
+    .footer-nav a{color:var(--muted); text-decoration:none; font-weight:600}
+    .footer-nav a:hover{color:var(--accent); text-decoration:underline}
+    .footer-brand{display:flex; align-items:center; gap:10px}
+    .footer-logo{height:24px; width:auto; filter:grayscale(0); opacity:.9}
+    .copyright{font-size:.95rem; color:var(--muted)}
+
+    @media (max-width:560px){
+      .header-inner, .hero, .intro, .breadcrumbs, main#main, .site-footer{padding-left:1rem; padding-right:1rem}
+    }
+
+    @media print{
+      @page{size:6in 9in; margin:0.75in}
+      html{color-scheme:light !important}
+      :root{
+        --bg:var(--white) !important; --surface:var(--white) !important; --text:var(--slate-900) !important;
+        --muted:#445268 !important; --muted2:var(--slate-500) !important; --border:var(--slate-200) !important;
+        --accent:var(--violet) !important; --link:var(--blue) !important;
+        --shadow-e2:none !important; --svg-label:#0f172a !important;
+        --svg-desc: var(--muted) !important;
+        --code-bg-light:#f7f7fb !important;
+        --grad-title: linear-gradient(90deg, var(--violet), var(--blue)) !important;
+        
+        --svg-fill-violet: color-mix(in srgb, var(--violet) 10%, var(--white)) !important;
+        --svg-fill-blue: color-mix(in srgb, var(--blue) 10%, var(--white)) !important;
+        --svg-fill-green: color-mix(in srgb, var(--green) 10%, var(--white)) !important;
+        --svg-fill-gold: color-mix(in srgb, var(--gold) 20%, var(--white)) !important;
+        --svg-fill-slate: color-mix(in srgb, var(--slate-400) 20%, var(--white)) !important;
+      }
+      body{
+        background:var(--bg) !important; color:var(--text) !important;
+        font-size:11pt; line-height:1.6;
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+        font-family: 'Inter', system-ui, sans-serif !important;
+      }
+      .page-title, .section-title, .card h3, .prompt-explainer h3 {
+        font-family: 'Source Serif Pro', serif !important;
+        -webkit-text-fill-color: transparent !important;
+        background: var(--grad-title) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+      }
+      .section-title {
+        border-left: none !important;
+        padding-left: 0 !important;
+      }
+      .prompt code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+      }
+      .site-header, .theme-toggle, .back-to-top, .footer-section, .copy-btn, .breadcrumbs, details > summary {display:none !important}
+      
+      section.module-section{
+        box-shadow:none !important; 
+        background:var(--white) !important; 
+        border: none !important;
+        padding: 10px 0;
+      }
+      .prompt{
+        background:var(--code-bg-light) !important; 
+        border: 1px solid var(--border) !important;
+      }
+      .diagram-flow svg{
+        background:var(--white) !important; 
+        border: none !important;
+      }
+      .card { 
+        border: none !important; 
+        background: var(--white) !important; 
+        box-shadow: none !important; 
+      }
+      
+      .hero-figure { page-break-after: avoid; } 
+      .hero-figure img { max-width: 100%; height: auto; }
+      
+      details, .details-content { border: none !important; background: none !important; padding: 0 !important; margin: 0 !important; }
+      details[open] { padding: 0 !important; }
+      details > * { display: block !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Live regions -->
+  <div id="theme-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+  <div id="copy-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+  <div id="scroll-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- ===================== Header (TOC parity) ===================== -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand-wrap" href="/index.html" aria-label="The AI Artisan home">
+        <img src="https://aiartisan.hqaim.com/images/HQAIM_ICON.svg" class="brand-logo" alt="HQAIM Studios icon" width="32" height="32" />
+        <span class="brand-text">The AI Artisan</span>
+      </a>
+
+      <!-- Mobile hamburger -->
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
+
+      <!-- Main navigation -->
+      <nav id="site-menu" class="main-nav" role="navigation" aria-label="Main">
+        <ul>
+          <li><a href="/foreword.html">Foreword</a></li>
+          <li><a href="/toc.html">Index</a></li>
+          <li><a href="/modules.html" aria-current="page">Modules</a></li>
+          <li><a href="/fieldkit.html">Toolkit</a></li>
+          <li><a href="/premium.html">Premium</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Theme toggle (always visible) -->
+      <div class="right-tools">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle color theme" aria-pressed="false" role="switch" title="Toggle theme">
+          <!-- Sun (light) -->
+          <svg class="icon icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+          </svg>
+          <!-- Moon (dark) -->
+          <svg class="icon icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== Hero ===================== -->
+  <section class="hero" aria-label="Module hero">
+    <figure class="hero-figure">
+      <!-- NEW Hero Image -->
+      <img
+        src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1600&auto.format&fit=crop"
+        alt="A neat stack of documented files and evidence, representing proof artifacts."
+        decoding="async"
+        fetchpriority="high"
+        width="1600"
+        height="700"
+        onerror="this.src='https://placehold.co/1600x700/f8fafc/64748b?text=Module+11+Hero+Image+(Evidence)';this.onerror=null;"
+      />
+      <figcaption class="hero-caption">
+        Clear records turn AI outputs into meaningful evidence. Proof Artifacts™ capture context, results, and improvement in a simple, reusable format. They make outcomes visible and comparable.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ===================== Intro ===================== -->
+  <div class="intro">
+    <p>You learn to document results in simple, structured records that show what changed and why it matters.</p>
+    <p>This module explains how to capture, store, and present verifiable outputs that demonstrate workflow reliability and value.</p>
+  </div>
+
+  <!-- ===================== Breadcrumbs ===================== -->
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="/toc.html">Index</a><span class="sep">/</span>
+    <a href="/modules.html">Modules</a><span class="sep">/</span>
+    <span aria-current="page">Module 11</span>
+  </nav>
+
+  <!-- ===================== Main ===================== -->
+  <main id="main" role="main" tabindex="-1" aria-labelledby="page-title">
+    
+    <!-- 1. Introduction & Overview (Combined Page Title) -->
+    <h1 id="page-title" class="page-title">Module 11 — Proof Artifacts™</h1>
+    <p class="page-sub">Documenting Visible Improvements and Measurable Outcomes</p>
+
+    <!-- 2. Key Insight -->
+    <section id="m11-sec-2" class="module-section" aria-labelledby="m11-sec-2-title">
+      <h2 id="m11-sec-2-title" class="section-title">Key Insight</h2>
+      <blockquote class="core">
+        <p>Clear records turn AI outputs into meaningful evidence. Proof Artifacts™ capture context, results, and improvement in a simple, reusable format. They make outcomes visible and comparable.</p>
+      </blockquote>
+    </section>
+
+    <!-- 3. Why This Matters -->
+    <section id="m11-sec-3" class="module-section" aria-labelledby="m11-sec-3-title">
+      <h2 id="m11-sec-3-title" class="section-title">Why This Matters</h2>
+      <p class="section-lead">Many AI tasks produce useful outputs, but users fail to keep track of what worked and why. Without records, results are forgotten, repeated mistakes return, and improvement becomes accidental. Professionals cannot make informed decisions when results remain unstructured.</p>
+      <p>Proof Artifacts™ solve this by capturing essential details: context, prompt or workflow used, output produced, and measurable improvement. This structure makes value visible, reduces uncertainty, and supports better planning. It also provides a clear trail of evidence for teams, clients, and future work.</p>
+      <p>For advanced practitioners, Proof Artifacts™ support reviews, pricing, quality checks, and system scaling. They connect workflows, prompts, and outcomes into a single, coherent unit that can be reused or audited at any time.</p>
+    </section>
+
+    <!-- 4. Framework Foundations -->
+    <section id="m11-sec-4" class="module-section" aria-labelledby="m11-sec-4-title">
+      <h2 id="m11-sec-4-title" class="section-title">Framework Foundations</h2>
+      <p>This module relies on four central frameworks. Each plays a specific role in documenting and evaluating results.</p>
+      <ul>
+        <li><strong>CLARITY-7™</strong> defines the purpose, audience, constraints, inputs, tone, format, and expected output of a task. This ensures each Proof Artifact™ starts with accurate context.</li>
+        <li><strong>SPARK-5™</strong> supports refinement cycles. It helps improve the wording and structure of artifacts so they stay clear.</li>
+        <li><strong>MIRROR-6™</strong> provides an accuracy review across six dimensions: meaning, accuracy, relevance, reliability, outcome alignment, and repeatability.</li>
+        <li><strong>VALOR-Δ</strong> measures value and improvement across key dimensions and assigns a simple Δ score. This provides a measurable signal of progress.</li>
+      </ul>
+      <p>Together, these frameworks ensure Proof Artifacts™ are complete, accurate, and meaningful. They also provide consistency across projects.</p>
+      
+      <!-- SVG Diagram for Module 11: Evidence Pathway -->
+      <figure class="diagram-flow" style="margin-top: 1.5em;">
+        <svg viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dsTitle dsDesc">
+          <title id="dsTitle">Diagram: Proof Artifact™ Evidence Pathway</title>
+          <desc id="dsDesc">A horizontal flow showing the pathway from Context to a final Proof Artifact. The steps are Context/Intent, Workflow Step, Verified Output, Delta, and Proof Artifact.</desc>
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M0,0 L10,5 L0,10 z" fill="var(--muted2)"/>
+            </marker>
+             <marker id="arrow-solution" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/>
+            </marker>
+          </defs>
+
+          <!-- Block 1: Context (CLARITY-7) -->
+          <g transform="translate(20 50)">
+            <rect width="140" height="90" rx="12" fill="var(--svg-fill-violet)" />
+            <rect width="140" height="90" rx="12" fill="transparent" class="g-violet-stroke" stroke-width="2"/>
+            <text x="70" y="40" class="svg-label" text-anchor="middle" font-size="14">Context</text>
+            <text x="70" y="65" class="svg-desc" text-anchor="middle">(CLARITY-7™)</text>
+          </g>
+
+          <!-- Block 2: Workflow Step -->
+          <g transform="translate(195 50)">
+            <rect width="140" height="90" rx="12" fill="var(--svg-fill-blue)" />
+            <rect width="140" height="90" rx="12" fill="transparent" class="g-blue-stroke" stroke-width="2"/>
+            <text x="70" y="40" class="svg-label" text-anchor="middle" font-size="14">Workflow Step</text>
+            <text x="70" y="65" class="svg-desc" text-anchor="middle">(Execution)</text>
+          </g>
+
+          <!-- Block 3: Verified Output (MIRROR-6) -->
+          <g transform="translate(370 50)">
+            <rect width="140" height="90" rx="12" fill="var(--svg-fill-green)" />
+            <rect width="140" height="90" rx="12" fill="transparent" class="g-green-stroke" stroke-width="2"/>
+            <text x="70" y="40" class="svg-label" text-anchor="middle" font-size="14">Verified Output</text>
+            <text x="70" y="65" class="svg-desc" text-anchor="middle">(MIRROR-6™)</text>
+          </g>
+
+          <!-- Block 4: Delta (VALOR-Δ) -->
+          <g transform="translate(545 50)">
+            <rect width="140" height="90" rx="12" fill="var(--svg-fill-gold)" />
+            <rect width="140" height="90" rx="12" fill="transparent" class="g-gold-stroke" stroke-width="2"/>
+            <text x="70" y="40" class="svg-label" text-anchor="middle" font-size="18" font-weight="bold">Δ</text>
+            <text x="70" y="65" class="svg-desc" text-anchor="middle">(VALOR-Δ)</text>
+          </g>
+          
+          <!-- Block 5: Proof Artifact (TESSERA) -->
+          <g transform="translate(720 50)">
+            <rect width="140" height="90" rx="12" fill="var(--svg-fill-slate)" />
+            <rect width="140" height="90" rx="12" fill="transparent" class="g-slate-stroke" stroke-width="2"/>
+            <text x="70" y="40" class="svg-label" text-anchor="middle" font-size="14">Proof Artifact™</text>
+            <text x="70" y="65" class="svg-desc" text-anchor="middle">(Evidence)</text>
+          </g>
+
+          <!-- Connecting Arrows -->
+          <path d="M160,95 L195,95" fill="none" class="g-arrow-path-solution" marker-end="url(#arrow-solution)" />
+          <path d="M335,95 L370,95" fill="none" class="g-arrow-path-solution" marker-end="url(#arrow-solution)" />
+          <path d="M510,95 L545,95" fill="none" class="g-arrow-path-solution" marker-end="url(#arrow-solution)" />
+          <path d="M685,95 L720,95" fill="none" class="g-arrow-path-solution" marker-end="url(#arrow-solution)" />
+            
+        </svg>
+        <figcaption>The Evidence Pathway: Context → Workflow Step → Verified Output → Δ → Proof Artifact™. This flow converts a task into visible evidence.</figcaption>
+      </figure>
+    </section>
+
+    <!-- 5. Core Ideas Explained -->
+    <section id="m11-sec-5" class="module-section" aria-labelledby="m11-sec-5-title">
+      <h2 id="m11-sec-5-title" class="section-title">Core Ideas Explained</h2>
+      
+      <div class="grid-2">
+        <div class="card">
+          <h3>What a Proof Artifact™ Is</h3>
+          <p>A <strong>Proof Artifact™</strong> is a small, structured record showing an AI task, its context, the steps taken, the output produced, and the improvement achieved.</p>
+          <p>It captures only what matters: the essential details needed to understand the outcome. They focus on clarity over volume. They serve as evidence for decisions, audits, pricing, and continuity. Each Proof Artifact™ stands alone.</p>
+        </div>
+        <div class="card">
+          <h3>Why Results Need Visibility</h3>
+          <p>AI work often happens fast. Without documentation, this work disappears. Reviewing past outputs becomes difficult, and the user loses insight into what produced good results.</p>
+          <p>Proof Artifacts™ provide visibility by keeping evidence organized. Visibility is essential for improvement. Professionals benefit because visible outcomes create trust.</p>
+        </div>
+        <div class="card">
+          <h3>The Importance of Δ (Improvement)</h3>
+          <p><strong>Δ</strong> represents measurable <strong>improvement</strong>. It can be numerical, qualitative, or comparative. Δ provides a simple, direct signal that something changed for the better.</p>
+          <p>Proof Artifacts™ include Δ because improvement matters more than raw output. Using Δ also helps compare results over time. This leads to more efficient and reliable processes.</p>
+        </div>
+        <div class="card">
+          <h3>Linking Workflows, Prompts, and Results</h3>
+          <p>Proof Artifacts™ <strong>link outcomes</strong> to the exact prompts or Buildsheet™ steps that produced them. This connection is essential for <strong>reuse</strong>. If a result is good, the user can quickly identify what caused it.</p>
+          <p>This link also supports continuity. TESSERA™ can store complete sets of related artifacts, prompts, and workflows. This creates a repeatable loop: pattern → workflow → outcome → proof → reuse.</p>
+        </div>
+      </div>
+      <div class="card" style="margin-top: 14px;">
+        <h3>Making Evidence Easy to Review</h3>
+        <p>A reviewer should understand the context, output, and Δ in less than one minute. This requires simple structure, clear sentences, and minimal detail. Proof Artifacts™ avoid long outputs, full transcripts, or unnecessary explanations. This clarity supports decision-making.</p>
+      </div>
+    </section>
+
+    <!-- 6. How the Framework Applies -->
+    <section id="m11-sec-6" class="module-section" aria-labelledby="m11-sec-6-title">
+      <h2 id="m11-sec-6-title" class="section-title">How the Framework Applies</h2>
+      <p class="section-lead">Proof Artifacts™ depend on clear intent, accurate execution, and measurable outcomes. <strong>CLARITY-7™</strong> provides the starting context.</p>
+      <p>Once an artifact is drafted, <strong>SPARK-5™</strong> refines unclear wording. <strong>MIRROR-6™</strong> checks accuracy, relevance, reliability, outcome alignment, and repeatability. <strong>VALOR-Δ</strong> assigns simple value signals. These frameworks work together to maintain <strong>consistency</strong>.</p>
+    </section>
+
+    <!-- 7. Prompt Vault -->
+    <section id="m11-sec-7" class="module-section" aria-labelledby="m11-sec-7-title">
+      <h2 id="m11-sec-7-title" class="section-title">Prompt Vault</h2>
+      <p class="section-lead">This section provides four Pattern Forge prompts tailored to <strong>documenting, refining, comparing, and communicating outcomes</strong>. Each prompt works on any major AI model and contains concise explanations of the frameworks used.</p>
+
+      <!-- Prompt 1 -->
+      <div class="card prompt-explainer" style="margin-top: 14px;">
+        <h3>Pattern Forge Prompt 1 — Proof Artifact Builder</h3>
+        <div class="prompt" data-prompt="P1">
+          <div class="prompt-header">
+            <span class="prompt-title">Proof Artifact Builder</span>
+            <button class="copy-btn" type="button" data-copy="#code-p1-m11" title="Copy to clipboard">Copy</button>
+          </div>
+          <pre><code id="code-p1-m11">ROLE: Outcome Documentation Specialist
+CONTEXT: You need to record a result as a Proof Artifact™. A Proof
+Artifact™ captures context, task, output, and measurable Δ. CLARITY-7™
+defines purpose, audience, constraints, inputs, tone, and expected output.
+TASK: Convert the provided information into a clear, structured Proof
+Artifact™ with essential fields and short explanations.
+CONSTRAINTS: Keep sentences short; include Δ; avoid long transcripts; link
+to the prompt or workflow used.
+OUTPUT: A complete Proof Artifact™ ready for review.</code></pre>
+        </div>
+        <details>
+          <summary>Usage Guide</summary>
+          <div class="details-content">
+            <p><strong>When to use:</strong> When you want to convert an AI result into a structured artifact.</p>
+            <p><strong>Problem it solves:</strong> Unstructured results get lost, making improvement difficult.</p>
+            <p><strong>How to use:</strong> Paste the context, the prompt or Buildsheet™ reference, and the output. Run the prompt.</p>
+            <p><strong>What a good output looks like:</strong> A short, clear record with context, action, output, and Δ.</p>
+            <p><strong>Why it works:</strong> It uses CLARITY-7™ to structure the artifact and remove ambiguity.</p>
+            <p><strong>How a beginner benefits:</strong> They get a simple template without needing to understand frameworks deeply.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Prompt 2 -->
+      <div class="card prompt-explainer" style="margin-top: 14px;">
+        <h3>Pattern Forge Prompt 2 — Proof Artifact Cleaner</h3>
+        <div class="prompt" data-prompt="P2">
+          <div class="prompt-header">
+            <span class="prompt-title">Proof Artifact Cleaner</span>
+            <button class="copy-btn" type="button" data-copy="#code-p2-m11" title="Copy to clipboard">Copy</button>
+          </div>
+          <pre><code id="code-p2-m11">ROLE: Evidence Organizer
+CONTEXT: You have long or messy content. You need a clean Proof Artifact™.
+SPARK-5™ improves clarity through short refinement cycles.
+TASK: Distill the provided material into a concise Proof Artifact™ without
+losing important details.
+CONSTRAINTS: Remove repetition; keep only essential facts; highlight Δ;
+avoid technical language.
+OUTPUT: A cleaned Proof Artifact™ suitable for reuse or presentation.</code></pre>
+        </div>
+        <details>
+          <summary>Usage Guide</summary>
+          <div class="details-content">
+            <p><strong>When to use:</strong> When useful evidence is buried in long conversations.</p>
+            <p><strong>Problem it solves:</strong> Long transcripts prevent quick evaluation.</p>
+            <p><strong>How to use:</strong> Paste the messy content under the prompt. Run it. Review the reduced version.</p>
+            <p><strong>What a good output looks like:</strong> A clean record with less than one page of content.</p>
+            <p><strong>Why it works:</strong> SPARK-5™ removes noise while preserving meaning.</p>
+            <p><strong>How a beginner benefits:</strong> They can quickly prepare summaries without editing manually.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Prompt 3 -->
+      <div class="card prompt-explainer" style="margin-top: 14px;">
+        <h3>Pattern Forge Prompt 3 — Δ Comparison Builder</h3>
+        <div class="prompt" data-prompt="P3">
+          <div class="prompt-header">
+            <span class="prompt-title">Δ Comparison Builder</span>
+            <button class="copy-btn" type="button" data-copy="#code-p3-m11" title="Copy to clipboard">Copy</button>
+          </div>
+          <pre><code id="code-p3-m11">ROLE: Change Analyst
+CONTEXT: You have multiple outputs from one prompt or workflow. You need
+to compare them using Δ. VALOR-Δ measures value and improvement.
+TASK: Produce a comparison table showing before/after differences and a
+Δ score for each result.
+CONSTRAINTS: Use simple categories; keep comparisons short; explain each
+Δ score in one sentence.
+OUTPUT: A Δ comparison table and a short interpretation paragraph.</code></pre>
+        </div>
+        <details>
+          <summary>Usage Guide</summary>
+          <div class="details-content">
+            <p><strong>When to use:</strong> When you want to evaluate which version performed best.</p>
+            <p><strong>Problem it solves:</strong> Without structured comparison, improvements are unclear.</p>
+            <p><strong>How to use:</strong> Paste two or more outputs below the prompt. Run it. Review scores and interpretations.</p>
+            <p><strong>What a good output looks like:</strong> A clear table with simple Δ scores and one interpretation.</p>
+            <p><strong>Why it works:</strong> VALOR-Δ converts improvement into small numeric signals.</p>
+            <p><strong>How a beginner benefits:</strong> They can choose the best result without complex analysis.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Prompt 4 -->
+      <div class="card prompt-explainer" style="margin-top: 14px;">
+        <h3>Pattern Forge Prompt 4 — Client-Ready Proof Summary</h3>
+        <div class="prompt" data-prompt="P4">
+          <div class="prompt-header">
+            <span class="prompt-title">Client-Ready Proof Summary</span>
+            <button class="copy-btn" type="button" data-copy="#code-p4-m11" title="Copy to clipboard">Copy</button>
+          </div>
+          <pre><code id="code-p4-m11">ROLE: Result Communicator
+CONTEXT: You need to present outcomes to a non-technical reader. MIRROR-6™
+ensures accuracy and alignment. VALOR-Δ provides improvement signals.
+TASK: Summarize one or more Proof Artifacts™ in clear language suitable
+for clients or team members.
+CONSTRAINTS: Use plain terms; avoid technical labels; include Δ; keep the
+summary under 200 words.
+OUTPUT: A short results summary with 3–5 clear value points.</code></pre>
+        </div>
+        <details>
+          <summary>Usage Guide</summary>
+          <div class="details-content">
+            <p><strong>When to use:</strong> When sharing results with clients or stakeholders.</p>
+            <p><strong>Problem it solves:</strong> Technical evidence can overwhelm non-experts.</p>
+            <p><strong>How to use:</strong> Paste Proof Artifacts™ under the prompt. Run it.</p>
+            <p><strong>What a good output looks like:</strong> A short, clear explanation with visible improvement.</p>
+            <p><strong>Why it works:</strong> MIRROR-6™ preserves correctness, and VALOR-Δ highlights value.</p>
+            <p><strong>How a beginner benefits:</strong> They can present results confidently with simple summaries.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 8. Step-by-Step Method -->
+    <section id="m11-sec-8" class="module-section" aria-labelledby="m11-sec-8-title">
+      <h2 id="m11-sec-8-title" class="section-title">Step-by-Step Method</h2>
+      <p class="section-lead">This sequence keeps records accurate, consistent, and easy to reuse.</p>
+      <ol>
+        <li><strong>Define the context</strong> using CLARITY-7™.</li>
+        <li><strong>Record the task, input, and relevant workflow step.</strong></li>
+        <li><strong>Summarize the key output.</strong></li>
+        <li><strong>Identify measurable Δ</strong> and explain it in one line.</li>
+        <li><strong>Apply SPARK-5™ to clean</strong> and refine the artifact.</li>
+        <li><strong>Use MIRROR-6™ to check</strong> accuracy and alignment.</li>
+        <li><strong>Add a VALOR-Δ score</strong> if improvement is relevant.</li>
+        <li><strong>Store the artifact</strong> in your TESSERA™ continuity system.</li>
+      </ol>
+    </section>
+    
+    <!-- 9. Typical Mistakes & Fixes -->
+    <section id="m11-sec-9" class="module-section" aria-labelledby="m11-sec-9-title">
+      <h2 id="m11-sec-9-title" class="section-title">Typical Mistakes & Fixes</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Missing context</h3>
+          <p>Fix: Always include purpose, audience, and constraints using CLARITY-7™.</p>
+        </div>
+        <div class="card">
+          <h3>Too much detail</h3>
+          <p>Fix: Include only essential lines from outputs. Remove long transcripts.</p>
+        </div>
+        <div class="card">
+          <h3>No Δ recorded</h3>
+          <p>Fix: Add one sentence showing change or improvement.</p>
+        </div>
+        <div class="card">
+          <h3>Unverified content</h3>
+          <p>Fix: Apply MIRROR-6™ before storing or sharing.</p>
+        </div>
+      </div>
+      <div class="card" style="margin-top: 14px;">
+        <h3>Artifacts stored without structure</h3>
+        <p>Fix: Use consistent fields across all Proof Artifacts™.</p>
+      </div>
+    </section>
+    
+    <!-- 10. How to Check Your Results -->
+    <section id="m11-sec-10" class="module-section" aria-labelledby="m11-sec-10-title">
+      <h2 id="m11-sec-10-title" class="section-title">How to Check Your Results</h2>
+      <p class="section-lead">Use <strong>MIRROR-6™</strong> to verify correctness. Check meaning, accuracy, relevance, reliability, outcome alignment, and repeatability. Each dimension should pass in a simple review.</p>
+      <p>If improvement is important, use <strong>VALOR-Δ</strong>. Assign a score for value, alignment, leverage, outcome strength, repeatability, and Δ. A balanced score indicates solid progress. If several checks fail, rebuild or adjust the Proof Artifact™ before storing it.</p>
+    </section>
+
+    <!-- 11. Short Practice Tasks -->
+    <section id="m11-sec-11" class="module-section" aria-labelledby="m11-sec-11-title">
+      <h2 id="m11-sec-11-title" class="section-title">Short Practice Tasks</h2>
+      <div class="card">
+        <ol>
+          <li>Convert one recent AI output into a Proof Artifact™ with a Δ value.</li>
+          <li>Clean a long conversation into a short artifact using SPARK-5™.</li>
+          <li>Create a simple comparison table for two outputs using VALOR-Δ.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 12. Key Takeaways -->
+    <section id="m11-sec-12" class="module-section" aria-labelledby="m11-sec-12-title">
+      <h2 id="m11-sec-12-title" class="section-title">Key Takeaways</h2>
+      <ul>
+        <li>Proof Artifacts™ record meaningful outcomes.</li>
+        <li>Δ shows clear improvement.</li>
+        <li>Frameworks improve clarity, accuracy, and value.</li>
+        <li>Consistent structure supports long-term reuse.</li>
+        <li>Evidence strengthens decision-making and pricing.</li>
+      </ul>
+    </section>
+
+    <!-- 13. Next Module -->
+    <section id="m11-sec-13" class="module-section" aria-labelledby="m11-sec-13-title">
+      <h2 id="m11-sec-13-title" class="section-title">Next Module</h2>
+      <p><strong>Next: Module 12 — Proof-Based Pricing.</strong></p>
+      <p>It shows how to convert Proof Artifacts™ and Δ evidence into clear, fair pricing.</p>
+      <p style="margin-top: 1.5em;"><a href="/modules/module-12.html" class="next-module-link">Continue to Next Module → Module 12 — Proof-Based Pricing</a></p>
+    </section>
+
+  </main>
+
+  <!-- ===================== Back to Top ===================== -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" title="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <!-- ===================== Footer (TOC parity) ===================== -->
+  <footer class="footer-section" role="contentinfo">
+    <hr class="footer-divider" />
+    <div class="site-footer">
+      <div class="footer-flex">
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="/toc.html" rel="noopener">Index</a>
+          <a href="/contact.html" rel="noopener">Contact</a>
+          <a href="/privacy.html" rel="noopener">Privacy</a>
+          <a href="/terms.html" rel="noopener">Terms</a>
+          <a href="/sitemap.xml" rel="noopener">Sitemap</a>
+        </nav>
+        <div class="footer-brand">
+          <img src="https://aiartisan.hqaim.com/assets/images/HQAIM_LOGO_Gradient_Minimal.svg" class="footer-logo" alt="HQAIM Studios logo" width="120" height="26" />
+          <span class="copyright">© <span id="year"></span> Abdullah Khan · HQAIM Studios</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== Inline JavaScript (v51) ===================== -->
+  <script>
+  (function(){
+    'use strict';
+    
+    const html = document.documentElement;
+    const metaTheme = document.getElementById('themeColor');
+    const toggle = document.getElementById('themeToggle');
+    const backToTop = document.getElementById('backToTop');
+    const navToggle = document.querySelector('.nav-toggle');
+    const mainNav = document.querySelector('nav.main-nav');
+    const yearEl = document.getElementById('year');
+    
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    /* Theme toggle (parity with Module 01/TOC) */
+    const storageKey = 'aiartisan_theme_preference';
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function getPref(){
+      const saved = localStorage.getItem(storageKey);
+      if (saved === 'light' || saved === 'dark') return saved;
+      return prefersDark.matches ? 'dark' : 'light';
+    }
+    
+    function applyTheme(t, announce=false){
+      html.dataset.theme = t;
+      if (metaTheme) metaTheme.setAttribute('content', t === 'dark' ? '#0f172a' : '#ffffff');
+      if (toggle) {
+        toggle.setAttribute('aria-pressed', String(t === 'dark'));
+        const newLabel = 'Switch to ' + (t === 'dark' ? 'light' : 'dark') + ' theme';
+        toggle.setAttribute('title', newLabel);
+        toggle.setAttribute('aria-label', newLabel);
+      }
+    }
+    
+    applyTheme(getPref(), false);
+    
+    prefersDark.addEventListener('change', e => {
+      if (!localStorage.getItem(storageKey)) applyTheme(e.matches ? 'dark' : 'light', true);
+    });
+    
+    if (toggle){
+      toggle.addEventListener('click', () => {
+        const next = html.dataset.theme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem(storageKey, next);
+        applyTheme(next, true);
+      });
+      toggle.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle.click(); }
+      });
+    }
+
+    /* Copy buttons */
+    document.querySelectorAll('.copy-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const targetSelector = btn.getAttribute('data-copy');
+        const target = document.querySelector(targetSelector);
+        if(!target) return;
+        
+        const text = target.textContent.trim();
+        
+        try {
+          const textarea = document.createElement('textarea');
+          textarea.value = text;
+          textarea.style.position = 'fixed';
+          textarea.style.opacity = '0';
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+          
+          const prev = btn.textContent;
+          btn.textContent = 'Copied!';
+          setTimeout(()=>{ btn.textContent = prev; }, 2000);
+
+        } catch (err) {
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText(text).then(() => {
+              const prev = btn.textContent;
+              btn.textContent = 'Copied!';
+              setTimeout(() => { btn.textContent = prev; }, 2000);
+            });
+          }
+        }
+      });
+    });
+
+    /* Mobile navigation */
+    if (navToggle && mainNav){
+      navToggle.addEventListener('click', ()=>{
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', String(!expanded));
+        mainNav.classList.toggle('open');
+      });
+    }
+
+    /* Back to top */
+    if (backToTop) {
+      function onScroll(){
+        if (window.scrollY > 400){ backToTop.classList.add('visible'); }
+        else { backToTop.classList.remove('visible'); }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll(); 
+      
+      backToTop.addEventListener('click', ()=>{
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+    
+    /* Details/Summary toggle */
+    document.querySelectorAll('details').forEach(detail => {
+      detail.addEventListener('toggle', () => {});
+    });
+
+  })();
+  </script>
+</body>
+</html>
