@@ -189,8 +189,8 @@
                     <p class="text-[10px] text-gray-500 uppercase tracking-wider mb-1">How to get a key?</p>
                     <p class="text-xs text-gray-300">Access keys are distributed by the administrator. If you have lost your key, please use the contact form below.</p>
                 </div>
-                <a href="https://aiartisan.hqaim.com/contact.html" class="block w-full py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded text-xs font-bold uppercase tracking-wider text-gold transition-all">
-                    Contact Support
+                <a href="https://aiartisan.hqaim.com/contact.html" class="block w-full py-3 bg-gradient-to-r from-gold-dark to-gold hover:from-gold hover:to-gold-light text-black font-bold rounded text-xs uppercase tracking-wider transition-all shadow-lg shadow-gold/20 transform hover:scale-105 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-envelope"></i> Contact Support
                 </a>
             </div>
         </div>
@@ -203,10 +203,10 @@
         // 3. PASTE THE 'const lockConfig = ...' CODE BLOCK BELOW THIS LINE
         // =================================================================
         
-        const lockConfig = {
-  "salt": "K39GByM4nJOmd8MYygvKEQ==",
-  "iv": "rLO0p2nordQBScP5",
-  "ciphertext": "3jCD+9b2DwVu8Qv3cPgT8tLltQVpl9DK6HSXWCOBNOgmYL68EixICjqWrXnbYD4+/cFktY6xiw3gQ0Qi2Q+Au/fce8up7uNnGlHTrwd99Fvo7wu3DkY5UleaeixyD4VSPxhBikSrcXPAD5H0vQdKOlqEphRX3CCmKJGFtu+GsuOxoI/vJTDS"
+const lockConfig = {
+  "salt": "9higUmVl2pPp7aTGCRPQ3A==",
+  "iv": "oMfZM1ZxtPys4dNS",
+  "ciphertext": "k59aJEE4dOGBHSk5lUKEZnWltDhmXERV+2X9fHdUrHn/Eid/Z7YTWPeo4bG9dNi5AjV8UNYzRz4oF808LUbzO9P9QHWz7zF/8MLJye+0dnY8Iqnigwa/sOEcWTBSDIzikvVrVrKES9JZJKy88j0ayIqEKTyaF2PAw33oh1Acp7ueRM/Wp3p9"
 };
 
         // =================================================================
@@ -218,8 +218,7 @@
             const btnLoader = document.getElementById('btnLoader');
 
             if (!password) return;
-            
-            if (typeof lockConfig === 'undefined' || !lockConfig.salt || lockConfig.salt.includes("REPLACE_THIS")) {
+            if (typeof lockConfig === 'undefined') {
                 alert("System Error: No Lock Configuration Found. Please contact support.");
                 return;
             }
@@ -230,7 +229,7 @@
             statusMsg.style.opacity = '0';
 
             try {
-                // 1. Decode Base64 components
+                // 1. Decode Base64
                 const fromBase64 = (str) => Uint8Array.from(atob(str), c => c.charCodeAt(0));
                 const salt = fromBase64(lockConfig.salt);
                 const iv = fromBase64(lockConfig.iv);
@@ -238,7 +237,7 @@
 
                 const enc = new TextEncoder();
 
-                // 2. Derive Key from Password
+                // 2. Derive Key
                 const keyMaterial = await window.crypto.subtle.importKey(
                     "raw", enc.encode(password), { name: "PBKDF2" }, false, ["deriveKey"]
                 );
@@ -248,29 +247,25 @@
                     keyMaterial, { name: "AES-GCM", length: 256 }, false, ["decrypt"]
                 );
 
-                // 3. Attempt Decryption
+                // 3. Decrypt
                 const decryptedContent = await window.crypto.subtle.decrypt(
                     { name: "AES-GCM", iv: iv }, key, ciphertext
                 );
 
                 const dec = new TextDecoder();
                 const jsonString = dec.decode(decryptedContent);
-                let targetUrl = jsonString; // Fallback for old keys that were just URLs
+                let targetUrl = jsonString; 
 
-                // 4. Parse Payload & Check Expiry
+                // 4. Parse & Check Expiry
                 try {
                     const payload = JSON.parse(jsonString);
                     if (payload.url) {
-                        targetUrl = payload.url; // It is a structured payload
-                        
-                        // Check for expiration
+                        targetUrl = payload.url;
                         if (payload.expiry && Date.now() > payload.expiry) {
                             throw new Error("EXPIRED_KEY");
                         }
                     }
                 } catch (e) {
-                    // If parse fails, it's likely a plain string URL from an older key generator version.
-                    // Or if explicit error thrown above:
                     if (e.message === "EXPIRED_KEY") throw e;
                 }
 
@@ -285,7 +280,6 @@
                 }, 800);
 
             } catch (e) {
-                // Fail
                 console.error(e);
                 btnLoader.classList.add('hidden');
                 btnText.innerText = "AUTHENTICATE";
