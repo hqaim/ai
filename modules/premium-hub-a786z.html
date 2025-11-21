@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Premium Hub | The AI Artisan</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://aiartisan.hqaim.com/images/favicon.ico" type="image/x-icon" />
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Cinzel:wght@700&display=swap" rel="stylesheet">
@@ -20,6 +24,10 @@
                         'gold-dim': '#aa8c2c',
                         'accent-blue': '#3b82f6',
                         'accent-purple': '#8b5cf6',
+                        'tech-blue': '#38BDF8',
+                        'tech-emerald': '#34D399',
+                        'tech-purple': '#A78BFA',
+                        'tech-orange': '#FB923C'
                     },
                     fontFamily: {
                         sans: ['Outfit', 'sans-serif'],
@@ -70,6 +78,23 @@
         ::-webkit-scrollbar-track { background: #050507; }
         ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
         ::-webkit-scrollbar-thumb:hover { background: #d4af37; }
+        
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Vault Animations */
+        .vault-section {
+            animation: slideIn 0.4s ease-out forwards;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body class="flex h-screen overflow-hidden relative text-gray-300 font-sans">
