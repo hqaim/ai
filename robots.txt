@@ -2,5 +2,12 @@ User-agent: *
 Disallow: /modules/
 Disallow: /premium-access.html
 Disallow: /premium.html
+Disallow: /modules/premium-*
+Disallow: /modules/m14-*
+Disallow: /modules/m15-*
+Disallow: /modules/m16-*
+Disallow: /modules/m17-*
+Disallow: /modules/m18-*
 Allow: /
 Sitemap: https://aiartisan.hqaim.com/sitemap.xml
+
