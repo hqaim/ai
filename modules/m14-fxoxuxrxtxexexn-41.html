@@ -1,0 +1,1148 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <!--
+    The AI Artisan — Module 14: Collaborative Prompts
+    Diamond Edition v98 Final (Complete Manuscript)
+    Author: Abdullah Khan · HQAIM Studios
+    Notes:
+      - Full manuscript integration (Sections 1-14).
+      - Removed "Part 1 of 3" subtitle per instruction.
+      - Hero Image: "Collaborative Planning/Cards".
+      - Custom SVG Diagram: "Collaborative Reasoning Loop" (Circular).
+      - Typography: Corrected <strong> tags.
+      - Flawless 6x9 color print optimization.
+  -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Metadata from Manuscript (Section 1) -->
+  <title>Module 14 — Collaborative Prompts · The AI Artisan (Diamond Edition)</title>
+  <meta name="description" content="Learn how to use multi-role prompting to compare perspectives, explore options, and reach stronger decisions through structured shared reasoning." />
+  <meta name="keywords" content="collaborative prompts, multi-role prompting, shared reasoning, decision quality, structured workflows, CLARITY-7, MIRROR-6, VALOR-Δ, TESSERA, prompt systems, The AI Artisan, HQAIM Studios" />
+
+  <meta name="robots" content="noindex, nofollow" />
+  <meta id="themeColor" name="theme-color" content="#ffffff" />
+  <meta name="color-scheme" content="light dark" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Module 14 — Collaborative Prompts · The AI Artisan (Diamond Edition)" />
+  <meta property="og:description" content="Learn how to use multi-role prompting to compare perspectives, explore options, and reach stronger decisions through structured shared reasoning." />
+  <!-- Hero Image URL -->
+  <meta property="og:image" content="https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=1600&auto.format&fit=crop" />
+  <meta property="og:site_name" content="The AI Artisan" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Module 14 — Collaborative Prompts · The AI Artisan (Diamond Edition)" />
+  <meta name="twitter:description" content="Learn how to use multi-role prompting to compare perspectives, explore options, and reach stronger decisions through structured shared reasoning." />
+  <!-- Hero Image URL -->
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=1600&auto.format&fit=crop" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://aiartisan.hqaim.com/images/favicon.ico" type="image/x-icon" />
+
+  <!-- Google Fonts: Inter (body) & Source Serif Pro (headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+Pro:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- JSON-LD Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Module 14 — Collaborative Prompts",
+    "name": "Module 14 — Collaborative Prompts · The AI Artisan (Diamond Edition)",
+    "description": "This module teaches how to coordinate multiple AI roles to achieve clearer thinking and stronger decisions.",
+    "keywords": [
+       "collaborative prompts", "multi-role prompting", "shared reasoning", "decision quality", "structured workflows", "CLARITY-7", "MIRROR-6", "VALOR-Δ", "TESSERA"
+    ],
+    "about": "AI Prompt Engineering Frameworks",
+    "genre": "Educational Manual",
+    "author": { "@type": "Person", "name": "Abdullah Khan" },
+    "publisher": { "@type": "Organization", "name": "HQAIM Studios" },
+    "datePublished": "2025-12-01",
+    "dateModified": "2025-12-01",
+    "articleSection": "Part IV — Mastery & Scale",
+    "image": "https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=1600&auto.format&fit=crop",
+    "url": "https://aiartisan.hqaim.com/modules/module-14.html"
+  }
+  </script>
+
+  <style>
+    /* =========================================================
+       THE AI ARTISAN — Diamond Edition v93
+       Single-file CSS (screen + print)
+       ========================================================= */
+
+    /* 0) Keyframes for fade-in */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 0) Tokens */
+    :root{
+      color-scheme: light dark;
+      /* ENHANCEMENT: Dual-font system */
+      --font-sans: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+      --font-serif: 'Source Serif Pro', serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+      /* Core palette (Aetherium) */
+      --violet:#7c3aed; --blue:#2563eb; --green:#10b981; --gold:#f6be3e;
+      --white:#ffffff;  --black:#0f172a;
+
+      --slate-50:#f8fafc;  --slate-100:#f1f5f9; --slate-200:#e2e8f0;
+      --slate-300:#cbd5e1; --slate-400:#94a3b8; --slate-500:#64748b;
+      --slate-600:#475569; --slate-700:#334155; --slate-800:#1e293b;
+      --slate-900:#0f172a;
+
+      /* Light */
+      --bg:var(--white); --surface:var(--slate-50); --text:var(--slate-900);
+      --muted:#445268; --muted2:var(--slate-500); --border:var(--slate-200);
+      --accent:var(--violet); --link:var(--blue); --focus:rgba(37,99,235,.36);
+      --shadow-e2:0 8px 20px rgba(15,23,42,.08), 0 3px 8px rgba(15,23,42,.06);
+
+      /* Background shimmer */
+      --bg-gradient:
+        radial-gradient(1200px 600px at 0% -10%, color-mix(in srgb, var(--violet) 7%, transparent), transparent 70%),
+        radial-gradient(900px 500px at 100% 110%, color-mix(in srgb, var(--blue) 7%, transparent), transparent 70%),
+        linear-gradient(180deg, rgba(124,58,237,.03), rgba(37,99,235,.03)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Cpath fill='%239C92AC' fill-opacity='.015' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'/%3E%3C/svg%3E"),
+        var(--bg);
+
+      --svg-label:#0f172a;
+      --svg-desc: var(--muted);
+      /* ENHANCED SVG: Theme-aware fills */
+      --svg-fill-violet: color-mix(in srgb, var(--violet) 10%, var(--surface));
+      --svg-fill-blue: color-mix(in srgb, var(--blue) 10%, var(--surface));
+      --svg-fill-green: color-mix(in srgb, var(--green) 10%, var(--surface));
+      --svg-fill-gold: color-mix(in srgb, var(--gold) 20%, var(--surface));
+      --svg-fill-slate: color-mix(in srgb, var(--slate-400) 20%, var(--surface));
+
+      --code-bg-light:#f7f7fb; --code-bg-dark:#0f172a;
+
+      --grad-1: linear-gradient(95deg, var(--link), var(--accent));
+      /* Gradient for titles */
+      --grad-title: linear-gradient(90deg, var(--violet), var(--blue));
+
+      --wrap:1100px; --pad:1.5rem; --r:12px;
+    }
+    html[data-theme="dark"]{
+      --bg:var(--slate-900); --surface:var(--slate-800); --text:var(--slate-50);
+      --muted:var(--slate-300); --muted2:var(--slate-400); --border:var(--slate-700);
+      --accent:#a78bfa; --link:#7dd3fc; --focus:rgba(124,58,237,.45);
+      --shadow-e2:0 10px 28px rgba(0,0,0,.35);
+
+      --bg-gradient:
+        radial-gradient(1200px 600px at 0% -10%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 70%),
+        radial-gradient(900px 500px at 100% 110%, color-mix(in srgb, var(--link) 10%, transparent), transparent 70%),
+        linear-gradient(180deg, rgba(124,58,237,.06), rgba(37,99,235,.06)),
+        var(--bg);
+
+      --svg-label:#ffffff;
+      --svg-desc: var(--muted);
+      /* ENHANCED SVG: Theme-aware fills */
+      --svg-fill-violet: color-mix(in srgb, var(--accent) 20%, var(--surface));
+      --svg-fill-blue: color-mix(in srgb, var(--link) 20%, var(--surface));
+      --svg-fill-green: color-mix(in srgb, var(--green) 20%, var(--surface));
+      --svg-fill-gold: color-mix(in srgb, var(--gold) 25%, var(--surface));
+      --svg-fill-slate: color-mix(in srgb, var(--slate-400) 30%, var(--surface));
+      
+      /* ENHANCEMENT: Use lighter, theme-aware gradient for dark mode titles */
+      --grad-title: linear-gradient(90deg, var(--accent), var(--link));
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font:16px/1.65 var(--font-sans); color:var(--text); /* Use sans font */
+      background:var(--bg-gradient); background-attachment:fixed;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      text-rendering:optimizeLegibility;
+    }
+    .wrap{max-width:var(--wrap); margin:0 auto; padding:0 var(--pad)}
+    
+    /* Base Typography */
+    ul, ol { padding-left: 1.5em; margin: 1em 0; }
+    li { margin-bottom: 0.5em; }
+    p { margin: 0.8em 0; }
+    
+    /* Reduced motion */
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation:none!important;transition:none!important}
+    }
+
+    /* Visually hidden utility (used by live regions) */
+    .sr-only{
+      position:absolute!important; width:1px; height:1px; padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap; border:0;
+    }
+
+    /* 1) Header (TOC parity) */
+    .site-header{
+      position:sticky; top:0; z-index:100;
+      backdrop-filter:saturate(140%) blur(8px);
+      background:color-mix(in srgb, var(--surface) 92%, transparent);
+      border-bottom:1px solid var(--border);
+      /* Add subtle fade-in */
+      animation: fadeIn 0.5s ease-out;
+    }
+    .header-inner{
+      max-width:var(--wrap); margin:0 auto; padding:.65rem var(--pad);
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .brand-wrap{display:inline-flex; align-items:center; gap:10px; text-decoration:none; color:var(--text)}
+    .brand-logo{width:32px; height:32px; display:inline-block}
+    .brand-text{
+      font-weight:800; letter-spacing:.2px; font-size:1rem;
+      background:linear-gradient(95deg, var(--accent), var(--link));
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+      transition:filter .2s;
+    }
+    .brand-wrap:hover .brand-text{filter:brightness(1.06)}
+
+    .nav-toggle{display:none; border:0; background:none; cursor:pointer; padding:4px}
+    .nav-toggle-bar{
+      width:22px; height:2px; background:var(--text); display:block; margin:4px 0; border-radius:2px;
+      transition:transform .2s, opacity .2s;
+    }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2){opacity:0}
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+    nav.main-nav{display:block}
+    .main-nav ul{list-style:none; margin:0; padding:0; display:flex; align-items:center; gap:10px}
+    .main-nav a{
+      color:var(--muted); text-decoration:none; font-weight:600; padding:6px 10px; border-radius:8px; font-size:.95rem;
+      transition:color .2s, background-color .2s;
+    }
+    .main-nav a[aria-current="page"], .main-nav a:hover{
+      color:var(--accent); background-color:color-mix(in srgb, var(--accent) 10%, transparent)
+    }
+
+    /* Theme toggle */
+    .right-tools{display:inline-flex; align-items:center; gap:10px}
+    .theme-toggle{
+      width:40px; height:40px; border-radius:50%; border:1px solid var(--border); background:var(--surface);
+      display:grid; place-items:center; cursor:pointer; position:relative; overflow:hidden; padding:0;
+      transition:transform .18s, box-shadow .18s, background-color .18s; -webkit-tap-highlight-color:transparent;
+    }
+    .theme-toggle:hover{transform:translateY(-1px) scale(1.05); box-shadow:0 0 10px var(--focus)}
+    .theme-toggle .icon{position:absolute; width:20px; height:20px; transition:transform .3s cubic-bezier(.4,0,.2,1.4), opacity .25s linear}
+    .icon-sun{color:var(--gold); transform:scale(0) rotate(90deg); opacity:0}
+    .icon-moon{color:var(--white); transform:scale(1) rotate(0); opacity:1}
+    html[data-theme="light"] .icon-sun{transform:scale(1) rotate(0); opacity:1}
+    html[data-theme="light"] .icon-moon{transform:scale(0) rotate(-90deg); opacity:0}
+    html[data-theme="dark"]  .icon-sun{transform:scale(0) rotate(90deg); opacity:0}
+    html[data-theme="dark"]  .icon-moon{transform:scale(1) rotate(0); opacity:1}
+
+    /* Mobile */
+    @media (max-width:820px){
+      .nav-toggle{display:inline-block}
+      nav.main-nav{display:none}
+      nav.main-nav.open{display:block}
+      .main-nav ul{
+        position:fixed; right:12px; top:60px; background:var(--surface); border:1px solid var(--border);
+        border-radius:12px; box-shadow:var(--shadow-e2); padding:12px; gap:10px; flex-direction:column;
+        transform:scale(.98); opacity:0; pointer-events:none; transition:transform .18s ease-out, opacity .18s ease-out;
+      }
+      nav.main-nav.open ul{transform:scale(1); opacity:1; pointer-events:auto}
+    }
+
+    :focus-visible{outline:3px solid var(--focus); outline-offset:3px; border-radius:4px}
+    .skip-link{
+      position:absolute; left:12px; top:6px; z-index:200; background:var(--surface); color:var(--text);
+      padding:6px 10px; border-radius:8px; border:1px solid var(--border);
+      transform:translateY(-150%); transition:transform .2s;
+    }
+    .skip-link:focus{transform:translateY(0%)}
+
+    /* 2) Hero + Intro + Breadcrumbs */
+    .hero{
+      max-width:var(--wrap); margin:0 auto; padding:18px var(--pad) 0;
+      animation: fadeIn 0.5s 0.1s ease-out backwards; /* Stagger animation */
+    }
+    .hero-figure{
+      margin:0; border-radius:14px; overflow:hidden; border:1px solid var(--border); box-shadow:var(--shadow-e2); background:var(--surface);
+    }
+    .hero-figure img{display:block; width:100%; height:auto; aspect-ratio:16/7; object-fit:cover; background-color:var(--surface)}
+    .hero-caption{margin:0; padding:10px 14px; font-size:.96rem; color:var(--muted); background:color-mix(in srgb, var(--surface) 92%, transparent); border-top:1px solid var(--border)}
+
+    .intro{
+      padding:12px var(--pad) 4px; max-width:var(--wrap); margin:0 auto;
+      animation: fadeIn 0.5s 0.2s ease-out backwards; /* Stagger animation */
+    }
+    .intro p{margin:10px 0; color:var(--muted); font-size:clamp(1rem, 1.2vw, 1.05rem); max-width:75ch}
+
+    .breadcrumbs{
+      max-width:var(--wrap); margin:0 auto; padding:8px var(--pad) 0; font-size:.95rem; color:var(--muted);
+      animation: fadeIn 0.5s 0.3s ease-out backwards; /* Stagger animation */
+    }
+    .breadcrumbs a{color:var(--muted); text-decoration:none; font-weight:600}
+    .breadcrumbs a:hover{color:var(--accent); text-decoration:underline}
+    .breadcrumbs .sep{opacity:.6; padding:0 .35rem}
+
+    /* 3) Main content */
+    main#main{
+      max-width:var(--wrap); margin:0 auto; padding:8px var(--pad) 24px;
+      animation: fadeIn 0.5s 0.4s ease-out backwards; /* Stagger animation */
+    }
+    .page-title{
+      margin:8px 0 4px; font-size:clamp(1.9rem, 3.8vw, 2.6rem); font-weight:800;
+      font-family: var(--font-serif); /* Use serif font */
+      background: var(--grad-title);
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; letter-spacing:.2px;
+    }
+    .page-sub{margin:0 0 10px; color:var(--muted); font-weight:600}
+
+    section.module-section{
+      margin:20px 0; padding:14px; border-radius:12px; background:color-mix(in srgb, var(--surface) 86%, transparent);
+      border:1px solid var(--border); box-shadow:var(--shadow-e2); page-break-before:always;
+    }
+    section.module-section:first-of-type{page-break-before:auto}
+    
+    /* ENHANCEMENT: Gradient Section Titles */
+    .section-title{
+      margin:0 0 6px; font-size:clamp(1.2rem, 2.3vw, 1.45rem); font-weight:800; letter-spacing:.2px; color:var(--text);
+      font-family: var(--font-serif); /* Use serif font */
+      /* Apply gradient */
+      background: var(--grad-title);
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+    }
+    .section-lead{margin:2px 0 10px; color:var(--muted)}
+    
+    blockquote.core {
+      margin: 1em 0;
+      padding: 10px 14px;
+      border-left: 4px solid var(--accent);
+      background: color-mix(in srgb, var(--accent) 6%, var(--surface));
+      border-radius: 0 8px 8px 0;
+      /* ENHANCEMENT: Use serif font for emphasis */
+      font-family: var(--font-serif);
+      font-size: 1.05em;
+      letter-spacing: 0.1px;
+    }
+    blockquote.core p { margin: 0; font-weight: 600; }
+
+    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+    @media (max-width:820px){.grid-2{grid-template-columns:1fr}}
+
+    .card{background:color-mix(in srgb, var(--surface) 88%, transparent); border:1px solid var(--border); border-radius:12px; padding:12px 14px;}
+    .card h3 {
+      margin-top: 0;
+      font-family: var(--font-serif); /* Use serif font */
+    }
+    .card ul, .card ol { padding-left: 1.2em; }
+
+    /* Prompts — no horizontal scrollbars (wrap) */
+    .prompt{position:relative; margin:12px 0 6px; border-radius:12px; border:1px solid var(--border); overflow:hidden; background:var(--code-bg-light)}
+    html[data-theme="dark"] .prompt{background:color-mix(in srgb, var(--code-bg-dark) 92%, transparent)}
+    .prompt-header{display:flex; justify-content:space-between; align-items:center; padding:8px 10px; border-bottom:1px solid var(--border); background:color-mix(in srgb, var(--surface) 92%, transparent)}
+    .prompt-title{font-weight:800}
+    .prompt pre{margin:0; padding:12px; overflow-x:hidden; white-space:pre-wrap; word-break:break-word}
+    .prompt code{
+      font-family: var(--font-mono); /* Use mono font */
+      font-size:.95rem; white-space:pre-wrap; display:block;
+    }
+    .prompt-meta{font-size:.92rem; color:var(--muted); margin:4px 0}
+    .copy-btn{
+      appearance:none; border:1px solid var(--border); background:var(--grad-1); color:#fff; font-weight:700; font-size:.9rem; border-radius:8px; padding:6px 10px;
+      cursor:pointer; transition:transform .15s, box-shadow .15s, filter .15s;
+    }
+    .copy-btn:hover{transform:translateY(-1px); box-shadow:0 4px 10px rgba(0,0,0,.18)}
+    .copy-btn:focus-visible{outline:3px solid var(--focus); outline-offset:2px}
+    html[data-theme="dark"] .copy-btn{color:var(--black); background:linear-gradient(95deg, var(--gold), color-mix(in srgb, var(--gold) 80%, #ffc66f)); border-color:color-mix(in srgb, var(--gold) 25%, var(--border))}
+    
+    .prompt-explainer { margin-top: 14px; }
+    .prompt-explainer h3 {
+      margin-top: 0;
+      font-family: var(--font-serif); /* Use serif font */
+    }
+    
+    details {
+      margin-top: 1em;
+      background: color-mix(in srgb, var(--border) 20%, transparent);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    details[open] { background: color-mix(in srgb, var(--surface) 80%, transparent); }
+    summary {
+      font-weight: 600;
+      color: var(--muted);
+      padding: 8px 12px;
+      cursor: pointer;
+      list-style-position: inside;
+      transition: background-color .2s;
+    }
+    summary:hover {
+      background: color-mix(in srgb, var(--border) 40%, transparent);
+    }
+    details[open] summary {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+    }
+    .details-content {
+      padding: 0 12px 12px;
+      border-top: 1px solid var(--border);
+      margin-top: 8px;
+    }
+    .details-content p, .details-content ol, .details-content ul { margin-bottom: 0; }
+    .details-content code {
+      background: color-mix(in srgb, var(--border) 50%, transparent);
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-size: .9em;
+    }
+
+
+    /* SVG — Module 01 Diagram */
+    figure.diagram-flow{margin:0; padding:0}
+    .diagram-flow svg{
+      display:block; width:100%; height:auto; background:color-mix(in srgb, var(--surface) 88%, transparent);
+      border:1px solid var(--border); border-radius:12px;
+      font-family: var(--font-sans);
+    }
+    .diagram-flow figcaption{margin-top:8px; font-size:.95rem; color:var(--muted)}
+    .svg-label{fill:var(--svg-label); font-weight:700;}
+    /* ENHANCED SVG: Sub-label style */
+    .svg-desc{
+      fill: var(--svg-desc);
+      font-weight: 600;
+      font-size: 11px;
+      opacity: 0.9;
+    }
+    /* SVG stroke gradients */
+    .g-violet-stroke { stroke: #7c3aed; }
+    .g-blue-stroke { stroke: #2563eb; }
+    .g-green-stroke { stroke: #10b981; }
+    .g-gold-stroke { stroke: #f6be3e; }
+    .g-slate-stroke { stroke: #94a3b8; }
+    .g-arrow-path {
+      stroke: var(--muted2);
+      stroke-width: 2.5;
+    }
+    .g-arrow-path-solution {
+      stroke: var(--accent);
+      stroke-width: 3;
+    }
+    html[data-theme="dark"] .g-violet-stroke { stroke: #a78bfa; }
+    html[data-theme="dark"] .g-blue-stroke { stroke: #7dd3fc; }
+    html[data-theme="dark"] .g-green-stroke { stroke: #6ee7b7; }
+    html[data-theme="dark"] .g-gold-stroke { stroke: #fde08a; }
+    html[data-theme="dark"] .g-slate-stroke { stroke: #e2e8f0; }
+    html[data-theme="dark"] .g-arrow-path-solution { stroke: var(--accent); }
+
+
+    /* Improvement for Next Module link visibility */
+    .next-module-link {
+      color: var(--link);
+      text-decoration: underline;
+      font-size: 1.1em;
+      font-weight: 700;
+    }
+    .next-module-link:hover {
+      color: var(--accent);
+    }
+
+    /* Back to top */
+    .back-to-top{
+      position:fixed; bottom:26px; right:26px; width:48px; height:48px; border-radius:50%; border:1px solid var(--border);
+      display:grid; place-items:center; color:var(--accent); cursor:pointer; background:color-mix(in srgb, var(--surface) 92%, transparent);
+      box-shadow:var(--shadow-e2); opacity:0; visibility:hidden; transform:translateY(8px);
+      transition:opacity .18s, transform .18s, visibility .18s; z-index:90;
+    }
+    .back-to-top.visible{opacity:1; visibility:visible; transform:translateY(0)}
+    .back-to-top:hover{background:color-mix(in srgb, var(--surface) 90%, var(--accent))}
+
+    /* Footer */
+    .footer-section{position:relative; z-index:1; margin-top:32px; border-top:1px solid var(--border); background:var(--surface)}
+    .footer-divider{height:2px; border:0; margin:0 0 16px; background:linear-gradient(90deg, transparent, var(--violet), var(--blue), var(--gold), transparent); opacity:.3}
+    .site-footer{padding:0 var(--pad) 16px; max-width:var(--wrap); margin:0 auto; color:var(--muted)}
+    .footer-flex{display:flex; flex-direction:column; align-items:center; gap:12px}
+    .footer-nav{display:flex; gap:16px; flex-wrap:wrap; justify-content:center}
+    .footer-nav a{color:var(--muted); text-decoration:none; font-weight:600}
+    .footer-nav a:hover{color:var(--accent); text-decoration:underline}
+    .footer-brand{display:flex; align-items:center; gap:10px}
+    .footer-logo{height:24px; width:auto; filter:grayscale(0); opacity:.9}
+    .copyright{font-size:.95rem; color:var(--muted)}
+
+    /* Narrow padding */
+    @media (max-width:560px){
+      .header-inner, .hero, .intro, .breadcrumbs, main#main, .site-footer{padding-left:1rem; padding-right:1rem}
+    }
+
+    /* Print 6×9 (force light mode; hide chrome) */
+    @media print{
+      @page{size:6in 9in; margin:0.75in}
+      html{color-scheme:light !important}
+      :root{
+        /* Force light theme variables for print */
+        --bg:var(--white) !important; --surface:var(--white) !important; --text:var(--slate-900) !important;
+        --muted:#445268 !important; --muted2:var(--slate-500) !important; --border:var(--slate-200) !important;
+        --accent:var(--violet) !important; --link:var(--blue) !important;
+        --shadow-e2:none !important; --svg-label:#0f172a !important;
+        --svg-desc: var(--muted) !important;
+        --code-bg-light:#f7f7fb !important;
+        --grad-title: linear-gradient(90deg, var(--violet), var(--blue)) !important;
+        
+        /* Print-specific SVG fills */
+        --svg-fill-violet: color-mix(in srgb, var(--violet) 10%, var(--white)) !important;
+        --svg-fill-blue: color-mix(in srgb, var(--blue) 10%, var(--white)) !important;
+        --svg-fill-green: color-mix(in srgb, var(--green) 10%, var(--white)) !important;
+        --svg-fill-gold: color-mix(in srgb, var(--gold) 20%, var(--white)) !important;
+        --svg-fill-slate: color-mix(in srgb, var(--slate-400) 20%, var(--white)) !important;
+      }
+      body{
+        background:var(--bg) !important; color:var(--text) !important;
+        font-size:11pt; line-height:1.6;
+        /* ENHANCEMENT: Force color printing */
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+        /* ENHANCEMENT: Force print fonts */
+        font-family: 'Inter', system-ui, sans-serif !important;
+      }
+      /* ENHANCEMENT: Force print fonts for headings */
+      .page-title, .section-title, .card h3, .prompt-explainer h3 {
+        font-family: 'Source Serif Pro', serif !important;
+        -webkit-text-fill-color: transparent !important; /* Keep gradient text */
+        background: var(--grad-title) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+      }
+      .section-title {
+        /* Remove online-only styles */
+        border-left: none !important;
+        padding-left: 0 !important;
+      }
+      /* ENHANCEMENT: Force print fonts for prompts */
+      .prompt code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+      }
+      .site-header, .theme-toggle, .back-to-top, .footer-section, .copy-btn, .breadcrumbs, details > summary {display:none !important}
+      
+      /* PRINT ENHANCEMENT: v67 */
+      section.module-section{
+        box-shadow:none !important; 
+        background:var(--white) !important; 
+        border: none !important;
+        padding: 10px 0;
+      }
+      .prompt{
+        background:var(--code-bg-light) !important; 
+        border: 1px solid var(--border) !important; /* Keep prompt border */
+      }
+      .diagram-flow svg{
+        background:var(--white) !important; 
+        border: none !important;
+      }
+      .card { 
+        border: none !important; 
+        background: var(--white) !important; 
+        box-shadow: none !important; 
+      }
+      
+      /* ENHANCEMENT: Make hero figure visible in print */
+      .hero-figure { page-break-after: avoid; } 
+      .hero-figure img { max-width: 100%; height: auto; }
+      
+      details, .details-content { border: none !important; background: none !important; padding: 0 !important; margin: 0 !important; }
+      details[open] { padding: 0 !important; }
+      details > * { display: block !important; } /* Show details content */
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Live regions -->
+  <div id="theme-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+  <div id="copy-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+  <div id="scroll-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- ===================== Header (TOC parity) ===================== -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand-wrap" href="/index.html" aria-label="The AI Artisan home">
+        <img src="https://aiartisan.hqaim.com/images/HQAIM_ICON.svg" class="brand-logo" alt="HQAIM Studios icon" width="32" height="32" />
+        <span class="brand-text">The AI Artisan</span>
+      </a>
+
+      <!-- Mobile hamburger -->
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
+
+      <!-- Main navigation -->
+      <nav id="site-menu" class="main-nav" role="navigation" aria-label="Main">
+        <ul>
+          <li><a href="/foreword.html">Foreword</a></li>
+          <li><a href="/toc.html">Index</a></li>
+          <li><a href="/modules.html" aria-current="page">Modules</a></li>
+          <li><a href="/fieldkit.html">Toolkit</a></li>
+          <li><a href="/premium.html">Premium</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Theme toggle (always visible) -->
+      <div class="right-tools">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle color theme" aria-pressed="false" role="switch" title="Toggle theme">
+          <!-- Sun (light) -->
+          <svg class="icon icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+          </svg>
+          <!-- Moon (dark) -->
+          <svg class="icon icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== Hero ===================== -->
+  <section class="hero" aria-label="Module hero">
+    <figure class="hero-figure">
+      <!-- NEW Hero Image (Collaborative Workspace/Cards) -->
+      <img
+        src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=1600&auto.format&fit=crop"
+        alt="Team collaboration session with index cards and sticky notes on a table."
+        decoding="async"
+        fetchpriority="high"
+        width="1600"
+        height="700"
+        onerror="this.src='https://placehold.co/1600x700/f8fafc/64748b?text=Module+14+Hero+Image+(Workspace)';this.onerror=null;"
+      />
+      <figcaption class="hero-caption">
+        Collaborative prompting produces stronger outcomes than single-role prompting because structured roles reveal assumptions, compare options, and generate clearer decisions.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ===================== Intro ===================== -->
+  <div class="intro">
+    <p>This module teaches how to coordinate multiple AI roles to achieve clearer thinking and stronger decisions. Learn how to use multi-role prompting to compare perspectives, explore options, and reach stronger decisions through structured shared reasoning.</p>
+  </div>
+
+  <!-- ===================== Breadcrumbs ===================== -->
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="/toc.html">Index</a><span class="sep">/</span>
+    <a href="/modules.html">Modules</a><span class="sep">/</span>
+    <span aria-current="page">Module 14</span>
+  </nav>
+
+  <!-- ===================== Main ===================== -->
+  <main id="main" role="main" tabindex="-1" aria-labelledby="page-title">
+    
+    <!-- 1. Introduction & Overview (Combined Page Title) -->
+    <h1 id="page-title" class="page-title">Module 14 — Collaborative Prompts</h1>
+    <p class="page-sub">Learn how to coordinate multiple AI roles for better decision-making.</p>
+
+    <!-- 2. Key Insight -->
+    <section id="m14-sec-2" class="module-section" aria-labelledby="m14-sec-2-title">
+      <h2 id="m14-sec-2-title" class="section-title">Key Insight</h2>
+      <blockquote class="core">
+        <p>Collaborative prompting produces stronger outcomes than single-role prompting because structured roles reveal assumptions, compare options, and generate clearer decisions. Consistency comes from defined roles and a shared review process.</p>
+      </blockquote>
+    </section>
+
+    <!-- 3. Why This Matters -->
+    <section id="m14-sec-3" class="module-section" aria-labelledby="m14-sec-3-title">
+      <h2 id="m14-sec-3-title" class="section-title">Why This Matters</h2>
+      <p class="section-lead">Many users rely on a single prompt to explore ideas or make decisions. This limits perspective and often leads to narrow or biased outputs. Collaborative prompting expands the reasoning space through structured roles that examine a problem from multiple angles. This results in clearer and more reliable conclusions.</p>
+      <p>Professionals benefit because decisions become defensible, comparable, and traceable. Beginners benefit because the system guides exploration without needing expertise. Collaborative prompting creates a stable method for examining options, understanding trade-offs, and selecting the best path with confidence.</p>
+    </section>
+
+    <!-- 4. Framework Foundations -->
+    <section id="m14-sec-4" class="module-section" aria-labelledby="m14-sec-4-title">
+      <h2 id="m14-sec-4-title" class="section-title">Framework Foundations</h2>
+      <ul style="list-style: none; padding-left: 0;">
+        <li><strong>CLARITY-7™</strong> is used to define the purpose, audience, constraints, inputs, tone, and expected output. This ensures all roles share the same intent and boundaries.</li>
+        <li><strong>MIRROR-6™</strong> provides an accuracy review for each role’s contribution. It checks meaning, accuracy, relevance, reliability, outcome alignment, and repeatability.</li>
+        <li><strong>VALOR-Δ</strong> measures whether collaborative reasoning improves the result. It evaluates value, alignment, leverage, outcome strength, repeatability, and Δ (improvement).</li>
+        <li><strong>TESSERA™</strong> stores the final collaborative workflow as a continuity tile, making it reusable across similar tasks.</li>
+      </ul>
+      <p>These frameworks ensure multi-role prompting remains structured, aligned, and verifiable.</p>
+      
+      <!-- NEW SVG Diagram for Module 14 - Collaborative Reasoning Loop -->
+      <figure class="diagram-flow" style="margin-top: 1.5em;">
+        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dsTitle dsDesc">
+          <title id="dsTitle">Diagram: Collaborative Reasoning Loop</title>
+          <desc id="dsDesc">A circular flow diagram with five nodes arranged clockwise: Role A, Role B, Role C, Synthesis, and VALOR-Δ Review, showing how multiple roles contribute to a structured decision.</desc>
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M0,0 L10,5 L0,10 z" fill="var(--muted2)"/>
+            </marker>
+          </defs>
+
+          <!-- Center Circle (Shared Context) -->
+          <circle cx="400" cy="300" r="60" fill="var(--surface)" stroke="var(--border)" stroke-width="2" stroke-dasharray="5,5" />
+          <text x="400" y="305" class="svg-label" text-anchor="middle" font-size="14" font-weight="bold">Shared Intent</text>
+
+          <!-- Node 1: Role A (Top) -->
+          <g transform="translate(330 40)">
+            <rect width="140" height="80" rx="12" fill="var(--svg-fill-violet)" />
+            <rect width="140" height="80" rx="12" fill="transparent" class="g-violet-stroke" stroke-width="2"/>
+            <text x="70" y="35" class="svg-label" text-anchor="middle" font-size="14" font-weight="bold">Role A</text>
+            <text x="70" y="55" class="svg-desc" text-anchor="middle" font-size="11">(Option Gen)</text>
+          </g>
+
+          <!-- Node 2: Role B (Right Top) -->
+          <g transform="translate(600 180)">
+            <rect width="140" height="80" rx="12" fill="var(--svg-fill-blue)" />
+            <rect width="140" height="80" rx="12" fill="transparent" class="g-blue-stroke" stroke-width="2"/>
+            <text x="70" y="35" class="svg-label" text-anchor="middle" font-size="14" font-weight="bold">Role B</text>
+            <text x="70" y="55" class="svg-desc" text-anchor="middle" font-size="11">(Risk Review)</text>
+          </g>
+
+          <!-- Node 3: Role C (Right Bottom) -->
+          <g transform="translate(550 420)">
+            <rect width="140" height="80" rx="12" fill="var(--svg-fill-green)" />
+            <rect width="140" height="80" rx="12" fill="transparent" class="g-green-stroke" stroke-width="2"/>
+            <text x="70" y="35" class="svg-label" text-anchor="middle" font-size="14" font-weight="bold">Role C</text>
+            <text x="70" y="55" class="svg-desc" text-anchor="middle" font-size="11">(Outcome Analyst)</text>
+          </g>
+
+          <!-- Node 4: Synthesis (Left Bottom) -->
+          <g transform="translate(110 420)">
+            <rect width="140" height="80" rx="12" fill="var(--svg-fill-gold)" />
+            <rect width="140" height="80" rx="12" fill="transparent" class="g-gold-stroke" stroke-width="2"/>
+            <text x="70" y="45" class="svg-label" text-anchor="middle" font-size="14" font-weight="bold">Synthesis</text>
+          </g>
+
+          <!-- Node 5: VALOR-Δ (Left Top) -->
+          <g transform="translate(60 180)">
+            <rect width="140" height="80" rx="12" fill="var(--svg-fill-slate)" />
+            <rect width="140" height="80" rx="12" fill="transparent" class="g-slate-stroke" stroke-width="2"/>
+            <text x="70" y="35" class="svg-label" text-anchor="middle" font-size="14" font-weight="bold">VALOR-Δ</text>
+            <text x="70" y="55" class="svg-desc" text-anchor="middle" font-size="11">(Review)</text>
+          </g>
+
+          <!-- Clockwise Arrows -->
+          <!-- A to B -->
+          <path d="M470,80 Q600,80 640,170" fill="none" class="g-arrow-path" marker-end="url(#arrow)" />
+          <!-- B to C -->
+          <path d="M670,260 Q670,380 620,410" fill="none" class="g-arrow-path" marker-end="url(#arrow)" />
+          <!-- C to Synthesis -->
+          <path d="M550,460 L250,460" fill="none" class="g-arrow-path" marker-end="url(#arrow)" />
+          <!-- Synthesis to VALOR -->
+          <path d="M150,420 Q50,350 90,270" fill="none" class="g-arrow-path" marker-end="url(#arrow)" />
+          <!-- VALOR to A (Loop) -->
+          <path d="M160,180 Q200,80 320,80" fill="none" class="g-arrow-path" marker-end="url(#arrow)" />
+            
+        </svg>
+        <figcaption>The Collaborative Reasoning Loop: Independent roles feed into a structured synthesis and verification process.</figcaption>
+      </figure>
+    </section>
+    
+    <!-- 5. Core Ideas Explained -->
+    <section id="m14-sec-5" class="module-section" aria-labelledby="m14-sec-5-title">
+      <h2 id="m14-sec-5-title" class="section-title">Core Ideas Explained</h2>
+      
+      <div class="grid-2">
+        <div class="card">
+          <h3>Why Multiple Roles Improve Reasoning</h3>
+          <p>Single-role prompting depends on one line of reasoning. This limits clarity when exploring unfamiliar or complex topics. Multiple roles provide contrasting views, which exposes blind spots and expands the decision space. Each role brings a defined responsibility, reducing ambiguity and preventing overlap.</p>
+          <p>When used properly, role separation leads to clearer judgments. Each role handles one task: generating options, critiquing assumptions, comparing alternatives, or synthesizing results. This division improves accuracy and helps users reach stable conclusions without guesswork.</p>
+        </div>
+        <div class="card">
+          <h3>How Roles Prevent Hidden Assumptions</h3>
+          <p>A common issue in AI-assisted reasoning is hidden assumptions. These arise when prompts lack constraints or when the model infers the wrong objective. Collaborative prompting gives defined roles that explicitly challenge assumptions.</p>
+          <p>One role may identify risks while another checks evidence. A third role may test alignment with the original purpose. This separation ensures no single perspective dominates. Weak points appear earlier, and corrections become simpler.</p>
+        </div>
+        <div class="card">
+          <h3>Parallel Exploration for Better Options</h3>
+          <p>Parallel exploration sends the same task to multiple roles at once. Each role produces an independent path. This reduces bias because roles do not influence each other’s reasoning. After generating options, a structured synthesis step compares results using MIRROR-6™ and VALOR-Δ.</p>
+          <p>This process helps identify the strongest option. Readers gain a repeatable method for evaluating alternatives instead of relying on intuition or incomplete information.</p>
+        </div>
+        <div class="card">
+          <h3>Structured Decision Synthesis</h3>
+          <p>Once roles contribute their analysis, the system synthesizes results into a single recommendation. This requires clear criteria. MIRROR-6™ identifies accuracy and alignment issues. VALOR-Δ confirms which option delivers the highest improvement or value.</p>
+          <p>The synthesis step ensures decisions do not rely on preference or tone. Instead, they follow a structured, transparent procedure. This makes decisions more reliable and easier to justify in professional settings.</p>
+        </div>
+      </div>
+      <div class="card" style="margin-top: 14px;">
+          <h3>Continuity Across Sessions</h3>
+          <p>Collaborative prompting becomes even more effective when preserved for future use. TESSERA™ stores complete collaborative workflows, including assigned roles, reasoning stages, review steps, and Δ evidence. This creates continuity across tasks and prevents rework.</p>
+          <p>Readers can refine a collaborative workflow once, store it, and reuse it without rebuilding the system. This stability is essential for advanced practice and professional use.</p>
+        </div>
+    </section>
+    
+    <!-- 6. How the Framework Applies -->
+    <section id="m14-sec-6" class="module-section" aria-labelledby="m14-sec-6-title">
+      <h2 id="m14-sec-6-title" class="section-title">How the Framework Applies</h2>
+      <p>CLARITY-7™ anchors collaborative prompting by defining one shared intent and ensuring each role receives the same purpose, audience, constraints, tone, and expected output. This prevents roles from drifting or producing incompatible responses.</p>
+      <p>MIRROR-6™ evaluates the contributions from each role. It highlights accuracy gaps, relevance errors, or reasoning inconsistencies. This ensures every role supports the intended outcome. VALOR-Δ measures improvement when combining roles instead of relying on one perspective. This confirms the value of the collaborative process. TESSERA™ preserves the final workflow so it can be reused and refined across similar tasks.</p>
+      <p>These frameworks create a stable structure that supports clear, coordinated multi-role reasoning.</p>
+    </section>
+
+    <!-- 7. Prompt Vault -->
+    <section id="m14-sec-7" class="module-section" aria-labelledby="m14-sec-7-title">
+      <h2 id="m14-sec-7-title" class="section-title">Prompt Vault</h2>
+      <p class="section-lead">Below are four Pattern Forge prompts crafted specifically for multi-role collaborative reasoning. Each prompt includes clear framework explanations and platform-agnostic language.</p>
+
+      <!-- Prompt 1 -->
+      <div class="card prompt-explainer" style="margin-top: 14px;">
+        <h3>Pattern Forge Prompt 1 — Multi-Role Committee Builder</h3>
+        <div class="prompt" data-prompt="P1">
+          <div class="prompt-header">
+            <span class="prompt-title">Multi-Role Committee Builder</span>
+            <button class="copy-btn" type="button" data-copy="#code-p1-m14" title="Copy to clipboard">Copy</button>
+          </div>
+          <pre><code id="code-p1-m14">ROLE: Role Coordinator
+CONTEXT: You want a committee of AI roles to explore a problem from different
+         perspectives. CLARITY-7™ defines shared purpose, audience, constraints,
+         tone, inputs, and expected output.
+TASK: Create three roles with unique responsibilities: Option Generator,
+      Risk Reviewer, and Outcome Analyst. Produce a structured committee
+      workflow.
+CONSTRAINTS: Keep responsibilities separate; avoid overlapping tasks; define
+             one output for each role.
+OUTPUT: A clear three-role committee with instructions for each stage.</code></pre>
+        </div>
+        <details>
+          <summary>Usage Guide</summary>
+          <div class="details-content">
+            <p><strong>When to use:</strong> When exploring an idea or decision that benefits from multiple viewpoints.</p>
+            <p><strong>Problem it solves:</strong> Single-role prompting hides assumptions and leads to narrow results.</p>
+            <p><strong>How to use:</strong> Insert your task or question below the prompt and run it.</p>
+            <p><strong>Good output:</strong> A clean structure with three roles and clear boundaries.</p>
+            <p><strong>Why it works:</strong> CLARITY-7™ provides shared intent, preventing confusion across roles.</p>
+            <p><strong>Beginner benefit:</strong> Users get a structured group instead of scattered reasoning.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Prompt 2 -->
+      <div class="card prompt-explainer" style="margin-top: 14px;">
+        <h3>Pattern Forge Prompt 2 — Parallel Option Generator</h3>
+        <div class="prompt" data-prompt="P2">
+          <div class="prompt-header">
+            <span class="prompt-title">Parallel Option Generator</span>
+            <button class="copy-btn" type="button" data-copy="#code-p2-m14" title="Copy to clipboard">Copy</button>
+          </div>
+          <pre><code id="code-p2-m14">ROLE: Exploration Facilitator
+CONTEXT: You need multiple independent approaches to the same task. CLARITY-7™
+         defines the shared goal. Parallel roles explore without influencing
+         each other.
+TASK: Generate three independent options using distinct reasoning styles:
+      Practical Path, Creative Path, and Constraint-First Path.
+CONSTRAINTS: Roles must not reference each other; keep each option
+             self-contained.
+OUTPUT: Three parallel options with clear labels.</code></pre>
+        </div>
+        <details>
+          <summary>Usage Guide</summary>
+          <div class="details-content">
+            <p><strong>When to use:</strong> When comparing ideas or planning alternatives.</p>
+            <p><strong>Problem it solves:</strong> Models often generate similar options without structure.</p>
+            <p><strong>How to use:</strong> Insert your problem or goal under the prompt and run it.</p>
+            <p><strong>Good output:</strong> Three unique routes, each with its own reasoning path.</p>
+            <p><strong>Why it works:</strong> Separation prevents cross-contamination of ideas.</p>
+            <p><strong>Beginner benefit:</strong> Offers clear choices without requiring expert thinking.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Prompt 3 -->
+      <div class="card prompt-explainer" style="margin-top: 14px;">
+        <h3>Pattern Forge Prompt 3 — Assumption Challenger</h3>
+        <div class="prompt" data-prompt="P3">
+          <div class="prompt-header">
+            <span class="prompt-title">Assumption Challenger</span>
+            <button class="copy-btn" type="button" data-copy="#code-p3-m14" title="Copy to clipboard">Copy</button>
+          </div>
+          <pre><code id="code-p3-m14">ROLE: Assumption Reviewer
+CONTEXT: Collaborative roles can fall into shared assumptions. MIRROR-6™ checks
+         meaning, accuracy, relevance, reliability, outcome alignment, and
+         repeatability.
+TASK: Identify hidden assumptions in the committee’s reasoning. For each
+      assumption, state its effect and provide a corrected alternative.
+CONSTRAINTS: Keep explanations short; check each assumption using MIRROR-6™.
+OUTPUT: A list of corrected assumptions with one-line justifications.</code></pre>
+        </div>
+        <details>
+          <summary>Usage Guide</summary>
+          <div class="details-content">
+            <p><strong>When to use:</strong> When reasoning quality matters or when preparing a final recommendation.</p>
+            <p><strong>Problem it solves:</strong> Undetected assumptions weaken results.</p>
+            <p><strong>How to use:</strong> Paste the committee’s outputs below the prompt and run it.</p>
+            <p><strong>Good output:</strong> Clear findings with concise corrections.</p>
+            <p><strong>Why it works:</strong> MIRROR-6™ exposes gaps that roles may overlook.</p>
+            <p><strong>Beginner benefit:</strong> They receive actionable corrections without analysis skills.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Prompt 4 -->
+      <div class="card prompt-explainer" style="margin-top: 14px;">
+        <h3>Pattern Forge Prompt 4 — Decision Synthesizer with Δ Check</h3>
+        <div class="prompt" data-prompt="P4">
+          <div class="prompt-header">
+            <span class="prompt-title">Decision Synthesizer with Δ Check</span>
+            <button class="copy-btn" type="button" data-copy="#code-p4-m14" title="Copy to clipboard">Copy</button>
+          </div>
+          <pre><code id="code-p4-m14">ROLE: Decision Synthesizer
+CONTEXT: You have multiple role outputs. VALOR-Δ measures value, alignment,
+         leverage, outcome strength, repeatability, and Δ (improvement).
+TASK: Combine the committee’s outputs into a single recommendation. Score
+      each option using VALOR-Δ and select the option with the highest Δ.
+CONSTRAINTS: Keep scoring transparent; explain the chosen option in two
+             sentences.
+OUTPUT: One final recommendation with VALOR-Δ justification.</code></pre>
+        </div>
+        <details>
+          <summary>Usage Guide</summary>
+          <div class="details-content">
+            <p><strong>When to use:</strong> After exploring options and reviewing assumptions.</p>
+            <p><strong>Problem it solves:</strong> Synthesis becomes subjective without structured comparison.</p>
+            <p><strong>How to use:</strong> Paste role outputs, then run the prompt.</p>
+            <p><strong>Good output:</strong> A justified recommendation backed by Δ evidence.</p>
+            <p><strong>Why it works:</strong> VALOR-Δ confirms which option delivers the strongest improvement.</p>
+            <p><strong>Beginner benefit:</strong> Users choose confidently without deep evaluation skills.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 8. Step-by-Step Method -->
+    <section id="m14-sec-8" class="module-section" aria-labelledby="m14-sec-8-title">
+      <h2 id="m14-sec-8-title" class="section-title">Step-by-Step Method</h2>
+      <p class="section-lead">This process ensures structure, accuracy, and consistency across multi-role reasoning.</p>
+      <ol>
+        <li><strong>Define the shared intent</strong> using CLARITY-7™.</li>
+        <li><strong>Assign each collaborative role</strong> a single responsibility.</li>
+        <li><strong>Run the roles</strong> in parallel or sequence as required.</li>
+        <li><strong>Apply MIRROR-6™</strong> to review each role’s output.</li>
+        <li><strong>Identify assumptions</strong> and adjust roles if needed.</li>
+        <li><strong>Use VALOR-Δ</strong> to compare and score final options.</li>
+        <li><strong>Synthesize results</strong> into one clear recommendation.</li>
+        <li><strong>Store the collaborative workflow</strong> using TESSERA™.</li>
+      </ol>
+    </section>
+    
+    <!-- 9. Typical Mistakes & Fixes -->
+    <section id="m14-sec-9" class="module-section" aria-labelledby="m14-sec-9-title">
+      <h2 id="m14-sec-9-title" class="section-title">Typical Mistakes & Fixes</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Mixing responsibilities between roles</h3>
+          <p><strong>Fix:</strong> Assign one purpose per role and enforce boundaries in the prompt.</p>
+        </div>
+        <div class="card">
+          <h3>Roles influencing each other too early</h3>
+          <p><strong>Fix:</strong> Use parallel exploration to separate reasoning paths.</p>
+        </div>
+        <div class="card">
+          <h3>Skipping assumption checks</h3>
+          <p><strong>Fix:</strong> Apply MIRROR-6™ to identify and correct hidden bias.</p>
+        </div>
+        <div class="card">
+          <h3>Unclear synthesis criteria</h3>
+          <p><strong>Fix:</strong> Use VALOR-Δ to compare options using consistent scoring.</p>
+        </div>
+      </div>
+      <div class="card" style="margin-top: 14px;">
+        <h3>Not storing the final workflow</h3>
+        <p><strong>Fix:</strong> Save the process as a TESSERA™ tile for reuse.</p>
+      </div>
+    </section>
+    
+    <!-- 10. How to Check Your Results -->
+    <section id="m14-sec-10" class="module-section" aria-labelledby="m14-sec-10-title">
+      <h2 id="m14-sec-10-title" class="section-title">How to Check Your Results</h2>
+      <p class="section-lead">Run MIRROR-6™ on each role’s contribution. Confirm that each role meets the meaning, accuracy, relevance, reliability, outcome alignment, and repeatability requirements. Weak roles need refinement or clearer instructions.</p>
+      <p>Then apply VALOR-Δ to compare the combined options. A strong collaborative process shows stable Δ gains across iterations. If Δ declines, revisit role definitions or assumptions. When both frameworks show consistency, the collaborative structure is considered reliable.</p>
+    </section>
+
+    <!-- 11. Short Practice Tasks -->
+    <section id="m14-sec-11" class="module-section" aria-labelledby="m14-sec-11-title">
+      <h2 id="m14-sec-11-title" class="section-title">Short Practice Tasks</h2>
+      <div class="card">
+        <ol>
+          <li>Create a three-role committee for a current decision you are evaluating. Compare the outputs and record the differences.</li>
+          <li>Run a parallel exploration using three reasoning paths and identify which option shows the strongest Δ using VALOR-Δ.</li>
+          <li>Use MIRROR-6™ to review an assumption from your last AI-assisted task and correct it.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 12. Key Takeaways -->
+    <section id="m14-sec-12" class="module-section" aria-labelledby="m14-sec-12-title">
+      <h2 id="m14-sec-12-title" class="section-title">Key Takeaways</h2>
+      <ul>
+        <li>Collaborative prompting improves decision quality through structured roles.</li>
+        <li>CLARITY-7™ aligns all roles with a shared intent.</li>
+        <li>MIRROR-6™ ensures each role’s reasoning is accurate and consistent.</li>
+        <li>VALOR-Δ identifies the strongest option through measurable improvement.</li>
+        <li>TESSERA™ preserves collaborative workflows for reuse.</li>
+        <li>Multi-role systems create clear, reliable, and comparable results.</li>
+      </ul>
+    </section>
+
+    <!-- 13. Next Module -->
+    <section id="m14-sec-13" class="module-section" aria-labelledby="m14-sec-13-title">
+      <h2 id="m14-sec-13-title" class="section-title">Next Module</h2>
+      <p><strong>Next: Module 15 — Automation Systems.</strong></p>
+      <p>It extends collaborative structures into repeatable automation flows with guardrails, verification steps, and continuity through TESSERA™.</p>
+      <p style="margin-top: 1.5em;"><a href="/modules/module-15.html" class="next-module-link">Continue to Next Module → Module 15 — Automation Systems</a></p>
+    </section>
+
+  </main>
+
+  <!-- ===================== Back to Top ===================== -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" title="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <!-- ===================== Footer (TOC parity) ===================== -->
+  <footer class="footer-section" role="contentinfo">
+    <hr class="footer-divider" />
+    <div class="site-footer">
+      <div class="footer-flex">
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="/toc.html" rel="noopener">Index</a>
+          <a href="/contact.html" rel="noopener">Contact</a>
+          <a href="/privacy.html" rel="noopener">Privacy</a>
+          <a href="/terms.html" rel="noopener">Terms</a>
+          <a href="/sitemap.xml" rel="noopener">Sitemap</a>
+        </nav>
+        <div class="footer-brand">
+          <img src="https://aiartisan.hqaim.com/assets/images/HQAIM_LOGO_Gradient_Minimal.svg" class="footer-logo" alt="HQAIM Studios logo" width="120" height="26" />
+          <span class="copyright">© <span id="year"></span> Abdullah Khan · HQAIM Studios</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== Inline JavaScript (v51) ===================== -->
+  <script>
+  (function(){
+    'use strict';
+    
+    const html = document.documentElement;
+    const metaTheme = document.getElementById('themeColor');
+    const toggle = document.getElementById('themeToggle');
+    const backToTop = document.getElementById('backToTop');
+    const navToggle = document.querySelector('.nav-toggle');
+    const mainNav = document.querySelector('nav.main-nav');
+    const yearEl = document.getElementById('year');
+    
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    /* Theme toggle (parity with Module 01/TOC) */
+    const storageKey = 'aiartisan_theme_preference';
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function getPref(){
+      const saved = localStorage.getItem(storageKey);
+      if (saved === 'light' || saved === 'dark') return saved;
+      return prefersDark.matches ? 'dark' : 'light';
+    }
+    
+    function applyTheme(t, announce=false){
+      html.dataset.theme = t;
+      if (metaTheme) metaTheme.setAttribute('content', t === 'dark' ? '#0f172a' : '#ffffff');
+      if (toggle) {
+        toggle.setAttribute('aria-pressed', String(t === 'dark'));
+        const newLabel = 'Switch to ' + (t === 'dark' ? 'light' : 'dark') + ' theme';
+        toggle.setAttribute('title', newLabel);
+        toggle.setAttribute('aria-label', newLabel);
+      }
+    }
+    
+    applyTheme(getPref(), false);
+    
+    prefersDark.addEventListener('change', e => {
+      if (!localStorage.getItem(storageKey)) applyTheme(e.matches ? 'dark' : 'light', true);
+    });
+    
+    if (toggle){
+      toggle.addEventListener('click', () => {
+        const next = html.dataset.theme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem(storageKey, next);
+        applyTheme(next, true);
+      });
+      toggle.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle.click(); }
+      });
+    }
+
+    /* Copy buttons */
+    document.querySelectorAll('.copy-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const targetSelector = btn.getAttribute('data-copy');
+        const target = document.querySelector(targetSelector);
+        if(!target) return;
+        
+        const text = target.textContent.trim();
+        
+        try {
+          const textarea = document.createElement('textarea');
+          textarea.value = text;
+          textarea.style.position = 'fixed';
+          textarea.style.opacity = '0';
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+          
+          const prev = btn.textContent;
+          btn.textContent = 'Copied!';
+          setTimeout(()=>{ btn.textContent = prev; }, 2000);
+
+        } catch (err) {
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText(text).then(() => {
+              const prev = btn.textContent;
+              btn.textContent = 'Copied!';
+              setTimeout(() => { btn.textContent = prev; }, 2000);
+            });
+          }
+        }
+      });
+    });
+
+    /* Mobile navigation */
+    if (navToggle && mainNav){
+      navToggle.addEventListener('click', ()=>{
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', String(!expanded));
+        mainNav.classList.toggle('open');
+      });
+    }
+
+    /* Back to top */
+    if (backToTop) {
+      function onScroll(){
+        if (window.scrollY > 400){ backToTop.classList.add('visible'); }
+        else { backToTop.classList.remove('visible'); }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll(); 
+      
+      backToTop.addEventListener('click', ()=>{
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+    
+    /* Details/Summary toggle */
+    document.querySelectorAll('details').forEach(detail => {
+      detail.addEventListener('toggle', () => {});
+    });
+
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,1152 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <!--
+    The AI Artisan — Module 16: Advanced Prompt Patterns
+    Diamond Edition v105 Final (Hero Image Fixed)
+    Author: Abdullah Khan · HQAIM Studios
+    Notes:
+      - Hero Image: Replaced broken link with verified "Abstract Grid/Structure" image.
+      - Icon Upgrade: Mail SVG icon implemented for Reader Invitation.
+      - Typography: HTML <strong> tags used for bold text.
+      - Full manuscript integration (Sections 1-14).
+      - Flawless 6x9 color print optimization.
+  -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Metadata from Manuscript (Section 1) -->
+  <title>Module 16 — Advanced Prompt Patterns · The AI Artisan (Diamond Edition)</title>
+  <meta name="description" content="Learn advanced prompt patterns that guide models through structured reasoning, controlled exploration, and multi-step transformations with predictable results." />
+  <meta name="keywords" content="advanced patterns, structured reasoning, CLARITY-7, MIRROR-6, VALOR-Δ, prompt design, reasoning flows, pattern chains, decision patterns, AI structure, The AI Artisan, HQAIM Studios" />
+
+  <meta name="robots" content="noindex, nofollow" />
+  <meta id="themeColor" name="theme-color" content="#ffffff" />
+  <meta name="color-scheme" content="light dark" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Module 16 — Advanced Prompt Patterns · The AI Artisan (Diamond Edition)" />
+  <meta property="og:description" content="Learn advanced prompt patterns that guide models through structured reasoning, controlled exploration, and multi-step transformations with predictable results." />
+  <!-- Hero Image URL -->
+  <meta property="og:image" content="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=1600&auto.format&fit=crop" />
+  <meta property="og:site_name" content="The AI Artisan" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Module 16 — Advanced Prompt Patterns · The AI Artisan (Diamond Edition)" />
+  <meta name="twitter:description" content="Learn advanced prompt patterns that guide models through structured reasoning, controlled exploration, and multi-step transformations with predictable results." />
+  <!-- Hero Image URL -->
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=1600&auto.format&fit=crop" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://aiartisan.hqaim.com/images/favicon.ico" type="image/x-icon" />
+
+  <!-- Google Fonts: Inter (body) & Source Serif Pro (headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+Pro:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- JSON-LD Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Module 16 — Advanced Prompt Patterns",
+    "name": "Module 16 — Advanced Prompt Patterns · The AI Artisan (Diamond Edition)",
+    "description": "This module introduces advanced prompt patterns that improve reasoning control and deliver consistent results for complex tasks.",
+    "keywords": [
+       "advanced patterns", "structured reasoning", "CLARITY-7", "MIRROR-6", "VALOR-Δ", "prompt design", "reasoning flows", "pattern chains"
+    ],
+    "about": "AI Prompt Engineering Frameworks",
+    "genre": "Educational Manual",
+    "author": { "@type": "Person", "name": "Abdullah Khan" },
+    "publisher": { "@type": "Organization", "name": "HQAIM Studios" },
+    "datePublished": "2025-12-03",
+    "dateModified": "2025-12-03",
+    "articleSection": "Part IV — Mastery & Scale",
+    "image": "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=1600&auto.format&fit=crop",
+    "url": "https://aiartisan.hqaim.com/modules/module-16.html"
+  }
+  </script>
+
+  <style>
+    /* =========================================================
+       THE AI ARTISAN — Diamond Edition v93
+       Single-file CSS (screen + print)
+       ========================================================= */
+
+    /* 0) Keyframes for fade-in */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 0) Tokens */
+    :root{
+      color-scheme: light dark;
+      /* ENHANCEMENT: Dual-font system */
+      --font-sans: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+      --font-serif: 'Source Serif Pro', serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+      /* Core palette (Aetherium) */
+      --violet:#7c3aed; --blue:#2563eb; --green:#10b981; --gold:#f6be3e;
+      --white:#ffffff;  --black:#0f172a;
+
+      --slate-50:#f8fafc;  --slate-100:#f1f5f9; --slate-200:#e2e8f0;
+      --slate-300:#cbd5e1; --slate-400:#94a3b8; --slate-500:#64748b;
+      --slate-600:#475569; --slate-700:#334155; --slate-800:#1e293b;
+      --slate-900:#0f172a;
+
+      /* Light */
+      --bg:var(--white); --surface:var(--slate-50); --text:var(--slate-900);
+      --muted:#445268; --muted2:var(--slate-500); --border:var(--slate-200);
+      --accent:var(--violet); --link:var(--blue); --focus:rgba(37,99,235,.36);
+      --shadow-e2:0 8px 20px rgba(15,23,42,.08), 0 3px 8px rgba(15,23,42,.06);
+
+      /* Background shimmer */
+      --bg-gradient:
+        radial-gradient(1200px 600px at 0% -10%, color-mix(in srgb, var(--violet) 7%, transparent), transparent 70%),
+        radial-gradient(900px 500px at 100% 110%, color-mix(in srgb, var(--blue) 7%, transparent), transparent 70%),
+        linear-gradient(180deg, rgba(124,58,237,.03), rgba(37,99,235,.03)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Cpath fill='%239C92AC' fill-opacity='.015' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'/%3E%3C/svg%3E"),
+        var(--bg);
+
+      --svg-label:#0f172a;
+      --svg-desc: var(--muted);
+      /* ENHANCED SVG: Theme-aware fills */
+      --svg-fill-violet: color-mix(in srgb, var(--violet) 10%, var(--surface));
+      --svg-fill-blue: color-mix(in srgb, var(--blue) 10%, var(--surface));
+      --svg-fill-green: color-mix(in srgb, var(--green) 10%, var(--surface));
+      --svg-fill-gold: color-mix(in srgb, var(--gold) 20%, var(--surface));
+      --svg-fill-slate: color-mix(in srgb, var(--slate-400) 20%, var(--surface));
+
+      --code-bg-light:#f7f7fb; --code-bg-dark:#0f172a;
+
+      --grad-1: linear-gradient(95deg, var(--link), var(--accent));
+      /* Gradient for titles */
+      --grad-title: linear-gradient(90deg, var(--violet), var(--blue));
+
+      --wrap:1100px; --pad:1.5rem; --r:12px;
+    }
+    html[data-theme="dark"]{
+      --bg:var(--slate-900); --surface:var(--slate-800); --text:var(--slate-50);
+      --muted:var(--slate-300); --muted2:var(--slate-400); --border:var(--slate-700);
+      --accent:#a78bfa; --link:#7dd3fc; --focus:rgba(124,58,237,.45);
+      --shadow-e2:0 10px 28px rgba(0,0,0,.35);
+
+      --bg-gradient:
+        radial-gradient(1200px 600px at 0% -10%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 70%),
+        radial-gradient(900px 500px at 100% 110%, color-mix(in srgb, var(--link) 10%, transparent), transparent 70%),
+        linear-gradient(180deg, rgba(124,58,237,.06), rgba(37,99,235,.06)),
+        var(--bg);
+
+      --svg-label:#ffffff;
+      --svg-desc: var(--muted);
+      /* ENHANCED SVG: Theme-aware fills */
+      --svg-fill-violet: color-mix(in srgb, var(--accent) 20%, var(--surface));
+      --svg-fill-blue: color-mix(in srgb, var(--link) 20%, var(--surface));
+      --svg-fill-green: color-mix(in srgb, var(--green) 20%, var(--surface));
+      --svg-fill-gold: color-mix(in srgb, var(--gold) 25%, var(--surface));
+      --svg-fill-slate: color-mix(in srgb, var(--slate-400) 30%, var(--surface));
+      
+      /* ENHANCEMENT: Use lighter, theme-aware gradient for dark mode titles */
+      --grad-title: linear-gradient(90deg, var(--accent), var(--link));
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font:16px/1.65 var(--font-sans); color:var(--text); /* Use sans font */
+      background:var(--bg-gradient); background-attachment:fixed;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      text-rendering:optimizeLegibility;
+    }
+    .wrap{max-width:var(--wrap); margin:0 auto; padding:0 var(--pad)}
+    
+    /* Base Typography */
+    ul, ol { padding-left: 1.5em; margin: 1em 0; }
+    li { margin-bottom: 0.5em; }
+    p { margin: 0.8em 0; }
+    
+    /* Reduced motion */
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation:none!important;transition:none!important}
+    }
+
+    /* Visually hidden utility (used by live regions) */
+    .sr-only{
+      position:absolute!important; width:1px; height:1px; padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap; border:0;
+    }
+
+    /* 1) Header (TOC parity) */
+    .site-header{
+      position:sticky; top:0; z-index:100;
+      backdrop-filter:saturate(140%) blur(8px);
+      background:color-mix(in srgb, var(--surface) 92%, transparent);
+      border-bottom:1px solid var(--border);
+      /* Add subtle fade-in */
+      animation: fadeIn 0.5s ease-out;
+    }
+    .header-inner{
+      max-width:var(--wrap); margin:0 auto; padding:.65rem var(--pad);
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .brand-wrap{display:inline-flex; align-items:center; gap:10px; text-decoration:none; color:var(--text)}
+    .brand-logo{width:32px; height:32px; display:inline-block}
+    .brand-text{
+      font-weight:800; letter-spacing:.2px; font-size:1rem;
+      background:linear-gradient(95deg, var(--accent), var(--link));
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+      transition:filter .2s;
+    }
+    .brand-wrap:hover .brand-text{filter:brightness(1.06)}
+
+    .nav-toggle{display:none; border:0; background:none; cursor:pointer; padding:4px}
+    .nav-toggle-bar{
+      width:22px; height:2px; background:var(--text); display:block; margin:4px 0; border-radius:2px;
+      transition:transform .2s, opacity .2s;
+    }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2){opacity:0}
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+    nav.main-nav{display:block}
+    .main-nav ul{list-style:none; margin:0; padding:0; display:flex; align-items:center; gap:10px}
+    .main-nav a{
+      color:var(--muted); text-decoration:none; font-weight:600; padding:6px 10px; border-radius:8px; font-size:.95rem;
+      transition:color .2s, background-color .2s;
+    }
+    .main-nav a[aria-current="page"], .main-nav a:hover{
+      color:var(--accent); background-color:color-mix(in srgb, var(--accent) 10%, transparent)
+    }
+
+    /* Theme toggle */
+    .right-tools{display:inline-flex; align-items:center; gap:10px}
+    .theme-toggle{
+      width:40px; height:40px; border-radius:50%; border:1px solid var(--border); background:var(--surface);
+      display:grid; place-items:center; cursor:pointer; position:relative; overflow:hidden; padding:0;
+      transition:transform .18s, box-shadow .18s, background-color .18s; -webkit-tap-highlight-color:transparent;
+    }
+    .theme-toggle:hover{transform:translateY(-1px) scale(1.05); box-shadow:0 0 10px var(--focus)}
+    .theme-toggle .icon{position:absolute; width:20px; height:20px; transition:transform .3s cubic-bezier(.4,0,.2,1.4), opacity .25s linear}
+    .icon-sun{color:var(--gold); transform:scale(0) rotate(90deg); opacity:0}
+    .icon-moon{color:var(--white); transform:scale(1) rotate(0); opacity:1}
+    html[data-theme="light"] .icon-sun{transform:scale(1) rotate(0); opacity:1}
+    html[data-theme="light"] .icon-moon{transform:scale(0) rotate(-90deg); opacity:0}
+    html[data-theme="dark"]  .icon-sun{transform:scale(0) rotate(90deg); opacity:0}
+    html[data-theme="dark"]  .icon-moon{transform:scale(1) rotate(0); opacity:1}
+
+    /* Mobile */
+    @media (max-width:820px){
+      .nav-toggle{display:inline-block}
+      nav.main-nav{display:none}
+      nav.main-nav.open{display:block}
+      .main-nav ul{
+        position:fixed; right:12px; top:60px; background:var(--surface); border:1px solid var(--border);
+        border-radius:12px; box-shadow:var(--shadow-e2); padding:12px; gap:10px; flex-direction:column;
+        transform:scale(.98); opacity:0; pointer-events:none; transition:transform .18s ease-out, opacity .18s ease-out;
+      }
+      nav.main-nav.open ul{transform:scale(1); opacity:1; pointer-events:auto}
+    }
+
+    :focus-visible{outline:3px solid var(--focus); outline-offset:3px; border-radius:4px}
+    .skip-link{
+      position:absolute; left:12px; top:6px; z-index:200; background:var(--surface); color:var(--text);
+      padding:6px 10px; border-radius:8px; border:1px solid var(--border);
+      transform:translateY(-150%); transition:transform .2s;
+    }
+    .skip-link:focus{transform:translateY(0%)}
+
+    /* 2) Hero + Intro + Breadcrumbs */
+    .hero{
+      max-width:var(--wrap); margin:0 auto; padding:18px var(--pad) 0;
+      animation: fadeIn 0.5s 0.1s ease-out backwards; /* Stagger animation */
+    }
+    .hero-figure{
+      margin:0; border-radius:14px; overflow:hidden; border:1px solid var(--border); box-shadow:var(--shadow-e2); background:var(--surface);
+    }
+    .hero-figure img{display:block; width:100%; height:auto; aspect-ratio:16/7; object-fit:cover; background-color:var(--surface)}
+    .hero-caption{margin:0; padding:10px 14px; font-size:.96rem; color:var(--muted); background:color-mix(in srgb, var(--surface) 92%, transparent); border-top:1px solid var(--border)}
+
+    .intro{
+      padding:12px var(--pad) 4px; max-width:var(--wrap); margin:0 auto;
+      animation: fadeIn 0.5s 0.2s ease-out backwards; /* Stagger animation */
+    }
+    .intro p{margin:10px 0; color:var(--muted); font-size:clamp(1rem, 1.2vw, 1.05rem); max-width:75ch}
+
+    .breadcrumbs{
+      max-width:var(--wrap); margin:0 auto; padding:8px var(--pad) 0; font-size:.95rem; color:var(--muted);
+      animation: fadeIn 0.5s 0.3s ease-out backwards; /* Stagger animation */
+    }
+    .breadcrumbs a{color:var(--muted); text-decoration:none; font-weight:600}
+    .breadcrumbs a:hover{color:var(--accent); text-decoration:underline}
+    .breadcrumbs .sep{opacity:.6; padding:0 .35rem}
+
+    /* 3) Main content */
+    main#main{
+      max-width:var(--wrap); margin:0 auto; padding:8px var(--pad) 24px;
+      animation: fadeIn 0.5s 0.4s ease-out backwards; /* Stagger animation */
+    }
+    .page-title{
+      margin:8px 0 4px; font-size:clamp(1.9rem, 3.8vw, 2.6rem); font-weight:800;
+      font-family: var(--font-serif); /* Use serif font */
+      background: var(--grad-title);
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; letter-spacing:.2px;
+    }
+    .page-sub{margin:0 0 10px; color:var(--muted); font-weight:600}
+
+    section.module-section{
+      margin:20px 0; padding:14px; border-radius:12px; background:color-mix(in srgb, var(--surface) 86%, transparent);
+      border:1px solid var(--border); box-shadow:var(--shadow-e2); page-break-before:always;
+    }
+    section.module-section:first-of-type{page-break-before:auto}
+    
+    /* ENHANCEMENT: Gradient Section Titles */
+    .section-title{
+      margin:0 0 6px; font-size:clamp(1.2rem, 2.3vw, 1.45rem); font-weight:800; letter-spacing:.2px; color:var(--text);
+      font-family: var(--font-serif); /* Use serif font */
+      /* Apply gradient */
+      background: var(--grad-title);
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+    }
+    .section-lead{margin:2px 0 10px; color:var(--muted)}
+    
+    blockquote.core {
+      margin: 1em 0;
+      padding: 10px 14px;
+      border-left: 4px solid var(--accent);
+      background: color-mix(in srgb, var(--accent) 6%, var(--surface));
+      border-radius: 0 8px 8px 0;
+      /* ENHANCEMENT: Use serif font for emphasis */
+      font-family: var(--font-serif);
+      font-size: 1.05em;
+      letter-spacing: 0.1px;
+    }
+    blockquote.core p { margin: 0; font-weight: 600; }
+
+    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+    @media (max-width:820px){.grid-2{grid-template-columns:1fr}}
+
+    .card{background:color-mix(in srgb, var(--surface) 88%, transparent); border:1px solid var(--border); border-radius:12px; padding:12px 14px;}
+    .card h3 {
+      margin-top: 0;
+      font-family: var(--font-serif); /* Use serif font */
+    }
+    .card ul, .card ol { padding-left: 1.2em; }
+
+    /* Prompts — no horizontal scrollbars (wrap) */
+    .prompt{position:relative; margin:12px 0 6px; border-radius:12px; border:1px solid var(--border); overflow:hidden; background:var(--code-bg-light)}
+    html[data-theme="dark"] .prompt{background:color-mix(in srgb, var(--code-bg-dark) 92%, transparent)}
+    .prompt-header{display:flex; justify-content:space-between; align-items:center; padding:8px 10px; border-bottom:1px solid var(--border); background:color-mix(in srgb, var(--surface) 92%, transparent)}
+    .prompt-title{font-weight:800}
+    .prompt pre{margin:0; padding:12px; overflow-x:hidden; white-space:pre-wrap; word-break:break-word}
+    .prompt code{
+      font-family: var(--font-mono); /* Use mono font */
+      font-size:.95rem; white-space:pre-wrap; display:block;
+    }
+    .prompt-meta{font-size:.92rem; color:var(--muted); margin:4px 0}
+    .copy-btn{
+      appearance:none; border:1px solid var(--border); background:var(--grad-1); color:#fff; font-weight:700; font-size:.9rem; border-radius:8px; padding:6px 10px;
+      cursor:pointer; transition:transform .15s, box-shadow .15s, filter .15s;
+    }
+    .copy-btn:hover{transform:translateY(-1px); box-shadow:0 4px 10px rgba(0,0,0,.18)}
+    .copy-btn:focus-visible{outline:3px solid var(--focus); outline-offset:2px}
+    html[data-theme="dark"] .copy-btn{color:var(--black); background:linear-gradient(95deg, var(--gold), color-mix(in srgb, var(--gold) 80%, #ffc66f)); border-color:color-mix(in srgb, var(--gold) 25%, var(--border))}
+    
+    .prompt-explainer { margin-top: 14px; }
+    .prompt-explainer h3 {
+      margin-top: 0;
+      font-family: var(--font-serif); /* Use serif font */
+    }
+    
+    details {
+      margin-top: 1em;
+      background: color-mix(in srgb, var(--border) 20%, transparent);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    details[open] { background: color-mix(in srgb, var(--surface) 80%, transparent); }
+    summary {
+      font-weight: 600;
+      color: var(--muted);
+      padding: 8px 12px;
+      cursor: pointer;
+      list-style-position: inside;
+      transition: background-color .2s;
+    }
+    summary:hover {
+      background: color-mix(in srgb, var(--border) 40%, transparent);
+    }
+    details[open] summary {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+    }
+    .details-content {
+      padding: 0 12px 12px;
+      border-top: 1px solid var(--border);
+      margin-top: 8px;
+    }
+    .details-content p, .details-content ol, .details-content ul { margin-bottom: 0; }
+    .details-content code {
+      background: color-mix(in srgb, var(--border) 50%, transparent);
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-size: .9em;
+    }
+
+
+    /* SVG — Module 01 Diagram */
+    figure.diagram-flow{margin:0; padding:0}
+    .diagram-flow svg{
+      display:block; width:100%; height:auto; background:color-mix(in srgb, var(--surface) 88%, transparent);
+      border:1px solid var(--border); border-radius:12px;
+      font-family: var(--font-sans);
+    }
+    .diagram-flow figcaption{margin-top:8px; font-size:.95rem; color:var(--muted)}
+    .svg-label{fill:var(--svg-label); font-weight:700;}
+    /* ENHANCED SVG: Sub-label style */
+    .svg-desc{
+      fill: var(--svg-desc);
+      font-weight: 600;
+      font-size: 11px;
+      opacity: 0.9;
+    }
+    /* SVG stroke gradients */
+    .g-violet-stroke { stroke: #7c3aed; }
+    .g-blue-stroke { stroke: #2563eb; }
+    .g-green-stroke { stroke: #10b981; }
+    .g-gold-stroke { stroke: #f6be3e; }
+    .g-slate-stroke { stroke: #94a3b8; }
+    .g-arrow-path {
+      stroke: var(--muted2);
+      stroke-width: 2.5;
+    }
+    .g-arrow-path-solution {
+      stroke: var(--accent);
+      stroke-width: 3;
+    }
+    html[data-theme="dark"] .g-violet-stroke { stroke: #a78bfa; }
+    html[data-theme="dark"] .g-blue-stroke { stroke: #7dd3fc; }
+    html[data-theme="dark"] .g-green-stroke { stroke: #6ee7b7; }
+    html[data-theme="dark"] .g-gold-stroke { stroke: #fde08a; }
+    html[data-theme="dark"] .g-slate-stroke { stroke: #e2e8f0; }
+    html[data-theme="dark"] .g-arrow-path-solution { stroke: var(--accent); }
+
+
+    /* Improvement for Next Module link visibility */
+    .next-module-link {
+      color: var(--link);
+      text-decoration: underline;
+      font-size: 1.1em;
+      font-weight: 700;
+    }
+    .next-module-link:hover {
+      color: var(--accent);
+    }
+
+    /* Back to top */
+    .back-to-top{
+      position:fixed; bottom:26px; right:26px; width:48px; height:48px; border-radius:50%; border:1px solid var(--border);
+      display:grid; place-items:center; color:var(--accent); cursor:pointer; background:color-mix(in srgb, var(--surface) 92%, transparent);
+      box-shadow:var(--shadow-e2); opacity:0; visibility:hidden; transform:translateY(8px);
+      transition:opacity .18s, transform .18s, visibility .18s; z-index:90;
+    }
+    .back-to-top.visible{opacity:1; visibility:visible; transform:translateY(0)}
+    .back-to-top:hover{background:color-mix(in srgb, var(--surface) 90%, var(--accent))}
+
+    /* Footer */
+    .footer-section{position:relative; z-index:1; margin-top:32px; border-top:1px solid var(--border); background:var(--surface)}
+    .footer-divider{height:2px; border:0; margin:0 0 16px; background:linear-gradient(90deg, transparent, var(--violet), var(--blue), var(--gold), transparent); opacity:.3}
+    .site-footer{padding:0 var(--pad) 16px; max-width:var(--wrap); margin:0 auto; color:var(--muted)}
+    .footer-flex{display:flex; flex-direction:column; align-items:center; gap:12px}
+    .footer-nav{display:flex; gap:16px; flex-wrap:wrap; justify-content:center}
+    .footer-nav a{color:var(--muted); text-decoration:none; font-weight:600}
+    .footer-nav a:hover{color:var(--accent); text-decoration:underline}
+    .footer-brand{display:flex; align-items:center; gap:10px}
+    .footer-logo{height:24px; width:auto; filter:grayscale(0); opacity:.9}
+    .copyright{font-size:.95rem; color:var(--muted)}
+
+    /* Narrow padding */
+    @media (max-width:560px){
+      .header-inner, .hero, .intro, .breadcrumbs, main#main, .site-footer{padding-left:1rem; padding-right:1rem}
+    }
+
+    /* Print 6×9 (force light mode; hide chrome) */
+    @media print{
+      @page{size:6in 9in; margin:0.75in}
+      html{color-scheme:light !important}
+      :root{
+        /* Force light theme variables for print */
+        --bg:var(--white) !important; --surface:var(--white) !important; --text:var(--slate-900) !important;
+        --muted:#445268 !important; --muted2:var(--slate-500) !important; --border:var(--slate-200) !important;
+        --accent:var(--violet) !important; --link:var(--blue) !important;
+        --shadow-e2:none !important; --svg-label:#0f172a !important;
+        --svg-desc: var(--muted) !important;
+        --code-bg-light:#f7f7fb !important;
+        --grad-title: linear-gradient(90deg, var(--violet), var(--blue)) !important;
+        
+        /* Print-specific SVG fills */
+        --svg-fill-violet: color-mix(in srgb, var(--violet) 10%, var(--white)) !important;
+        --svg-fill-blue: color-mix(in srgb, var(--blue) 10%, var(--white)) !important;
+        --svg-fill-green: color-mix(in srgb, var(--green) 10%, var(--white)) !important;
+        --svg-fill-gold: color-mix(in srgb, var(--gold) 20%, var(--white)) !important;
+        --svg-fill-slate: color-mix(in srgb, var(--slate-400) 20%, var(--white)) !important;
+      }
+      body{
+        background:var(--bg) !important; color:var(--text) !important;
+        font-size:11pt; line-height:1.6;
+        /* ENHANCEMENT: Force color printing */
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+        /* ENHANCEMENT: Force print fonts */
+        font-family: 'Inter', system-ui, sans-serif !important;
+      }
+      /* ENHANCEMENT: Force print fonts for headings */
+      .page-title, .section-title, .card h3, .prompt-explainer h3 {
+        font-family: 'Source Serif Pro', serif !important;
+        -webkit-text-fill-color: transparent !important; /* Keep gradient text */
+        background: var(--grad-title) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+      }
+      .section-title {
+        /* Remove online-only styles */
+        border-left: none !important;
+        padding-left: 0 !important;
+      }
+      /* ENHANCEMENT: Force print fonts for prompts */
+      .prompt code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+      }
+      .site-header, .theme-toggle, .back-to-top, .footer-section, .copy-btn, .breadcrumbs, details > summary {display:none !important}
+      
+      /* PRINT ENHANCEMENT: v67 */
+      section.module-section{
+        box-shadow:none !important; 
+        background:var(--white) !important; 
+        border: none !important;
+        padding: 10px 0;
+      }
+      .prompt{
+        background:var(--code-bg-light) !important; 
+        border: 1px solid var(--border) !important; /* Keep prompt border */
+      }
+      .diagram-flow svg{
+        background:var(--white) !important; 
+        border: none !important;
+      }
+      .card { 
+        border: none !important; 
+        background: var(--white) !important; 
+        box-shadow: none !important; 
+      }
+      
+      /* ENHANCEMENT: Make hero figure visible in print */
+      .hero-figure { page-break-after: avoid; } 
+      .hero-figure img { max-width: 100%; height: auto; }
+      
+      details, .details-content { border: none !important; background: none !important; padding: 0 !important; margin: 0 !important; }
+      details[open] { padding: 0 !important; }
+      details > * { display: block !important; } /* Show details content */
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Live regions -->
+  <div id="theme-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+  <div id="copy-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+  <div id="scroll-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- ===================== Header (TOC parity) ===================== -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand-wrap" href="/index.html" aria-label="The AI Artisan home">
+        <img src="https://aiartisan.hqaim.com/images/HQAIM_ICON.svg" class="brand-logo" alt="HQAIM Studios icon" width="32" height="32" />
+        <span class="brand-text">The AI Artisan</span>
+      </a>
+
+      <!-- Mobile hamburger -->
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
+
+      <!-- Main navigation -->
+      <nav id="site-menu" class="main-nav" role="navigation" aria-label="Main">
+        <ul>
+          <li><a href="/foreword.html">Foreword</a></li>
+          <li><a href="/toc.html">Index</a></li>
+          <li><a href="/modules.html" aria-current="page">Modules</a></li>
+          <li><a href="/fieldkit.html">Toolkit</a></li>
+          <li><a href="/premium.html">Premium</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Theme toggle (always visible) -->
+      <div class="right-tools">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle color theme" aria-pressed="false" role="switch" title="Toggle theme">
+          <!-- Sun (light) -->
+          <svg class="icon icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+          </svg>
+          <!-- Moon (dark) -->
+          <svg class="icon icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== Hero ===================== -->
+  <section class="hero" aria-label="Module hero">
+    <figure class="hero-figure">
+      <!-- NEW Hero Image -->
+      <img
+        src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=1600&auto.format&fit=crop"
+        alt="A structured grid pattern representing orderly reasoning."
+        decoding="async"
+        fetchpriority="high"
+        width="1600"
+        height="700"
+        onerror="this.src='https://placehold.co/1600x700/f8fafc/64748b?text=Module+16+Hero+Image+(Grid)';this.onerror=null;"
+      />
+      <figcaption class="hero-caption">
+        Advanced prompt patterns guide the model through defined reasoning paths. They help it separate stages, follow structure, and produce reliable results for tasks that need more than a single instruction.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ===================== Intro ===================== -->
+  <div class="intro">
+    <p>This module introduces advanced prompt patterns that improve reasoning control and deliver consistent results for complex tasks. Learn advanced prompt patterns that guide models through structured reasoning, controlled exploration, and multi-step transformations with predictable results.</p>
+  </div>
+
+  <!-- ===================== Breadcrumbs ===================== -->
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="/toc.html">Index</a><span class="sep">/</span>
+    <a href="/modules.html">Modules</a><span class="sep">/</span>
+    <span aria-current="page">Module 16</span>
+  </nav>
+
+  <!-- ===================== Main ===================== -->
+  <main id="main" role="main" tabindex="-1" aria-labelledby="page-title">
+    
+    <!-- 1. Introduction & Overview (Combined Page Title) -->
+    <h1 id="page-title" class="page-title">Module 16 — Advanced Prompt Patterns</h1>
+    <p class="page-sub">Master complex reasoning structures for consistent, high-level outputs.</p>
+
+    <!-- 2. Key Insight -->
+    <section id="m16-sec-2" class="module-section" aria-labelledby="m16-sec-2-title">
+      <h2 id="m16-sec-2-title" class="section-title">Key Insight</h2>
+      <blockquote class="core">
+        <p>Advanced prompt patterns guide the model through defined reasoning paths. They help it separate stages, follow structure, and produce reliable results for tasks that need more than a single instruction.</p>
+      </blockquote>
+    </section>
+
+    <!-- 3. Why This Matters -->
+    <section id="m16-sec-3" class="module-section" aria-labelledby="m16-sec-3-title">
+      <h2 id="m16-sec-3-title" class="section-title">Why This Matters</h2>
+      <p class="section-lead">Basic prompting is unstable for tasks involving comparison, analysis, evaluation, or transformation. These tasks require clear reasoning flows. Without structure, the model blends steps or skips important logic. This results in errors or inconsistent quality.</p>
+      <p>Advanced patterns solve this by creating predictable pathways. Each pattern defines stages, boundaries, and checks. Professionals benefit because patterns reduce variability across projects. Beginners benefit because patterns reduce guesswork and offer stable templates for complex work.</p>
+    </section>
+
+    <!-- 4. Framework Foundations -->
+    <section id="m16-sec-4" class="module-section" aria-labelledby="m16-sec-4-title">
+      <h2 id="m16-sec-4-title" class="section-title">Framework Foundations</h2>
+      <ul style="list-style: none; padding-left: 0;">
+        <li><strong>CLARITY-7™</strong> defines purpose, audience, constraints, tone, input format, and expected output. It stabilizes each pattern and ensures every stage has a clear objective.</li>
+        <li><strong>MIRROR-6™</strong> checks meaning, accuracy, relevance, reliability, outcome alignment, and repeatability. It verifies whether each stage stays aligned with the intended reasoning path.</li>
+        <li><strong>VALOR-Δ</strong> measures whether the pattern provides measurable improvements across attempts. It evaluates value, alignment, leverage, outcome strength, repeatability, and change (Δ).</li>
+        <li><strong>TESSERA™</strong> stores patterns as continuity tiles so they can be reused, refined, and adapted without rebuilding.</li>
+      </ul>
+      <p>These frameworks turn patterns into durable reasoning tools.</p>
+      
+      <!-- NEW SVG Diagram for Module 16 - Advanced Pattern Architecture Map -->
+      <figure class="diagram-flow" style="margin-top: 1.5em;">
+        <svg viewBox="0 0 900 280" style="max-width: 800px; margin: 0 auto; display: block;" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dsTitle dsDesc">
+          <title id="dsTitle">Diagram: Advanced Pattern Architecture Map</title>
+          <desc id="dsDesc">A horizontal flow diagram showing four types of patterns: Reasoning, Exploration, Transformation, and Decision, with arrows illustrating the chaining flow.</desc>
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M0,0 L10,5 L0,10 z" fill="var(--muted2)"/>
+            </marker>
+          </defs>
+
+          <!-- Pattern 1: Reasoning -->
+          <g transform="translate(50 80)">
+            <rect width="160" height="100" rx="12" fill="var(--svg-fill-violet)" />
+            <rect width="160" height="100" rx="12" fill="transparent" class="g-violet-stroke" stroke-width="2"/>
+            <text x="80" y="40" class="svg-label" text-anchor="middle" font-size="15" font-weight="bold">Reasoning</text>
+            <text x="80" y="60" class="svg-label" text-anchor="middle" font-size="15" font-weight="bold">Patterns</text>
+            <text x="80" y="80" class="svg-desc" text-anchor="middle" font-size="12">(Logical Flow)</text>
+          </g>
+          <path d="M210,130 L260,130" fill="none" class="g-arrow-path" marker-end="url(#arrow)" />
+
+          <!-- Pattern 2: Exploration -->
+          <g transform="translate(260 80)">
+            <rect width="160" height="100" rx="12" fill="var(--svg-fill-blue)" />
+            <rect width="160" height="100" rx="12" fill="transparent" class="g-blue-stroke" stroke-width="2"/>
+            <text x="80" y="40" class="svg-label" text-anchor="middle" font-size="15" font-weight="bold">Exploration</text>
+            <text x="80" y="60" class="svg-label" text-anchor="middle" font-size="15" font-weight="bold">Patterns</text>
+            <text x="80" y="80" class="svg-desc" text-anchor="middle" font-size="12">(Discovery)</text>
+          </g>
+          <path d="M420,130 L470,130" fill="none" class="g-arrow-path" marker-end="url(#arrow)" />
+
+          <!-- Pattern 3: Transformation -->
+          <g transform="translate(470 80)">
+            <rect width="160" height="100" rx="12" fill="var(--svg-fill-green)" />
+            <rect width="160" height="100" rx="12" fill="transparent" class="g-green-stroke" stroke-width="2"/>
+            <text x="80" y="40" class="svg-label" text-anchor="middle" font-size="15" font-weight="bold">Transformation</text>
+            <text x="80" y="60" class="svg-label" text-anchor="middle" font-size="15" font-weight="bold">Patterns</text>
+            <text x="80" y="80" class="svg-desc" text-anchor="middle" font-size="12">(Change)</text>
+          </g>
+          <path d="M630,130 L680,130" fill="none" class="g-arrow-path" marker-end="url(#arrow)" />
+
+          <!-- Pattern 4: Decision -->
+          <g transform="translate(680 80)">
+            <rect width="160" height="100" rx="12" fill="var(--svg-fill-gold)" />
+            <rect width="160" height="100" rx="12" fill="transparent" class="g-gold-stroke" stroke-width="2"/>
+            <text x="80" y="35" class="svg-label" text-anchor="middle" font-size="15" font-weight="bold">Decision</text>
+            <text x="80" y="55" class="svg-label" text-anchor="middle" font-size="15" font-weight="bold">Patterns</text>
+            <text x="80" y="75" class="svg-desc" text-anchor="middle" font-size="12">(Δ Scored)</text>
+          </g>
+        </svg>
+        <figcaption>The Advanced Pattern Architecture Map: Shows how different patterns support complex reasoning with clear structure.</figcaption>
+      </figure>
+    </section>
+    
+    <!-- 5. Core Ideas Explained -->
+    <section id="m16-sec-5" class="module-section" aria-labelledby="m16-sec-5-title">
+      <h2 id="m16-sec-5-title" class="section-title">Core Ideas Explained</h2>
+      
+      <div class="grid-2">
+        <div class="card">
+          <h3>Why Patterns Strengthen Reasoning</h3>
+          <p>Reasoning often breaks when tasks rely on a single instruction. The model attempts to compress multiple steps into one output, which leads to drift or omissions. Patterns solve this by providing separate stages with defined goals.</p>
+          <p>Each stage limits ambiguity. <strong>CLARITY-7™</strong> defines what to do, how to do it, and what the output should contain. This improves precision and reduces misalignment across stages.</p>
+        </div>
+        <div class="card">
+          <h3>Pattern Types for Structured Thinking</h3>
+          <p>Different tasks require different reasoning structures. Analytical tasks benefit from staged breakdown patterns. Creative tasks benefit from divergent–convergent structures. Decision tasks require criteria-based comparison patterns.</p>
+          <p>Each pattern uses clear inputs, step boundaries, and output formats. This standardizes the reasoning process and makes outcomes predictable across platforms.</p>
+        </div>
+        <div class="card">
+          <h3>Managing Complexity with Pattern Chains</h3>
+          <p>Some tasks require more than one pattern. Pattern chaining creates multi-step flows where each pattern supports a different part of the process: idea generation, evaluation, synthesis, or transformation.</p>
+          <p>Chaining allows users to combine strengths of different patterns while preserving stability. <strong>MIRROR-6™</strong> checks each pattern in the chain. <strong>VALOR-Δ</strong> measures whether chaining improves results.</p>
+        </div>
+        <div class="card">
+          <h3>Step Separation for High-Stability Tasks</h3>
+          <p>Complex reasoning becomes unreliable when steps merge or overlap. Advanced patterns enforce step separation. The model completes one stage fully before starting the next. This protects the reasoning path and reduces mistakes.</p>
+          <p>Step separation also makes verification easier. When a stage fails <strong>MIRROR-6™</strong>, users can refine that stage alone rather than repeating the entire process.</p>
+        </div>
+      </div>
+      <div class="card" style="margin-top: 14px;">
+          <h3>Reuse and Refinement through TESSERA™</h3>
+          <p>Patterns that produce strong results should become long-term assets. <strong>TESSERA™</strong> stores refined patterns, examples, proof notes, and Δ findings. This preserves successful designs for future use.</p>
+          <p>This continuity reduces rebuilding and allows for consistent reasoning across tasks, teams, and projects.</p>
+        </div>
+    </section>
+    
+    <!-- 6. How the Framework Applies -->
+    <section id="m16-sec-6" class="module-section" aria-labelledby="m16-sec-6-title">
+      <h2 id="m16-sec-6-title" class="section-title">How the Framework Applies</h2>
+      <p><strong>CLARITY-7™</strong> defines the intention and boundaries of each pattern. It specifies purpose, audience, inputs, constraints, tone, and expected output. This ensures the model enters each stage with a stable goal.</p>
+      <p><strong>MIRROR-6™</strong> verifies accuracy across each stage. It checks meaning, accuracy, relevance, reliability, outcome alignment, and repeatability. This prevents weak stages from influencing later steps.</p>
+      <p><strong>VALOR-Δ</strong> measures whether a pattern improves performance compared to a basic prompt. If Δ is strong, the pattern is effective. If Δ is weak, the pattern structure needs refinement.</p>
+      <p><strong>TESSERA™</strong> stores refined patterns so they can be reused consistently without rebuilding. This builds a library of stable, high-value reasoning tools.</p>
+    </section>
+
+    <!-- 7. Prompt Vault -->
+    <section id="m16-sec-7" class="module-section" aria-labelledby="m16-sec-7-title">
+      <h2 id="m16-sec-7-title" class="section-title">Prompt Vault</h2>
+      <p class="section-lead">Below are four brand-new, premium-grade Pattern Forge prompts for designing, refining, and deploying advanced prompt patterns. Each is platform-neutral and includes framework explanations where required.</p>
+
+      <!-- Prompt 1 -->
+      <div class="card prompt-explainer" style="margin-top: 14px;">
+        <h3>Pattern Forge Prompt 1 — Multi-Stage Reasoning Pattern Builder</h3>
+        <div class="prompt" data-prompt="P1">
+          <div class="prompt-header">
+            <span class="prompt-title">Multi-Stage Reasoning Pattern Builder</span>
+            <button class="copy-btn" type="button" data-copy="#code-p1-m16" title="Copy to clipboard">Copy</button>
+          </div>
+          <pre><code id="code-p1-m16">ROLE: Reasoning Pattern Architect
+CONTEXT: You need a pattern that guides complex reasoning across
+         separate stages. CLARITY-7™ defines purpose, inputs,
+         constraints, tone, and expected output.
+TASK: Build a reasoning pattern with 4 clear stages:
+      1) Understanding the Task
+      2) Structured Breakdown
+      3) Step-by-Step Reasoning
+      4) Final Synthesis
+CONSTRAINTS: Keep each stage independent; add one sentence
+             explaining the goal of each stage.
+OUTPUT: A complete multi-stage reasoning pattern ready for reuse.</code></pre>
+        </div>
+        <details>
+          <summary>Usage Guide</summary>
+          <div class="details-content">
+            <p><strong>When to use:</strong> For tasks that require analysis, breakdown, and synthesis.</p>
+            <p><strong>Problem it solves:</strong> Models blend steps or skip reasoning.</p>
+            <p><strong>How to use:</strong> Provide your task under the prompt.</p>
+            <p><strong>Good output:</strong> Four labeled stages with clear goals.</p>
+            <p><strong>Why it works:</strong> CLARITY-7™ ensures each stage has defined intent.</p>
+            <p><strong>Beginner benefit:</strong> Makes complex reasoning easy to follow.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Prompt 2 -->
+      <div class="card prompt-explainer" style="margin-top: 14px;">
+        <h3>Pattern Forge Prompt 2 — Divergent–Convergent Expert Pattern</h3>
+        <div class="prompt" data-prompt="P2">
+          <div class="prompt-header">
+            <span class="prompt-title">Divergent–Convergent Expert Pattern</span>
+            <button class="copy-btn" type="button" data-copy="#code-p2-m16" title="Copy to clipboard">Copy</button>
+          </div>
+          <pre><code id="code-p2-m16">ROLE: Exploration Pattern Designer
+CONTEXT: Some tasks require broad exploration before narrowing down.
+         MIRROR-6™ verifies the quality of the final choice.
+TASK: Create a pattern with two phases:
+      A) Divergent generation of options (3–5 options)
+      B) Convergent selection using three MIRROR-6™ criteria
+CONSTRAINTS: Options must be independent; criteria must be explicit;
+             selection must be justified.
+OUTPUT: A structured divergent–convergent reasoning pattern.</code></pre>
+        </div>
+        <details>
+          <summary>Usage Guide</summary>
+          <div class="details-content">
+            <p><strong>When to use:</strong> When you need multiple options and a structured way to choose one.</p>
+            <p><strong>Problem it solves:</strong> Options become similar or selection becomes subjective.</p>
+            <p><strong>How to use:</strong> Add your topic and run both phases.</p>
+            <p><strong>Good output:</strong> A range of options and a justified selection.</p>
+            <p><strong>Why it works:</strong> MIRROR-6™ creates objective evaluation.</p>
+            <p><strong>Beginner benefit:</strong> Encourages exploration with guided decision-making.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Prompt 3 -->
+      <div class="card prompt-explainer" style="margin-top: 14px;">
+        <h3>Pattern Forge Prompt 3 — Transformation Pattern</h3>
+        <div class="prompt" data-prompt="P3">
+          <div class="prompt-header">
+            <span class="prompt-title">Transformation Pattern</span>
+            <button class="copy-btn" type="button" data-copy="#code-p3-m16" title="Copy to clipboard">Copy</button>
+          </div>
+          <pre><code id="code-p3-m16">ROLE: Transformation Engineer
+CONTEXT: Content transformations need accuracy and consistency.
+         CLARITY-7™ defines inputs and outputs. MIRROR-6™ maintains alignment.
+TASK: Build a transformation pattern with three steps:
+      1) Interpret the source
+      2) Adapt to new constraints
+      3) Deliver the final formatted output
+CONSTRAINTS: No loss of meaning; define input and output formats;
+             no merging of steps.
+OUTPUT: A structured transformation pattern.</code></pre>
+        </div>
+        <details>
+          <summary>Usage Guide</summary>
+          <div class="details-content">
+            <p><strong>When to use:</strong> When rewriting, summarizing, adapting, or reformatting content.</p>
+            <p><strong>Problem it solves:</strong> Transformations lose detail or drift in tone.</p>
+            <p><strong>How to use:</strong> Insert source content and target format.</p>
+            <p><strong>Good output:</strong> Accurate, aligned, and clearly formatted output.</p>
+            <p><strong>Why it works:</strong> MIRROR-6™ ensures fidelity to original meaning.</p>
+            <p><strong>Beginner benefit:</strong> Produces clean transformations without expertise.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Prompt 4 -->
+      <div class="card prompt-explainer" style="margin-top: 14px;">
+        <h3>Pattern Forge Prompt 4 — Δ-Driven Decision Pattern</h3>
+        <div class="prompt" data-prompt="P4">
+          <div class="prompt-header">
+            <span class="prompt-title">Δ-Driven Decision Pattern</span>
+            <button class="copy-btn" type="button" data-copy="#code-p4-m16" title="Copy to clipboard">Copy</button>
+          </div>
+          <pre><code id="code-p4-m16">ROLE: Decision Framework Analyst
+CONTEXT: Complex decisions need transparent criteria. VALOR-Δ
+         measures value, alignment, leverage, outcome strength,
+         repeatability, and improvement.
+TASK: Create a decision pattern with:
+      - Three options
+      - Four evaluation criteria
+      - A Δ-based improvement assessment
+CONSTRAINTS: Scoring must be simple; avoid vague judgments; include
+             one actionable refinement.
+OUTPUT: A decision pattern with transparent scoring and a final choice.</code></pre>
+        </div>
+        <details>
+          <summary>Usage Guide</summary>
+          <div class="details-content">
+            <p><strong>When to use:</strong> When deciding between strategies, actions, or plans.</p>
+            <p><strong>Problem it solves:</strong> Decisions become subjective or inconsistent.</p>
+            <p><strong>How to use:</strong> Provide three options and run the evaluation.</p>
+            <p><strong>Good output:</strong> A justified decision with a clear Δ-based rationale.</p>
+            <p><strong>Why it works:</strong> VALOR-Δ highlights measurable improvements.</p>
+            <p><strong>Beginner benefit:</strong> Helps users make decisions with confidence.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 8. Step-by-Step Method -->
+    <section id="m16-sec-8" class="module-section" aria-labelledby="m16-sec-8-title">
+      <h2 id="m16-sec-8-title" class="section-title">Step-by-Step Method</h2>
+      <p class="section-lead">This process ensures consistent, high-quality reasoning.</p>
+      <ol>
+        <li><strong>Define the task</strong> using CLARITY-7™.</li>
+        <li><strong>Select the pattern type</strong> that fits the task.</li>
+        <li><strong>Apply each stage</strong> of the pattern without merging steps.</li>
+        <li><strong>Verify each output</strong> using MIRROR-6™.</li>
+        <li><strong>Compare results</strong> across runs using VALOR-Δ.</li>
+        <li><strong>Refine unclear stages</strong> or constraints.</li>
+        <li><strong>Save the improved pattern</strong> as a TESSERA™ tile.</li>
+        <li><strong>Reuse the pattern</strong> for similar tasks.</li>
+      </ol>
+    </section>
+    
+    <!-- 9. Typical Mistakes & Fixes -->
+    <section id="m16-sec-9" class="module-section" aria-labelledby="m16-sec-9-title">
+      <h2 id="m16-sec-9-title" class="section-title">Typical Mistakes & Fixes</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Using patterns without clear intent</h3>
+          <p><strong>Fix:</strong> Define the task using CLARITY-7™ first.</p>
+        </div>
+        <div class="card">
+          <h3>Merging steps in reasoning patterns</h3>
+          <p><strong>Fix:</strong> Keep stages separate and verify each one independently.</p>
+        </div>
+        <div class="card">
+          <h3>Lack of evaluation criteria</h3>
+          <p><strong>Fix:</strong> Use MIRROR-6™ or simple scoring rules.</p>
+        </div>
+        <div class="card">
+          <h3>Overcomplicating pattern structures</h3>
+          <p><strong>Fix:</strong> Limit each stage to a single function.</p>
+        </div>
+      </div>
+      <div class="card" style="margin-top: 14px;">
+        <h3>Not measuring improvement</h3>
+        <p><strong>Fix:</strong> Use VALOR-Δ to track gains across attempts.</p>
+      </div>
+    </section>
+    
+    <!-- 10. How to Check Your Results -->
+    <section id="m16-sec-10" class="module-section" aria-labelledby="m16-sec-10-title">
+      <h2 id="m16-sec-10-title" class="section-title">How to Check Your Results</h2>
+      <p class="section-lead">Use <strong>MIRROR-6™</strong> to verify each stage for meaning, accuracy, relevance, reliability, outcome alignment, and repeatability. If a stage fails, refine its constraints or rewrite the step.</p>
+      <p>Use <strong>VALOR-Δ</strong> to measure improvement across repeated uses. Strong Δ indicates the pattern works. Weak Δ signals unclear stages or poor constraints. Review Proof Artifacts™ to confirm alignment.</p>
+      <p>When both checks show stability, store the pattern using <strong>TESSERA™</strong>.</p>
+    </section>
+
+    <!-- 11. Short Practice Tasks -->
+    <section id="m16-sec-11" class="module-section" aria-labelledby="m16-sec-11-title">
+      <h2 id="m16-sec-11-title" class="section-title">Short Practice Tasks</h2>
+      <div class="card">
+        <ol>
+          <li>Apply the Multi-Stage Reasoning Pattern to a current task and compare its output to a basic prompt.</li>
+          <li>Use the Divergent–Convergent Pattern to generate options for a decision and verify the selection using MIRROR-6™.</li>
+          <li>Run the Transformation Pattern on the same input twice and track Δ improvements using VALOR-Δ.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 12. Key Takeaways -->
+    <section id="m16-sec-12" class="module-section" aria-labelledby="m16-sec-12-title">
+      <h2 id="m16-sec-12-title" class="section-title">Key Takeaways</h2>
+      <ul>
+        <li>Advanced patterns improve control and reduce reasoning drift.</li>
+        <li>CLARITY-7™ stabilizes each stage of the pattern.</li>
+        <li>MIRROR-6™ verifies accuracy and alignment at every step.</li>
+        <li>VALOR-Δ measures the real improvement gained from using patterns.</li>
+        <li>TESSERA™ stores refined patterns for long-term reuse.</li>
+        <li>Step separation increases consistency and clarity for complex tasks.</li>
+      </ul>
+    </section>
+
+    <!-- 13. Next Module -->
+    <section id="m16-sec-13" class="module-section" aria-labelledby="m16-sec-13-title">
+      <h2 id="m16-sec-13-title" class="section-title">Next Module</h2>
+      <p><strong>Next: Module 17 — The AI Artisan Workflow Library.</strong></p>
+      <p>It presents a curated collection of practical workflows built from patterns, systems, and refined reasoning structures.</p>
+      <p style="margin-top: 1.5em;"><a href="/modules/module-17.html" class="next-module-link">Continue to Next Module → Module 17 — The AI Artisan Workflow Library</a></p>
+    </section>
+
+    <!-- 14. Reader Invitation -->
+    <section id="m16-sec-14" class="module-section" aria-labelledby="m16-sec-14-title">
+      <h2 id="m16-sec-14-title" class="section-title">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail" style="vertical-align: middle; margin-right: 8px; color: var(--accent);">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+        Reader Invitation — Share Your Case Study
+      </h2>
+      <p>If you apply any of these patterns in real work and want to share your results or a case study, you can contact us through the site’s contact page or our community channels.</p>
+      <p>Your examples help refine future editions and support other learners.</p>
+    </section>
+
+  </main>
+
+  <!-- ===================== Back to Top ===================== -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" title="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <!-- ===================== Footer (TOC parity) ===================== -->
+  <footer class="footer-section" role="contentinfo">
+    <hr class="footer-divider" />
+    <div class="site-footer">
+      <div class="footer-flex">
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="/toc.html" rel="noopener">Index</a>
+          <a href="/contact.html" rel="noopener">Contact</a>
+          <a href="/privacy.html" rel="noopener">Privacy</a>
+          <a href="/terms.html" rel="noopener">Terms</a>
+          <a href="/sitemap.xml" rel="noopener">Sitemap</a>
+        </nav>
+        <div class="footer-brand">
+          <img src="https://aiartisan.hqaim.com/assets/images/HQAIM_LOGO_Gradient_Minimal.svg" class="footer-logo" alt="HQAIM Studios logo" width="120" height="26" />
+          <span class="copyright">© <span id="year"></span> Abdullah Khan · HQAIM Studios</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== Inline JavaScript (v51) ===================== -->
+  <script>
+  (function(){
+    'use strict';
+    
+    const html = document.documentElement;
+    const metaTheme = document.getElementById('themeColor');
+    const toggle = document.getElementById('themeToggle');
+    const backToTop = document.getElementById('backToTop');
+    const navToggle = document.querySelector('.nav-toggle');
+    const mainNav = document.querySelector('nav.main-nav');
+    const yearEl = document.getElementById('year');
+    
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    /* Theme toggle (parity with Module 01/TOC) */
+    const storageKey = 'aiartisan_theme_preference';
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function getPref(){
+      const saved = localStorage.getItem(storageKey);
+      if (saved === 'light' || saved === 'dark') return saved;
+      return prefersDark.matches ? 'dark' : 'light';
+    }
+    
+    function applyTheme(t, announce=false){
+      html.dataset.theme = t;
+      if (metaTheme) metaTheme.setAttribute('content', t === 'dark' ? '#0f172a' : '#ffffff');
+      if (toggle) {
+        toggle.setAttribute('aria-pressed', String(t === 'dark'));
+        const newLabel = 'Switch to ' + (t === 'dark' ? 'light' : 'dark') + ' theme';
+        toggle.setAttribute('title', newLabel);
+        toggle.setAttribute('aria-label', newLabel);
+      }
+    }
+    
+    applyTheme(getPref(), false);
+    
+    prefersDark.addEventListener('change', e => {
+      if (!localStorage.getItem(storageKey)) applyTheme(e.matches ? 'dark' : 'light', true);
+    });
+    
+    if (toggle){
+      toggle.addEventListener('click', () => {
+        const next = html.dataset.theme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem(storageKey, next);
+        applyTheme(next, true);
+      });
+      toggle.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle.click(); }
+      });
+    }
+
+    /* Copy buttons */
+    document.querySelectorAll('.copy-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const targetSelector = btn.getAttribute('data-copy');
+        const target = document.querySelector(targetSelector);
+        if(!target) return;
+        
+        const text = target.textContent.trim();
+        
+        try {
+          const textarea = document.createElement('textarea');
+          textarea.value = text;
+          textarea.style.position = 'fixed';
+          textarea.style.opacity = '0';
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+          
+          const prev = btn.textContent;
+          btn.textContent = 'Copied!';
+          setTimeout(()=>{ btn.textContent = prev; }, 2000);
+
+        } catch (err) {
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText(text).then(() => {
+              const prev = btn.textContent;
+              btn.textContent = 'Copied!';
+              setTimeout(() => { btn.textContent = prev; }, 2000);
+            });
+          }
+        }
+      });
+    });
+
+    /* Mobile navigation */
+    if (navToggle && mainNav){
+      navToggle.addEventListener('click', ()=>{
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', String(!expanded));
+        mainNav.classList.toggle('open');
+      });
+    }
+
+    /* Back to top */
+    if (backToTop) {
+      function onScroll(){
+        if (window.scrollY > 400){ backToTop.classList.add('visible'); }
+        else { backToTop.classList.remove('visible'); }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll(); 
+      
+      backToTop.addEventListener('click', ()=>{
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+    
+    /* Details/Summary toggle */
+    document.querySelectorAll('details').forEach(detail => {
+      detail.addEventListener('toggle', () => {});
+    });
+
+  })();
+  </script>
+</body>
+</html>
