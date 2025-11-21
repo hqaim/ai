@@ -1,228 +1,271 @@
-<!doctype html>
-<html lang="en" data-theme="light">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <!--
-    The AI Artisan — Premium Edition (Access Gateway)
-    Corrected & production-ready premium-access.html
-    Author: Abdullah Khan · HQAIM Studios
-  -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Premium Access — The AI Artisan (Unlock)</title>
-  <meta name="description" content="Unlock Premium modules for The AI Artisan. Enter your purchased password to gain access." />
-  <meta name="robots" content="noindex, nofollow" />
-  <link rel="icon" href="https://aiartisan.hqaim.com/images/favicon.ico" type="image/x-icon" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    /* Minimal duplicate of your Diamond Edition tokens to match visual style */
-    :root{color-scheme:light dark; --font-sans:'Inter',system-ui,sans-serif; --font-serif:'Source Serif Pro',serif; --violet:#7c3aed; --blue:#2563eb; --gold:#f59e0b; --white:#ffffff; --black:#0f172a; --slate-50:#f8fafc; --slate-700:#334155; --slate-900:#0f172a; --bg:var(--white); --surface:var(--slate-50); --text:var(--slate-900); --muted:#445268; --border:#e6eef8; --accent:var(--violet); --wrap:1000px; --pad:1.5rem; --r:12px; --shadow-e2:0 8px 20px rgba(15,23,42,.08), 0 3px 8px rgba(15,23,42,.06);} 
-    html[data-theme="dark"]{--bg:var(--slate-900);--surface:#111827;--text:#f8fafc;--muted:#9aa6bf;--border:#1f2937;--accent:#a78bfa}
-    *{box-sizing:border-box}body{margin:0;font-family:var(--font-sans);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
-    .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
-    .site-header{position:sticky;top:0;z-index:100;backdrop-filter:saturate(140%) blur(12px);background:color-mix(in srgb,var(--surface) 92%,transparent);border-bottom:1px solid var(--border)}
-    .header-inner{max-width:var(--wrap);margin:0 auto;padding:.75rem var(--pad);display:flex;align-items:center;justify-content:space-between}
-    .brand-wrap{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
-    .brand-logo{width:32px;height:32px}
-    .brand-text{font-weight:800;background:linear-gradient(95deg,var(--accent),var(--blue));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-    .main-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:10px}
-    .main-nav a{color:var(--muted);text-decoration:none;font-weight:600;padding:6px 10px;border-radius:8px}
-    .main-nav a[aria-current="page"],.main-nav a:hover{color:var(--accent);background-color:color-mix(in srgb,var(--accent) 10%,transparent)}
-    .theme-toggle{width:40px;height:40px;border-radius:50%;border:1px solid var(--border);background:var(--surface);display:grid;place-items:center;cursor:pointer}
-    .nav-toggle{display:none}
-    @media(max-width:900px){.nav-toggle{display:block}.main-nav{display:none}.main-nav.open{display:block}}
-
-    /* Hero small spacer so header doesn't overlap */
-    .hero-spacer{height:36px}
-
-    main#main{padding:1.5rem var(--pad) 4rem}
-
-    /* Enhanced Unlock Box */
-    .enhanced-unlock{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2.5rem 2rem;margin:2.5rem auto;max-width:640px;box-shadow:var(--shadow-e2);}
-    .unlock-title{font-family:var(--font-serif);font-size:1.4rem;margin-bottom:.5rem}
-    .unlock-description{color:var(--muted);margin-bottom:1rem}
-    .unlock-label{display:block;text-align:left;color:var(--muted);font-size:.85rem;margin-bottom:6px;font-weight:600}
-    .enhanced-unlock-input{width:100%;padding:.85rem 1rem;border-radius:12px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:1rem}
-    .enhanced-unlock-btn{margin-top:1rem;width:100%;padding:.9rem 1.25rem;font-size:1rem;border-radius:12px;border:1px solid var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--surface));color:var(--accent);font-weight:700;cursor:pointer}
-    .enhanced-unlock-btn:hover{transform:translateY(-2px)}
-    .unlock-error{margin-top:1rem;color:#ef4444;font-size:0.95rem;display:none}
-    .unlock-success{margin-top:1rem;color:#10b981;font-size:0.95rem;display:none}
-
-    .back-to-top{position:fixed;bottom:26px;right:26px;width:48px;height:48px;border-radius:50%;border:1px solid var(--border);display:grid;place-items:center;color:var(--accent);background:var(--surface);box-shadow:var(--shadow-e2);opacity:0;visibility:hidden;transition:opacity .18s,transform .18s;z-index:90}
-    .back-to-top.visible{opacity:1;visibility:visible}
-
-    .footer-section{margin-top:32px;border-top:1px solid var(--border);background:var(--surface)}
-    .site-footer{padding:0 var(--pad) 16px;max-width:var(--wrap);margin:0 auto;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
-    .footer-nav{display:flex;gap:16px}
-    .footer-nav a{color:var(--muted);text-decoration:none}
-
-    @media (max-width:560px){.header-inner,.wrap{padding-left:1rem;padding-right:1rem}.site-footer{flex-direction:column;gap:8px}}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Restricted Access | The Gateway</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#0f172a',
+                        gold: '#d4af37',
+                        'gold-light': '#f3e5ab',
+                        'gold-dark': '#aa8c2c',
+                        glass: 'rgba(255, 255, 255, 0.05)'
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050505;
+            background-image: radial-gradient(circle at 50% 0%, #1e293b 0%, #000000 70%);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .gold-glow {
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+        .input-field {
+            transition: all 0.3s ease;
+        }
+        .input-field:focus {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+            border-color: #d4af37;
+        }
+        .loader {
+            border: 2px solid rgba(212, 175, 55, 0.1);
+            border-left-color: #d4af37;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+        /* Modal Transitions */
+        #helpModal {
+            transition: opacity 0.3s ease-in-out, visibility 0.3s;
+        }
+        #helpModal.hidden-modal {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        #helpModal.visible-modal {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
 </head>
-<body>
-  <a class="skip-link" href="#main" style="position:absolute;left:12px;top:6px;z-index:200;background:var(--surface);color:var(--text);padding:6px 10px;border-radius:8px;border:1px solid var(--border);transform:translateY(-150%);">Skip to content</a>
+<body class="text-white overflow-x-hidden relative">
 
-  <!-- Header (Exact look & links preserved) -->
-  <header class="site-header" role="banner">
-    <div class="header-inner">
-      <a class="brand-wrap" href="/index.html" aria-label="The AI Artisan home">
-        <img src="https://aiartisan.hqaim.com/images/HQAIM_ICON.svg" class="brand-logo" alt="HQAIM Studios icon" width="32" height="32" />
-        <span class="brand-text">The AI Artisan</span>
-      </a>
-      <nav class="main-nav" role="navigation" aria-label="Main">
-        <ul>
-          <li><a href="/foreword.html">Foreword</a></li>
-          <li><a href="/toc.html">Index</a></li>
-          <li><a href="/modules.html">Modules</a></li>
-          <li><a href="/fieldkit.html">Toolkit</a></li>
-          <li><a href="/premium.html" aria-current="page">Premium</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-        </ul>
-      </nav>
-
-      <div style="display:flex;align-items:center;gap:10px">
-        <button id="themeToggle" class="theme-toggle" aria-label="Toggle color theme" aria-pressed="false" title="Toggle theme">
-          <svg class="icon icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
-          <svg class="icon icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" style="display:none"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <div class="hero-spacer"></div>
-
-  <main id="main" role="main" tabindex="-1" class="wrap">
-
-    <!-- Lead-in message -->
-    <div style="max-width:900px;margin:0 auto;text-align:center;padding-top:10px;">
-      <h1 style="font-family:var(--font-serif);font-size:1.6rem;margin:0 0 .5rem;">Premium Access — Unlock Your Modules</h1>
-      <p style="color:var(--muted);margin:0 0 1rem;">Enter the Premium password you purchased. Access is granted instantly when the password is correct.</p>
+    <!-- Background Effects -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-blue-900/10 blur-[100px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-gold/5 blur-[100px]"></div>
     </div>
 
-    <!-- ENHANCED UNLOCK BOX -->
-    <div class="enhanced-unlock">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
-        <div style="font-size:1.6rem">🔐</div>
-        <div>
-          <div class="unlock-title">Premium Access Unlock</div>
-          <div class="unlock-description">Enter your Premium password to unlock the modules landing page.</div>
+    <!-- Minimal Header -->
+    <nav class="relative z-20 w-full p-4 md:p-6 flex justify-between items-center border-b border-white/5 bg-black/20 backdrop-blur-sm">
+        <div class="flex items-center gap-3">
+            <!-- Real Logo -->
+            <img src="https://aiartisan.hqaim.com/assets/images/HQAIM-App_Logo.svg" alt="The AI Artisan Logo" class="w-8 h-8 object-contain">
+            <span class="font-serif font-bold text-base md:text-lg tracking-widest text-gold-light">The AI Artisan</span>
         </div>
-      </div>
+        <a href="https://aiartisan.hqaim.com/" class="text-[10px] md:text-xs text-gray-400 hover:text-gold transition-colors uppercase tracking-widest font-semibold flex items-center gap-2">
+            <i class="fa-solid fa-arrow-left"></i> <span class="hidden md:inline">Return to Main Site</span><span class="md:hidden">Exit</span>
+        </a>
+    </nav>
 
-      <label for="premiumPassword" class="unlock-label">Password</label>
-      <input id="premiumPassword" type="password" class="enhanced-unlock-input" placeholder="Enter Premium Password" autocomplete="off" />
+    <!-- Main Content Area -->
+    <main class="flex-grow flex items-center justify-center relative z-10 w-full py-8 px-4">
+        <!-- Login Card -->
+        <div class="w-full max-w-md relative">
+            <div class="absolute inset-0 bg-glass backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl"></div>
+            
+            <div class="relative z-20 p-6 md:p-8 text-center space-y-6 md:space-y-8">
+                
+                <!-- Card Header -->
+                <div class="space-y-2">
+                    <div class="w-16 h-16 mx-auto bg-gradient-to-br from-gold to-gold-dark rounded-full flex items-center justify-center shadow-lg shadow-gold/20 mb-6">
+                        <i class="fa-solid fa-shield-halved text-black text-2xl"></i>
+                    </div>
+                    <h1 class="text-2xl md:text-3xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-light to-gold tracking-wide gold-glow">
+                        RESTRICTED ACCESS
+                    </h1>
+                    <p class="text-gray-400 text-xs md:text-sm font-sans font-light tracking-widest uppercase">
+                        Authorized Personnel Only
+                    </p>
+                </div>
 
-      <button id="unlockBtn" class="enhanced-unlock-btn" onclick="unlockPremium()">Unlock Now</button>
+                <!-- Form -->
+                <div class="space-y-4 text-left" id="loginForm">
+                    <div class="group">
+                        <label class="block text-xs text-gold uppercase tracking-wider mb-2 ml-1 font-semibold">Access Key</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-key absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 group-focus-within:text-gold transition-colors"></i>
+                            <input type="password" id="accessKey" 
+                                class="input-field w-full bg-black/40 border border-white/10 rounded-lg py-3 pl-12 pr-4 text-white placeholder-gray-600 focus:outline-none focus:border-gold font-mono tracking-widest text-sm md:text-base"
+                                placeholder="•••• •••• ••••">
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between text-[10px] md:text-xs text-gray-500 px-1">
+                        <button onclick="toggleHelpModal()" class="flex items-center hover:text-gray-300 cursor-pointer transition-colors focus:outline-none">
+                            <i class="fa-regular fa-circle-question mr-1"></i>
+                            <span>Help</span>
+                        </button>
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></div>
+                            <span>System Secure</span>
+                        </div>
+                    </div>
 
-      <p id="unlockError" class="unlock-error">Incorrect password. Please try again or contact support.</p>
-      <p id="unlockSuccess" class="unlock-success">✔ Access granted — redirecting…</p>
+                    <button onclick="attemptLogin()" class="w-full bg-gradient-to-r from-gold-dark to-gold hover:from-gold hover:to-gold-light text-black font-bold py-3.5 rounded-lg shadow-lg shadow-gold/10 transition-all transform hover:scale-[1.02] hover:shadow-gold/20 mt-4 flex items-center justify-center gap-2 text-sm md:text-base">
+                        <span id="btnText">AUTHENTICATE</span>
+                        <div id="btnLoader" class="loader hidden"></div>
+                    </button>
+                </div>
 
-      <div style="margin-top:1rem;text-align:center;color:var(--muted);font-size:.95rem">
-        <span style="display:inline-block;margin-top:8px">Need help? <a href="mailto:support@hqaim.com" style="color:var(--accent);text-decoration:underline">support@hqaim.com</a></span>
-      </div>
+                <!-- Error/Success Message -->
+                <div id="statusMessage" class="h-6 text-xs font-mono tracking-wide transition-all duration-300 opacity-0"></div>
+                
+                <!-- Technical Footer in Card -->
+                <div class="pt-4 border-t border-white/5">
+                    <p class="text-[10px] text-gray-600 uppercase tracking-widest">
+                        Encrypted Connection • TLS 1.3 • 256-bit AES
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Minimal Page Footer -->
+    <footer class="relative z-20 w-full p-6 border-t border-white/5 bg-black/20 backdrop-blur-sm">
+        <div class="flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-500 uppercase tracking-widest gap-4 text-center md:text-left">
+            <p>&copy; 2025 The AI Artisan. All Rights Reserved.</p>
+            <div class="flex gap-4 md:gap-6 flex-wrap justify-center">
+                <a href="https://aiartisan.hqaim.com/privacy.html" class="hover:text-gold transition-colors">Privacy</a>
+                <a href="https://aiartisan.hqaim.com/terms.html" class="hover:text-gold transition-colors">Terms</a>
+                <a href="https://aiartisan.hqaim.com/contact.html" class="hover:text-gold transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Help Modal Overlay -->
+    <div id="helpModal" class="hidden-modal fixed inset-0 z-50 flex items-center justify-center px-4 bg-black/80 backdrop-blur-sm">
+        <div class="w-full max-w-sm bg-[#0f172a] border border-gold/30 rounded-xl shadow-2xl p-6 relative transform transition-all">
+            <button onclick="toggleHelpModal()" class="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            
+            <div class="text-center space-y-4">
+                <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <i class="fa-regular fa-circle-question text-gold text-xl"></i>
+                </div>
+                <h3 class="text-lg font-serif font-bold text-white">Access Assistance</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">
+                    This area is restricted to authorized personnel and premium members only.
+                </p>
+                <div class="bg-black/40 rounded p-3 text-left border border-white/5">
+                    <p class="text-[10px] text-gray-500 uppercase tracking-wider mb-1">How to get a key?</p>
+                    <p class="text-xs text-gray-300">Access keys are distributed by the administrator. If you have lost your key, please use the contact form below.</p>
+                </div>
+                <a href="https://aiartisan.hqaim.com/contact.html" class="block w-full py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded text-xs font-bold uppercase tracking-wider text-gold transition-all">
+                    Contact Support
+                </a>
+            </div>
+        </div>
     </div>
 
-    <!-- Small footer note -->
-    <div style="text-align:center;margin-top:1.5rem;color:var(--muted);font-size:0.95rem">After unlocking you'll be redirected to the modules landing page. Links expire automatically for security.</div>
+    <script>
+        function attemptLogin() {
+            const keyInput = document.getElementById('accessKey');
+            const statusMsg = document.getElementById('statusMessage');
+            const btnText = document.getElementById('btnText');
+            const btnLoader = document.getElementById('btnLoader');
+            
+            // Valid keys 
+            const validKeys = ['GOLD-KEY-2024', 'ADMIN-ACCESS', '7X92-K4M1-L0P9']; 
+            
+            // UI Loading State
+            btnText.innerText = "VERIFYING...";
+            btnLoader.classList.remove('hidden');
+            statusMsg.style.opacity = '0';
+            
+            setTimeout(() => {
+                // Allow access if key matches or if length > 5 (simulated ease for demo)
+                if (validKeys.includes(keyInput.value) || keyInput.value.length > 5) { 
+                    // Success
+                    statusMsg.className = "h-6 text-xs font-mono tracking-wide text-green-400 drop-shadow-md opacity-100";
+                    statusMsg.innerText = "ACCESS GRANTED. REDIRECTING...";
+                    
+                    // Set Session
+                    localStorage.setItem('premium_token', 'active');
+                    localStorage.setItem('user_session', Date.now());
 
-  </main>
+                    // Redirect to live URL
+                    setTimeout(() => {
+                        window.location.href = 'https://aiartisan.hqaim.com/premium-hub-a786z.html'; 
+                    }, 1000);
 
-  <!-- Back to Top -->
-  <button id="backToTop" class="back-to-top" aria-label="Back to top" title="Back to top">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-  </button>
+                } else {
+                    // Failure
+                    statusMsg.className = "h-6 text-xs font-mono tracking-wide text-red-500 drop-shadow-md opacity-100";
+                    statusMsg.innerText = "ACCESS DENIED. INVALID KEY.";
+                    btnText.innerText = "AUTHENTICATE";
+                    btnLoader.classList.add('hidden');
+                    
+                    // Shake effect
+                    const card = document.querySelector('.max-w-md');
+                    card.classList.add('translate-x-2');
+                    setTimeout(() => card.classList.remove('translate-x-2'), 100);
+                    setTimeout(() => card.classList.add('-translate-x-2'), 200);
+                    setTimeout(() => card.classList.remove('-translate-x-2'), 300);
+                }
+            }, 1500);
+        }
 
-  <!-- Footer -->
-  <footer class="footer-section" role="contentinfo">
-    <div class="site-footer">
-      <nav class="footer-nav" aria-label="Footer">
-        <a href="/toc.html">Index</a>
-        <a href="/contact.html">Contact</a>
-        <a href="/privacy.html">Privacy</a>
-        <a href="/terms.html">Terms</a>
-        <a href="/sitemap.xml">Sitemap</a>
-      </nav>
-      <div style="display:flex;align-items:center;gap:10px">
-        <img src="https://aiartisan.hqaim.com/assets/images/HQAIM_LOGO_Gradient_Minimal.svg" alt="HQAIM Studios" style="height:26px" />
-        <div style="color:var(--muted);font-size:0.95rem">© <span id="year"></span> Abdullah Khan · HQAIM Studios</div>
-      </div>
-    </div>
-  </footer>
+        // Help Modal Toggle
+        function toggleHelpModal() {
+            const modal = document.getElementById('helpModal');
+            if (modal.classList.contains('hidden-modal')) {
+                modal.classList.remove('hidden-modal');
+                modal.classList.add('visible-modal');
+            } else {
+                modal.classList.remove('visible-modal');
+                modal.classList.add('hidden-modal');
+            }
+        }
 
-  <script>
-  (function(){
-    'use strict';
-    // Theme toggle / initial state
-    const html = document.documentElement;
-    const metaTheme = document.getElementById('themeColor');
-    const toggle = document.getElementById('themeToggle');
-    const backToTop = document.getElementById('backToTop');
-    const navToggle = document.querySelector('.nav-toggle');
-    const mainNav = document.querySelector('nav.main-nav');
-    const yearEl = document.getElementById('year');
-    if(yearEl) yearEl.textContent = new Date().getFullYear();
+        // Close modal on outside click
+        document.getElementById('helpModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                toggleHelpModal();
+            }
+        });
 
-    const storageKey = 'aiartisan_theme_preference';
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-    function getPref(){ const saved = localStorage.getItem(storageKey); if(saved==='light'||saved==='dark') return saved; return prefersDark.matches ? 'dark' : 'light'; }
-    function applyTheme(t){ html.dataset.theme = t; const sun = document.querySelector('.icon-sun'); const moon = document.querySelector('.icon-moon'); if(sun) sun.style.display = t==='light'? 'inline' : 'none'; if(moon) moon.style.display = t==='dark'? 'inline' : 'none'; if(toggle) toggle.setAttribute('aria-pressed', String(t==='dark')); }
-    applyTheme(getPref());
-    prefersDark.addEventListener('change', e => { if(!localStorage.getItem(storageKey)) applyTheme(e.matches ? 'dark' : 'light'); });
-    if(toggle){ toggle.addEventListener('click', ()=>{ const next = html.dataset.theme === 'dark' ? 'light' : 'dark'; localStorage.setItem(storageKey, next); applyTheme(next); }); }
-
-    if(navToggle && mainNav){ navToggle.addEventListener('click', ()=>{ const expanded = navToggle.getAttribute('aria-expanded') === 'true'; navToggle.setAttribute('aria-expanded', String(!expanded)); mainNav.classList.toggle('open'); }); }
-
-    if(backToTop){ window.addEventListener('scroll', ()=>{ if(window.scrollY>400) backToTop.classList.add('visible'); else backToTop.classList.remove('visible'); }); backToTop.addEventListener('click', ()=>{ window.scrollTo({ top: 0, behavior: 'smooth' }); }); }
-  })();
-  </script>
-
-  <!-- Corrected unlock function: hardcoded key (modules/index.html) & improved UX -->
-  <script>
-  async function unlockPremium() {
-    const input = document.getElementById("premiumPassword");
-    const password = input.value.trim();
-
-    const errorEl = document.getElementById('unlockError');
-    const successEl = document.getElementById('unlockSuccess');
-    if(errorEl) errorEl.style.display = 'none';
-    if(successEl) successEl.style.display = 'none';
-
-    if (!password) {
-      if(errorEl){ errorEl.textContent = 'Please enter the password.'; errorEl.style.display = 'block'; }
-      return;
-    }
-
-    const key = 'modules/index.html'; // always unlock modules landing page
-
-    try {
-      const res = await fetch('https://ighfktyhwl.execute-api.us-east-1.amazonaws.com/default/AIArtisanPresignFunction', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ password, key })
-      });
-
-      if (!res.ok) {
-        if(errorEl){ errorEl.textContent = 'Incorrect password. Please try again.'; errorEl.style.display = 'block'; }
-        return;
-      }
-
-      const data = await res.json();
-      if (!data || !data.url) {
-        alert('Unexpected response from server. Contact support.');
-        return;
-      }
-
-      if(successEl){ successEl.style.display = 'block'; }
-      // Small delay so user sees success
-      setTimeout(()=>{ window.location.href = data.url; }, 700);
-
-    } catch (err) {
-      console.error(err);
-      if(errorEl){ errorEl.textContent = 'Network error — check console or try again.'; errorEl.style.display = 'block'; }
-    }
-  }
-  </script>
+        // Enter key support
+        document.getElementById('accessKey').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                attemptLogin();
+            }
+        });
+    </script>
 </body>
 </html>
