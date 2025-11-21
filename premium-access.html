@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     
+    <!-- Favicon -->
+    <link rel="icon" href="https://aiartisan.hqaim.com/images/favicon.ico" type="image/x-icon" />
+
     <script>
         tailwind.config = {
             theme: {
@@ -136,7 +139,7 @@
                         </div>
                     </div>
 
-                    <button onclick="attemptLogin()" class="w-full bg-gradient-to-r from-gold-dark to-gold hover:from-gold hover:to-gold-light text-black font-bold py-3.5 rounded-lg shadow-lg shadow-gold/10 transition-all transform hover:scale-[1.02] hover:shadow-gold/20 mt-4 flex items-center justify-center gap-2 text-sm md:text-base">
+                    <button onclick="attemptUnlock()" class="w-full bg-gradient-to-r from-gold-dark to-gold hover:from-gold hover:to-gold-light text-black font-bold py-3.5 rounded-lg shadow-lg shadow-gold/10 transition-all transform hover:scale-[1.02] hover:shadow-gold/20 mt-4 flex items-center justify-center gap-2 text-sm md:text-base">
                         <span id="btnText">AUTHENTICATE</span>
                         <div id="btnLoader" class="loader hidden"></div>
                     </button>
@@ -194,51 +197,113 @@
     </div>
 
     <script>
-        function attemptLogin() {
-            const keyInput = document.getElementById('accessKey');
+        // =================================================================
+        // 1. OPEN 'admin-lock-maker.html'
+        // 2. GENERATE YOUR LOCK CODE
+        // 3. PASTE THE 'const lockConfig = ...' CODE BLOCK BELOW THIS LINE
+        // =================================================================
+        
+        const lockConfig = {
+  "salt": "K39GByM4nJOmd8MYygvKEQ==",
+  "iv": "rLO0p2nordQBScP5",
+  "ciphertext": "3jCD+9b2DwVu8Qv3cPgT8tLltQVpl9DK6HSXWCOBNOgmYL68EixICjqWrXnbYD4+/cFktY6xiw3gQ0Qi2Q+Au/fce8up7uNnGlHTrwd99Fvo7wu3DkY5UleaeixyD4VSPxhBikSrcXPAD5H0vQdKOlqEphRX3CCmKJGFtu+GsuOxoI/vJTDS"
+};
+
+        // =================================================================
+
+        async function attemptUnlock() {
+            const password = document.getElementById('accessKey').value;
             const statusMsg = document.getElementById('statusMessage');
             const btnText = document.getElementById('btnText');
             const btnLoader = document.getElementById('btnLoader');
+
+            if (!password) return;
             
-            // Valid keys 
-            const validKeys = ['GOLD-KEY-2024', 'ADMIN-ACCESS', '7X92-K4M1-L0P9']; 
-            
-            // UI Loading State
-            btnText.innerText = "VERIFYING...";
+            if (typeof lockConfig === 'undefined' || !lockConfig.salt || lockConfig.salt.includes("REPLACE_THIS")) {
+                alert("System Error: No Lock Configuration Found. Please contact support.");
+                return;
+            }
+
+            // UI Loading
+            btnText.innerText = "DECRYPTING...";
             btnLoader.classList.remove('hidden');
             statusMsg.style.opacity = '0';
-            
-            setTimeout(() => {
-                // Allow access if key matches or if length > 5 (simulated ease for demo)
-                if (validKeys.includes(keyInput.value) || keyInput.value.length > 5) { 
-                    // Success
-                    statusMsg.className = "h-6 text-xs font-mono tracking-wide text-green-400 drop-shadow-md opacity-100";
-                    statusMsg.innerText = "ACCESS GRANTED. REDIRECTING...";
-                    
-                    // Set Session
-                    localStorage.setItem('premium_token', 'active');
-                    localStorage.setItem('user_session', Date.now());
 
-                    // Redirect to live URL
-                    setTimeout(() => {
-                        window.location.href = 'https://aiartisan.hqaim.com/premium-hub-a786z.html'; 
-                    }, 1000);
+            try {
+                // 1. Decode Base64 components
+                const fromBase64 = (str) => Uint8Array.from(atob(str), c => c.charCodeAt(0));
+                const salt = fromBase64(lockConfig.salt);
+                const iv = fromBase64(lockConfig.iv);
+                const ciphertext = fromBase64(lockConfig.ciphertext);
 
-                } else {
-                    // Failure
-                    statusMsg.className = "h-6 text-xs font-mono tracking-wide text-red-500 drop-shadow-md opacity-100";
-                    statusMsg.innerText = "ACCESS DENIED. INVALID KEY.";
-                    btnText.innerText = "AUTHENTICATE";
-                    btnLoader.classList.add('hidden');
-                    
-                    // Shake effect
-                    const card = document.querySelector('.max-w-md');
-                    card.classList.add('translate-x-2');
-                    setTimeout(() => card.classList.remove('translate-x-2'), 100);
-                    setTimeout(() => card.classList.add('-translate-x-2'), 200);
-                    setTimeout(() => card.classList.remove('-translate-x-2'), 300);
+                const enc = new TextEncoder();
+
+                // 2. Derive Key from Password
+                const keyMaterial = await window.crypto.subtle.importKey(
+                    "raw", enc.encode(password), { name: "PBKDF2" }, false, ["deriveKey"]
+                );
+
+                const key = await window.crypto.subtle.deriveKey(
+                    { name: "PBKDF2", salt: salt, iterations: 100000, hash: "SHA-256" },
+                    keyMaterial, { name: "AES-GCM", length: 256 }, false, ["decrypt"]
+                );
+
+                // 3. Attempt Decryption
+                const decryptedContent = await window.crypto.subtle.decrypt(
+                    { name: "AES-GCM", iv: iv }, key, ciphertext
+                );
+
+                const dec = new TextDecoder();
+                const jsonString = dec.decode(decryptedContent);
+                let targetUrl = jsonString; // Fallback for old keys that were just URLs
+
+                // 4. Parse Payload & Check Expiry
+                try {
+                    const payload = JSON.parse(jsonString);
+                    if (payload.url) {
+                        targetUrl = payload.url; // It is a structured payload
+                        
+                        // Check for expiration
+                        if (payload.expiry && Date.now() > payload.expiry) {
+                            throw new Error("EXPIRED_KEY");
+                        }
+                    }
+                } catch (e) {
+                    // If parse fails, it's likely a plain string URL from an older key generator version.
+                    // Or if explicit error thrown above:
+                    if (e.message === "EXPIRED_KEY") throw e;
                 }
-            }, 1500);
+
+                // Success
+                statusMsg.className = "h-6 text-xs font-mono tracking-wide text-green-400 drop-shadow-md opacity-100";
+                statusMsg.innerText = "ACCESS GRANTED. REDIRECTING...";
+                localStorage.setItem('premium_token', 'active');
+                localStorage.setItem('user_session', Date.now());
+
+                setTimeout(() => {
+                    window.location.href = targetUrl;
+                }, 800);
+
+            } catch (e) {
+                // Fail
+                console.error(e);
+                btnLoader.classList.add('hidden');
+                btnText.innerText = "AUTHENTICATE";
+                statusMsg.className = "h-6 text-xs font-mono tracking-wide text-red-500 drop-shadow-md opacity-100";
+                
+                if (e.message === "EXPIRED_KEY") {
+                    statusMsg.innerText = "ACCESS DENIED. KEY HAS EXPIRED.";
+                } else {
+                    statusMsg.innerText = "ACCESS DENIED. INVALID KEY.";
+                }
+                
+                // Shake animation
+                const card = document.querySelector('.max-w-md');
+                card.classList.add('translate-x-2');
+                setTimeout(() => card.classList.remove('translate-x-2'), 100);
+                setTimeout(() => card.classList.add('-translate-x-2'), 200);
+                setTimeout(() => card.classList.remove('-translate-x-2'), 300);
+            }
         }
 
         // Help Modal Toggle
@@ -263,7 +328,7 @@
         // Enter key support
         document.getElementById('accessKey').addEventListener('keypress', function (e) {
             if (e.key === 'Enter') {
-                attemptLogin();
+                attemptUnlock();
             }
         });
     </script>
