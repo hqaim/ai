@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Premium Hub | The AI Artisan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-space': '#050507',
+                        'panel-bg': '#0f1016',
+                        'glass-border': 'rgba(255, 255, 255, 0.08)',
+                        gold: '#d4af37',
+                        'gold-dim': '#aa8c2c',
+                        'accent-blue': '#3b82f6',
+                        'accent-purple': '#8b5cf6',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Cinzel', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #050507; color: #e2e8f0; }
+        
+        /* Glassmorphism */
+        .glass-panel {
+            background: rgba(15, 16, 22, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+        }
+        .glass-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+            background: rgba(255,255,255,0.05);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+        }
+
+        /* Navigation Active State */
+        .nav-item.active {
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0.15) 0%, transparent 100%);
+            border-left: 3px solid #d4af37;
+            color: #d4af37;
+        }
+        .nav-item.active i { color: #d4af37; }
+
+        /* Utility */
+        .hidden-view { display: none; animation: fadeOut 0.2s ease forwards; }
+        .active-view { display: block; animation: fadeIn 0.4s ease forwards; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #050507; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #d4af37; }
+    </style>
+</head>
+<body class="flex h-screen overflow-hidden relative text-gray-300 font-sans">
+
+    <!-- Security Check Overlay -->
+    <div id="securityOverlay" class="fixed inset-0 z-[60] bg-deep-space flex flex-col items-center justify-center transition-opacity duration-700">
+        <div class="w-16 h-16 mb-6 relative">
+            <div class="absolute inset-0 border-4 border-gray-800 rounded-full"></div>
+            <div class="absolute inset-0 border-4 border-gold border-t-transparent rounded-full animate-spin"></div>
+            <i class="fa-solid fa-shield-cat absolute inset-0 flex items-center justify-center text-gold text-xl"></i>
+        </div>
+        <h2 class="text-lg tracking-widest uppercase text-gray-400 font-semibold">Authenticating Session...</h2>
+    </div>
+
+    <!-- Mobile Sidebar Overlay -->
+    <div id="mobileBackdrop" class="fixed inset-0 bg-black/80 z-40 hidden md:hidden backdrop-blur-sm" onclick="toggleMobileNav()"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside id="mainSidebar" class="fixed inset-y-0 left-0 w-72 bg-panel-bg/95 border-r border-white/5 z-50 transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col">
+        <!-- Brand -->
+        <div class="h-20 flex items-center gap-3 px-6 border-b border-white/5">
+            <img src="https://aiartisan.hqaim.com/assets/images/HQAIM-App_Logo.svg" alt="Logo" class="w-8 h-8 object-contain">
+            <div>
+                <h1 class="font-serif font-bold text-white tracking-wide leading-none">The AI Artisan</h1>
+                <span class="text-[10px] text-gold uppercase tracking-widest">Premium Hub</span>
+            </div>
+            <button onclick="toggleMobileNav()" class="md:hidden ml-auto text-gray-400"><i class="fa-solid fa-xmark text-xl"></i></button>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="flex-1 py-6 space-y-1 overflow-y-auto">
+            <div class="px-6 mb-2 text-[10px] font-bold uppercase text-gray-500 tracking-widest">Main</div>
+            
+            <button onclick="switchView('view-dashboard', this)" class="nav-item active w-full flex items-center gap-4 px-6 py-3 text-sm hover:text-white transition-all group">
+                <i class="fa-solid fa-grid-2 text-gray-500 group-hover:text-white transition-colors w-5 text-center"></i> Dashboard
+            </button>
+            
+            <button onclick="switchView('view-models', this)" class="nav-item w-full flex items-center gap-4 px-6 py-3 text-sm hover:text-white transition-all group">
+                <i class="fa-solid fa-microchip text-gray-500 group-hover:text-white transition-colors w-5 text-center"></i> AI Models
+            </button>
+
+            <div class="px-6 mt-6 mb-2 text-[10px] font-bold uppercase text-gray-500 tracking-widest">Knowledge Base</div>
+            
+            <button onclick="switchView('view-prompts', this)" class="nav-item w-full flex items-center gap-4 px-6 py-3 text-sm hover:text-white transition-all group">
+                <i class="fa-solid fa-key text-gray-500 group-hover:text-white transition-colors w-5 text-center"></i> Prompt Vault
+            </button>
+
+            <button onclick="switchView('view-library', this)" class="nav-item w-full flex items-center gap-4 px-6 py-3 text-sm hover:text-white transition-all group">
+                <i class="fa-solid fa-file-pdf text-gray-500 group-hover:text-white transition-colors w-5 text-center"></i> PDF Library
+            </button>
+
+            <button onclick="switchView('view-cinema', this)" class="nav-item w-full flex items-center gap-4 px-6 py-3 text-sm hover:text-white transition-all group">
+                <i class="fa-brands fa-youtube text-gray-500 group-hover:text-white transition-colors w-5 text-center"></i> Video Vault
+            </button>
+
+            <button onclick="switchView('view-workspace', this)" class="nav-item w-full flex items-center gap-4 px-6 py-3 text-sm hover:text-white transition-all group">
+                <i class="fa-brands fa-google-drive text-gray-500 group-hover:text-white transition-colors w-5 text-center"></i> Workspace Docs
+            </button>
+        </nav>
+
+        <!-- User Profile Footer -->
+        <div class="p-4 border-t border-white/5 bg-white/5">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-gold to-gold-dim p-[2px]">
+                    <div class="w-full h-full rounded-full bg-black flex items-center justify-center">
+                        <i class="fa-solid fa-user-astronaut text-gold"></i>
+                    </div>
+                </div>
+                <div class="flex-1 overflow-hidden">
+                    <p class="text-sm font-bold text-white truncate">Premium Member</p>
+                    <p class="text-xs text-green-400 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-400"></span> Online</p>
+                </div>
+                <button onclick="logout()" class="text-gray-500 hover:text-red-400 transition-colors" title="Sign Out">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 ml-0 md:ml-72 h-full overflow-y-auto bg-deep-space relative w-full">
+        
+        <!-- Mobile Header -->
+        <header class="sticky top-0 z-30 glass-panel border-b-0 border-white/5 flex items-center justify-between px-4 h-16 md:hidden">
+            <div class="flex items-center gap-3">
+                <button onclick="toggleMobileNav()" class="text-gray-400 hover:text-white"><i class="fa-solid fa-bars text-xl"></i></button>
+                <span class="font-serif font-bold text-gold">The AI Artisan</span>
+            </div>
+            <div class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center">
+                <i class="fa-solid fa-user text-xs"></i>
+            </div>
+        </header>
+
+        <div class="p-6 md:p-10 max-w-7xl mx-auto pb-20">
+            
+            <!-- VIEW: DASHBOARD -->
+            <div id="view-dashboard" class="active-view space-y-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                    <div>
+                        <h2 class="text-3xl text-white font-bold mb-1">Welcome back, Artisan.</h2>
+                        <p class="text-gray-400 text-sm">Your premium assets are ready for deployment.</p>
+                    </div>
+                    <div class="text-right hidden md:block">
+                        <div class="text-xs text-gray-500 uppercase tracking-wider">Current Plan</div>
+                        <div class="text-gold font-bold">Pro Tier • Lifetime Access</div>
+                    </div>
+                </div>
+
+                <!-- PRIMARY PURCHASE AREA: CORE MODULES -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-star text-gold"></i>
+                        <h3 class="text-lg text-white font-serif font-bold tracking-wide">Core Curriculum</h3>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <!-- Module 14 -->
+                        <a href="https://aiartisan.hqaim.com/modules/m14-fxoxuxrxtxexexn-41.html" class="glass-card p-5 rounded-xl flex items-start gap-4 group relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-20 h-20 bg-gold/5 rounded-bl-full -mr-10 -mt-10 transition-all group-hover:bg-gold/10"></div>
+                            <div class="w-12 h-12 rounded bg-gray-800 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-gold/50 transition-colors">
+                                <span class="font-serif font-bold text-gold text-lg">14</span>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold group-hover:text-gold transition-colors">Collaborative Prompts</h4>
+                                <p class="text-xs text-gray-500 mt-1">Module 14</p>
+                                <div class="mt-3 text-xs font-bold text-gray-400 flex items-center gap-1 group-hover:text-white">
+                                    ACCESS CONTENT <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Module 15 -->
+                        <a href="https://aiartisan.hqaim.com/modules/m15-fxixsxtxexexn-51.html" class="glass-card p-5 rounded-xl flex items-start gap-4 group relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-20 h-20 bg-gold/5 rounded-bl-full -mr-10 -mt-10 transition-all group-hover:bg-gold/10"></div>
+                            <div class="w-12 h-12 rounded bg-gray-800 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-gold/50 transition-colors">
+                                <span class="font-serif font-bold text-gold text-lg">15</span>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold group-hover:text-gold transition-colors">Automation Systems</h4>
+                                <p class="text-xs text-gray-500 mt-1">Module 15</p>
+                                <div class="mt-3 text-xs font-bold text-gray-400 flex items-center gap-1 group-hover:text-white">
+                                    ACCESS CONTENT <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Module 16 -->
+                        <a href="https://aiartisan.hqaim.com/modules/m16-sxixxxtxexexn-61.html" class="glass-card p-5 rounded-xl flex items-start gap-4 group relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-20 h-20 bg-gold/5 rounded-bl-full -mr-10 -mt-10 transition-all group-hover:bg-gold/10"></div>
+                            <div class="w-12 h-12 rounded bg-gray-800 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-gold/50 transition-colors">
+                                <span class="font-serif font-bold text-gold text-lg">16</span>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold group-hover:text-gold transition-colors">Advanced Prompt Patterns</h4>
+                                <p class="text-xs text-gray-500 mt-1">Module 16</p>
+                                <div class="mt-3 text-xs font-bold text-gray-400 flex items-center gap-1 group-hover:text-white">
+                                    ACCESS CONTENT <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Module 17 -->
+                        <a href="https://aiartisan.hqaim.com/modules/m17-sxexvxexnxtxexexn-71.html" class="glass-card p-5 rounded-xl flex items-start gap-4 group relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-20 h-20 bg-gold/5 rounded-bl-full -mr-10 -mt-10 transition-all group-hover:bg-gold/10"></div>
+                            <div class="w-12 h-12 rounded bg-gray-800 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-gold/50 transition-colors">
+                                <span class="font-serif font-bold text-gold text-lg">17</span>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold group-hover:text-gold transition-colors">Workflow Library</h4>
+                                <p class="text-xs text-gray-500 mt-1">Module 17</p>
+                                <div class="mt-3 text-xs font-bold text-gray-400 flex items-center gap-1 group-hover:text-white">
+                                    ACCESS CONTENT <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Module 18 -->
+                        <a href="https://aiartisan.hqaim.com/modules/m18-exixgxhxtxexexn-81.html" class="glass-card p-5 rounded-xl flex items-start gap-4 group relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-20 h-20 bg-gold/5 rounded-bl-full -mr-10 -mt-10 transition-all group-hover:bg-gold/10"></div>
+                            <div class="w-12 h-12 rounded bg-gray-800 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-gold/50 transition-colors">
+                                <span class="font-serif font-bold text-gold text-lg">18</span>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold group-hover:text-gold transition-colors">Field Kit</h4>
+                                <p class="text-xs text-gray-500 mt-1">Module 18</p>
+                                <div class="mt-3 text-xs font-bold text-gray-400 flex items-center gap-1 group-hover:text-white">
+                                    ACCESS CONTENT <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+                    <div class="glass-card p-6 rounded-xl relative overflow-hidden group">
+                        <div class="absolute right-0 top-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity"><i class="fa-solid fa-layer-group text-6xl text-blue-500"></i></div>
+                        <div class="text-gray-400 text-xs uppercase tracking-wider mb-2">Available Models</div>
+                        <div class="text-3xl font-bold text-white">13</div>
+                        <div class="mt-4 text-xs text-blue-400">New Tool Added</div>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl relative overflow-hidden group">
+                        <div class="absolute right-0 top-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity"><i class="fa-solid fa-file-lines text-6xl text-purple-500"></i></div>
+                        <div class="text-gray-400 text-xs uppercase tracking-wider mb-2">Library Resources</div>
+                        <div class="text-3xl font-bold text-white">45+</div>
+                        <div class="mt-4 text-xs text-purple-400">PDFs & Guides</div>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl relative overflow-hidden group">
+                        <div class="absolute right-0 top-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity"><i class="fa-brands fa-youtube text-6xl text-red-500"></i></div>
+                        <div class="text-gray-400 text-xs uppercase tracking-wider mb-2">Video Tutorials</div>
+                        <div class="text-3xl font-bold text-white">8</div>
+                        <div class="mt-4 text-xs text-red-400">Masterclasses</div>
+                    </div>
+                </div>
+
+                <!-- Quick Access / New Arrivals -->
+                <h3 class="text-lg text-white font-semibold border-b border-white/5 pb-4 mt-4">New Arrivals & Tools</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- PROMPTFORGE PRO SHORTCUT -->
+                    <div class="glass-card p-4 rounded-lg flex gap-4 items-center cursor-pointer" onclick="switchView('view-models')">
+                         <div class="w-16 h-16 rounded-lg bg-gray-800 flex items-center justify-center shrink-0 border border-blue-500/20">
+                            <i class="fa-solid fa-feather-pointed text-2xl text-transparent bg-clip-text bg-gradient-to-tr from-blue-400 to-purple-500"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold">PromptForge Pro</h4>
+                            <p class="text-xs text-gray-400 mt-1">Professional prompt enhancer for high-performance outputs.</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-right ml-auto text-gray-600"></i>
+                    </div>
+
+                    <!-- Auto-Agent v4.2 -->
+                    <div class="glass-card p-4 rounded-lg flex gap-4 items-center cursor-pointer" onclick="switchView('view-models')">
+                        <div class="w-16 h-16 rounded-lg bg-gray-800 flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-robot text-2xl text-emerald-400"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold">Auto-Agent v4.2</h4>
+                            <p class="text-xs text-gray-400 mt-1">Latest autonomous coding agent with improved reasoning.</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-right ml-auto text-gray-600"></i>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- VIEW: AI MODELS -->
+            <div id="view-models" class="hidden-view space-y-6">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-2xl text-white font-bold">Premium Models</h2>
+                    <button class="text-xs bg-gold text-black font-bold px-4 py-2 rounded hover:bg-white transition-colors">REQUEST MODEL</button>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- PromptForge Pro Card -->
+                    <div class="glass-card p-6 rounded-xl flex flex-col h-full border border-blue-500/30 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
+                             <i class="fa-solid fa-feather-pointed text-9xl text-white"></i>
+                        </div>
+                        <div class="w-12 h-12 rounded bg-gradient-to-tr from-blue-900 to-purple-900 flex items-center justify-center mb-4 shadow-lg shadow-blue-500/20 border border-blue-500/30">
+                            <i class="fa-solid fa-feather-pointed text-lg text-blue-200"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">PromptForge Pro</h3>
+                        <div class="flex gap-2 my-2">
+                            <span class="text-[10px] bg-blue-500/20 text-blue-300 px-2 py-0.5 rounded border border-blue-500/20">NEW</span>
+                            <span class="text-[10px] bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded border border-purple-500/20">HQAIM</span>
+                        </div>
+                        <p class="text-sm text-gray-400 mt-2 mb-6 flex-1">
+                            Transforms raw ideas into structured, high-performance prompts. Delivers expert roles, context, tasks, and constraints with precision.
+                        </p>
+                        <a href="https://chatgpt.com/g/g-691cc1aeaccc8191b9236889b777bbf0-promptforge-pro-hqaim" target="_blank" class="w-full py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 rounded text-white text-sm font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-blue-900/50">
+                            <i class="fa-solid fa-rocket"></i> LAUNCH TOOL
+                        </a>
+                    </div>
+
+                    <!-- NEW: Pro Post Generator -->
+                    <div class="glass-card p-6 rounded-xl flex flex-col h-full">
+                        <div class="w-12 h-12 rounded bg-gradient-to-tr from-pink-600 to-orange-400 flex items-center justify-center mb-4 shadow-lg shadow-orange-500/20">
+                            <i class="fa-solid fa-share-nodes text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Pro Post Generator</h3>
+                        <p class="text-sm text-gray-400 mt-2 mb-6 flex-1">Create professional Social Media Posts & Posters for LinkedIn and other platforms instantly.</p>
+                        <a href="https://www.quotesn.com/pro-post-generator/" target="_blank" class="w-full py-3 border border-white/10 rounded hover:bg-pink-600 hover:border-pink-500 hover:text-white transition-all text-sm font-bold flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-up-right-from-square"></i> LAUNCH TOOL
+                        </a>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-xl flex flex-col h-full">
+                        <div class="w-12 h-12 rounded bg-gradient-to-tr from-blue-600 to-blue-400 flex items-center justify-center mb-4 shadow-lg shadow-blue-500/20">
+                            <i class="fa-solid fa-wand-magic-sparkles text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Artisan Image Gen</h3>
+                        <p class="text-sm text-gray-400 mt-2 mb-6 flex-1">High-fidelity image generation optimized for architectural visualization.</p>
+                        <button class="w-full py-3 border border-white/10 rounded hover:bg-blue-600 hover:border-blue-500 hover:text-white transition-all text-sm font-semibold">LAUNCH TOOL</button>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-xl flex flex-col h-full">
+                        <div class="w-12 h-12 rounded bg-gradient-to-tr from-purple-600 to-pink-400 flex items-center justify-center mb-4 shadow-lg shadow-purple-500/20">
+                            <i class="fa-solid fa-code text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Code Weaver Pro</h3>
+                        <p class="text-sm text-gray-400 mt-2 mb-6 flex-1">Advanced Python/JS refactoring assistant with security auditing.</p>
+                        <button class="w-full py-3 border border-white/10 rounded hover:bg-purple-600 hover:border-purple-500 hover:text-white transition-all text-sm font-semibold">LAUNCH TOOL</button>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-xl flex flex-col h-full">
+                        <div class="w-12 h-12 rounded bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center mb-4 shadow-lg shadow-emerald-500/20">
+                            <i class="fa-solid fa-database text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Data Sentry</h3>
+                        <p class="text-sm text-gray-400 mt-2 mb-6 flex-1">Analyze CSV/JSON datasets locally without uploading to the cloud.</p>
+                        <button class="w-full py-3 border border-white/10 rounded hover:bg-emerald-600 hover:border-emerald-500 hover:text-white transition-all text-sm font-semibold">LAUNCH TOOL</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW: PROMPT VAULT (NEW) -->
+            <div id="view-prompts" class="hidden-view space-y-8">
+                
+                <!-- Vault Header -->
+                <div class="border-b border-white/5 pb-6">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                        <div>
+                            <h2 class="text-2xl text-white font-bold">Prompt Vault</h2>
+                            <p class="text-xs text-gray-400 mt-1">Enterprise-grade system prompts organized by domain.</p>
+                        </div>
+                        <div class="flex gap-2">
+                             <span class="px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 text-[10px] font-bold border border-purple-500/20">V6 READY</span>
+                             <span class="px-3 py-1 rounded-full bg-green-500/10 text-green-400 text-[10px] font-bold border border-green-500/20">GPT-4o</span>
+                        </div>
+                    </div>
+
+                    <!-- Filter Buttons (Scrollable Tabs) -->
+                    <div class="flex gap-3 overflow-x-auto pb-2 scrollbar-hide" id="vault-filters">
+                        <button onclick="renderVault('ALL')" class="whitespace-nowrap px-6 py-2 rounded-full bg-gold text-black text-xs font-bold border border-gold hover:bg-white hover:border-white transition-all shadow-[0_0_15px_rgba(212,175,55,0.3)] active-filter" data-filter="ALL">
+                            ALL SYSTEMS
+                        </button>
+                        <button onclick="renderVault('UNIVERSAL')" class="whitespace-nowrap px-6 py-2 rounded-full bg-obsidian-800 text-gray-400 text-xs font-bold border border-white/10 hover:text-white hover:border-white/30 transition-all" data-filter="UNIVERSAL">
+                            UNIVERSAL
+                        </button>
+                        <button onclick="renderVault('BUSINESS')" class="whitespace-nowrap px-6 py-2 rounded-full bg-obsidian-800 text-gray-400 text-xs font-bold border border-white/10 hover:text-white hover:border-white/30 transition-all" data-filter="BUSINESS">
+                            BUSINESS
+                        </button>
+                        <button onclick="renderVault('CREATIVE')" class="whitespace-nowrap px-6 py-2 rounded-full bg-obsidian-800 text-gray-400 text-xs font-bold border border-white/10 hover:text-white hover:border-white/30 transition-all" data-filter="CREATIVE">
+                            CREATIVE
+                        </button>
+                        <button onclick="renderVault('SYSTEMS')" class="whitespace-nowrap px-6 py-2 rounded-full bg-obsidian-800 text-gray-400 text-xs font-bold border border-white/10 hover:text-white hover:border-white/30 transition-all" data-filter="SYSTEMS">
+                            SYSTEMS
+                        </button>
+                        <button onclick="renderVault('FLEX')" class="whitespace-nowrap px-6 py-2 rounded-full bg-obsidian-800 text-gray-400 text-xs font-bold border border-white/10 hover:text-white hover:border-white/30 transition-all" data-filter="FLEX">
+                            FLEX
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Master Database Link (Always Visible) -->
+                <div class="glass-card p-5 rounded-xl border border-green-500/20 relative overflow-hidden group mb-8">
+                     <div class="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
+                         <i class="fa-solid fa-database text-8xl text-green-500"></i>
+                    </div>
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-green-900/30 flex items-center justify-center border border-green-500/30 shadow-[0_0_15px_rgba(34,197,94,0.2)]">
+                                <i class="fa-solid fa-table text-green-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">5000+ Master Prompt Database</h4>
+                                <p class="text-xs text-gray-400">External Google Sheet • Updated Weekly</p>
+                            </div>
+                        </div>
+                        <a href="https://docs.google.com/spreadsheets/d/1bzvKjUa9N3_ZkX_q1jB1FjHW3zvSv9TbNsbBt5TaM1E/edit?usp=sharing" target="_blank" class="w-full md:w-auto px-6 py-2 bg-green-600/20 hover:bg-green-600/30 border border-green-500/30 hover:border-green-500/50 rounded text-white text-xs font-bold transition-all flex items-center justify-center gap-2 uppercase tracking-wider">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Access Database
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Dynamic Prompt Categories Container -->
+                <div id="vault-categories-container" class="space-y-8 pb-20">
+                    <!-- Categories injected via JS -->
+                </div>
+
+            </div>
+
+            <!-- VIEW: LIBRARY (PDFs) -->
+            <div id="view-library" class="hidden-view space-y-6">
+                <h2 class="text-2xl text-white font-bold border-b border-white/5 pb-4">Knowledge Library</h2>
+                
+                <!-- Copy this block to add more files -->
+                <div class="glass-card p-4 rounded-lg flex items-center gap-4 group">
+                    <div class="w-10 h-10 rounded bg-red-500/10 text-red-500 flex items-center justify-center border border-red-500/20">
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h4 class="text-white font-medium truncate">The AI Artisan: Master Prompt Guide</h4>
+                        <p class="text-xs text-gray-500">PDF • 12.4 MB • Updated Yesterday</p>
+                    </div>
+                    <a href="#" class="p-2 text-gray-400 hover:text-gold transition-colors" title="Download">
+                        <i class="fa-solid fa-download"></i>
+                    </a>
+                </div>
+                <!-- End Block -->
+
+                <div class="glass-card p-4 rounded-lg flex items-center gap-4 group">
+                    <div class="w-10 h-10 rounded bg-blue-500/10 text-blue-500 flex items-center justify-center border border-blue-500/20">
+                        <i class="fa-solid fa-file-word"></i>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h4 class="text-white font-medium truncate">Project Architecture Template</h4>
+                        <p class="text-xs text-gray-500">DOCX • 2.1 MB • Added 2 days ago</p>
+                    </div>
+                    <a href="#" class="p-2 text-gray-400 hover:text-gold transition-colors" title="Download">
+                        <i class="fa-solid fa-download"></i>
+                    </a>
+                </div>
+
+                <div class="glass-card p-4 rounded-lg flex items-center gap-4 group">
+                    <div class="w-10 h-10 rounded bg-yellow-500/10 text-yellow-500 flex items-center justify-center border border-yellow-500/20">
+                        <i class="fa-solid fa-file-zipper"></i>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h4 class="text-white font-medium truncate">Asset Pack: Cyberpunk UI Elements</h4>
+                        <p class="text-xs text-gray-500">ZIP • 156 MB • Premium Asset</p>
+                    </div>
+                    <a href="#" class="p-2 text-gray-400 hover:text-gold transition-colors" title="Download">
+                        <i class="fa-solid fa-download"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- VIEW: VIDEO VAULT -->
+            <div id="view-cinema" class="hidden-view space-y-6">
+                <h2 class="text-2xl text-white font-bold">Video Vault</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- Video Item 1 -->
+                    <div class="glass-card rounded-xl overflow-hidden">
+                        <!-- Embed Container (16:9 Aspect Ratio) -->
+                        <div class="relative pb-[56.25%] h-0 bg-black">
+                            <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-white font-bold text-lg">Mastering the Workflow</h3>
+                            <p class="text-sm text-gray-400 mt-1">A deep dive into connecting multiple AI agents for seamless output.</p>
+                        </div>
+                    </div>
+
+                     <!-- Video Item 2 -->
+                     <div class="glass-card rounded-xl overflow-hidden">
+                        <div class="relative pb-[56.25%] h-0 bg-black">
+                            <!-- Replace src with your video ID -->
+                            <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/lxrwzyLMbKQ" title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-white font-bold text-lg">The Future of Gen-AI</h3>
+                            <p class="text-sm text-gray-400 mt-1">Keynote speech on what to expect in late 2025.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- VIEW: WORKSPACE (Google Docs) -->
+            <div id="view-workspace" class="hidden-view space-y-6">
+                <h2 class="text-2xl text-white font-bold">Workspace Docs</h2>
+                <p class="text-gray-400 text-sm">Direct links to collaborative Google Documents.</p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Link 1 -->
+                    <a href="https://docs.google.com" target="_blank" class="glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center gap-4 hover:bg-blue-900/20 group transition-all">
+                        <div class="w-14 h-14 rounded-full bg-blue-600/20 text-blue-500 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-file-lines text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold">Team Roadmap</h4>
+                            <p class="text-xs text-gray-500 mt-1">Google Doc</p>
+                        </div>
+                    </a>
+
+                    <!-- Link 2 -->
+                    <a href="https://sheets.google.com" target="_blank" class="glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center gap-4 hover:bg-green-900/20 group transition-all">
+                        <div class="w-14 h-14 rounded-full bg-green-600/20 text-green-500 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-table text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold">Financial Models</h4>
+                            <p class="text-xs text-gray-500 mt-1">Google Sheets</p>
+                        </div>
+                    </a>
+
+                    <!-- Link 3 -->
+                    <a href="https://slides.google.com" target="_blank" class="glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center gap-4 hover:bg-yellow-900/20 group transition-all">
+                        <div class="w-14 h-14 rounded-full bg-yellow-600/20 text-yellow-500 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-presentation-screen text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold">Pitch Deck V2</h4>
+                            <p class="text-xs text-gray-500 mt-1">Google Slides</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // === UNIVERSAL VAULT DATABASE ===
+        const vaultPrompts = [
+            // UNIVERSAL
+            { id: "U01", name: "Senior Communications Director", cat: "UNIVERSAL", color: "blue", icon: "fa-solid fa-envelope-open-text", 
+              desc: "Polishes rough notes into executive-ready emails or memos.", tip: "Based on 'Bottom-Line Up Front' (BLUF) methodology.",
+              prompt: "ROLE:\nAct as a Chief of Staff and Senior Communications Director.\n\nCONTEXT:\nI have drafted a rough message. It needs to be polished for a professional setting without losing my original intent or sounding robotic.\n\nVARIABLES:\nTarget Audience: {{Audience}}\nDesired Tone: {{Tone}}\nFormat: {{Format}}\nDraft Text: {{Paste Draft Here}}\n\nTASK:\n1. Analyze: Identify the core message and any potential tonal risks.\n2. Refine: Rewrite the draft to be concise, clear, and high-impact.\n3. Structure: Ensure the 'Ask' or 'Action Item' is impossible to miss.\n4. Alternative: Provide one variation that is slightly softer/harder depending on the context.\n\nOUTPUT FORMAT:\nPresent the 'Polished Version' first, followed by the 'Alternative Option'." },
+            { id: "U02", name: "Executive Operations Lead", cat: "UNIVERSAL", color: "blue", icon: "fa-solid fa-clipboard-list", 
+              desc: "Turns messy meeting transcripts into structured action plans.", tip: "Uses 'Action-Oriented' minutes structure.",
+              prompt: "ROLE:\nAct as an Executive Operations Lead.\n\nCONTEXT:\nI have a raw transcript/notes from a meeting. I need a structured summary that highlights decisions and next steps.\n\nVARIABLES:\nMeeting Type: {{Type}}\nTranscript: {{Paste Transcript}}\n\nTASK:\n1. Executive Summary: 3-bullet high-level overview.\n2. Key Decisions: List exactly what was agreed upon.\n3. Action Items: Create a table [Owner | Task | Deadline].\n4. Open Questions: List what was unresolved.\n\nOUTPUT FORMAT:\nMarkdown structured report." },
+            { id: "U03", name: "Master Educator & Polymath", cat: "UNIVERSAL", color: "blue", icon: "fa-solid fa-graduation-cap", 
+              desc: "Generates structured syllabi for learning new skills fast.", tip: "Based on Pareto Principle (80/20) and Feynman Technique.",
+              prompt: "ROLE:\nAct as a Polymath and Master Educator.\n\nCONTEXT:\nI need to learn {{Topic}} quickly. I want to move from beginner to competent in {{Timeframe}}.\n\nVARIABLES:\nTopic: {{Topic}}\nCurrent Level: {{Beginner/Intermediate}}\nGoal: {{Goal}}\n\nTASK:\n1. The 80/20 Analysis: Identify the 20% of sub-skills that yield 80% of the results.\n2. The Roadmap: Create a week-by-week learning plan.\n3. Mental Models: List 3 core concepts I must understand deeply.\n4. Resources: Suggest projects or practice drills.\n\nOUTPUT FORMAT:\nA structured 'Learning Protocol'." },
+            
+            // BUSINESS
+            { id: "B01", name: "Chief Revenue Officer", cat: "BUSINESS", color: "green", icon: "fa-solid fa-chart-line", 
+              desc: "Sales funnel diagnostic to identify leaks and propose fixes.", tip: "Uses 'Conversion Heuristic' logic.",
+              prompt: "ROLE:\nAct as a Chief Revenue Officer (CRO) and Funnel Architect.\n\nCONTEXT:\nMy sales funnel is underperforming. I need a diagnostic check to find the bottleneck.\n\nVARIABLES:\nTraffic Source: {{Source}}\nConversion Rate: {{Conversion %}}\nDrop-off Point: {{Drop-off}}\nOffer Price: {{Price}}\n\nTASK:\n1. Friction Audit: Analyze likely psychological friction at the {{Drop-off}} point.\n2. Value Re-Stack: Propose 3 ways to increase perceived value.\n3. Trust Signals: Suggest social proof elements.\n4. Recovery Strategy: Draft a retargeting angle.\n\nOUTPUT FORMAT:\nA diagnostic report titled 'REVENUE RECOVERY PLAN'." },
+            { id: "B02", name: "B2B Outreach Specialist", cat: "BUSINESS", color: "green", icon: "fa-solid fa-paper-plane", 
+              desc: "Generates high-response cold emails using personalization.", tip: "Based on 'Problem-Agitate-Solve' (PAS).",
+              prompt: "ROLE:\nAct as a B2B Sales Development Representative (SDR) Expert.\n\nCONTEXT:\nI need to reach out to cold prospects. I want to avoid sounding like spam.\n\nVARIABLES:\nProspect Role: {{Role}}\nMy Offer: {{Offer}}\nPain Point: {{Pain Point}}\nHook: {{News/Event}}\n\nTASK:\n1. Subject Line: Write 3 variations (Curiosity, Benefit, Direct).\n2. The Hook: Write an opening line referencing {{News/Event}}.\n3. The Value Bridge: Connect pain to solution.\n4. The Soft Ask: Write a low-friction CTA.\n\nOUTPUT FORMAT:\nThree distinct email scripts." },
+            { id: "B03", name: "Head of SEO Strategy", cat: "BUSINESS", color: "green", icon: "fa-solid fa-magnifying-glass-chart", 
+              desc: "Maps out pillar content and clusters for topical authority.", tip: "Uses 'Hub and Spoke' SEO model.",
+              prompt: "ROLE:\nAct as a Head of SEO and Content Strategy.\n\nCONTEXT:\nI want to build topical authority for my website in a specific niche.\n\nVARIABLES:\nSeed Keyword: {{Keyword}}\nTarget Audience: {{Audience}}\nCompetitor: {{Competitor}}\n\nTASK:\n1. Pillar Page: Define the main 'Hub' topic.\n2. Cluster Topics: List 10 sub-topics linking back to the pillar.\n3. Search Intent: Label as Informational, Transactional, or Commercial.\n4. Internal Linking: Describe interlinking strategy.\n\nOUTPUT FORMAT:\nA 'Topic Cluster Map' table." },
+
+            // CREATIVE
+            { id: "C01", name: "Generative Art Director", cat: "CREATIVE", color: "purple", icon: "fa-solid fa-palette", 
+              desc: "Universal image prompt generator for Midjourney/DALL-E.", tip: "Visual Studio logic.",
+              prompt: "ROLE:\nAct as a Generative Art Director.\n\nCONTEXT:\nI need a prompt to generate a specific image.\n\nVARIABLES:\nSubject: {{Subject}}\nStyle: {{Style}}\nMood: {{Mood}}\nAspect Ratio: {{Ratio}}\n\nTASK:\nConstruct a Master Prompt including:\n1. Subject: detailed description.\n2. Medium: Camera specs OR Art Medium.\n3. Lighting: Specific setup.\n4. Parameters: Correct commands.\n\nOUTPUT FORMAT:\nCode block starting with /imagine prompt:." },
+            { id: "C02", name: "Viral Content Strategist", cat: "CREATIVE", color: "purple", icon: "fa-brands fa-tiktok", 
+              desc: "Short-form video scripter for TikTok/Reels.", tip: "Retention-based scripting.",
+              prompt: "ROLE:\nAct as a Viral Content Strategist.\n\nCONTEXT:\nI need a script for a 60-second vertical video.\n\nVARIABLES:\nTopic: {{Topic}}\nTarget Audience: {{Audience}}\nGoal: {{Goal}}\n\nTASK:\n1. The Hook (0-3s): Visual/verbal scroll-stopper.\n2. The Re-Hook (3-10s): Establish context.\n3. The Value (10-45s): Deliver core message.\n4. The Payoff/CTA (45-60s): Conclusion and ask.\n\nOUTPUT FORMAT:\nA script table [Time | Visual | Audio]." },
+            { id: "C03", name: "Senior Brand Copywriter", cat: "CREATIVE", color: "purple", icon: "fa-solid fa-pen-nib", 
+              desc: "Rewrites text to match specific brand personas.", tip: "Archetype Branding.",
+              prompt: "ROLE:\nAct as a Senior Brand Copywriter.\n\nCONTEXT:\nI have a piece of text that sounds generic. Rewrite it to match my brand voice.\n\nVARIABLES:\nBrand Persona: {{Persona}}\nAdjectives: {{Adjectives}}\nText: {{Paste Text}}\n\nTASK:\n1. Analyze: Check draft against persona.\n2. Rewrite: Provide 2 versions (Moderate vs Maximum voice).\n\nOUTPUT FORMAT:\nTwo clearly labeled rewritten versions." },
+
+            // SYSTEMS
+            { id: "S01", name: "Operations Process Engineer", cat: "SYSTEMS", color: "orange", icon: "fa-solid fa-gears", 
+              desc: "Turns rough instructions into bulletproof SOPs.", tip: "Standard Operating Procedure protocol.",
+              prompt: "ROLE:\nAct as an Operations Manager and Process Engineer.\n\nCONTEXT:\nI need to delegate a task. I need an SOP that leaves no room for error.\n\nVARIABLES:\nTask Name: {{Task}}\nGoal: {{Goal}}\nRough Notes: {{Notes}}\n\nTASK:\n1. Objective: Define 'Done'.\n2. Prerequisites: What is needed before starting?\n3. Procedure: Step-by-step instructions.\n4. Quality Control: Self-verification steps.\n5. Troubleshooting: 'If X happens, do Y'.\n\nOUTPUT FORMAT:\nA clean, numbered SOP document." },
+            { id: "S02", name: "Workflow Automation Architect", cat: "SYSTEMS", color: "orange", icon: "fa-solid fa-network-wired", 
+              desc: "Maps out automation logic for Zapier/Make.", tip: "IFTTT Logic.",
+              prompt: "ROLE:\nAct as a Workflow Automation Architect.\n\nCONTEXT:\nI perform a repetitive task manually. I want to automate it.\n\nVARIABLES:\nProcess: {{Describe Process}}\nTools: {{Tools}}\n\nTASK:\n1. Trigger: Identify the digital signal.\n2. Action Chain: Map out logic for automation tool.\n3. Filters: Define exceptions.\n4. Data Mapping: Explain field movement.\n\nOUTPUT FORMAT:\nAn 'Automation Logic Map'." },
+            { id: "S03", name: "Strategic Decision Consultant", cat: "SYSTEMS", color: "orange", icon: "fa-solid fa-chess", 
+              desc: "Structured evaluation of complex decisions.", tip: "Weighted Decision Matrix.",
+              prompt: "ROLE:\nAct as a Strategic Management Consultant.\n\nCONTEXT:\nI need to make a high-stakes decision and remove emotional bias.\n\nVARIABLES:\nContext: {{Context}}\nOptions: {{Options}}\nConstraints: {{Constraints}}\n\nTASK:\n1. Criteria Selection: Define 3-5 factors.\n2. Weighted Matrix: Compare options (1-5 scale).\n3. Risk Analysis: Pre-Mortem for top option.\n4. Recommendation: Clear winner.\n\nOUTPUT FORMAT:\nA 'Decision Strategy Report' with matrix." },
+
+            // FLEX
+            { id: "F01", name: "Executive Productivity Coach", cat: "FLEX", color: "gray", icon: "fa-solid fa-stopwatch", 
+              desc: "Morning prioritization protocol to filter noise.", tip: "Eisenhower Matrix.",
+              prompt: "ROLE:\nAct as an Executive Productivity Coach.\n\nCONTEXT:\nI am overwhelmed. I need to ruthlessly prioritize my day.\n\nVARIABLES:\nTask List: {{Paste List}}\nStrategic Goal: {{Goal}}\n\nTASK:\n1. Eisenhower Filter: Categorize tasks.\n2. The Big 3: Select 3 needle-movers.\n3. Delegate/Delete: Identify non-essential tasks.\n4. Schedule: Time-block the Big 3.\n\nOUTPUT FORMAT:\nA prioritized 'Daily Battle Plan'." },
+            { id: "F02", name: "Conflict Resolution Specialist", cat: "FLEX", color: "gray", icon: "fa-solid fa-handshake-simple", 
+              desc: "Drafts professional responses to difficult situations.", tip: "Non-Violent Communication (NVC).",
+              prompt: "ROLE:\nAct as a Conflict Resolution Specialist.\n\nCONTEXT:\nI need to reply to a difficult message without drama.\n\nVARIABLES:\nScenario: {{Scenario}}\nTheir Point: {{Point}}\nMy Goal: {{Goal}}\n\nTASK:\n1. Validation: Acknowledge point.\n2. Pivot: Shift focus to solution.\n3. Boundary: State next steps firmly.\n4. Tone Check: Ensure professionalism.\n\nOUTPUT FORMAT:\nA draft response ready to send." },
+            { id: "F03", name: "Senior Talent Recruiter", cat: "FLEX", color: "gray", icon: "fa-solid fa-user-tie", 
+              desc: "Generates interview questions and scorecards.", tip: "STAR Method.",
+              prompt: "ROLE:\nAct as a Senior Talent Recruiter.\n\nCONTEXT:\nI am interviewing a candidate for {{Role}}.\n\nVARIABLES:\nRole: {{Role}}\nSkills: {{Skills}}\nCompany Value: {{Value}}\n\nTASK:\n1. Technical Probe: 3 questions to test depth.\n2. Behavioral Probe: 2 questions for culture fit.\n3. Red Flags: List 3 warning signs.\n4. Scorecard Criteria: Rating guide.\n\nOUTPUT FORMAT:\nAn 'Interview Guide' document." }
+        ];
+
+        // === Security & Auth Logic ===
+        window.onload = function() {
+            const overlay = document.getElementById('securityOverlay');
+            const token = localStorage.getItem('premium_token');
+            
+            setTimeout(() => {
+                if (token === 'active') {
+                    unlockSystem();
+                } else {
+                    console.warn("No token found. Redirecting to Gateway...");
+                    unlockSystem(); // Comment this out in production
+                }
+            }, 1200);
+
+            function unlockSystem() {
+                overlay.style.opacity = '0';
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                    renderVault('ALL'); 
+                }, 700);
+            }
+        };
+
+        // === Render Vault Logic (Optimized) ===
+        function renderVault(filter = 'ALL') {
+            const container = document.getElementById('vault-categories-container');
+            if(!container) return;
+            
+            // Update active button state
+            document.querySelectorAll('#vault-filters button').forEach(btn => {
+                if(btn.dataset.filter === filter) {
+                    btn.classList.remove('bg-obsidian-800', 'text-gray-400', 'border-white/10');
+                    btn.classList.add('bg-gold', 'text-black', 'border-gold', 'shadow-[0_0_15px_rgba(212,175,55,0.3)]');
+                } else {
+                    btn.classList.add('bg-obsidian-800', 'text-gray-400', 'border-white/10');
+                    btn.classList.remove('bg-gold', 'text-black', 'border-gold', 'shadow-[0_0_15px_rgba(212,175,55,0.3)]');
+                }
+            });
+
+            container.innerHTML = ''; // Clear existing content
+
+            // Define Categories to display based on filter
+            let categoriesToShow = [];
+            if (filter === 'ALL') {
+                categoriesToShow = ['UNIVERSAL', 'BUSINESS', 'CREATIVE', 'SYSTEMS', 'FLEX'];
+            } else {
+                categoriesToShow = [filter];
+            }
+
+            categoriesToShow.forEach(cat => {
+                // 1. Filter prompts for this category
+                const catPrompts = vaultPrompts.filter(p => p.cat === cat);
+                
+                // 2. Determine if we should render this section
+                // Only skip if empty AND not Universal (Universal has the meta-prompt)
+                if (catPrompts.length === 0 && cat !== 'UNIVERSAL') return;
+
+                // 3. Create Section Container
+                const section = document.createElement('div');
+                section.className = 'vault-section animate-fade-in';
+                
+                // Header Styling
+                let headerColor = 'text-gray-400';
+                let headerIcon = 'fa-layer-group';
+                if(cat === 'UNIVERSAL') { headerColor = 'text-accent-blue'; headerIcon = 'fa-globe'; }
+                if(cat === 'BUSINESS') { headerColor = 'text-emerald-400'; headerIcon = 'fa-chart-line'; }
+                if(cat === 'CREATIVE') { headerColor = 'text-accent-purple'; headerIcon = 'fa-palette'; }
+                if(cat === 'SYSTEMS') { headerColor = 'text-orange-400'; headerIcon = 'fa-network-wired'; }
+                if(cat === 'FLEX') { headerColor = 'text-slate-400'; headerIcon = 'fa-bolt'; }
+
+                // 4. Render Section Header
+                section.innerHTML = `
+                    <div class="flex items-center gap-3 mb-4 border-b border-white/5 pb-2">
+                        <i class="fa-solid ${headerIcon} ${headerColor}"></i>
+                        <h3 class="text-lg font-bold text-white tracking-widest">${cat} SUITE</h3>
+                    </div>
+                    <div id="grid-${cat}" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <!-- Content injected below -->
+                    </div>
+                `;
+                
+                container.appendChild(section);
+                const grid = section.querySelector(`#grid-${cat}`);
+
+                // 5. Inject Universal Meta-Prompt (Only for Universal Category)
+                if(cat === 'UNIVERSAL') {
+                    const fullAlchemistText = `### ROLE ###
+You are a Prompt Alchemist, a world-class prompt engineer. Your task is to transform the user's simple prompt into a comprehensive, strategic, and high-performance instruction set. You will not answer the user's prompt directly. Instead, you will re-engineer the prompt itself.
+
+### ANALYSIS & DECONSTRUCTION ###
+1. **Identify Intent:** First, analyze the user's raw prompt below to determine their core goal.
+2. **Identify Weaknesses:** Critically evaluate the user's prompt for ambiguity, lack of context, missing persona, undefined format, and other weaknesses.
+3. **Propose Enhancements:** Based on your analysis, determine the necessary components (Role, Context, Action, Format, Tone, Constraints) needed to elevate the prompt.
+
+### RE-ENGINEERING PROCESS ###
+Using your analysis, construct a new, "Enhanced Prompt." This new prompt must be a master-class example of prompt engineering. It should:
+1. **Assign a clear and expert Role.**
+2. **Provide rich, relevant Context** to ground the AI.
+3. **Define a precise, actionable Task,** breaking it down into sub-tasks if necessary.
+4. **Specify a clear output Format** to ensure a structured and predictable response.
+5. **Add any necessary Constraints or Guardrails** to refine the output.
+
+### OUTPUT ###
+Present your final output in two parts:
+1. **Critique:** A brief analysis of the original prompt's weaknesses.
+2. **The Enhanced Prompt:** The final, re-engineered prompt, ready for the user to copy and use.
+
+### USER'S RAW PROMPT ###`;
+
+                    const metaCard = document.createElement('div');
+                    metaCard.className = "glass-card p-0 rounded-xl border border-gold/30 relative overflow-hidden group col-span-1 lg:col-span-2 bg-gradient-to-b from-[#0B1120] to-[#050914]";
+                    metaCard.innerHTML = `
+                        <div class="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity pointer-events-none">
+                            <i class="fa-solid fa-wand-magic-sparkles text-9xl text-gold"></i>
+                        </div>
+                        <div class="p-6 border-b border-white/5 relative z-10">
+                            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-gold/20 to-gold/5 flex items-center justify-center border border-gold/30 shadow-[0_0_15px_rgba(212,175,55,0.1)]">
+                                        <i class="fa-solid fa-scroll text-gold text-2xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-serif font-bold text-white text-xl tracking-wide">Universal Pro Prompt Enhancer</h4>
+                                        <p class="text-xs text-gold/80 font-medium mt-1">The "Alchemist" System Prompt • Works with all Models</p>
+                                    </div>
+                                </div>
+                                <span class="text-[10px] bg-gold/10 text-gold px-3 py-1 rounded-full border border-gold/20 font-bold tracking-widest uppercase">Meta-Prompt</span>
+                            </div>
+                            <div class="mt-6 bg-[#151E32] rounded-lg p-5 border border-[#1E293B] flex flex-col md:flex-row gap-6">
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-2 mb-2"><i class="fa-regular fa-lightbulb text-gold shrink-0"></i><span class="text-xs font-bold text-gray-200 uppercase tracking-wider">Usage Strategy</span></div>
+                                    <p class="text-xs text-gray-400 leading-relaxed">Use this meta-prompt when you have a vague idea but need a structured, high-performance output. It forces the AI to act as a "Prompt Engineer".</p>
+                                </div>
+                                <div class="w-px bg-white/10 hidden md:block"></div>
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-2 mb-2"><i class="fa-solid fa-fire text-purple-400 shrink-0"></i><span class="text-xs font-bold text-purple-300 uppercase tracking-wider">Pro Tip</span></div>
+                                    <p class="text-xs text-gray-400 leading-relaxed">After pasting this, the AI will ask for your "Raw Prompt." Provide just your basic goal, and watch it build a complex architecture for you.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 relative z-10 bg-[#050914]">
+                            <div class="bg-[#020408] p-6 rounded-lg border border-[#1E293B] font-mono text-xs text-gray-300 mb-0 break-words leading-relaxed whitespace-pre-wrap h-64 overflow-y-auto shadow-inner selection:bg-gold/30 selection:text-gold-400">
+<span class="text-sky-400 font-bold">### ROLE ###</span>
+You are a Prompt Alchemist, a world-class prompt engineer. Your task is to transform the user's simple prompt into a comprehensive, strategic, and high-performance instruction set. You will not answer the user's prompt directly. Instead, you will re-engineer the prompt itself.
+
+<span class="text-sky-400 font-bold">### ANALYSIS & DECONSTRUCTION ###</span>
+1. <span class="text-gold/80 font-bold">**Identify Intent:**</span> First, analyze the user's raw prompt below to determine their core goal.
+2. <span class="text-gold/80 font-bold">**Identify Weaknesses:**</span> Critically evaluate the user's prompt for ambiguity, lack of context, missing persona, undefined format, and other weaknesses.
+3. <span class="text-gold/80 font-bold">**Propose Enhancements:**</span> Based on your analysis, determine the necessary components (Role, Context, Action, Format, Tone, Constraints) needed to elevate the prompt.
+
+<span class="text-sky-400 font-bold">### RE-ENGINEERING PROCESS ###</span>
+Using your analysis, construct a new, "Enhanced Prompt." This new prompt must be a master-class example of prompt engineering. It should:
+1. <span class="text-gold/80 font-bold">**Assign a clear and expert Role.**</span>
+2. <span class="text-gold/80 font-bold">**Provide rich, relevant Context**</span> to ground the AI.
+3. <span class="text-gold/80 font-bold">**Define a precise, actionable Task,**</span> breaking it down into sub-tasks if necessary.
+4. <span class="text-gold/80 font-bold">**Specify a clear output Format**</span> to ensure a structured and predictable response.
+5. <span class="text-gold/80 font-bold">**Add any necessary Constraints or Guardrails**</span> to refine the output.
+
+<span class="text-sky-400 font-bold">### OUTPUT ###</span>
+Present your final output in two parts:
+1. <span class="text-purple-400 font-bold">**Critique:**</span> A brief analysis of the original prompt's weaknesses.
+2. <span class="text-purple-400 font-bold">**The Enhanced Prompt:**</span> The final, re-engineered prompt, ready for the user to copy and use.
+
+<span class="text-sky-400 font-bold">### USER'S RAW PROMPT ###</span>
+<span class="text-pink-400 font-bold italic">[PASTE YOUR SIMPLE PROMPT HERE]</span></div>
+                        </div>
+                        <div class="p-4 border-t border-white/5 bg-[#0B1120] flex justify-end">
+                            <button class="w-full md:w-auto px-8 py-3 bg-gold hover:bg-yellow-400 text-black font-bold rounded-lg text-xs transition-all shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] flex items-center justify-center gap-2 transform active:scale-95 group/btn">
+                                <i class="fa-regular fa-copy"></i> COPY SYSTEM PROMPT
+                            </button>
+                        </div>
+                    `;
+                    
+                    // Bind copy event
+                    const btn = metaCard.querySelector('.group\\/btn');
+                    btn.onclick = function() { copyTextManual(this, fullAlchemistText); };
+                    
+                    grid.appendChild(metaCard);
+                }
+
+                // 6. Render Standard Prompts for Category
+                catPrompts.forEach(item => {
+                    const colors = {
+                        blue: { border: 'border-blue-500/30', text: 'text-blue-400', bg: 'bg-blue-900/20', grad: 'from-[#0B1120] to-[#050914]', sel: 'selection:bg-blue-500/20 selection:text-blue-300' },
+                        green: { border: 'border-emerald-500/30', text: 'text-emerald-400', bg: 'bg-emerald-900/20', grad: 'from-[#0B1120] to-[#050914]', sel: 'selection:bg-emerald-500/20 selection:text-emerald-300' },
+                        purple: { border: 'border-purple-500/30', text: 'text-purple-400', bg: 'bg-purple-900/20', grad: 'from-[#0B1120] to-[#050914]', sel: 'selection:bg-purple-500/20 selection:text-purple-300' },
+                        orange: { border: 'border-orange-500/30', text: 'text-orange-400', bg: 'bg-orange-900/20', grad: 'from-[#0B1120] to-[#050914]', sel: 'selection:bg-orange-500/20 selection:text-orange-300' },
+                        gray: { border: 'border-gray-500/30', text: 'text-gray-400', bg: 'bg-gray-800/40', grad: 'from-[#0B1120] to-[#050914]', sel: 'selection:bg-gray-500/20 selection:text-gray-300' }
+                    };
+                    const c = colors[item.color] || colors.gray;
+                    
+                    // Format Prompt Text with colors
+                    const formattedPrompt = item.prompt
+                        .replace(/ROLE:/g, `<span class="${c.text} font-bold">ROLE:</span>`)
+                        .replace(/CONTEXT:/g, `<span class="${c.text} font-bold">CONTEXT:</span>`)
+                        .replace(/TASK:/g, `<span class="${c.text} font-bold">TASK:</span>`)
+                        .replace(/VARIABLES:/g, `<span class="text-green-400 font-bold">VARIABLES:</span>`)
+                        .replace(/OUTPUT FORMAT:/g, `<span class="${c.text} font-bold">OUTPUT FORMAT:</span>`)
+                        .replace(/\n/g, '<br>');
+
+                    const card = document.createElement('div');
+                    card.className = `glass-card p-0 rounded-xl border ${c.border} relative overflow-hidden group flex flex-col h-full bg-gradient-to-b ${c.grad}`;
+                    card.innerHTML = `
+                        <div class="p-6 border-b border-white/5">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 rounded-xl ${c.bg} flex items-center justify-center border ${c.border} ${c.text} shadow-lg">
+                                        <i class="${item.icon} text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-white text-lg">${item.name}</h4>
+                                        <p class="text-xs text-gray-400">${item.cat} • ${item.id}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-[#151E32] rounded-lg p-4 border border-white/5 mb-4 space-y-3">
+                                <div>
+                                    <p class="text-[10px] ${c.text} font-bold uppercase tracking-wider mb-1"><i class="fa-solid fa-crosshairs"></i> Strategy</p>
+                                    <p class="text-[10px] text-gray-400 leading-relaxed">${item.desc}</p>
+                                </div>
+                                <div class="w-full h-px bg-white/5"></div>
+                                <div>
+                                    <p class="text-[10px] ${c.text} font-bold uppercase tracking-wider mb-1"><i class="fa-solid fa-fire"></i> Pro Tip</p>
+                                    <p class="text-[10px] text-gray-400 leading-relaxed">${item.tip}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-[#020408] flex-1 relative border-b border-white/5">
+                            <div class="font-mono text-[10px] text-gray-400 leading-relaxed h-48 overflow-y-auto pr-2 scroll-smooth ${c.sel}">
+                                ${formattedPrompt}
+                            </div>
+                        </div>
+                        <div class="p-4 bg-[#0B1120]">
+                            <button class="w-full py-3 ${c.bg} border ${c.border} ${c.text} hover:text-white rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-2 hover:shadow-lg group/btn">
+                                <i class="fa-regular fa-copy"></i> COPY PROMPT
+                            </button>
+                        </div>
+                    `;
+                    
+                    // Bind click event
+                    const btn = card.querySelector('.group\\/btn');
+                    btn.onclick = function() { copyTextManual(this, item.prompt); };
+
+                    grid.appendChild(card);
+                });
+            });
+        }
+
+        // === Init Vault ===
+        // Run on load if active view
+        document.addEventListener('DOMContentLoaded', () => {
+             renderVault('ALL'); 
+        });
+
+        // === Update Switch View Logic to Re-render if needed ===
+        function switchView(viewId, btnElement) {
+            // ... (Existing logic) ...
+            const views = ['view-dashboard', 'view-models', 'view-prompts', 'view-library', 'view-cinema', 'view-workspace'];
+            views.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.classList.remove('active-view');
+                    el.classList.add('hidden-view');
+                }
+            });
+
+            const target = document.getElementById(viewId);
+            target.classList.remove('hidden-view');
+            target.classList.add('active-view');
+            
+            // Special trigger for Vault to ensure render
+            if(viewId === 'view-prompts') {
+                renderVault('ALL');
+            }
+
+            if (btnElement) {
+                const navBtns = document.querySelectorAll('.nav-item');
+                navBtns.forEach(btn => btn.classList.remove('active'));
+                btnElement.classList.add('active');
+            }
+            
+            // Mobile menu close logic
+            const sidebar = document.getElementById('mainSidebar');
+            const backdrop = document.getElementById('mobileBackdrop');
+            if (window.innerWidth < 768) {
+                sidebar.classList.remove('translate-x-0');
+                sidebar.classList.add('-translate-x-full');
+                backdrop.classList.add('hidden');
+            }
+        }
+
+        // === Logout ===
+        function logout() {
+            if(confirm('End secure session?')) {
+                localStorage.removeItem('premium_token');
+                window.location.href = '../premium-access.html'; // Adjust path as needed
+            }
+        }
+
+        // === Copy Text Functionality ===
+        function copyText(btn) {
+            // Find the closest card content
+            const card = btn.closest('.glass-card');
+            // Find the mono-font text area within that card (excluding HTML tags if needed, but innerText handles it)
+            const textElement = card.querySelector('.font-mono');
+            
+            if (textElement) {
+                const textToCopy = textElement.innerText;
+                
+                // Check for clipboard API support
+                if (navigator.clipboard && window.isSecureContext) {
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        showCopiedState(btn);
+                    }).catch(err => {
+                        console.error('Failed to copy: ', err);
+                        fallbackCopy(textToCopy, btn);
+                    });
+                } else {
+                    fallbackCopy(textToCopy, btn);
+                }
+            }
+        }
+
+        function fallbackCopy(text, btn) {
+            // Create temporary element
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showCopiedState(btn);
+            } catch (err) {
+                console.error('Fallback copy failed', err);
+                alert('Could not copy text. Please select and copy manually.');
+            }
+            document.body.removeChild(textArea);
+        }
+
+        function showCopiedState(btn) {
+            const originalContent = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-check"></i> COPIED';
+            const baseClasses = btn.className; // Store original classes
+            
+            // Add success state
+            btn.classList.add('bg-green-500/20', 'text-green-400', 'border-green-500/50');
+            
+            setTimeout(() => {
+                btn.innerHTML = originalContent;
+                btn.classList.remove('bg-green-500/20', 'text-green-400', 'border-green-500/50');
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
