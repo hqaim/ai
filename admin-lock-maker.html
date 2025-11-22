@@ -79,10 +79,10 @@
     <div class="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-900/10 blur-[120px] pointer-events-none bg-blob transition-opacity duration-500"></div>
     <div class="fixed bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-gold/5 blur-[120px] pointer-events-none bg-blob transition-opacity duration-500"></div>
 
-    <div class="max-w-5xl w-full grid grid-cols-1 lg:grid-cols-3 gap-6 relative z-10">
+    <div class="max-w-3xl w-full flex flex-col gap-8 relative z-10">
         
-        <!-- Main Generator Panel -->
-        <div class="lg:col-span-2 glass-panel rounded-2xl overflow-hidden flex flex-col transition-all duration-500">
+        <!-- 1. Main Generator Panel -->
+        <div class="glass-panel rounded-2xl overflow-hidden flex flex-col transition-all duration-500">
             <!-- Header -->
             <div class="p-8 border-b border-gray-200 dark:border-white/5 bg-white dark:bg-white/5 flex justify-between items-center transition-colors duration-500">
                 <!-- Title & Status -->
@@ -99,7 +99,7 @@
                     <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 font-mono transition-colors duration-500">AES-GCM-256 Encryption Engine</p>
                 </div>
                 
-                <!-- Theme Toggle (Placed Top-Right) -->
+                <!-- Theme Toggle -->
                 <button onclick="toggleTheme()" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-white/20 transition-all duration-300 shadow-sm group" title="Toggle Theme">
                     <!-- Light Theme Icon: Golden Sun with Sparkle -->
                     <i class="fa-solid fa-sun text-lg text-yellow-500 block dark:hidden filter drop-shadow-sm group-hover:text-yellow-400 transition-colors"></i>
@@ -165,22 +165,24 @@
             </div>
         </div>
 
-        <!-- Output / Guide Panel -->
-        <div class="lg:col-span-1 flex flex-col gap-6">
+        <!-- 2. Output & Workflow (Stacked Below) -->
+        <div class="flex flex-col gap-6">
             
             <!-- Output Box -->
             <div class="glass-panel rounded-2xl p-6 flex-1 flex flex-col transition-all duration-500">
                 <div class="flex justify-between items-end mb-3">
                     <label class="text-[10px] font-bold uppercase text-gray-500 tracking-wider">Generated Code</label>
-                    <span id="copyStatus" class="text-[10px] font-bold text-green-600 dark:text-green-400 opacity-0 transition-opacity">COPIED!</span>
                 </div>
                 <div class="relative flex-1">
-                    <!-- Updated for better visibility in Dark Mode -->
+                    <!-- Code Area: Enhanced Dark Mode visibility (bg-black, stronger border, shadow) -->
                     <textarea id="output" readonly 
-                        class="w-full h-full min-h-[200px] bg-gray-50 dark:bg-black text-gray-800 dark:text-green-400 font-mono text-[10px] p-4 rounded-lg border border-gray-200 dark:border-white/20 focus:outline-none resize-none leading-relaxed shadow-inner dark:shadow-[inset_0_2px_10px_rgba(0,0,0,0.5)] transition-colors duration-500"
+                        class="w-full h-48 bg-gray-50 dark:bg-black text-gray-800 dark:text-green-400 font-mono text-[10px] p-4 rounded-lg border border-gray-200 dark:border-white/20 focus:outline-none resize-none leading-relaxed shadow-inner dark:shadow-[inset_0_2px_10px_rgba(0,0,0,0.5)] transition-colors duration-500"
                         placeholder="// Config code will appear here..."></textarea>
-                    <button onclick="copyToClipboard()" class="absolute top-2 right-2 bg-white hover:bg-gray-100 dark:bg-white/10 dark:hover:bg-white/20 text-gray-600 dark:text-white p-2 rounded text-xs transition-colors border border-gray-200 dark:border-transparent shadow-sm" title="Copy to Clipboard">
+                    
+                    <!-- Enhanced Copy Button -->
+                    <button id="copyBtn" onclick="copyToClipboard()" class="absolute top-3 right-3 flex items-center gap-2 bg-white hover:bg-gray-50 dark:bg-white/10 dark:hover:bg-white/20 text-gray-700 dark:text-white px-3 py-1.5 rounded-md text-xs font-bold transition-all duration-200 border border-gray-200 dark:border-white/10 shadow-sm backdrop-blur-md group">
                         <i class="fa-regular fa-copy"></i>
+                        <span>Copy</span>
                     </button>
                 </div>
                 <p class="text-[10px] text-gray-500 mt-3 text-center leading-relaxed">
@@ -324,25 +326,59 @@
             }
         }
 
+        // Robust Copy Function with Interactive Button
         function copyToClipboard() {
             const output = document.getElementById("output");
+            const btn = document.getElementById("copyBtn");
             if(!output.value) return;
             
             output.select();
             output.setSelectionRange(0, 99999);
             
-            if (navigator.clipboard) {
-                navigator.clipboard.writeText(output.value).then(showSuccess);
+            // Check for Clipboard API availability and context security
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(output.value)
+                    .then(() => showBtnSuccess(btn))
+                    .catch(err => {
+                        console.warn("Clipboard API failed, using fallback", err);
+                        fallbackCopy(btn);
+                    });
             } else {
-                document.execCommand('copy');
-                showSuccess();
+                fallbackCopy(btn);
             }
         }
 
-        function showSuccess() {
-            const status = document.getElementById('copyStatus');
-            status.style.opacity = '1';
-            setTimeout(() => { status.style.opacity = '0'; }, 2000);
+        function fallbackCopy(btn) {
+            try {
+                document.execCommand('copy');
+                showBtnSuccess(btn);
+            } catch (err) {
+                console.error("Fallback copy failed", err);
+                alert("Copy failed. Please select the text and copy manually.");
+            }
+        }
+
+        function showBtnSuccess(btn) {
+            // Save original HTML
+            const originalHTML = '<i class="fa-regular fa-copy"></i><span>Copy</span>';
+            
+            // Change to success state
+            btn.innerHTML = '<i class="fa-solid fa-check"></i><span>Copied!</span>';
+            
+            // Force Success Style Override
+            btn.classList.remove('bg-white', 'hover:bg-gray-50', 'dark:bg-white/10', 'dark:hover:bg-white/20', 'text-gray-700', 'dark:text-white', 'border-gray-200', 'dark:border-white/10');
+            btn.classList.add('bg-green-500', 'text-white', 'border-green-500', 'hover:bg-green-600');
+            
+            setTimeout(() => {
+                // Revert Content
+                btn.innerHTML = originalHTML;
+                
+                // Remove Success Styles
+                btn.classList.remove('bg-green-500', 'text-white', 'border-green-500', 'hover:bg-green-600');
+                
+                // Restore Original Styles
+                btn.classList.add('bg-white', 'hover:bg-gray-50', 'dark:bg-white/10', 'dark:hover:bg-white/20', 'text-gray-700', 'dark:text-white', 'border-gray-200', 'dark:border-white/10');
+            }, 2000);
         }
     </script>
 </body>
