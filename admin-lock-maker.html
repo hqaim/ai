@@ -71,9 +71,20 @@
         /* Background Blobs - Only visible in Dark Mode */
         .dark .bg-blob { opacity: 1; }
         .light .bg-blob { opacity: 0; }
+        
+        /* Texture Overlay */
+        .texture-grid {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        .light .texture-grid {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+        }
     </style>
 </head>
-<body class="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-deep-space font-sans p-4 py-10 overflow-x-hidden relative transition-colors duration-500">
+<body class="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-deep-space font-sans p-4 py-10 overflow-x-hidden relative transition-colors duration-500 texture-grid">
 
     <!-- Ambient Background (Dark Mode Only) -->
     <div class="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-900/10 blur-[120px] pointer-events-none bg-blob transition-opacity duration-500"></div>
@@ -82,7 +93,7 @@
     <div class="max-w-3xl w-full flex flex-col gap-8 relative z-10">
         
         <!-- 1. Main Generator Panel -->
-        <div class="glass-panel rounded-2xl overflow-hidden flex flex-col transition-all duration-500">
+        <div class="glass-panel rounded-2xl overflow-hidden flex flex-col transition-all duration-500 shadow-2xl">
             <!-- Header -->
             <div class="p-8 border-b border-gray-200 dark:border-white/5 bg-white dark:bg-white/5 flex justify-between items-center transition-colors duration-500">
                 <!-- Title & Status -->
@@ -99,7 +110,7 @@
                     <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 font-mono transition-colors duration-500">AES-GCM-256 Encryption Engine</p>
                 </div>
                 
-                <!-- Theme Toggle -->
+                <!-- Theme Toggle (Placed Top-Right) -->
                 <button onclick="toggleTheme()" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-white/20 transition-all duration-300 shadow-sm group" title="Toggle Theme">
                     <!-- Light Theme Icon: Golden Sun with Sparkle -->
                     <i class="fa-solid fa-sun text-lg text-yellow-500 block dark:hidden filter drop-shadow-sm group-hover:text-yellow-400 transition-colors"></i>
@@ -169,9 +180,10 @@
         <div class="flex flex-col gap-6">
             
             <!-- Output Box -->
-            <div class="glass-panel rounded-2xl p-6 flex-1 flex flex-col transition-all duration-500">
+            <div class="glass-panel rounded-2xl p-6 flex-1 flex flex-col transition-all duration-500 shadow-xl">
                 <div class="flex justify-between items-end mb-3">
                     <label class="text-[10px] font-bold uppercase text-gray-500 tracking-wider">Generated Code</label>
+                    <span id="copyStatus" class="text-[10px] font-bold text-green-600 dark:text-green-400 opacity-0 transition-opacity">COPIED!</span>
                 </div>
                 <div class="relative flex-1">
                     <!-- Code Area: Enhanced Dark Mode visibility (bg-black, stronger border, shadow) -->
@@ -191,7 +203,7 @@
             </div>
 
             <!-- Quick Guide -->
-            <div class="glass-panel rounded-2xl p-6 transition-all duration-500">
+            <div class="glass-panel rounded-2xl p-6 transition-all duration-500 shadow-xl">
                 <h3 class="text-xs font-bold text-gray-800 dark:text-white uppercase tracking-wider mb-4 border-b border-gray-200 dark:border-white/5 pb-2">
                     <i class="fa-solid fa-list-check text-gold mr-2"></i> Workflow
                 </h3>
