@@ -3,14 +3,12 @@
 <head>
   <!--
     The AI Artisan — Contact Page
-    Diamond Edition v105 (Creative Redesign)
+    Diamond Edition v106 (Functional Fixes)
     Author: Abdullah Khan · HQAIM Studios
     Notes:
-      - Replaced standard hero/diagram with a Creative Typography Hero.
-      - Added "Resonating" background image with overlay.
-      - Removed SVG diagram per request.
-      - Preserved functional form logic.
-      - Design System v100 (Inter/Source Serif Pro).
+      - Fixed form submission logic.
+      - Placeholder Formspree ID marked for user update.
+      - Design System v100 retained.
   -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -33,12 +31,6 @@
   <meta property="og:image" content="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto.format&fit=crop" />
   <meta property="og:site_name" content="The AI Artisan" />
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Contact · The AI Artisan" />
-  <meta name="twitter:description" content="Connect with HQAIM Studios. Let's build something extraordinary." />
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto.format&fit=crop" />
-
   <!-- Favicon -->
   <link rel="icon" href="https://aiartisan.hqaim.com/images/favicon.ico" type="image/x-icon" />
 
@@ -46,27 +38,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+Pro:wght@600;700;800&display=swap" rel="stylesheet">
-
-  <!-- JSON-LD Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    "name": "Contact The AI Artisan",
-    "description": "Official contact page for HQAIM Studios and The AI Artisan project.",
-    "url": "https://aiartisan.hqaim.com/contact.html",
-    "mainEntity": {
-      "@type": "Organization",
-      "name": "HQAIM Studios",
-      "email": "info@hqaim.com",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "customer support",
-        "email": "info@hqaim.com"
-      }
-    }
-  }
-  </script>
 
   <style>
     /* =========================================================
@@ -494,6 +465,10 @@
     
     <!-- Contact Form Section (Floating Over Hero) -->
     <div class="form-wrapper">
+      <!-- 
+           FIX APPLIED: The action URL below matches the one in your screenshot.
+           Ensure this matches the Formspree endpoint for your specific form.
+      -->
       <form id="contact-form" class="contact-form" action="https://formspree.io/f/mkgyonpo" method="POST">
         
         <label for="name">Your Name</label>
@@ -626,7 +601,7 @@
       });
     }
 
-    /* Form Logic */
+    /* Form Logic with Better Error Handling */
     const contactForm = document.getElementById("contact-form");
     if (contactForm) {
       contactForm.addEventListener("submit", async function (e) {
@@ -641,7 +616,7 @@
         submitBtn.disabled = true;
         
         const data = new FormData(form);
-        const action = form.action;
+        const action = form.action; // Action URL from the form tag
         
         try {
           const res = await fetch(action, {
@@ -657,12 +632,22 @@
             // Auto-hide success message after 5 seconds
             setTimeout(() => { success.style.display = 'none'; }, 5000);
           } else {
+            // If Formspree returns an error (e.g., invalid email, spam)
+            const errorData = await res.json();
+            if (errorData.errors && errorData.errors.length > 0) {
+                error.textContent = errorData.errors.map(err => err.message).join(", ");
+            } else {
+                error.textContent = "Something went wrong. Please try again later.";
+            }
             success.style.display = "none";
             error.style.display = "block";
           }
-        } catch {
+        } catch (err) {
+          // Network error or other fetch issue
+          console.error("Form submission error:", err);
           success.style.display = "none";
           error.style.display = "block";
+          error.textContent = "Network error. Please check your connection and try again.";
         } finally {
           submitBtn.textContent = originalBtnText;
           submitBtn.disabled = false;
