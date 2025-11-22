@@ -3,13 +3,12 @@
 <head>
   <!--
     The AI Artisan — Contact Page
-    Diamond Edition v119 (FINAL FIXED)
+    Diamond Edition v120 (WEB3FORMS INTEGRATION)
     Author: Abdullah Khan · HQAIM Studios
     Notes:
-      - REMOVED: Skip link and Formbutton widget.
-      - FIXED: WhatsApp icon matches screenshot (outline style).
-      - FIXED: Contact form uses JSON submission to prevent errors.
-      - INCLUDED: Original Back-to-Top button.
+      - INTEGRATED: Web3Forms with Access Key.
+      - UPDATED: JavaScript logic for Web3Forms JSON submission.
+      - PRESERVED: All existing styling, animations, and WhatsApp integration.
   -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -413,8 +412,18 @@
     
     <!-- Contact Form Section (Floating Over Hero) -->
     <div class="form-wrapper">
-      <form id="contact-form" class="contact-form" action="https://formspree.io/f/mkgyonpo" method="POST">
+      <!-- UPDATED ACTION FOR WEB3FORMS -->
+      <form id="contact-form" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
         
+        <!-- Web3Forms Access Key -->
+        <input type="hidden" name="access_key" value="c602b987-0aef-4a7a-bbfe-9e76364476b1">
+
+        <!-- Optional: Custom Subject -->
+        <input type="hidden" name="subject" value="New message from The AI Artisan Contact Page">
+        
+        <!-- Spam Protection (Web3Forms Botcheck) -->
+        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
         <label for="name">Your Name</label>
         <input id="name" name="name" type="text" required placeholder="e.g. Alex Chen" />
       
@@ -423,10 +432,6 @@
       
         <label for="message">Message</label>
         <textarea id="message" name="message" rows="6" required placeholder="How can we help you?"></textarea>
-      
-        <!-- Spam protection -->
-        <input type="hidden" name="_subject" value="New message from The AI Artisan Contact Page">
-        <input type="text" name="_gotcha" style="display:none">
       
         <button type="submit">Send Message</button>
       
@@ -568,7 +573,7 @@
       });
     }
 
-    /* Form Logic with Better Error Handling and JSON Submission */
+    /* Form Logic - WEB3FORMS JSON SUBMISSION */
     const contactForm = document.getElementById("contact-form");
     if (contactForm) {
       contactForm.addEventListener("submit", async function (e) {
@@ -578,6 +583,7 @@
         const error = document.getElementById("error");
         const submitBtn = form.querySelector('button[type="submit"]');
         
+        // Save original button text and show loading state
         const originalBtnText = submitBtn.textContent;
         submitBtn.textContent = 'Sending...';
         submitBtn.disabled = true;
@@ -585,45 +591,45 @@
         const action = form.action; 
         
         // Create JSON payload from form data
+        // Web3Forms accepts JSON which prevents redirects and makes handling responses easier
         const formData = new FormData(form);
-        const jsonData = {};
-        formData.forEach((value, key) => {
-            if (key !== '_gotcha' || (key === '_gotcha' && value !== '')) {
-                jsonData[key] = value;
-            }
-        });
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
 
         try {
           const res = await fetch(action, {
             method: "POST",
-            body: JSON.stringify(jsonData),
-            headers: { 
-                "Content-Type": "application/json",
-                "Accept": "application/json" 
-            }
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            },
+            body: json
           });
+          
+          const response = await res.json();
         
-          if (res.ok) {
+          if (res.status === 200) {
+            // Success
             form.reset();
             success.style.display = "block";
             error.style.display = "none";
+            // Hide success message after 5 seconds
             setTimeout(() => { success.style.display = 'none'; }, 5000);
           } else {
-            const json = await res.json();
-            if (json.errors && json.errors.length > 0) {
-                error.textContent = json.errors.map(error => error.message).join(", ");
-            } else {
-                error.textContent = `Submission error (${res.status}). Please check your form ID or try again later.`;
-            }
+            // API returned an error
+            console.error(response);
+            error.textContent = response.message || "Something went wrong. Please check your configuration.";
             success.style.display = "none";
             error.style.display = "block";
           }
         } catch (err) {
+          // Network error
           console.error("Form submission error:", err);
           success.style.display = "none";
           error.style.display = "block";
           error.textContent = "Network error. Please check your internet connection.";
         } finally {
+          // Restore button state
           submitBtn.textContent = originalBtnText;
           submitBtn.disabled = false;
         }
