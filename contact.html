@@ -3,13 +3,13 @@
 <head>
   <!--
     The AI Artisan — Contact Page
-    Diamond Edition v115 (FINAL CONSOLIDATED FIX)
+    Diamond Edition v119 (FINAL FIXED)
     Author: Abdullah Khan · HQAIM Studios
     Notes:
-      - Removed 'Skip to contact form' link.
-      - Contact form uses robust JSON submission (fixes generic errors).
-      - WhatsApp icon SVG corrected and button placed separately.
-      - Formbutton widget integrated.
+      - REMOVED: Skip link and Formbutton widget.
+      - FIXED: WhatsApp icon matches screenshot (outline style).
+      - FIXED: Contact form uses JSON submission to prevent errors.
+      - INCLUDED: Original Back-to-Top button.
   -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -302,15 +302,22 @@
       text-decoration: none;
       box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
       transition: transform .2s, box-shadow .2s, filter .2s;
-      border: 1px solid rgba(255,255,255,0.2);
+      border: none;
     }
     .whatsapp-btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
       filter: brightness(1.08);
     }
+    
+    /* Corrected Icon (Outline/Stroke Style) */
     .whatsapp-icon {
-      width: 28px; height: 28px; margin-right: 12px; fill: currentColor;
+      width: 28px; height: 28px; margin-right: 12px; 
+      fill: none;
+      stroke: #fff;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     /* Back to top */
@@ -350,7 +357,6 @@
 </head>
 
 <body>
-  <!-- REMOVED: <a class="skip-link" href="#contact-form">Skip to contact form</a> -->
   <div id="theme-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
 
   <!-- ===================== Header ===================== -->
@@ -407,7 +413,6 @@
     
     <!-- Contact Form Section (Floating Over Hero) -->
     <div class="form-wrapper">
-      <!-- Formspree endpoint MUST be correct for this to work -->
       <form id="contact-form" class="contact-form" action="https://formspree.io/f/mkgyonpo" method="POST">
         
         <label for="name">Your Name</label>
@@ -419,7 +424,7 @@
         <label for="message">Message</label>
         <textarea id="message" name="message" rows="6" required placeholder="How can we help you?"></textarea>
       
-        <!-- Spam protection (Honeypot field) -->
+        <!-- Spam protection -->
         <input type="hidden" name="_subject" value="New message from The AI Artisan Contact Page">
         <input type="text" name="_gotcha" style="display:none">
       
@@ -438,9 +443,10 @@
     <!-- WhatsApp Section (New distinct area) -->
     <div class="whatsapp-section">
       <a href="https://api.whatsapp.com/send?phone=919172991319&text=The%20AI%20Artisan%20Online%20Connect%20%E2%80%94%20HQAIM%20Studios" class="whatsapp-btn" target="_blank" rel="noopener">
-        <!-- CORRECTED Icon: Simple WhatsApp bubble and phone -->
+        <!-- Corrected WhatsApp Icon: Stroke/Outline Style -->
         <svg class="whatsapp-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c1.009.607 1.979.96 3.031.96 3.181 0 5.767-2.587 5.767-5.766.001-3.181-2.585-5.746-5.767-5.746zm9.38 5.392c0 5.255-4.263 9.518-9.518 9.518-1.605 0-3.22-.403-4.682-1.162l-5.213 1.366 1.392-5.08c-1.31-1.845-2.008-4.04-2.008-6.295C1.382 4.659 5.645.396 10.9.396c5.255 0 9.518 4.263 9.518 9.518zm-4.502 2.693c-.235-.117-1.389-.686-1.604-.764-.215-.078-.371-.118-.528.118-.156.236-.606.764-.742.921-.137.157-.273.176-.509.059-.235-.118-1.002-.369-1.909-1.177-.706-.63-1.183-1.408-1.32-1.643-.137-.236-.015-.364.103-.481.107-.106.235-.275.353-.412.117-.138.157-.236.235-.393.078-.157.039-.294-.02-.412-.059-.118-.528-1.275-.724-1.746-.191-.46-.385-.397-.528-.404l-.451-.007c-.157 0-.411.059-.627.294-.215.235-.823.804-.823 1.961s.843 2.275.961 2.432c.117.156 1.659 2.531 4.019 3.549 1.62.699 2.252.769 3.02.672.857-.108 1.389-.567 1.586-1.115.196-.548.196-1.018.137-1.115-.059-.098-.215-.157-.451-.275z"/>
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+          <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1zm0 0a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/>
         </svg>
         Chat on WhatsApp
       </a>
@@ -557,6 +563,9 @@
       backToTop.addEventListener('click', ()=>{
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
+      backToTop.addEventListener('keydown', e=>{
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); backToTop.click(); }
+      });
     }
 
     /* Form Logic with Better Error Handling and JSON Submission */
@@ -573,22 +582,16 @@
         submitBtn.textContent = 'Sending...';
         submitBtn.disabled = true;
         
-        // Get action URL directly from the form element
         const action = form.action; 
         
         // Create JSON payload from form data
         const formData = new FormData(form);
         const jsonData = {};
         formData.forEach((value, key) => {
-            // Exclude the anti-spam field from JSON if it's hidden or empty
             if (key !== '_gotcha' || (key === '_gotcha' && value !== '')) {
                 jsonData[key] = value;
             }
         });
-        // Include the honeypot field only if it's filled (which means spam)
-        if (formData.get('_gotcha')) {
-             jsonData['_gotcha'] = formData.get('_gotcha');
-        }
 
         try {
           const res = await fetch(action, {
@@ -604,16 +607,12 @@
             form.reset();
             success.style.display = "block";
             error.style.display = "none";
-            // Auto-hide success message after 5 seconds
             setTimeout(() => { success.style.display = 'none'; }, 5000);
           } else {
-            // Handle non-OK status codes (e.g., 400, 422)
             const json = await res.json();
             if (json.errors && json.errors.length > 0) {
-                // Show specific error from Formspree if available
                 error.textContent = json.errors.map(error => error.message).join(", ");
             } else {
-                // Fallback error with status code
                 error.textContent = `Submission error (${res.status}). Please check your form ID or try again later.`;
             }
             success.style.display = "none";
@@ -633,40 +632,5 @@
 
   })();
   </script>
-<!-- Formbutton script will be added at the very end -->
-<script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
-<script>
-  /* paste this line in verbatim */
-  window.formbutton=window.formbutton||function(){(formbutton.q=formbutton.q||[]).push(arguments)};
-  /* customize formbutton below*/     
-  formbutton("create", {
-    action: "https://formspree.io/f/mkgyonpo",
-    title: "How can we help?",
-    fields: [
-      { 
-        type: "email", 
-        label: "Email:", 
-        name: "email",
-        required: true,
-        placeholder: "your@email.com"
-      },
-      {
-        type: "textarea",
-        label: "Message:",
-        name: "message",
-        placeholder: "What's on your mind?",
-      },
-      { type: "submit" }      
-    ],
-    styles: {
-      title: {
-        backgroundColor: "gray"
-      },
-      button: {
-        backgroundColor: "gray"
-      }
-    }
-  });
-</script>
 </body>
 </html>
