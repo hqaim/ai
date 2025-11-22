@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- SEO Blocking: Ensure page is not indexed -->
+    <meta name="robots" content="noindex, nofollow">
+    
     <title>Premium Hub | The AI Artisan</title>
     
     <!-- Favicon -->
@@ -677,7 +681,7 @@
               desc: "Structured evaluation of complex decisions.", tip: "Weighted Decision Matrix.",
               prompt: "ROLE:\nAct as a Strategic Management Consultant.\n\nCONTEXT:\nI need to make a high-stakes decision and remove emotional bias.\n\nVARIABLES:\nContext: {{Context}}\nOptions: {{Options}}\nConstraints: {{Constraints}}\n\nTASK:\n1. Criteria Selection: Define 3-5 factors.\n2. Weighted Matrix: Compare options (1-5 scale).\n3. Risk Analysis: Pre-Mortem for top option.\n4. Recommendation: Clear winner.\n\nOUTPUT FORMAT:\nA 'Decision Strategy Report' with matrix." },
 
-            // FLEX
+            // FLEX - Updated to 'flex' color
             { id: "F01", name: "Executive Productivity Coach", cat: "FLEX", color: "flex", icon: "fa-solid fa-stopwatch", 
               desc: "Morning prioritization protocol to filter noise.", tip: "Eisenhower Matrix.",
               prompt: "ROLE:\nAct as an Executive Productivity Coach.\n\nCONTEXT:\nI am overwhelmed. I need to ruthlessly prioritize my day.\n\nVARIABLES:\nTask List: {{Paste List}}\nStrategic Goal: {{Goal}}\n\nTASK:\n1. Eisenhower Filter: Categorize tasks.\n2. The Big 3: Select 3 needle-movers.\n3. Delegate/Delete: Identify non-essential tasks.\n4. Schedule: Time-block the Big 3.\n\nOUTPUT FORMAT:\nA prioritized 'Daily Battle Plan'." },
@@ -952,11 +956,11 @@ Present your final output in two parts:
             };
             const c = colors[item.color] || colors.flex;
 
-            // Enhanced Formatting Regex
+            // Enhanced Formatting Regex - NEW: No background for variables
             const formattedPrompt = item.prompt
                 .replace(/</g, '&lt;').replace(/>/g, '&gt;') // Sanitize
                 .replace(/([A-Z ]+:)/g, `<span class="${c.text} font-bold tracking-wider">$1</span>`) // Headers (ROLE:, etc)
-                .replace(/(\{\{.*?\}\})/g, `<span class="text-pink-500 font-bold">$1</span>`) // Inputs {{}} - No BG
+                .replace(/(\{\{.*?\}\})/g, `<span class="text-pink-500 font-bold">$1</span>`) // Inputs {{}} - Clean, no bg
                 .replace(/(\n\d+\.)/g, `<br><span class="text-white font-bold">$1</span>`) // Numbers
                 .replace(/(\n- )/g, `<br><span class="text-gold font-bold">• </span>`) // Bullets
                 .replace(/\n/g, '<br>'); // Newlines
