@@ -3,12 +3,13 @@
 <head>
   <!--
     The AI Artisan — Contact Page
-    Diamond Edition v106 (Functional Fixes)
+    Diamond Edition v115 (FINAL CONSOLIDATED FIX)
     Author: Abdullah Khan · HQAIM Studios
     Notes:
-      - Fixed form submission logic.
-      - Placeholder Formspree ID marked for user update.
-      - Design System v100 retained.
+      - Removed 'Skip to contact form' link.
+      - Contact form uses robust JSON submission (fixes generic errors).
+      - WhatsApp icon SVG corrected and button placed separately.
+      - Formbutton widget integrated.
   -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -34,7 +35,7 @@
   <!-- Favicon -->
   <link rel="icon" href="https://aiartisan.hqaim.com/images/favicon.ico" type="image/x-icon" />
 
-  <!-- Google Fonts: Inter (body) & Source Serif Pro (headings) -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+Pro:wght@600;700;800&display=swap" rel="stylesheet">
@@ -45,7 +46,7 @@
        Contact CSS (screen + print)
        ========================================================= */
 
-    /* 0) Keyframes for fade-in */
+    /* 0) Keyframes */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(8px); }
       to { opacity: 1; transform: translateY(0); }
@@ -54,21 +55,21 @@
     /* 0) Tokens */
     :root{
       color-scheme: light dark;
-      /* Typography */
       --font-sans: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
       --font-serif: 'Source Serif Pro', serif;
       --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
-      /* Core palette (Aetherium) */
+      /* Core palette */
       --violet:#7c3aed; --blue:#2563eb; --green:#10b981; --gold:#f6be3e;
       --white:#ffffff;  --black:#0f172a;
+      --whatsapp-green: #25D366;
 
       --slate-50:#f8fafc;  --slate-100:#f1f5f9; --slate-200:#e2e8f0;
       --slate-300:#cbd5e1; --slate-400:#94a3b8; --slate-500:#64748b;
       --slate-600:#475569; --slate-700:#334155; --slate-800:#1e293b;
       --slate-900:#0f172a;
 
-      /* Light Mode Variables */
+      /* Light Mode */
       --bg:var(--white); --surface:var(--slate-50); --text:var(--slate-900);
       --muted:#445268; --muted2:var(--slate-500); --border:var(--slate-200);
       --accent:var(--violet); --link:var(--blue); --focus:rgba(37,99,235,.36);
@@ -86,8 +87,6 @@
       --muted:var(--slate-300); --muted2:var(--slate-400); --border:var(--slate-700);
       --accent:#a78bfa; --link:#7dd3fc; --focus:rgba(124,58,237,.45);
       --shadow-e2:0 10px 28px rgba(0,0,0,.35);
-
-      /* ENHANCEMENT: Use lighter, theme-aware gradient for dark mode titles */
       --grad-title: linear-gradient(90deg, var(--accent), var(--link));
     }
 
@@ -96,7 +95,7 @@
     html{scroll-behavior:smooth}
     body{
       margin:0; font:16px/1.65 var(--font-sans); color:var(--text);
-      background:var(--bg); /* Simplification for contact page base */
+      background:var(--bg);
       -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
       text-rendering:optimizeLegibility;
     }
@@ -106,10 +105,7 @@
     li { margin-bottom: 0.5em; }
     p { margin: 0.8em 0; }
     
-    .sr-only{
-      position:absolute!important; width:1px; height:1px; padding:0; margin:-1px;
-      overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap; border:0;
-    }
+    .sr-only{ position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);border:0; }
 
     /* 1) Header */
     .site-header{
@@ -179,19 +175,11 @@
       nav.main-nav.open ul{transform:scale(1); opacity:1; pointer-events:auto}
     }
 
-    :focus-visible{outline:3px solid var(--focus); outline-offset:3px; border-radius:4px}
-    .skip-link{
-      position:absolute; left:12px; top:6px; z-index:200; background:var(--surface); color:var(--text);
-      padding:6px 10px; border-radius:8px; border:1px solid var(--border);
-      transform:translateY(-150%); transition:transform .2s;
-    }
-    .skip-link:focus{transform:translateY(0%)}
-
     /* 2) Creative Hero Section */
     .creative-hero {
       position: relative;
-      padding: 6rem 1rem 8rem; /* Large padding for impact */
-      background-color: var(--slate-900); /* Fallback color */
+      padding: 6rem 1rem 8rem;
+      background-color: var(--slate-900);
       background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto.format&fit=crop');
       background-size: cover;
       background-position: center;
@@ -201,21 +189,12 @@
       animation: fadeIn 0.5s ease-out backwards;
     }
     
-    /* Dark overlay */
     .creative-hero::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(15, 23, 42, 0.75); /* Slate-900 with opacity */
-      z-index: 1;
+      content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(15, 23, 42, 0.75); z-index: 1;
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 800px;
-      margin: 0 auto;
-    }
+    .hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
 
     .hero-title-large {
       font-family: var(--font-serif);
@@ -223,10 +202,8 @@
       font-weight: 800;
       line-height: 1.1;
       margin-bottom: 1rem;
-      /* Gradient Text Effect */
       background: linear-gradient(135deg, #ffffff 0%, #a78bfa 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
+      -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent;
       text-shadow: 0 10px 30px rgba(0,0,0,0.2);
     }
@@ -234,22 +211,16 @@
     .hero-subtitle {
       font-size: clamp(1.1rem, 2vw, 1.4rem);
       color: rgba(255, 255, 255, 0.9);
-      max-width: 60ch;
-      margin: 0 auto;
-      line-height: 1.6;
-      font-weight: 400;
+      max-width: 60ch; margin: 0 auto; line-height: 1.6; font-weight: 400;
     }
 
-    /* 3) Form Container - Floating Over Hero */
+    /* 3) Form Container */
     .form-wrapper {
       max-width: 700px;
-      margin: -4rem auto 3rem; /* Negative top margin pulls it up */
-      position: relative;
-      z-index: 3;
-      padding: 0 1rem;
+      margin: -4rem auto 1rem;
+      position: relative; z-index: 3; padding: 0 1rem;
     }
 
-    /* Form Styling - Enhanced for Diamond Edition */
     form.contact-form {
       background: var(--bg);
       padding: 2rem;
@@ -260,42 +231,27 @@
     }
     
     label {
-      font-weight: 600;
-      margin-top: 1.2rem;
-      display: block;
-      color: var(--text);
-      font-size: 0.95rem;
+      font-weight: 600; margin-top: 1.2rem; display: block;
+      color: var(--text); font-size: 0.95rem;
     }
     label:first-of-type { margin-top: 0; }
 
     input, textarea {
-      width: 100%;
-      padding: 14px;
-      margin-top: .5rem;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      font-size: 1rem;
-      background: var(--surface);
-      color: var(--text);
+      width: 100%; padding: 14px; margin-top: .5rem;
+      border-radius: 8px; border: 1px solid var(--border);
+      font-size: 1rem; background: var(--surface); color: var(--text);
       font-family: var(--font-sans);
       transition: border-color 0.2s, box-shadow 0.2s;
     }
     input:focus, textarea:focus {
-      outline: none;
-      border-color: var(--blue);
-      box-shadow: 0 0 0 3px var(--focus);
+      outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px var(--focus);
     }
+    
     button[type="submit"] {
-      margin-top: 2rem;
-      width: 100%;
-      padding: 14px 20px;
-      background: var(--grad-1);
-      color: white;
-      font-size: 1.1rem;
-      font-weight: 700;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
+      margin-top: 2rem; width: 100%; padding: 14px 20px;
+      background: var(--grad-1); color: white;
+      font-size: 1.1rem; font-weight: 700; border: none;
+      border-radius: 8px; cursor: pointer;
       transition: transform .15s, box-shadow .15s, filter 0.2s;
     }
     button[type="submit"]:hover {
@@ -310,33 +266,54 @@
     }
 
     .success-message, .error-message {
-      margin-top: 1.5rem;
-      padding: 16px;
-      border-radius: 8px;
-      display: none;
-      font-weight: 500;
-      text-align: center;
+      margin-top: 1.5rem; padding: 16px; border-radius: 8px;
+      display: none; font-weight: 500; text-align: center;
     }
     .success-message {
       background: color-mix(in srgb, var(--green) 10%, var(--surface));
-      color: var(--green);
-      border: 1px solid color-mix(in srgb, var(--green) 30%, transparent);
+      color: var(--green); border: 1px solid color-mix(in srgb, var(--green) 30%, transparent);
     }
     .error-message {
       background: color-mix(in srgb, #b91c1c 10%, var(--surface));
-      color: #b91c1c;
-      border: 1px solid color-mix(in srgb, #b91c1c 30%, transparent);
+      color: #b91c1c; border: 1px solid color-mix(in srgb, #b91c1c 30%, transparent);
     }
     html[data-theme="dark"] .error-message { color: #f87171; }
 
     .form-note {
-      text-align: center;
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-top: 1.5rem;
-      line-height: 1.5;
+      text-align: center; font-size: 0.9rem; color: var(--muted);
+      margin-top: 1.5rem; line-height: 1.5;
     }
 
+    /* 4) WhatsApp Section */
+    .whatsapp-section {
+      max-width: 700px;
+      margin: 3rem auto 5rem;
+      padding: 0 1rem;
+      text-align: center;
+      animation: fadeIn 0.5s 0.4s ease-out backwards;
+      position: relative; z-index: 3;
+    }
+    
+    .whatsapp-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      background-color: var(--whatsapp-green);
+      color: #fff; font-weight: 700; font-size: 1.2rem;
+      padding: 16px 32px; border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+      transition: transform .2s, box-shadow .2s, filter .2s;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .whatsapp-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+      filter: brightness(1.08);
+    }
+    .whatsapp-icon {
+      width: 28px; height: 28px; margin-right: 12px; fill: currentColor;
+    }
+
+    /* Back to top */
     .back-to-top{
       position:fixed; bottom:26px; right:26px; width:48px; height:48px; border-radius:50%; border:1px solid var(--border);
       display:grid; place-items:center; color:var(--accent); cursor:pointer; background:color-mix(in srgb, var(--surface) 92%, transparent);
@@ -346,6 +323,7 @@
     .back-to-top.visible{opacity:1; visibility:visible; transform:translateY(0)}
     .back-to-top:hover{background:color-mix(in srgb, var(--surface) 90%, var(--accent))}
 
+    /* Footer */
     .footer-section{position:relative; z-index:1; margin-top:32px; border-top:1px solid var(--border); background:var(--surface)}
     .footer-divider{height:2px; border:0; margin:0 0 16px; background:linear-gradient(90deg, transparent, var(--violet), var(--blue), var(--gold), transparent); opacity:.3}
     .site-footer{padding:0 var(--pad) 16px; max-width:var(--wrap); margin:0 auto; color:var(--muted)}
@@ -361,54 +339,18 @@
       .header-inner, .hero, .intro, .breadcrumbs, main#main, .site-footer{padding-left:1rem; padding-right:1rem}
     }
 
-    /* Print 6×9 */
+    /* Print */
     @media print{
-      @page{size:6in 9in; margin:0.75in}
-      html{color-scheme:light !important}
-      :root{
-        --bg:var(--white) !important; --surface:var(--white) !important; --text:var(--slate-900) !important;
-        --muted:#445268 !important; --muted2:var(--slate-500) !important; --border:var(--slate-200) !important;
-        --accent:var(--violet) !important; --link:var(--blue) !important;
-        --shadow-e2:none !important; --svg-label:#0f172a !important;
-        --svg-desc: var(--muted) !important;
-        --code-bg-light:#f7f7fb !important;
-        --grad-title: linear-gradient(90deg, var(--violet), var(--blue)) !important;
-      }
-      body{
-        background:var(--bg) !important; color:var(--text) !important;
-        font-size:11pt; line-height:1.6;
-        -webkit-print-color-adjust: exact !important; color-adjust: exact !important;
-        font-family: 'Inter', system-ui, sans-serif !important;
-      }
-      /* Hide creative hero image in print but keep title */
-      .creative-hero { 
-        background: none !important; 
-        color: var(--text) !important;
-        padding: 2rem 0 !important;
-        text-align: left !important;
-      }
-      .creative-hero::before { display: none; }
-      .hero-title-large {
-        font-size: 2.5rem !important;
-        -webkit-text-fill-color: var(--text) !important;
-        background: none !important;
-        text-shadow: none !important;
-      }
-      .hero-subtitle { color: var(--muted) !important; }
-      
-      /* Simplify form for print (it won't work on paper anyway, but looks cleaner) */
-      .form-wrapper { margin: 0 !important; box-shadow: none !important; padding: 0 !important; }
-      form.contact-form { box-shadow: none !important; border: none !important; padding: 0 !important; }
-      button[type="submit"] { display: none; }
-      input, textarea { border: 1px solid #ccc !important; background: #fff !important; }
-
-      .site-header, .theme-toggle, .back-to-top, .footer-section {display:none !important}
+      body{ background: #fff !important; color: #000 !important; }
+      .creative-hero { background: none !important; color: #000 !important; }
+      .hero-title-large { -webkit-text-fill-color: #000 !important; text-shadow: none !important; }
+      button[type="submit"], .whatsapp-section, .site-header, .theme-toggle, .back-to-top, .footer-section {display:none !important}
     }
   </style>
 </head>
 
 <body>
-  <a class="skip-link" href="#contact-form">Skip to contact form</a>
+  <!-- REMOVED: <a class="skip-link" href="#contact-form">Skip to contact form</a> -->
   <div id="theme-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
 
   <!-- ===================== Header ===================== -->
@@ -465,10 +407,7 @@
     
     <!-- Contact Form Section (Floating Over Hero) -->
     <div class="form-wrapper">
-      <!-- 
-           FIX APPLIED: The action URL below matches the one in your screenshot.
-           Ensure this matches the Formspree endpoint for your specific form.
-      -->
+      <!-- Formspree endpoint MUST be correct for this to work -->
       <form id="contact-form" class="contact-form" action="https://formspree.io/f/mkgyonpo" method="POST">
         
         <label for="name">Your Name</label>
@@ -480,7 +419,7 @@
         <label for="message">Message</label>
         <textarea id="message" name="message" rows="6" required placeholder="How can we help you?"></textarea>
       
-        <!-- Spam protection -->
+        <!-- Spam protection (Honeypot field) -->
         <input type="hidden" name="_subject" value="New message from The AI Artisan Contact Page">
         <input type="text" name="_gotcha" style="display:none">
       
@@ -494,6 +433,17 @@
         <div id="error" class="error-message">Something went wrong. Please try again later.</div>
       
       </form>
+    </div>
+
+    <!-- WhatsApp Section (New distinct area) -->
+    <div class="whatsapp-section">
+      <a href="https://api.whatsapp.com/send?phone=919172991319&text=The%20AI%20Artisan%20Online%20Connect%20%E2%80%94%20HQAIM%20Studios" class="whatsapp-btn" target="_blank" rel="noopener">
+        <!-- CORRECTED Icon: Simple WhatsApp bubble and phone -->
+        <svg class="whatsapp-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c1.009.607 1.979.96 3.031.96 3.181 0 5.767-2.587 5.767-5.766.001-3.181-2.585-5.746-5.767-5.746zm9.38 5.392c0 5.255-4.263 9.518-9.518 9.518-1.605 0-3.22-.403-4.682-1.162l-5.213 1.366 1.392-5.08c-1.31-1.845-2.008-4.04-2.008-6.295C1.382 4.659 5.645.396 10.9.396c5.255 0 9.518 4.263 9.518 9.518zm-4.502 2.693c-.235-.117-1.389-.686-1.604-.764-.215-.078-.371-.118-.528.118-.156.236-.606.764-.742.921-.137.157-.273.176-.509.059-.235-.118-1.002-.369-1.909-1.177-.706-.63-1.183-1.408-1.32-1.643-.137-.236-.015-.364.103-.481.107-.106.235-.275.353-.412.117-.138.157-.236.235-.393.078-.157.039-.294-.02-.412-.059-.118-.528-1.275-.724-1.746-.191-.46-.385-.397-.528-.404l-.451-.007c-.157 0-.411.059-.627.294-.215.235-.823.804-.823 1.961s.843 2.275.961 2.432c.117.156 1.659 2.531 4.019 3.549 1.62.699 2.252.769 3.02.672.857-.108 1.389-.567 1.586-1.115.196-.548.196-1.018.137-1.115-.059-.098-.215-.157-.451-.275z"/>
+        </svg>
+        Chat on WhatsApp
+      </a>
     </div>
 
   </main>
@@ -585,6 +535,14 @@
         navToggle.setAttribute('aria-expanded', String(!expanded));
         mainNav.classList.toggle('open');
       });
+      
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mainNav.classList.contains('open')) {
+          navToggle.setAttribute('aria-expanded', 'false');
+          mainNav.classList.remove('open');
+          navToggle.focus();
+        }
+      });
     }
 
     /* Back to top */
@@ -601,7 +559,7 @@
       });
     }
 
-    /* Form Logic with Better Error Handling */
+    /* Form Logic with Better Error Handling and JSON Submission */
     const contactForm = document.getElementById("contact-form");
     if (contactForm) {
       contactForm.addEventListener("submit", async function (e) {
@@ -615,14 +573,31 @@
         submitBtn.textContent = 'Sending...';
         submitBtn.disabled = true;
         
-        const data = new FormData(form);
-        const action = form.action; // Action URL from the form tag
+        // Get action URL directly from the form element
+        const action = form.action; 
         
+        // Create JSON payload from form data
+        const formData = new FormData(form);
+        const jsonData = {};
+        formData.forEach((value, key) => {
+            // Exclude the anti-spam field from JSON if it's hidden or empty
+            if (key !== '_gotcha' || (key === '_gotcha' && value !== '')) {
+                jsonData[key] = value;
+            }
+        });
+        // Include the honeypot field only if it's filled (which means spam)
+        if (formData.get('_gotcha')) {
+             jsonData['_gotcha'] = formData.get('_gotcha');
+        }
+
         try {
           const res = await fetch(action, {
             method: "POST",
-            body: data,
-            headers: { "Accept": "application/json" }
+            body: JSON.stringify(jsonData),
+            headers: { 
+                "Content-Type": "application/json",
+                "Accept": "application/json" 
+            }
           });
         
           if (res.ok) {
@@ -632,22 +607,23 @@
             // Auto-hide success message after 5 seconds
             setTimeout(() => { success.style.display = 'none'; }, 5000);
           } else {
-            // If Formspree returns an error (e.g., invalid email, spam)
-            const errorData = await res.json();
-            if (errorData.errors && errorData.errors.length > 0) {
-                error.textContent = errorData.errors.map(err => err.message).join(", ");
+            // Handle non-OK status codes (e.g., 400, 422)
+            const json = await res.json();
+            if (json.errors && json.errors.length > 0) {
+                // Show specific error from Formspree if available
+                error.textContent = json.errors.map(error => error.message).join(", ");
             } else {
-                error.textContent = "Something went wrong. Please try again later.";
+                // Fallback error with status code
+                error.textContent = `Submission error (${res.status}). Please check your form ID or try again later.`;
             }
             success.style.display = "none";
             error.style.display = "block";
           }
         } catch (err) {
-          // Network error or other fetch issue
           console.error("Form submission error:", err);
           success.style.display = "none";
           error.style.display = "block";
-          error.textContent = "Network error. Please check your connection and try again.";
+          error.textContent = "Network error. Please check your internet connection.";
         } finally {
           submitBtn.textContent = originalBtnText;
           submitBtn.disabled = false;
@@ -657,5 +633,40 @@
 
   })();
   </script>
+<!-- Formbutton script will be added at the very end -->
+<script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
+<script>
+  /* paste this line in verbatim */
+  window.formbutton=window.formbutton||function(){(formbutton.q=formbutton.q||[]).push(arguments)};
+  /* customize formbutton below*/     
+  formbutton("create", {
+    action: "https://formspree.io/f/mkgyonpo",
+    title: "How can we help?",
+    fields: [
+      { 
+        type: "email", 
+        label: "Email:", 
+        name: "email",
+        required: true,
+        placeholder: "your@email.com"
+      },
+      {
+        type: "textarea",
+        label: "Message:",
+        name: "message",
+        placeholder: "What's on your mind?",
+      },
+      { type: "submit" }      
+    ],
+    styles: {
+      title: {
+        backgroundColor: "gray"
+      },
+      button: {
+        backgroundColor: "gray"
+      }
+    }
+  });
+</script>
 </body>
 </html>
