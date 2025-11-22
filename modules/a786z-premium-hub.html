@@ -32,6 +32,10 @@
                     fontFamily: {
                         sans: ['Outfit', 'sans-serif'],
                         serif: ['Cinzel', 'serif'],
+                    },
+                    transitionProperty: {
+                        'height': 'height',
+                        'spacing': 'margin, padding',
                     }
                 }
             }
@@ -73,8 +77,8 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
 
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: #050507; }
         ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
         ::-webkit-scrollbar-thumb:hover { background: #d4af37; }
@@ -87,13 +91,23 @@
             scrollbar-width: none;
         }
         
-        /* Vault Animations */
-        .vault-section {
-            animation: slideIn 0.4s ease-out forwards;
+        /* Accordion Animations */
+        .category-grid-container {
+            transition: max-height 0.5s ease-in-out, opacity 0.3s ease;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
         }
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .category-grid-container.open {
+            opacity: 1;
+            max-height: 9999px; /* Ensure full expansion */
+        }
+        
+        /* Filter Tabs Scrolling */
+        .scroll-container {
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior-x: contain;
+            mask-image: linear-gradient(to right, transparent, black 10px, black 90%, transparent);
         }
     </style>
 </head>
@@ -175,7 +189,7 @@
     </aside>
 
     <!-- Main Content Area -->
-    <main class="flex-1 ml-0 md:ml-72 h-full overflow-y-auto bg-deep-space relative w-full">
+    <main class="flex-1 ml-0 md:ml-72 h-full overflow-y-auto overflow-x-hidden bg-deep-space relative w-full">
         
         <!-- Mobile Header -->
         <header class="sticky top-0 z-30 glass-panel border-b-0 border-white/5 flex items-center justify-between px-4 h-16 md:hidden">
@@ -188,7 +202,7 @@
             </div>
         </header>
 
-        <div class="p-6 md:p-10 max-w-7xl mx-auto pb-20">
+        <div class="p-4 md:p-10 max-w-7xl mx-auto pb-20">
             
             <!-- VIEW: DASHBOARD -->
             <div id="view-dashboard" class="active-view space-y-8">
@@ -299,7 +313,7 @@
                     <div class="glass-card p-6 rounded-xl relative overflow-hidden group">
                         <div class="absolute right-0 top-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity"><i class="fa-solid fa-file-lines text-6xl text-purple-500"></i></div>
                         <div class="text-gray-400 text-xs uppercase tracking-wider mb-2">Library Resources</div>
-                        <div class="text-3xl font-bold text-white">45+</div>
+                        <div class="text-3xl font-bold text-white">46+</div>
                         <div class="mt-4 text-xs text-purple-400">PDFs & Guides</div>
                     </div>
                     <div class="glass-card p-6 rounded-xl relative overflow-hidden group">
@@ -411,7 +425,7 @@
                 </div>
             </div>
 
-            <!-- VIEW: PROMPT VAULT (NEW) -->
+            <!-- VIEW: PROMPT VAULT (FIXED & OPTIMIZED) -->
             <div id="view-prompts" class="hidden-view space-y-8">
                 
                 <!-- Vault Header -->
@@ -422,31 +436,33 @@
                             <p class="text-xs text-gray-400 mt-1">Enterprise-grade system prompts organized by domain.</p>
                         </div>
                         <div class="flex gap-2">
-                             <span class="px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 text-[10px] font-bold border border-purple-500/20">V6 READY</span>
-                             <span class="px-3 py-1 rounded-full bg-green-500/10 text-green-400 text-[10px] font-bold border border-green-500/20">GPT-4o</span>
+                             <span class="px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 text-[10px] font-bold border border-purple-500/20">GEMINI 2.0</span>
+                             <span class="px-3 py-1 rounded-full bg-green-500/10 text-green-400 text-[10px] font-bold border border-green-500/20">GPT-5.1</span>
                         </div>
                     </div>
 
-                    <!-- Filter Buttons (Scrollable Tabs) -->
-                    <div class="flex gap-3 overflow-x-auto pb-2 scrollbar-hide" id="vault-filters">
-                        <button onclick="renderVault('ALL')" class="whitespace-nowrap px-6 py-2 rounded-full bg-gold text-black text-xs font-bold border border-gold hover:bg-white hover:border-white transition-all shadow-[0_0_15px_rgba(212,175,55,0.3)] active-filter" data-filter="ALL">
-                            ALL SYSTEMS
-                        </button>
-                        <button onclick="renderVault('UNIVERSAL')" class="whitespace-nowrap px-6 py-2 rounded-full bg-obsidian-800 text-gray-400 text-xs font-bold border border-white/10 hover:text-white hover:border-white/30 transition-all" data-filter="UNIVERSAL">
-                            UNIVERSAL
-                        </button>
-                        <button onclick="renderVault('BUSINESS')" class="whitespace-nowrap px-6 py-2 rounded-full bg-obsidian-800 text-gray-400 text-xs font-bold border border-white/10 hover:text-white hover:border-white/30 transition-all" data-filter="BUSINESS">
-                            BUSINESS
-                        </button>
-                        <button onclick="renderVault('CREATIVE')" class="whitespace-nowrap px-6 py-2 rounded-full bg-obsidian-800 text-gray-400 text-xs font-bold border border-white/10 hover:text-white hover:border-white/30 transition-all" data-filter="CREATIVE">
-                            CREATIVE
-                        </button>
-                        <button onclick="renderVault('SYSTEMS')" class="whitespace-nowrap px-6 py-2 rounded-full bg-obsidian-800 text-gray-400 text-xs font-bold border border-white/10 hover:text-white hover:border-white/30 transition-all" data-filter="SYSTEMS">
-                            SYSTEMS
-                        </button>
-                        <button onclick="renderVault('FLEX')" class="whitespace-nowrap px-6 py-2 rounded-full bg-obsidian-800 text-gray-400 text-xs font-bold border border-white/10 hover:text-white hover:border-white/30 transition-all" data-filter="FLEX">
-                            FLEX
-                        </button>
+                    <!-- Filter Buttons (Scrollable Container) -->
+                    <div class="w-full overflow-x-auto pb-2 scroll-container" id="vault-filters-container">
+                        <div class="flex gap-3 min-w-max" id="vault-filters">
+                            <button onclick="renderVault('ALL')" class="whitespace-nowrap px-6 py-2 rounded-full bg-gold text-black text-xs font-bold border border-gold hover:bg-white hover:border-white transition-all shadow-[0_0_15px_rgba(212,175,55,0.3)] active-filter" data-filter="ALL">
+                                ALL SYSTEMS
+                            </button>
+                            <button onclick="renderVault('UNIVERSAL')" class="whitespace-nowrap px-6 py-2 rounded-full bg-obsidian-800 text-gray-400 text-xs font-bold border border-white/10 hover:text-white hover:border-white/30 transition-all" data-filter="UNIVERSAL">
+                                UNIVERSAL
+                            </button>
+                            <button onclick="renderVault('BUSINESS')" class="whitespace-nowrap px-6 py-2 rounded-full bg-obsidian-800 text-gray-400 text-xs font-bold border border-white/10 hover:text-white hover:border-white/30 transition-all" data-filter="BUSINESS">
+                                BUSINESS
+                            </button>
+                            <button onclick="renderVault('CREATIVE')" class="whitespace-nowrap px-6 py-2 rounded-full bg-obsidian-800 text-gray-400 text-xs font-bold border border-white/10 hover:text-white hover:border-white/30 transition-all" data-filter="CREATIVE">
+                                CREATIVE
+                            </button>
+                            <button onclick="renderVault('SYSTEMS')" class="whitespace-nowrap px-6 py-2 rounded-full bg-obsidian-800 text-gray-400 text-xs font-bold border border-white/10 hover:text-white hover:border-white/30 transition-all" data-filter="SYSTEMS">
+                                SYSTEMS
+                            </button>
+                            <button onclick="renderVault('FLEX')" class="whitespace-nowrap px-6 py-2 rounded-full bg-obsidian-800 text-gray-400 text-xs font-bold border border-white/10 hover:text-white hover:border-white/30 transition-all" data-filter="FLEX">
+                                FLEX
+                            </button>
+                        </div>
                     </div>
                 </div>
                 
@@ -482,6 +498,20 @@
             <div id="view-library" class="hidden-view space-y-6">
                 <h2 class="text-2xl text-white font-bold border-b border-white/5 pb-4">Knowledge Library</h2>
                 
+                <!-- NEW: Premium Resources Drive Card -->
+                <div class="glass-card p-4 rounded-lg flex items-center gap-4 group bg-gradient-to-r from-gold/10 to-transparent border border-gold/30">
+                    <div class="w-10 h-10 rounded bg-gold/20 text-gold flex items-center justify-center border border-gold/30">
+                        <i class="fa-brands fa-google-drive"></i>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h4 class="text-white font-bold truncate">Premium Resources Drive</h4>
+                        <p class="text-xs text-gold/80">Shared Folder • Exclusive Content • Updated Live</p>
+                    </div>
+                    <a href="https://drive.google.com/drive/folders/1h3eta8HELInyTZQGR9pCfuuG63wLLVJZ?usp=sharing" target="_blank" class="p-2 text-gold hover:text-white transition-colors" title="Open Drive">
+                        <i class="fa-solid fa-up-right-from-square"></i>
+                    </a>
+                </div>
+
                 <!-- Copy this block to add more files -->
                 <div class="glass-card p-4 rounded-lg flex items-center gap-4 group">
                     <div class="w-10 h-10 rounded bg-red-500/10 text-red-500 flex items-center justify-center border border-red-500/20">
@@ -648,13 +678,13 @@
               prompt: "ROLE:\nAct as a Strategic Management Consultant.\n\nCONTEXT:\nI need to make a high-stakes decision and remove emotional bias.\n\nVARIABLES:\nContext: {{Context}}\nOptions: {{Options}}\nConstraints: {{Constraints}}\n\nTASK:\n1. Criteria Selection: Define 3-5 factors.\n2. Weighted Matrix: Compare options (1-5 scale).\n3. Risk Analysis: Pre-Mortem for top option.\n4. Recommendation: Clear winner.\n\nOUTPUT FORMAT:\nA 'Decision Strategy Report' with matrix." },
 
             // FLEX
-            { id: "F01", name: "Executive Productivity Coach", cat: "FLEX", color: "gray", icon: "fa-solid fa-stopwatch", 
+            { id: "F01", name: "Executive Productivity Coach", cat: "FLEX", color: "flex", icon: "fa-solid fa-stopwatch", 
               desc: "Morning prioritization protocol to filter noise.", tip: "Eisenhower Matrix.",
               prompt: "ROLE:\nAct as an Executive Productivity Coach.\n\nCONTEXT:\nI am overwhelmed. I need to ruthlessly prioritize my day.\n\nVARIABLES:\nTask List: {{Paste List}}\nStrategic Goal: {{Goal}}\n\nTASK:\n1. Eisenhower Filter: Categorize tasks.\n2. The Big 3: Select 3 needle-movers.\n3. Delegate/Delete: Identify non-essential tasks.\n4. Schedule: Time-block the Big 3.\n\nOUTPUT FORMAT:\nA prioritized 'Daily Battle Plan'." },
-            { id: "F02", name: "Conflict Resolution Specialist", cat: "FLEX", color: "gray", icon: "fa-solid fa-handshake-simple", 
+            { id: "F02", name: "Conflict Resolution Specialist", cat: "FLEX", color: "flex", icon: "fa-solid fa-handshake-simple", 
               desc: "Drafts professional responses to difficult situations.", tip: "Non-Violent Communication (NVC).",
               prompt: "ROLE:\nAct as a Conflict Resolution Specialist.\n\nCONTEXT:\nI need to reply to a difficult message without drama.\n\nVARIABLES:\nScenario: {{Scenario}}\nTheir Point: {{Point}}\nMy Goal: {{Goal}}\n\nTASK:\n1. Validation: Acknowledge point.\n2. Pivot: Shift focus to solution.\n3. Boundary: State next steps firmly.\n4. Tone Check: Ensure professionalism.\n\nOUTPUT FORMAT:\nA draft response ready to send." },
-            { id: "F03", name: "Senior Talent Recruiter", cat: "FLEX", color: "gray", icon: "fa-solid fa-user-tie", 
+            { id: "F03", name: "Senior Talent Recruiter", cat: "FLEX", color: "flex", icon: "fa-solid fa-user-tie", 
               desc: "Generates interview questions and scorecards.", tip: "STAR Method.",
               prompt: "ROLE:\nAct as a Senior Talent Recruiter.\n\nCONTEXT:\nI am interviewing a candidate for {{Role}}.\n\nVARIABLES:\nRole: {{Role}}\nSkills: {{Skills}}\nCompany Value: {{Value}}\n\nTASK:\n1. Technical Probe: 3 questions to test depth.\n2. Behavioral Probe: 2 questions for culture fit.\n3. Red Flags: List 3 warning signs.\n4. Scorecard Criteria: Rating guide.\n\nOUTPUT FORMAT:\nAn 'Interview Guide' document." }
         ];
@@ -682,7 +712,7 @@
             }
         };
 
-        // === Render Vault Logic (Optimized) ===
+        // === Render Vault Logic (Fixed & Optimized) ===
         function renderVault(filter = 'ALL') {
             const container = document.getElementById('vault-categories-container');
             if(!container) return;
@@ -700,7 +730,7 @@
 
             container.innerHTML = ''; // Clear existing content
 
-            // Define Categories to display based on filter
+            // Define Categories
             let categoriesToShow = [];
             if (filter === 'ALL') {
                 categoriesToShow = ['UNIVERSAL', 'BUSINESS', 'CREATIVE', 'SYSTEMS', 'FLEX'];
@@ -709,43 +739,111 @@
             }
 
             categoriesToShow.forEach(cat => {
-                // 1. Filter prompts for this category
                 const catPrompts = vaultPrompts.filter(p => p.cat === cat);
-                
-                // 2. Determine if we should render this section
-                // Only skip if empty AND not Universal (Universal has the meta-prompt)
                 if (catPrompts.length === 0 && cat !== 'UNIVERSAL') return;
 
-                // 3. Create Section Container
+                // Create Section Container
                 const section = document.createElement('div');
-                section.className = 'vault-section animate-fade-in';
+                section.className = 'vault-section mb-6'; 
                 
-                // Header Styling
+                // Colors
                 let headerColor = 'text-gray-400';
                 let headerIcon = 'fa-layer-group';
-                if(cat === 'UNIVERSAL') { headerColor = 'text-accent-blue'; headerIcon = 'fa-globe'; }
-                if(cat === 'BUSINESS') { headerColor = 'text-emerald-400'; headerIcon = 'fa-chart-line'; }
-                if(cat === 'CREATIVE') { headerColor = 'text-accent-purple'; headerIcon = 'fa-palette'; }
-                if(cat === 'SYSTEMS') { headerColor = 'text-orange-400'; headerIcon = 'fa-network-wired'; }
-                if(cat === 'FLEX') { headerColor = 'text-slate-400'; headerIcon = 'fa-bolt'; }
+                let desc = '';
+                
+                if(cat === 'UNIVERSAL') { 
+                    headerColor = 'text-accent-blue'; 
+                    headerIcon = 'fa-globe'; 
+                    desc = "Essential protocols for communication, learning, and high-level organization.";
+                }
+                if(cat === 'BUSINESS') { 
+                    headerColor = 'text-emerald-400'; 
+                    headerIcon = 'fa-chart-line'; 
+                    desc = "High-impact frameworks for sales, strategy, and revenue optimization.";
+                }
+                if(cat === 'CREATIVE') { 
+                    headerColor = 'text-accent-purple'; 
+                    headerIcon = 'fa-palette'; 
+                    desc = "Generative tools for visual direction, copywriting, and content strategy.";
+                }
+                if(cat === 'SYSTEMS') { 
+                    headerColor = 'text-orange-400'; 
+                    headerIcon = 'fa-network-wired'; 
+                    desc = "Engineering-grade logic for SOPs, automation, and complex decision making.";
+                }
+                if(cat === 'FLEX') { 
+                    headerColor = 'text-slate-400'; 
+                    headerIcon = 'fa-bolt'; 
+                    desc = "Adaptive utilities for productivity, negotiation, and talent management.";
+                }
 
-                // 4. Render Section Header
-                section.innerHTML = `
-                    <div class="flex items-center gap-3 mb-4 border-b border-white/5 pb-2">
-                        <i class="fa-solid ${headerIcon} ${headerColor}"></i>
-                        <h3 class="text-lg font-bold text-white tracking-widest">${cat} SUITE</h3>
+                // Collapsible headers for ALL view
+                const isAll = filter === 'ALL';
+                
+                let headerHtml = `
+                    <div class="flex items-center justify-between cursor-pointer py-4 border-b border-white/10 hover:bg-white/5 transition-colors" ${isAll ? `onclick="toggleCategory(this)"` : ''}>
+                        <div class="flex flex-col">
+                            <div class="flex items-center gap-3 mb-1">
+                                <i class="fa-solid ${headerIcon} ${headerColor} text-xl w-8 text-center"></i>
+                                <h3 class="text-xl font-bold text-white tracking-widest">${cat} SUITE</h3>
+                            </div>
+                            <p class="text-xs text-gray-500 pl-11">${desc}</p>
+                        </div>
+                        ${isAll ? `<i class="fa-solid fa-chevron-down text-gray-500 transition-transform duration-300 category-icon"></i>` : ''}
                     </div>
-                    <div id="grid-${cat}" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        <!-- Content injected below -->
+                `;
+
+                // Grid Container - If ALL, collapsed by default. If Single, OPEN.
+                const gridContainerClass = isAll ? 'category-grid-container' : 'category-grid-container open';
+                const gridStyle = isAll ? '' : 'max-height: 9999px; opacity: 1;'; 
+                
+                section.innerHTML = `
+                    ${headerHtml}
+                    <div class="${gridContainerClass}" style="${gridStyle}">
+                        <div id="grid-${cat}" class="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-6"></div>
                     </div>
                 `;
                 
                 container.appendChild(section);
                 const grid = section.querySelector(`#grid-${cat}`);
 
-                // 5. Inject Universal Meta-Prompt (Only for Universal Category)
+                // Inject Universal Meta-Prompt (Always Expanded)
                 if(cat === 'UNIVERSAL') {
-                    const fullAlchemistText = `### ROLE ###
+                    renderMetaPrompt(grid);
+                }
+
+                // Render Cards (Static Expanded)
+                catPrompts.forEach(item => {
+                    renderPromptCard(grid, item);
+                });
+            });
+        }
+
+        function toggleCategory(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.category-icon');
+            const isOpen = content.classList.contains('open');
+            
+            if (isOpen) {
+                content.style.maxHeight = content.scrollHeight + "px";
+                content.classList.remove('open');
+                void content.offsetWidth; 
+                content.style.maxHeight = "0";
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.classList.add('open');
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = 'rotate(180deg)';
+                setTimeout(() => {
+                    if (content.classList.contains('open')) {
+                        content.style.maxHeight = "9999px"; 
+                    }
+                }, 500);
+            }
+        }
+
+        function renderMetaPrompt(grid) {
+            const fullAlchemistText = `### ROLE ###
 You are a Prompt Alchemist, a world-class prompt engineer. Your task is to transform the user's simple prompt into a comprehensive, strategic, and high-performance instruction set. You will not answer the user's prompt directly. Instead, you will re-engineer the prompt itself.
 
 ### ANALYSIS & DECONSTRUCTION ###
@@ -768,39 +866,46 @@ Present your final output in two parts:
 
 ### USER'S RAW PROMPT ###`;
 
-                    const metaCard = document.createElement('div');
-                    metaCard.className = "glass-card p-0 rounded-xl border border-gold/30 relative overflow-hidden group col-span-1 lg:col-span-2 bg-gradient-to-b from-[#0B1120] to-[#050914]";
-                    metaCard.innerHTML = `
-                        <div class="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity pointer-events-none">
-                            <i class="fa-solid fa-wand-magic-sparkles text-9xl text-gold"></i>
-                        </div>
-                        <div class="p-6 border-b border-white/5 relative z-10">
-                            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                                <div class="flex items-center gap-4">
-                                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-gold/20 to-gold/5 flex items-center justify-center border border-gold/30 shadow-[0_0_15px_rgba(212,175,55,0.1)]">
-                                        <i class="fa-solid fa-scroll text-gold text-2xl"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-serif font-bold text-white text-xl tracking-wide">Universal Pro Prompt Enhancer</h4>
-                                        <p class="text-xs text-gold/80 font-medium mt-1">The "Alchemist" System Prompt • Works with all Models</p>
-                                    </div>
-                                </div>
-                                <span class="text-[10px] bg-gold/10 text-gold px-3 py-1 rounded-full border border-gold/20 font-bold tracking-widest uppercase">Meta-Prompt</span>
+            const metaCard = document.createElement('div');
+            metaCard.className = "glass-card p-0 rounded-xl border border-gold/30 relative overflow-hidden group col-span-1 lg:col-span-2 bg-gradient-to-b from-[#0B1120] to-[#050914]";
+            metaCard.innerHTML = `
+                <div class="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity pointer-events-none">
+                    <i class="fa-solid fa-wand-magic-sparkles text-9xl text-gold"></i>
+                </div>
+                <div class="p-6 border-b border-white/5 relative z-10">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-gold/20 to-gold/5 flex items-center justify-center border border-gold/30 shadow-[0_0_15px_rgba(212,175,55,0.1)]">
+                                <i class="fa-solid fa-scroll text-gold text-2xl"></i>
                             </div>
-                            <div class="mt-6 bg-[#151E32] rounded-lg p-5 border border-[#1E293B] flex flex-col md:flex-row gap-6">
-                                <div class="flex-1">
-                                    <div class="flex items-center gap-2 mb-2"><i class="fa-regular fa-lightbulb text-gold shrink-0"></i><span class="text-xs font-bold text-gray-200 uppercase tracking-wider">Usage Strategy</span></div>
-                                    <p class="text-xs text-gray-400 leading-relaxed">Use this meta-prompt when you have a vague idea but need a structured, high-performance output. It forces the AI to act as a "Prompt Engineer".</p>
-                                </div>
-                                <div class="w-px bg-white/10 hidden md:block"></div>
-                                <div class="flex-1">
-                                    <div class="flex items-center gap-2 mb-2"><i class="fa-solid fa-fire text-purple-400 shrink-0"></i><span class="text-xs font-bold text-purple-300 uppercase tracking-wider">Pro Tip</span></div>
-                                    <p class="text-xs text-gray-400 leading-relaxed">After pasting this, the AI will ask for your "Raw Prompt." Provide just your basic goal, and watch it build a complex architecture for you.</p>
-                                </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-white text-xl tracking-wide">Universal Pro Prompt Enhancer</h4>
+                                <p class="text-xs text-gold/80 font-medium mt-1">The "Alchemist" System Prompt • Works with all Models</p>
                             </div>
                         </div>
-                        <div class="p-6 relative z-10 bg-[#050914]">
-                            <div class="bg-[#020408] p-6 rounded-lg border border-[#1E293B] font-mono text-xs text-gray-300 mb-0 break-words leading-relaxed whitespace-pre-wrap h-64 overflow-y-auto shadow-inner selection:bg-gold/30 selection:text-gold-400">
+                        <span class="text-[10px] bg-gold/10 text-gold px-3 py-1 rounded-full border border-gold/20 font-bold tracking-widest uppercase">Meta-Prompt</span>
+                    </div>
+                    <!-- Professional Strategy Layout -->
+                    <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="flex gap-3 p-3 rounded bg-white/5 border border-white/5">
+                            <div class="mt-0.5 text-gold"><i class="fa-solid fa-chess-knight"></i></div>
+                            <div>
+                                <span class="block text-[10px] text-gold font-bold uppercase tracking-wider mb-1">Strategy</span>
+                                <p class="text-[10px] text-gray-300 leading-relaxed">Use this meta-prompt when you have a vague idea but need a structured, high-performance output. It forces the AI to act as a "Prompt Engineer".</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 p-3 rounded bg-white/5 border border-white/5">
+                            <div class="mt-0.5 text-purple-400"><i class="fa-solid fa-lightbulb"></i></div>
+                            <div>
+                                <span class="block text-[10px] text-purple-400 font-bold uppercase tracking-wider mb-1">Pro Tip</span>
+                                <p class="text-[10px] text-gray-300 leading-relaxed">After pasting this, the AI will ask for your "Raw Prompt." Provide just your basic goal, and watch it build a complex architecture for you.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Static Content -->
+                <div class="p-6 relative z-10 bg-[#050914]">
+                    <div class="bg-[#020408] p-6 rounded-lg border border-[#1E293B] font-mono text-xs text-gray-300 mb-0 break-words leading-relaxed whitespace-pre-wrap h-64 overflow-y-auto shadow-inner selection:bg-gold/30 selection:text-gold-400">
 <span class="text-sky-400 font-bold">### ROLE ###</span>
 You are a Prompt Alchemist, a world-class prompt engineer. Your task is to transform the user's simple prompt into a comprehensive, strategic, and high-performance instruction set. You will not answer the user's prompt directly. Instead, you will re-engineer the prompt itself.
 
@@ -824,98 +929,103 @@ Present your final output in two parts:
 
 <span class="text-sky-400 font-bold">### USER'S RAW PROMPT ###</span>
 <span class="text-pink-400 font-bold italic">[PASTE YOUR SIMPLE PROMPT HERE]</span></div>
-                        </div>
-                        <div class="p-4 border-t border-white/5 bg-[#0B1120] flex justify-end">
-                            <button class="w-full md:w-auto px-8 py-3 bg-gold hover:bg-yellow-400 text-black font-bold rounded-lg text-xs transition-all shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] flex items-center justify-center gap-2 transform active:scale-95 group/btn">
-                                <i class="fa-regular fa-copy"></i> COPY SYSTEM PROMPT
-                            </button>
-                        </div>
-                    `;
-                    
-                    // Bind copy event
-                    const btn = metaCard.querySelector('.group\\/btn');
-                    btn.onclick = function() { copyTextManual(this, fullAlchemistText); };
-                    
-                    grid.appendChild(metaCard);
-                }
+                </div>
+                <div class="p-4 border-t border-white/5 bg-[#0B1120] flex justify-end">
+                    <button class="w-full md:w-auto px-8 py-3 bg-gold hover:bg-yellow-400 text-black font-bold rounded-lg text-xs transition-all shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] flex items-center justify-center gap-2 transform active:scale-95 group/btn">
+                        <i class="fa-regular fa-copy"></i> COPY SYSTEM PROMPT
+                    </button>
+                </div>
+            `;
+            
+            const btn = metaCard.querySelector('.group\\/btn');
+            btn.onclick = function() { copySystemPrompt(fullAlchemistText, this); };
+            grid.appendChild(metaCard);
+        }
 
-                // 6. Render Standard Prompts for Category
-                catPrompts.forEach(item => {
-                    const colors = {
-                        blue: { border: 'border-blue-500/30', text: 'text-blue-400', bg: 'bg-blue-900/20', grad: 'from-[#0B1120] to-[#050914]', sel: 'selection:bg-blue-500/20 selection:text-blue-300' },
-                        green: { border: 'border-emerald-500/30', text: 'text-emerald-400', bg: 'bg-emerald-900/20', grad: 'from-[#0B1120] to-[#050914]', sel: 'selection:bg-emerald-500/20 selection:text-emerald-300' },
-                        purple: { border: 'border-purple-500/30', text: 'text-purple-400', bg: 'bg-purple-900/20', grad: 'from-[#0B1120] to-[#050914]', sel: 'selection:bg-purple-500/20 selection:text-purple-300' },
-                        orange: { border: 'border-orange-500/30', text: 'text-orange-400', bg: 'bg-orange-900/20', grad: 'from-[#0B1120] to-[#050914]', sel: 'selection:bg-orange-500/20 selection:text-orange-300' },
-                        gray: { border: 'border-gray-500/30', text: 'text-gray-400', bg: 'bg-gray-800/40', grad: 'from-[#0B1120] to-[#050914]', sel: 'selection:bg-gray-500/20 selection:text-gray-300' }
-                    };
-                    const c = colors[item.color] || colors.gray;
-                    
-                    // Format Prompt Text with colors
-                    const formattedPrompt = item.prompt
-                        .replace(/ROLE:/g, `<span class="${c.text} font-bold">ROLE:</span>`)
-                        .replace(/CONTEXT:/g, `<span class="${c.text} font-bold">CONTEXT:</span>`)
-                        .replace(/TASK:/g, `<span class="${c.text} font-bold">TASK:</span>`)
-                        .replace(/VARIABLES:/g, `<span class="text-green-400 font-bold">VARIABLES:</span>`)
-                        .replace(/OUTPUT FORMAT:/g, `<span class="${c.text} font-bold">OUTPUT FORMAT:</span>`)
-                        .replace(/\n/g, '<br>');
+        function renderPromptCard(grid, item) {
+            const colors = {
+                blue: { border: 'border-blue-500/30', text: 'text-blue-400', bg: 'bg-blue-900/20', grad: 'from-[#0B1120] to-[#050914]', sel: 'selection:bg-blue-500/20 selection:text-blue-300' },
+                green: { border: 'border-emerald-500/30', text: 'text-emerald-400', bg: 'bg-emerald-900/20', grad: 'from-[#0B1120] to-[#050914]', sel: 'selection:bg-emerald-500/20 selection:text-emerald-300' },
+                purple: { border: 'border-purple-500/30', text: 'text-purple-400', bg: 'bg-purple-900/20', grad: 'from-[#0B1120] to-[#050914]', sel: 'selection:bg-purple-500/20 selection:text-purple-300' },
+                orange: { border: 'border-orange-500/30', text: 'text-orange-400', bg: 'bg-orange-900/20', grad: 'from-[#0B1120] to-[#050914]', sel: 'selection:bg-orange-500/20 selection:text-orange-300' },
+                flex: { border: 'border-slate-500/30', text: 'text-indigo-300', bg: 'bg-slate-800/50', grad: 'from-[#0B1120] to-[#050914]', sel: 'selection:bg-slate-500/20 selection:text-slate-300' }
+            };
+            const c = colors[item.color] || colors.flex;
 
-                    const card = document.createElement('div');
-                    card.className = `glass-card p-0 rounded-xl border ${c.border} relative overflow-hidden group flex flex-col h-full bg-gradient-to-b ${c.grad}`;
-                    card.innerHTML = `
-                        <div class="p-6 border-b border-white/5">
-                            <div class="flex justify-between items-start mb-4">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-12 h-12 rounded-xl ${c.bg} flex items-center justify-center border ${c.border} ${c.text} shadow-lg">
-                                        <i class="${item.icon} text-xl"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-bold text-white text-lg">${item.name}</h4>
-                                        <p class="text-xs text-gray-400">${item.cat} • ${item.id}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bg-[#151E32] rounded-lg p-4 border border-white/5 mb-4 space-y-3">
-                                <div>
-                                    <p class="text-[10px] ${c.text} font-bold uppercase tracking-wider mb-1"><i class="fa-solid fa-crosshairs"></i> Strategy</p>
-                                    <p class="text-[10px] text-gray-400 leading-relaxed">${item.desc}</p>
-                                </div>
-                                <div class="w-full h-px bg-white/5"></div>
-                                <div>
-                                    <p class="text-[10px] ${c.text} font-bold uppercase tracking-wider mb-1"><i class="fa-solid fa-fire"></i> Pro Tip</p>
-                                    <p class="text-[10px] text-gray-400 leading-relaxed">${item.tip}</p>
-                                </div>
+            // Enhanced Formatting Regex
+            const formattedPrompt = item.prompt
+                .replace(/</g, '&lt;').replace(/>/g, '&gt;') // Sanitize
+                .replace(/([A-Z ]+:)/g, `<span class="${c.text} font-bold tracking-wider">$1</span>`) // Headers (ROLE:, etc)
+                .replace(/(\{\{.*?\}\})/g, `<span class="text-pink-500 font-bold">$1</span>`) // Inputs {{}} - No BG
+                .replace(/(\n\d+\.)/g, `<br><span class="text-white font-bold">$1</span>`) // Numbers
+                .replace(/(\n- )/g, `<br><span class="text-gold font-bold">• </span>`) // Bullets
+                .replace(/\n/g, '<br>'); // Newlines
+
+            const card = document.createElement('div');
+            card.className = `glass-card p-0 rounded-xl border ${c.border} relative overflow-hidden group flex flex-col h-full bg-gradient-to-b ${c.grad}`;
+            
+            card.innerHTML = `
+                <!-- Header -->
+                <div class="p-5 flex items-center justify-between border-b border-white/5">
+                    <div class="flex items-center gap-4 overflow-hidden">
+                        <div class="w-10 h-10 rounded-lg ${c.bg} flex items-center justify-center border ${c.border} ${c.text} shrink-0 shadow-lg">
+                            <i class="${item.icon} text-lg"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <h4 class="font-bold text-white text-base truncate pr-4">${item.name}</h4>
+                            <p class="text-[10px] text-gray-500 truncate">${item.id}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Static Content (Always Visible) -->
+                <div class="p-5 space-y-4">
+                    <!-- Professional Strategy/Tip Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="flex gap-3 p-3 rounded bg-white/5 border border-white/5">
+                            <div class="mt-0.5 ${c.text}"><i class="fa-solid fa-chess-knight"></i></div>
+                            <div>
+                                <span class="block text-[10px] ${c.text} font-bold uppercase tracking-wider mb-1">Strategy</span>
+                                <p class="text-[10px] text-gray-300 leading-relaxed">${item.desc}</p>
                             </div>
                         </div>
-                        <div class="p-4 bg-[#020408] flex-1 relative border-b border-white/5">
-                            <div class="font-mono text-[10px] text-gray-400 leading-relaxed h-48 overflow-y-auto pr-2 scroll-smooth ${c.sel}">
-                                ${formattedPrompt}
+                        <div class="flex gap-3 p-3 rounded bg-white/5 border border-white/5">
+                            <div class="mt-0.5 ${c.text}"><i class="fa-solid fa-lightbulb"></i></div>
+                            <div>
+                                <span class="block text-[10px] ${c.text} font-bold uppercase tracking-wider mb-1">Pro Tip</span>
+                                <p class="text-[10px] text-gray-300 leading-relaxed">${item.tip}</p>
                             </div>
                         </div>
-                        <div class="p-4 bg-[#0B1120]">
-                            <button class="w-full py-3 ${c.bg} border ${c.border} ${c.text} hover:text-white rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-2 hover:shadow-lg group/btn">
-                                <i class="fa-regular fa-copy"></i> COPY PROMPT
-                            </button>
-                        </div>
-                    `;
+                    </div>
                     
-                    // Bind click event
-                    const btn = card.querySelector('.group\\/btn');
-                    btn.onclick = function() { copyTextManual(this, item.prompt); };
+                    <!-- Prompt Text (Scroller) -->
+                    <div class="bg-[#0B1120] rounded border border-white/5 p-4 relative group/code">
+                        <div class="font-mono text-[10px] text-gray-300 leading-relaxed h-40 overflow-y-auto pr-2 scroll-smooth ${c.sel}">
+                            ${formattedPrompt}
+                        </div>
+                    </div>
+                    
+                    <!-- Copy Button -->
+                    <button class="w-full py-3 ${c.bg} border ${c.border} ${c.text} hover:text-white rounded text-xs font-bold transition-all flex items-center justify-center gap-2 group/btn shadow-lg">
+                        <i class="fa-regular fa-copy"></i> COPY PROMPT
+                    </button>
+                </div>
+            `;
+            
+            // Bind copy event
+            const btn = card.querySelector('.group\\/btn');
+            btn.onclick = function() { copySystemPrompt(item.prompt, this); };
 
-                    grid.appendChild(card);
-                });
-            });
+            grid.appendChild(card);
         }
 
         // === Init Vault ===
-        // Run on load if active view
         document.addEventListener('DOMContentLoaded', () => {
              renderVault('ALL'); 
         });
 
-        // === Update Switch View Logic to Re-render if needed ===
+        // === Switch View Logic ===
         function switchView(viewId, btnElement) {
-            // ... (Existing logic) ...
             const views = ['view-dashboard', 'view-models', 'view-prompts', 'view-library', 'view-cinema', 'view-workspace'];
             views.forEach(id => {
                 const el = document.getElementById(id);
@@ -929,9 +1039,9 @@ Present your final output in two parts:
             target.classList.remove('hidden-view');
             target.classList.add('active-view');
             
-            // Special trigger for Vault to ensure render
             if(viewId === 'view-prompts') {
-                renderVault('ALL');
+                const container = document.getElementById('vault-categories-container');
+                if(container.children.length === 0) renderVault('ALL');
             }
 
             if (btnElement) {
@@ -940,10 +1050,23 @@ Present your final output in two parts:
                 btnElement.classList.add('active');
             }
             
-            // Mobile menu close logic
+            if (window.innerWidth < 768) {
+                document.getElementById('mainSidebar').classList.remove('translate-x-0');
+                document.getElementById('mainSidebar').classList.add('-translate-x-full');
+                document.getElementById('mobileBackdrop').classList.add('hidden');
+            }
+        }
+
+        function toggleMobileNav() {
             const sidebar = document.getElementById('mainSidebar');
             const backdrop = document.getElementById('mobileBackdrop');
-            if (window.innerWidth < 768) {
+            const isClosed = sidebar.classList.contains('-translate-x-full');
+            
+            if (isClosed) {
+                sidebar.classList.remove('-translate-x-full');
+                sidebar.classList.add('translate-x-0');
+                backdrop.classList.remove('hidden');
+            } else {
                 sidebar.classList.remove('translate-x-0');
                 sidebar.classList.add('-translate-x-full');
                 backdrop.classList.add('hidden');
@@ -954,61 +1077,51 @@ Present your final output in two parts:
         function logout() {
             if(confirm('End secure session?')) {
                 localStorage.removeItem('premium_token');
-                window.location.href = '../premium-access.html'; // Adjust path as needed
+                window.location.href = 'gateway-premium-access.html'; 
             }
         }
 
-        // === Copy Text Functionality ===
-        function copyText(btn) {
-            // Find the closest card content
-            const card = btn.closest('.glass-card');
-            // Find the mono-font text area within that card (excluding HTML tags if needed, but innerText handles it)
-            const textElement = card.querySelector('.font-mono');
-            
-            if (textElement) {
-                const textToCopy = textElement.innerText;
-                
-                // Check for clipboard API support
-                if (navigator.clipboard && window.isSecureContext) {
-                    navigator.clipboard.writeText(textToCopy).then(() => {
-                        showCopiedState(btn);
-                    }).catch(err => {
-                        console.error('Failed to copy: ', err);
-                        fallbackCopy(textToCopy, btn);
-                    });
-                } else {
-                    fallbackCopy(textToCopy, btn);
-                }
-            }
-        }
+        // === ROBUST COPY FUNCTION ===
+        async function copySystemPrompt(text, btn) {
+            if (!text) return;
 
-        function fallbackCopy(text, btn) {
-            // Create temporary element
-            const textArea = document.createElement("textarea");
-            textArea.value = text;
-            document.body.appendChild(textArea);
-            textArea.select();
             try {
-                document.execCommand('copy');
-                showCopiedState(btn);
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(text);
+                    showCopiedState(btn);
+                } else {
+                    throw new Error('Clipboard API unavailable');
+                }
             } catch (err) {
-                console.error('Fallback copy failed', err);
-                alert('Could not copy text. Please select and copy manually.');
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.position = "fixed";
+                textArea.style.left = "-9999px";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showCopiedState(btn);
+                } catch (e) {
+                    console.error("Copy failed", e);
+                    btn.innerText = "ERROR COPYING";
+                }
+                document.body.removeChild(textArea);
             }
-            document.body.removeChild(textArea);
         }
 
         function showCopiedState(btn) {
-            const originalContent = btn.innerHTML;
-            btn.innerHTML = '<i class="fa-solid fa-check"></i> COPIED';
-            const baseClasses = btn.className; // Store original classes
+            const originalHTML = '<i class="fa-regular fa-copy"></i> COPY PROMPT'; 
+            const originalText = btn.innerHTML;
             
-            // Add success state
-            btn.classList.add('bg-green-500/20', 'text-green-400', 'border-green-500/50');
+            btn.innerHTML = '<i class="fa-solid fa-check"></i> COPIED!';
+            btn.classList.remove('text-gray-400', 'text-blue-400', 'text-purple-400', 'text-emerald-400', 'text-orange-400', 'text-indigo-300');
+            btn.classList.add('bg-green-500', 'text-white', 'border-green-500');
             
             setTimeout(() => {
-                btn.innerHTML = originalContent;
-                btn.classList.remove('bg-green-500/20', 'text-green-400', 'border-green-500/50');
+                btn.innerHTML = originalText;
+                btn.classList.remove('bg-green-500', 'text-white', 'border-green-500');
             }, 2000);
         }
     </script>
